@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3BF6632-3256-4314-8C32-AD283BA4968F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MANUUFinance</RootNamespace>
+    <AssemblyName>MANUUFinance</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator.Designer.cs">
+      <DependentUpon>Administrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authentication.Designer.cs">
+      <DependentUpon>Authentication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckingPrivileges.cs" />
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Role Privileges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Role Privileges.Designer.cs">
+      <DependentUpon>Role Privileges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departments.Designer.cs">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.Designer.cs">
+      <DependentUpon>Forms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deparment Privileges .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deparment Privileges .Designer.cs">
+      <DependentUpon>Deparment Privileges .cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloneDeptBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloneDeptBudget.Designer.cs">
+      <DependentUpon>CloneDeptBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LdapDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LdapDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Account.Designer.cs">
+      <DependentUpon>Manage Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Privilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Privilege.Designer.cs">
+      <DependentUpon>Manage Privilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add Privilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Privilege.Designer.cs">
+      <DependentUpon>Add Privilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VirtualAccount .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VirtualAccount .Designer.cs">
+      <DependentUpon>VirtualAccount .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AcTypeClass.cs" />
+    <Compile Include="BillDespatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillDespatch.Designer.cs">
+      <DependentUpon>BillDespatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget.Designer.cs">
+      <DependentUpon>Budget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet.cs">
+      <DependentUpon>FinanceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BankMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BankMaster.Designer.cs">
+      <DependentUpon>BankMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSL2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSL2.Designer.cs">
+      <DependentUpon>frmSL2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSL3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSL3.Designer.cs">
+      <DependentUpon>frmSL3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LOV.cs" />
+    <Compile Include="MDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent.Designer.cs">
+      <DependentUpon>MDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SL1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SL1.Designer.cs">
+      <DependentUpon>SL1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SL1Class.cs" />
+    <Compile Include="SL2Class.cs" />
+    <EmbeddedResource Include="Administrator.resx">
+      <DependentUpon>Administrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication.resx">
+      <DependentUpon>Authentication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departments.resx">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.resx">
+      <DependentUpon>Forms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Role Privileges.resx">
+      <DependentUpon>Role Privileges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deparment Privileges .resx">
+      <DependentUpon>Deparment Privileges .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloneDeptBudget.resx">
+      <DependentUpon>CloneDeptBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Account.resx">
+      <DependentUpon>Manage Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Privilege.resx">
+      <DependentUpon>Manage Privilege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add Privilege.resx">
+      <DependentUpon>Add Privilege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.resx">
+      <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VirtualAccount .resx">
+      <DependentUpon>VirtualAccount .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BankMaster.resx">
+      <DependentUpon>BankMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillDespatch.resx">
+      <DependentUpon>BillDespatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget.resx">
+      <DependentUpon>Budget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSL2.resx">
+      <DependentUpon>frmSL2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSL3.resx">
+      <DependentUpon>frmSL3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent.resx">
+      <DependentUpon>MDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SL1.resx">
+      <DependentUpon>SL1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="FinanceDataSet.xsc">
+      <DependentUpon>FinanceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet.xss">
+      <DependentUpon>FinanceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet.xsc">
+      <DependentUpon>LdapDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet.xss">
+      <DependentUpon>LdapDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet1.xsc">
+      <DependentUpon>LdapDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet1.xss">
+      <DependentUpon>LdapDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet2.xsc">
+      <DependentUpon>LdapDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet2.xss">
+      <DependentUpon>LdapDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet3.xsc">
+      <DependentUpon>LdapDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet3.xss">
+      <DependentUpon>LdapDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet4.xsc">
+      <DependentUpon>LdapDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet4.xss">
+      <DependentUpon>LdapDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet5.xsc">
+      <DependentUpon>LdapDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet5.xss">
+      <DependentUpon>LdapDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet6.xsc">
+      <DependentUpon>LdapDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet6.xss">
+      <DependentUpon>LdapDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet7.xsc">
+      <DependentUpon>LdapDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet7.xss">
+      <DependentUpon>LdapDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet8.xsc">
+      <DependentUpon>LdapDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="LdapDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LdapDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LdapDataSet8.xss">
+      <DependentUpon>LdapDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preloader-3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-male-icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
