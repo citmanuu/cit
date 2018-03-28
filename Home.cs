@@ -19,7 +19,7 @@ namespace MANUUFinance
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to close the Application?", "FMS",
+            if (MessageBox.Show("Do you want to close the Application?", "Financial Management Application",
          MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
