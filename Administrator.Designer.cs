@@ -28,23 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.submit = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MANUUFinance.Properties.Resources.preloader_3;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 68);
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
             // 
             // submit
             // 
@@ -55,7 +46,7 @@
             this.submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.submit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.submit.Location = new System.Drawing.Point(282, 80);
+            this.submit.Location = new System.Drawing.Point(282, 101);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(75, 23);
             this.submit.TabIndex = 17;
@@ -96,11 +87,20 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Username :";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MANUUFinance.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(66, 95);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 117);
+            this.ClientSize = new System.Drawing.Size(370, 146);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.textBox2);

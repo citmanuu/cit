@@ -44,9 +44,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label1.Location = new System.Drawing.Point(34, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(596, 86);
+            this.label1.Size = new System.Drawing.Size(612, 86);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Finacials Managment System\r\nMaulan Azad National Urdu University";
+            this.label1.Text = "Financials Management System\r\nMaulana Azad National Urdu University";
             // 
             // groupBox1
             // 

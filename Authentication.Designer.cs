@@ -97,10 +97,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MANUUFinance.Properties.Resources.preloader_3;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 37);
+            this.pictureBox1.Image = global::MANUUFinance.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 37);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(70, 105);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
