@@ -463,5 +463,35 @@
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\privelege.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modify privileges.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Addprivileges.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
