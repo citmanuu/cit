@@ -33,9 +33,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btClearRecord = new System.Windows.Forms.Button();
             this.closeForm = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.btUpdate = new System.Windows.Forms.Button();
-            this.btAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkbt5 = new System.Windows.Forms.CheckBox();
             this.checkbt4 = new System.Windows.Forms.CheckBox();
@@ -101,9 +101,9 @@
             // 
             this.groupBox2.Controls.Add(this.btClearRecord);
             this.groupBox2.Controls.Add(this.closeForm);
-            this.groupBox2.Controls.Add(this.btDelete);
-            this.groupBox2.Controls.Add(this.btUpdate);
-            this.groupBox2.Controls.Add(this.btAdd);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Controls.Add(this.btnUpdate);
+            this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox2.Location = new System.Drawing.Point(34, 196);
             this.groupBox2.Name = "groupBox2";
@@ -131,35 +131,35 @@
             this.closeForm.UseVisualStyleBackColor = true;
             this.closeForm.Click += new System.EventHandler(this.closeForm_Click);
             // 
-            // btDelete
+            // btnDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(212, 12);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(97, 28);
-            this.btDelete.TabIndex = 2;
-            this.btDelete.Text = "Delete";
-            this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            this.btnDelete.Location = new System.Drawing.Point(212, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(97, 28);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btUpdate
+            // btnUpdate
             // 
-            this.btUpdate.Location = new System.Drawing.Point(109, 12);
-            this.btUpdate.Name = "btUpdate";
-            this.btUpdate.Size = new System.Drawing.Size(97, 28);
-            this.btUpdate.TabIndex = 1;
-            this.btUpdate.Text = "Update";
-            this.btUpdate.UseVisualStyleBackColor = true;
-            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(109, 12);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(97, 28);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btAdd
+            // btnAdd
             // 
-            this.btAdd.Location = new System.Drawing.Point(6, 12);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(97, 28);
-            this.btAdd.TabIndex = 0;
-            this.btAdd.Text = "Add";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.btnAdd.Location = new System.Drawing.Point(6, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(97, 28);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox1
             // 
@@ -576,9 +576,9 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button closeForm;
-        private System.Windows.Forms.Button btDelete;
-        private System.Windows.Forms.Button btUpdate;
-        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkbt5;
         private System.Windows.Forms.CheckBox checkbt4;

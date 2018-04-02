@@ -301,14 +301,14 @@
             // departemtToolStripMenuItem
             // 
             this.departemtToolStripMenuItem.Name = "departemtToolStripMenuItem";
-            this.departemtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.departemtToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.departemtToolStripMenuItem.Text = "Departemt";
             this.departemtToolStripMenuItem.Click += new System.EventHandler(this.departemtToolStripMenuItem_Click);
             // 
             // rolesToolStripMenuItem1
             // 
             this.rolesToolStripMenuItem1.Name = "rolesToolStripMenuItem1";
-            this.rolesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.rolesToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.rolesToolStripMenuItem1.Text = "Roles";
             this.rolesToolStripMenuItem1.Click += new System.EventHandler(this.rolesToolStripMenuItem1_Click);
             // 

@@ -15,9 +15,15 @@ namespace MANUUFinance
     public partial class Privilege : Form
     {
         bool   retrievedForUpdate = false;
-        public Privilege()
+        private int userId, deptId, roleId;
+        private string formName;
+        public Privilege(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void Privilege_Load(object sender, EventArgs e)
@@ -26,8 +32,13 @@ namespace MANUUFinance
             this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
             PreparedcomboRole();
             preparedcomboform();
-          }
-
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
+        }
+        // support
+        #region
         private void preparedcomboform()
         {
             var objLOVClass = new List<LOV>();
@@ -97,11 +108,157 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
         }
+
+        //prepare the action add, delete, update
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+        }
+
+        private void cleartextbox()
+        {
+            comboBox1.Text = String.Empty;
+            comboBox2.Text = String.Empty;
+            checkbt1.Checked = false;
+            checkbt2.Checked = false;
+            checkbt3.Checked = false;
+            checkbt4.Checked = false;
+            checkbt5.Checked = false;
+            retrievedForUpdate = false;
+        }
+
+        private bool validateRecord()
+        {
+            bool validationResult = true;
+            string validationMessage = "";
+            if (this.comboBox1.SelectedItem == null || this.comboBox1.Text == "" || this.comboBox1.SelectedIndex == 0)
+            {
+                validationMessage += "Please provide Role Name\n";
+                validationResult = false;
+            }
+            if (this.comboBox2.SelectedItem == null || this.comboBox2.Text == "" || this.comboBox2.SelectedIndex == 0)
+            {
+                validationMessage += "Please provide Form Name\n";
+                validationResult = false;
+            }
+            if (validationResult == false)
+            {
+                MessageBox.Show(validationMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void DGVPrivilege_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                comboBox1.Text = DGVPrivilege.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                comboBox2.Text = DGVPrivilege.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+                checkbt1.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[5].FormattedValue.ToString());
+                checkbt2.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[6].FormattedValue.ToString());
+                checkbt3.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[7].FormattedValue.ToString());
+                checkbt4.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());
+                checkbt5.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                retrievedForUpdate = true;
+            }
+        }
+
+        private void btClearRecord_Click(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+            checkbt1.Checked = false;
+            checkbt2.Checked = false;
+            checkbt3.Checked = false;
+            checkbt4.Checked = false;
+            checkbt5.Checked = false;
+            retrievedForUpdate = false;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            StringBuilder SearchStatement = new StringBuilder();
+            try
+            {
+                SearchStatement.Clear();
+                if (txtRoleSearch.Text.Length > 0)
+                {
+                    SearchStatement.Append("RoleName like '%" + txtRoleSearch.Text + "%'");
+                }
+                if (txtFormSearch.Text.Length > 0)
+                {
+                    if (SearchStatement.Length > 0)
+                    {
+                        SearchStatement.Append(" and ");
+                    }
+                    SearchStatement.Append("FormName like '%" + txtFormSearch.Text + "%'");
+                }
+                //Refresh DGV 
+                roleFormPrivilegesBindingSource5.Filter = SearchStatement.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnClearSearch_Click(object sender, EventArgs e)
+        {
+            txtRoleSearch.Text = "";
+            txtFormSearch.Text = "";
+            roleFormPrivilegesBindingSource5.Filter = null;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                checkbt1.Checked = true;
+                checkbt2.Checked = true;
+                checkbt3.Checked = true;
+                checkbt4.Checked = true;
+                checkbt5.Checked = true;
+            }
+            else
+            {
+                checkbt1.Checked = false;
+                checkbt2.Checked = false;
+                checkbt3.Checked = false;
+                checkbt4.Checked = false;
+                checkbt5.Checked = false;
+            }
+        }
+        #endregion
+        // DML 
+        #region
         private void closeForm_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void btAdd_Click(object sender, EventArgs e)
+
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (validateRecord())
             {
@@ -160,42 +317,7 @@ namespace MANUUFinance
             }
         }
 
-        private void cleartextbox()
-        {
-            comboBox1.Text = String.Empty;
-            comboBox2.Text = String.Empty;
-            checkbt1.Checked = false;
-            checkbt2.Checked = false;
-            checkbt3.Checked = false;
-            checkbt4.Checked = false;
-            checkbt5.Checked = false;
-            retrievedForUpdate = false;
-        }
-
-        private bool validateRecord()
-        {
-            bool validationResult = true;
-            string validationMessage = "";
-            if (this.comboBox1.SelectedItem == null || this.comboBox1.Text == "" || this.comboBox1.SelectedIndex == 0)
-            {
-                validationMessage += "Please provide Role Name\n";
-                validationResult = false;
-            }
-            if (this.comboBox2.SelectedItem == null || this.comboBox2.Text == "" || this.comboBox2.SelectedIndex == 0)
-            {
-                validationMessage += "Please provide Form Name\n";
-                validationResult = false;
-            }
-            if (validationResult == false)
-            {
-                MessageBox.Show(validationMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            else
-                return true;
-        }
-
-        private void btUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (validateRecord())
             {
@@ -256,7 +378,7 @@ namespace MANUUFinance
             }
         }
 
-        private void btDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             if (validateRecord())
             {
@@ -291,86 +413,7 @@ namespace MANUUFinance
                 }
             }
         }
+        #endregion
 
-        private void DGVPrivilege_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                comboBox1.Text = DGVPrivilege.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                comboBox2.Text = DGVPrivilege.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                checkbt1.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[5].FormattedValue.ToString());
-                checkbt2.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[6].FormattedValue.ToString());
-                checkbt3.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[7].FormattedValue.ToString());
-                checkbt4.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());
-                checkbt5.Checked = Convert.ToBoolean(DGVPrivilege.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
-                retrievedForUpdate = true;
-            }
-        }
-
-        private void btClearRecord_Click(object sender, EventArgs e)
-        {
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
-            checkbt1.Checked = false;
-            checkbt2.Checked = false;
-            checkbt3.Checked = false;
-            checkbt4.Checked = false;
-            checkbt5.Checked = false;
-            retrievedForUpdate = false;
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            StringBuilder SearchStatement = new StringBuilder();
-            try
-            {
-                SearchStatement.Clear();
-                if (txtRoleSearch.Text.Length > 0)
-                {
-                    SearchStatement.Append("RoleName like '%" + txtRoleSearch.Text + "%'");
-                }
-                if (txtFormSearch.Text.Length > 0)
-                {
-                    if (SearchStatement.Length > 0)
-                    {
-                        SearchStatement.Append(" and ");
-                    }
-                    SearchStatement.Append("FormName like '%" + txtFormSearch.Text + "%'");
-                }                
-                //Refresh DGV 
-                roleFormPrivilegesBindingSource5.Filter = SearchStatement.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnClearSearch_Click(object sender, EventArgs e)
-        {
-            txtRoleSearch.Text = "";
-            txtFormSearch.Text = "";
-            roleFormPrivilegesBindingSource5.Filter = null;
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                checkbt1.Checked = true;
-                checkbt2.Checked = true;
-                checkbt3.Checked = true;
-                checkbt4.Checked = true;
-                checkbt5.Checked = true;
-            }
-            else
-            {
-                checkbt1.Checked = false;
-                checkbt2.Checked = false;
-                checkbt3.Checked = false;
-                checkbt4.Checked = false;
-                checkbt5.Checked = false;
-            }
-        }
     }
 }

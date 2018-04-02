@@ -32,7 +32,11 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'ldapDataSet.Department' table. You can move, or remove it, as needed.
             this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
-            prepareaction();
+
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
         }
 
        //DML region

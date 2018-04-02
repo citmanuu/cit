@@ -197,7 +197,7 @@ namespace MANUUFinance
             List<ToolStripMenuItem> allItems = new List<ToolStripMenuItem>();
             foreach (ToolStripMenuItem toolItem in menuStrip1.Items)
             {
-                allItems.Add(toolItem);
+               // allItems.Add(toolItem);
                 //add sub items
                 allItems.AddRange(GetItems(toolItem));
             }
@@ -266,7 +266,8 @@ namespace MANUUFinance
 
         private void addPrivilegesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Privilege objectaddprivileges = new Privilege();
+            string addprivileges = "ADD PRIVILEGES";
+            Privilege objectaddprivileges = new Privilege(userId, deptId, roleId, addprivileges);
             objectaddprivileges.ShowDialog();
         }
         private void Printtheusername()
