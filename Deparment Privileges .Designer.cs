@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class DeptPrivileges
+    partial class deptartmentPrivileges
     {
         /// <summary>
         /// Required designer variable.
@@ -234,7 +234,7 @@
             this.departmentBindingSource2.DataMember = "Department";
             this.departmentBindingSource2.DataSource = this.ldapDataSet;
             // 
-            // DeptPrivileges
+            // deptartmentPrivileges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,9 +243,9 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btAddToDatabase);
-            this.Name = "DeptPrivileges";
+            this.Name = "deptartmentPrivileges";
             this.Text = "Dept Privileges";
-            this.Load += new System.EventHandler(this.AssignUser_Load);
+            this.Load += new System.EventHandler(this.mapping_Load);
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);

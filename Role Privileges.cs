@@ -14,11 +14,18 @@ namespace MANUUFinance
 {
     public partial class RolePrivileges : Form
     {
-        public RolePrivileges()
+        private int userId, deptId, roleId;
+        private string formName;
+        public RolePrivileges(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
-
+        // DML
+        #region
         private void btRolesMove_Click(object sender, EventArgs e)
         {
             MoveRoles();
@@ -48,24 +55,6 @@ namespace MANUUFinance
             toRolesList.DisplayMember = "ListItemDesc";
             toRolesList.ValueMember = "ListItemID ";
             toRolesList.DataSource = roles;
-        }
-
-        private bool CheckRolesDuplicate(string newItem)
-        {
-            int itemCount = toRolesList.Items.Count;
-            int index = 0;
-            while (index < itemCount)
-            {
-                LOV s = (LOV)toRolesList.Items[index];
-                // do something with s
-                if (s.ListItemDesc == newItem)
-                {
-                    MessageBox.Show(s.ListItemDesc + " already exists.", "Item addition error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                index++;
-            }
-            return true;
         }
 
         private void btRolesMoveAll_Click(object sender, EventArgs e)
@@ -132,7 +121,7 @@ namespace MANUUFinance
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void viewUserMapping_Click(object sender, EventArgs e)
         {
             View objectveiw = new View();
             objectveiw.ShowDialog();
@@ -171,7 +160,7 @@ namespace MANUUFinance
                 }
                 catch (SqlException ex)
                 {
-                   MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -179,6 +168,30 @@ namespace MANUUFinance
                 }
             }
         }
+
+        #endregion
+
+
+        // support
+        #region
+        private bool CheckRolesDuplicate(string newItem)
+        {
+            int itemCount = toRolesList.Items.Count;
+            int index = 0;
+            while (index < itemCount)
+            {
+                LOV s = (LOV)toRolesList.Items[index];
+                // do something with s
+                if (s.ListItemDesc == newItem)
+                {
+                    MessageBox.Show(s.ListItemDesc + " already exists.", "Item addition error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                index++;
+            }
+            return true;
+        }
+
         private void clearcombobox()
         {
             comboBox1.SelectedIndex = 0;
@@ -280,5 +293,6 @@ namespace MANUUFinance
                     objSqlConnection.Close();
                 }
         }
+        #endregion
     }
 }

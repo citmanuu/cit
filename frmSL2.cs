@@ -15,9 +15,15 @@ namespace MANUUFinance
     public partial class frmSL2 : Form
     {
         bool retrievedForUpdate;
-        public frmSL2()
+        private int userId, deptId, roleId;
+        string formName;
+        public frmSL2(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void frmSL2_Load(object sender, EventArgs e)
@@ -26,8 +32,8 @@ namespace MANUUFinance
             this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
             //Prepare Combo for Showing Account Types
             PrepareSL1Combo();
-
             retrievedForUpdate = false;
+            prepareaction();
         }
 
         //DML Region
@@ -35,163 +41,183 @@ namespace MANUUFinance
 
         //Add Record
         private void btnAdd_Click(object sender, EventArgs e)
-        {           
-            //If Form Controls are validated proceed to add record
-            if (validateRecord())
+        {
+            // Check the action permission
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
             {
-                //Check if we are not Updating Record
-                if (!retrievedForUpdate)
+                //If Form Controls are validated proceed to add record
+                if (validateRecord())
                 {
-                    
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string insertCommand = "Insert into SL2 (SL1ID, SL2ID, SL2Name, SL2Active, SL2Order) values " +
-                                            "(@SL1ID, @SL2ID, @SL2Name, @SL2Active, @SL2Order)";
-                    SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
-
-                    objInsertCommand.Parameters.AddWithValue("@SL1ID", comboSL1.SelectedValue);
-                    objInsertCommand.Parameters.AddWithValue("@SL2ID", GetMaxSL2ID());
-                    objInsertCommand.Parameters.AddWithValue("@SL2Name", txtSL2Name.Text);
-                    objInsertCommand.Parameters.AddWithValue("@SL2Order", txtSL2Order.Text);
-                    if (radioBtnSL2Active.Checked == true)
-                        objInsertCommand.Parameters.AddWithValue("@SL2Active", "1");
-                    else
-                        objInsertCommand.Parameters.AddWithValue("@SL2Active", "0");
-
-                    try
+                    //Check if we are not Updating Record
+                    if (!retrievedForUpdate)
                     {
-                        objSqlConnection.Open();
-                        objInsertCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_SL2"))
-                        {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtSL2Name.Focus();
-                        }
-                        if (ex.Message.Contains("Unique_SL1_SL2"))
-                        {
-                            MessageBox.Show("SL1ID and SL2ID must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtSL2Name.Focus();
-                        }
+
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string insertCommand = "Insert into SL2 (SL1ID, SL2ID, SL2Name, SL2Active, SL2Order) values " +
+                                                "(@SL1ID, @SL2ID, @SL2Name, @SL2Active, @SL2Order)";
+                        SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
+
+                        objInsertCommand.Parameters.AddWithValue("@SL1ID", comboSL1.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@SL2ID", GetMaxSL2ID());
+                        objInsertCommand.Parameters.AddWithValue("@SL2Name", txtSL2Name.Text);
+                        objInsertCommand.Parameters.AddWithValue("@SL2Order", txtSL2Order.Text);
+                        if (radioBtnSL2Active.Checked == true)
+                            objInsertCommand.Parameters.AddWithValue("@SL2Active", "1");
                         else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            objInsertCommand.Parameters.AddWithValue("@SL2Active", "0");
 
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objInsertCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("PK_SL2"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtSL2Name.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_SL1_SL2"))
+                            {
+                                MessageBox.Show("SL1ID and SL2ID must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtSL2Name.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGV 
+                        this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
                     }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGV 
-                    this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
                 }
-            }
+            }    
+            else
+                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Update Record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //If Form Controls are validated proceed to add record
-            if (validateRecord())
+            // Check the action permission
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
             {
-                //Check if we are not Updating Record
-                if (retrievedForUpdate)
+
+                //If Form Controls are validated proceed to add record
+                if (validateRecord())
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string updateCommand = "Update SL2 set SL2Name = @SL2Name, SL2Active = @SL2Active, SL2Order = @SL2Order " +
-                                            "where PKSL2 = @PKSL2";
-                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
-
-                    objUpdateCommand.Parameters.AddWithValue("@SL2Name", txtSL2Name.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@SL2Order", txtSL2Order.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@PKSL2", txtPKSL2.Text);
-
-                    if (radioBtnSL2Active.Checked == true)
-                        objUpdateCommand.Parameters.AddWithValue("@SL2Active", "1");
-                    else
-                        objUpdateCommand.Parameters.AddWithValue("@SL2Active", "0");
-
-                    try
+                    //Check if we are not Updating Record
+                    if (retrievedForUpdate)
                     {
-                        objSqlConnection.Open();
-                        objUpdateCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_SL2"))
-                        {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtSL2Name.Focus();
-                        }
-                        if (ex.Message.Contains("Unique_SL1_SL2"))
-                        {
-                            MessageBox.Show("SL1ID and SL2ID must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtSL2Name.Focus();
-                        }
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string updateCommand = "Update SL2 set SL2Name = @SL2Name, SL2Active = @SL2Active, SL2Order = @SL2Order " +
+                                                "where PKSL2 = @PKSL2";
+                        SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+
+                        objUpdateCommand.Parameters.AddWithValue("@SL2Name", txtSL2Name.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@SL2Order", txtSL2Order.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@PKSL2", txtPKSL2.Text);
+
+                        if (radioBtnSL2Active.Checked == true)
+                            objUpdateCommand.Parameters.AddWithValue("@SL2Active", "1");
                         else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            objUpdateCommand.Parameters.AddWithValue("@SL2Active", "0");
 
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objUpdateCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("PK_SL2"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtSL2Name.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_SL1_SL2"))
+                            {
+                                MessageBox.Show("SL1ID and SL2ID must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtSL2Name.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGV 
+                        this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
                     }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGV 
-                    this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
-
-
                 }
             }
+            else
+                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult diagResult;
-            diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (diagResult == DialogResult.Yes)
+            // Check the action permission
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
             {
-                //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
-                //Instantiate SQL Connection
-                SqlConnection objSqlConnection = new SqlConnection(cs);
-
-                //Prepare Delete String
-                string deleteCommand = "Delete from Finance.dbo.SL2 where PKSL2 = @PKSL2;";
-                SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
-
-                objDeleteCommand.Parameters.AddWithValue("@PKSL2", txtPKSL2.Text);
-
-                try
+                DialogResult diagResult;
+                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (diagResult == DialogResult.Yes)
                 {
-                    objSqlConnection.Open();
-                    objDeleteCommand.ExecuteNonQuery();
-                    MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearTemplate();
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                    //Prepare Delete String
+                    string deleteCommand = "Delete from Finance.dbo.SL2 where PKSL2 = @PKSL2;";
+                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                    objDeleteCommand.Parameters.AddWithValue("@PKSL2", txtPKSL2.Text);
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objDeleteCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured (SL1->GetMaxSL1Code): " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
                 }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("The following error occured (SL1->GetMaxSL1Code): " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    objSqlConnection.Close();
-                }
-                this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
             }
+            else
+                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Prepare SL1Combo
@@ -361,9 +387,34 @@ namespace MANUUFinance
         {
             this.Close();
         }
+        // prepare action add, update, delete
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+        }
 
         #endregion
 
-      
+
     }
 }

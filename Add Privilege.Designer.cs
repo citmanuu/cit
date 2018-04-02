@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Privilege));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btClearRecord = new System.Windows.Forms.Button();
             this.closeForm = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.btUpdate = new System.Windows.Forms.Button();
@@ -70,16 +71,16 @@
             this.ldapDataSet8 = new MANUUFinance.LdapDataSet8();
             this.roleFormPrivilegesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.roleFormPrivilegesTableAdapter3 = new MANUUFinance.LdapDataSet8TableAdapters.RoleFormPrivilegesTableAdapter();
-            this.btClearRecord = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFormSearch = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtRoleSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFormSearch = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource1)).BeginInit();
@@ -109,6 +110,16 @@
             this.groupBox2.Size = new System.Drawing.Size(727, 47);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
+            // 
+            // btClearRecord
+            // 
+            this.btClearRecord.Location = new System.Drawing.Point(315, 12);
+            this.btClearRecord.Name = "btClearRecord";
+            this.btClearRecord.Size = new System.Drawing.Size(97, 28);
+            this.btClearRecord.TabIndex = 8;
+            this.btClearRecord.Text = "Clear Record";
+            this.btClearRecord.UseVisualStyleBackColor = true;
+            this.btClearRecord.Click += new System.EventHandler(this.btClearRecord_Click);
             // 
             // closeForm
             // 
@@ -413,16 +424,6 @@
             // 
             this.roleFormPrivilegesTableAdapter3.ClearBeforeFill = true;
             // 
-            // btClearRecord
-            // 
-            this.btClearRecord.Location = new System.Drawing.Point(315, 12);
-            this.btClearRecord.Name = "btClearRecord";
-            this.btClearRecord.Size = new System.Drawing.Size(97, 28);
-            this.btClearRecord.TabIndex = 8;
-            this.btClearRecord.Text = "Clear Record";
-            this.btClearRecord.UseVisualStyleBackColor = true;
-            this.btClearRecord.Click += new System.EventHandler(this.btClearRecord_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -453,6 +454,24 @@
             this.groupBox4.TabIndex = 47;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Grid Filter";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 71);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Form Name";
+            // 
+            // txtFormSearch
+            // 
+            this.txtFormSearch.Location = new System.Drawing.Point(12, 88);
+            this.txtFormSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFormSearch.Name = "txtFormSearch";
+            this.txtFormSearch.Size = new System.Drawing.Size(203, 20);
+            this.txtFormSearch.TabIndex = 27;
             // 
             // label12
             // 
@@ -504,29 +523,23 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Account Name";
             // 
-            // label3
+            // checkBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 71);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Form Name";
-            // 
-            // txtFormSearch
-            // 
-            this.txtFormSearch.Location = new System.Drawing.Point(12, 88);
-            this.txtFormSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFormSearch.Name = "txtFormSearch";
-            this.txtFormSearch.Size = new System.Drawing.Size(203, 20);
-            this.txtFormSearch.TabIndex = 27;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(422, 68);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(70, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Select All";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Privilege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 447);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DGVPrivilege);
@@ -611,5 +624,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnClearSearch;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -16,11 +16,15 @@ namespace MANUUFinance
     public partial class frmCloneDeptBudget : Form
     {
         Dictionary<int, string> departments = new Dictionary<int, string>();
-
-
-        public frmCloneDeptBudget()
+        private int userId, deptId, roleId;
+        private string formName;
+        public frmCloneDeptBudget(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void CloneDeptBudget_Load(object sender, EventArgs e)

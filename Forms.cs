@@ -17,19 +17,28 @@ namespace MANUUFinance
     {
         bool retrievedForUpdate;
         int GlobalId = 0;
-        public Forms()
+        private int userId, deptId, roleId;
+        private string formName;
+        public Forms(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void AddForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'ldapDataSet.FormMST' table. You can move, or remove it, as needed.
             this.formMSTTableAdapter.Fill(this.ldapDataSet.FormMST);
+            prepareaction();
 
         }
-
-        private void btAdd_Click(object sender, EventArgs e)
+        // DML 
+        #region
+        // add the record
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (validateRecord())
             {
@@ -64,68 +73,13 @@ namespace MANUUFinance
                 }
             }
      }
-
-        private void cleartextbox()
-        {
-            textBox1.Text = String.Empty;
-            richTextBox1.Text = String.Empty;
-            retrievedForUpdate = false;
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            StringBuilder SearchStatement = new StringBuilder();
-            try
-            {
-                SearchStatement.Clear();
-                if (txtFormNameSearch.Text.Length > 0)
-                {
-                    if (SearchStatement.Length > 0)
-                    {
-                        SearchStatement.Append(" and ");
-                    }
-                    SearchStatement.Append("FormName like '%" + txtFormNameSearch.Text + "%'");
-                }
-
-
-                //Refresh DGV 
-                formMSTBindingSource.Filter = SearchStatement.ToString();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnClearSearch_Click(object sender, EventArgs e)
-        {
-            txtFormNameSearch.Text = "";
-            formMSTBindingSource.Filter = null;
-        }
-
-        private void DGVFrom_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                textBox1.Text = DGVForm.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                richTextBox1.Text = DGVForm.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                retrievedForUpdate = true;
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
-                con.Open();
-                SqlCommand myCommand = new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + textBox1.Text + "'", con);
-                GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
-                con.Close();
-            }
-        }
-
-        private void btExit_Click(object sender, EventArgs e)
+        // exit the form
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void btUpdate_Click(object sender, EventArgs e)
+        // update the record
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             //If Form Controls are validated proceed to update record
             if (validateRecord())
@@ -152,7 +106,7 @@ namespace MANUUFinance
                         this.formMSTTableAdapter.Fill(this.ldapDataSet.FormMST);
                         con.Close();
                         cleartextbox();
-                      
+
                     }
                     else
                     {
@@ -163,44 +117,10 @@ namespace MANUUFinance
 
             }
         }
-
-        private bool validateRecord()
+        // delete the record
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            bool validationResult = true;
-            string validationMessage = "";
-            if (textBox1.Text.Length == 0)
-            {
-                validationMessage += "Please provide Form Name\n";
-                validationResult = false;
-            }
-            if (richTextBox1.Text.Length == 0)
-            {
-                validationMessage += "Please provide Description\n";
-                validationResult = false;
-            }
-            if (richTextBox1.Text.Length >= 250)
-            {
-                validationMessage += "Please provide only 250 charecters in description box\n";
-                validationResult = false;
-            }
-            if (validationResult == false)
-            {
-                MessageBox.Show(validationMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-            else
-                return true;
-        }
-
-        private void btExit_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Do you want to Delete the department?", "Alert",
-MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to Delete the department?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //If Form Controls are validated proceed to update record
                 if (validateRecord())
@@ -235,10 +155,124 @@ MessageBoxButtons.YesNo) == DialogResult.Yes)
                 }
             }
         }
+        #endregion
+
+        // support
+        #region
+        //  clear the text
+        private void cleartextbox()
+        {
+            textBox1.Text = String.Empty;
+            richTextBox1.Text = String.Empty;
+            retrievedForUpdate = false;
+        }
+        // search
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            StringBuilder SearchStatement = new StringBuilder();
+            try
+            {
+                SearchStatement.Clear();
+                if (txtFormNameSearch.Text.Length > 0)
+                {
+                    if (SearchStatement.Length > 0)
+                    {
+                        SearchStatement.Append(" and ");
+                    }
+                    SearchStatement.Append("FormName like '%" + txtFormNameSearch.Text + "%'");
+                }
+
+
+                //Refresh DGV 
+                formMSTBindingSource.Filter = SearchStatement.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        // clear the search
+        private void btnClearSearch_Click(object sender, EventArgs e)
+        {
+            txtFormNameSearch.Text = "";
+            formMSTBindingSource.Filter = null;
+        }
+
+        private void DGVFrom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                textBox1.Text = DGVForm.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                richTextBox1.Text = DGVForm.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                retrievedForUpdate = true;
+                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+                con.Open();
+                SqlCommand myCommand = new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + textBox1.Text + "'", con);
+                GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
+                con.Close();
+            }
+        }
+        //prepare the action add, delete, update
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+        }
+
+        private bool validateRecord()
+        {
+            bool validationResult = true;
+            string validationMessage = "";
+            if (textBox1.Text.Length == 0)
+            {
+                validationMessage += "Please provide Form Name\n";
+                validationResult = false;
+            }
+            if (richTextBox1.Text.Length == 0)
+            {
+                validationMessage += "Please provide Description\n";
+                validationResult = false;
+            }
+            if (richTextBox1.Text.Length >= 250)
+            {
+                validationMessage += "Please provide only 250 charecters in description box\n";
+                validationResult = false;
+            }
+            if (validationResult == false)
+            {
+                MessageBox.Show(validationMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+                return true;
+        }
 
         private void btClearRecord_Click(object sender, EventArgs e)
         {
             cleartextbox();
         }
+        #endregion
+
     }
 }

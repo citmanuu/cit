@@ -15,10 +15,24 @@ namespace MANUUFinance
 {
     public partial class Users : Form
     {
-        public Users()
+        private int userId, deptId, roleId;
+        private string formName;
+        public Users(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
+
+        private void Users_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        // DML action
+        #region
 
         private void btAdd_Click(object sender, EventArgs e)
         {
@@ -101,7 +115,10 @@ namespace MANUUFinance
                 MessageBox.Show("Please Insert the Username", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+        #endregion
 
+        // support
+        #region
         private void cleartextbox()
         {
             textBox1.Text = String.Empty;
@@ -110,5 +127,6 @@ namespace MANUUFinance
             textBox4.Text = String.Empty;
             textBox1.Focus();
         }
+        #endregion
     }
 }

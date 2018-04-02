@@ -16,19 +16,28 @@ namespace MANUUFinance
     {
         bool retrievedForUpdate = false;
         int GlobalId = 0;
-        public Roles()
+        private int userId, deptId, roleId;
+        private string formName;
+        public Roles(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void AddRole_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'ldapDataSet.RoleMST' table. You can move, or remove it, as needed.
             this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-
+            prepareaction();
         }
 
-        private void btAdd_Click(object sender, EventArgs e)
+        // DML 
+        #region
+        // add the record
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (validateRecord())
             {
@@ -61,7 +70,90 @@ namespace MANUUFinance
                 }
             }
         }
+        // exit the form
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        // update the form
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //If Form Controls are validated proceed to update record
+            if (validateRecord())
+            {
+                //Check if we are not Updating Record
+                if (retrievedForUpdate)
+                {
+                    //Connection String 
+                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
 
+                    //Instantiate SQL Connection
+                    SqlConnection con = new SqlConnection(cs);
+                    // Open the connection
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("RoleMST_update", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@RoleId", GlobalId);
+                    cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString().ToUpper());
+                    cmd.Parameters.AddWithValue("@RoleDescription", richTextBox1.Text.ToString().ToUpper());
+                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                    if (success)
+                    {
+                        MessageBox.Show("Role is Updated", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
+                        con.Close();
+                        cleartextbox();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please check your Role Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cleartextbox();
+                    }
+                }
+            }
+        }
+        // delete the form
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Delete the department?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (validateRecord())
+                {
+                    //Connection String 
+                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+
+                    //Instantiate SQL Connection
+                    SqlConnection con = new SqlConnection(cs);
+
+                    // Open the connection
+                    con.Open();
+
+                    // Get the number of the row in database
+                    SqlCommand cmd = new SqlCommand("RoleMST_delete", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString());
+
+                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                    if (success)
+                    {
+                        MessageBox.Show("Role is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
+                        con.Close();
+                        cleartextbox();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Click Role Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cleartextbox();
+                    }
+                }
+            }
+        }
+        #endregion
+
+        // support
+        #region
         private void cleartextbox()
         {
             textBox1.Text = String.Empty;
@@ -126,52 +218,9 @@ namespace MANUUFinance
             roleMSTBindingSource.Filter = null;
         }
 
-        private void btExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btClearRecord_Click(object sender, EventArgs e)
         {
             cleartextbox();
-        }
-
-        private void btUpdate_Click(object sender, EventArgs e)
-        {
-            //If Form Controls are validated proceed to update record
-            if (validateRecord())
-            {
-                //Check if we are not Updating Record
-                if (retrievedForUpdate)
-                {
-                    //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
-
-                    //Instantiate SQL Connection
-                    SqlConnection con = new SqlConnection(cs);
-                    // Open the connection
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("RoleMST_update", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@RoleId", GlobalId);
-                    cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString().ToUpper());
-                    cmd.Parameters.AddWithValue("@RoleDescription", richTextBox1.Text.ToString().ToUpper());
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
-                    {
-                        MessageBox.Show("Role is Updated", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-                        con.Close();
-                        cleartextbox();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please check your Role Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cleartextbox();
-                    }
-                }
-            }
         }
 
         private void DGVRole_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -189,43 +238,31 @@ namespace MANUUFinance
                 con.Close();
             }
         }
-
-        private void btDelete_Click(object sender, EventArgs e)
+        //prepare the action add, delete, update
+        private void prepareaction()
         {
-            if (MessageBox.Show("Do you want to Delete the department?", "Alert",
-MessageBoxButtons.YesNo) == DialogResult.Yes)
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
             {
-                if (validateRecord())
-                {
-                    //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
-
-                    //Instantiate SQL Connection
-                    SqlConnection con = new SqlConnection(cs);
-
-                    // Open the connection
-                    con.Open();
-
-                    // Get the number of the row in database
-                    SqlCommand cmd = new SqlCommand("RoleMST_delete", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString());
-
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
-                    {
-                        MessageBox.Show("Role is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-                        con.Close();
-                        cleartextbox();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Click Role Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        cleartextbox();
-                    }
-                }
-            } 
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
         }
+        #endregion
     }
 }

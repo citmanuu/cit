@@ -17,12 +17,18 @@ namespace MANUUFinance
         bool retrievedForUpdateOfBank;
         bool retrievedForUpdateOfAccount;
         StringBuilder SearchString = new StringBuilder();
+        private int userId, deptId, roleId;
+        string formName;
 
-        public frmBank()
+        public frmBank(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             retrievedForUpdateOfBank = false;
             retrievedForUpdateOfAccount = false;
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void frmBank_Load(object sender, EventArgs e)
@@ -43,6 +49,8 @@ namespace MANUUFinance
             //Disable AccountTypeCombo
             comboAcType.Enabled = false;
 
+            // prepare action add, update, delete
+            prepareaction();
         }
 
 
@@ -50,345 +58,344 @@ namespace MANUUFinance
         //Add Bank Record
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //If Form Controls are validated proceed to add record
-            if (validateRecord())
-            {
-                //Check if we are not Updating Record
-                if (!retrievedForUpdateOfBank)
+                //If Form Controls are validated proceed to add record
+                if (validateRecord())
                 {
-
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string insertCommand = "Insert into bankMaster (BankName) values (@BankName, @BankShortName)";
-                    SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
-
-                    objInsertCommand.Parameters.AddWithValue("@BankName", txtBankName.Text);
-                    objInsertCommand.Parameters.AddWithValue("@BankShortName", txtBankShortName.Text);
-                    try
+                    //Check if we are not Updating Record
+                    if (!retrievedForUpdateOfBank)
                     {
-                        objSqlConnection.Open();
-                        objInsertCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_BankMaster"))
+
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string insertCommand = "Insert into bankMaster (BankName) values (@BankName, @BankShortName)";
+                        SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
+
+                        objInsertCommand.Parameters.AddWithValue("@BankName", txtBankName.Text);
+                        objInsertCommand.Parameters.AddWithValue("@BankShortName", txtBankShortName.Text);
+                        try
                         {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
+                            objSqlConnection.Open();
+                            objInsertCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
                         }
-                        if (ex.Message.Contains("Unique_BankName"))
+                        catch (SqlException ex)
                         {
-                            MessageBox.Show("Bank Name already exists", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }
-                        else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (ex.Message.Contains("PK_BankMaster"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_BankName"))
+                            {
+                                MessageBox.Show("Bank Name already exists", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGVBank
+                        this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
                     }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGVBank
-                    this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
                 }
-            }
         }
 
         //Add Bank Account Record
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
-            //If Form Controls are validated proceed to add record
-            if (validateAccountRecord())
-            {
-                //Check if we are not Updating Record
-                if (!retrievedForUpdateOfAccount)
+                //If Form Controls are validated proceed to add record
+                if (validateAccountRecord())
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string insertCommand = "Insert into BankAccount (FKAccountType, AccountNumber, FKBankID) values " +
-                                            "(@FKAccountType, @AccountNumber, @FKBankID)";
-                    SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
-
-                    objInsertCommand.Parameters.AddWithValue("@FKBankID", txtBankID.Text);
-                    objInsertCommand.Parameters.AddWithValue("@AccountNumber", txtAccountNo.Text);
-                    objInsertCommand.Parameters.AddWithValue("@FKAccountType", comboAcType.SelectedValue);
-
-                    try
+                    //Check if we are not Updating Record
+                    if (!retrievedForUpdateOfAccount)
                     {
-                        objSqlConnection.Open();
-                        objInsertCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_BankAccount"))
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string insertCommand = "Insert into BankAccount (FKAccountType, AccountNumber, FKBankID) values " +
+                                                "(@FKAccountType, @AccountNumber, @FKBankID)";
+                        SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
+
+                        objInsertCommand.Parameters.AddWithValue("@FKBankID", txtBankID.Text);
+                        objInsertCommand.Parameters.AddWithValue("@AccountNumber", txtAccountNo.Text);
+                        objInsertCommand.Parameters.AddWithValue("@FKAccountType", comboAcType.SelectedValue);
+
+                        try
                         {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
+                            objSqlConnection.Open();
+                            objInsertCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
                         }
-                        if (ex.Message.Contains("Unique_Bank_AccountNo"))
+                        catch (SqlException ex)
                         {
-                            MessageBox.Show("Bank Account already exists", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
+                            if (ex.Message.Contains("PK_BankAccount"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_Bank_AccountNo"))
+                            {
+                                MessageBox.Show("Bank Account already exists", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                         }
-                        else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGVBank
+                        this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
+                        //Refresh DGVBankAccounts
+                        this.bankAccountDetailsTableAdapter.Fill(this.financeDataSet.BankAccountDetails);
 
                     }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGVBank
-                    this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
-                    //Refresh DGVBankAccounts
-                    this.bankAccountDetailsTableAdapter.Fill(this.financeDataSet.BankAccountDetails);
-
                 }
-            }
-
         }
 
         //Update Bank Record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //If Form Controls are validated proceed to add record
-            if (validateRecord())
-            {
-                //Check if we are not Updating Record
-                if (retrievedForUpdateOfBank)
+               //If Form Controls are validated proceed to add record
+                if (validateRecord())
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string updateCommand = "Update BankMaster set BankName = @BankName, BankShortName = @BankShortName where BankID = @BankID";
-
-                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
-
-                    objUpdateCommand.Parameters.AddWithValue("@BankID", txtBankID.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@BankName", txtBankName.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@BankShortName", txtBankShortName.Text);
-
-                    try
+                    //Check if we are not Updating Record
+                    if (retrievedForUpdateOfBank)
                     {
-                        objSqlConnection.Open();
-                        objUpdateCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Updated Successfully", "Record Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string updateCommand = "Update BankMaster set BankName = @BankName, BankShortName = @BankShortName where BankID = @BankID";
+
+                        SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+
+                        objUpdateCommand.Parameters.AddWithValue("@BankID", txtBankID.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@BankName", txtBankName.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@BankShortName", txtBankShortName.Text);
+
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objUpdateCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Updated Successfully", "Record Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("PK_BankMaster"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_BankName"))
+                            {
+                                MessageBox.Show("Bank Name must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_BankShortName"))
+                            {
+                                MessageBox.Show("Bank Short Name must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGVBank
+                        this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
                         ClearTemplate();
                     }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_BankMaster"))
-                        {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }
-                        if (ex.Message.Contains("Unique_BankName"))
-                        {
-                            MessageBox.Show("Bank Name must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }                        
-                        if (ex.Message.Contains("Unique_BankShortName"))
-                        {
-                            MessageBox.Show("Bank Short Name must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }
-                        else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGVBank
-                    this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
-                    ClearTemplate();
                 }
-            }
         }
 
         private void btnUpdateAccount_Click(object sender, EventArgs e)
         {
-            //If Form Controls are validated proceed to add record
-            if (validateAccountRecord())
-            {
-                //Check if we are not Updating Record
-                if (retrievedForUpdateOfAccount)
+                //If Form Controls are validated proceed to add record
+                if (validateAccountRecord())
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string updateCommand = "Update BankAccount set FKAccountType = @FKAccountType, AccountNumber = @AccountNumber " +
-                                            "where PKBANKACC = @PKBANKACC";
-
-                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
-
-                    objUpdateCommand.Parameters.AddWithValue("@FKAccountType", comboAcType.SelectedValue);
-                    objUpdateCommand.Parameters.AddWithValue("@AccountNumber", txtAccountNo.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@PKBANKACC", txtPKBANKACC.Text);
-
-
-                    try
+                    //Check if we are not Updating Record
+                    if (retrievedForUpdateOfAccount)
                     {
-                        objSqlConnection.Open();
-                        objUpdateCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Updated Successfully", "Record Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string updateCommand = "Update BankAccount set FKAccountType = @FKAccountType, AccountNumber = @AccountNumber " +
+                                                "where PKBANKACC = @PKBANKACC";
+
+                        SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+
+                        objUpdateCommand.Parameters.AddWithValue("@FKAccountType", comboAcType.SelectedValue);
+                        objUpdateCommand.Parameters.AddWithValue("@AccountNumber", txtAccountNo.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@PKBANKACC", txtPKBANKACC.Text);
+
+
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objUpdateCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Updated Successfully", "Record Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("PK_BankAccount"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            if (ex.Message.Contains("Unique_Bank_AccountNo"))
+                            {
+                                MessageBox.Show("Bank Account No and Type already exist.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGVBank
+                        //this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
+                        //Refresh DGVBankAccounts
+                        this.bankAccountDetailsTableAdapter.Fill(this.financeDataSet.BankAccountDetails);
                         ClearTemplate();
                     }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_BankAccount"))
-                        {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }
-                        if (ex.Message.Contains("Unique_Bank_AccountNo"))
-                        {
-                            MessageBox.Show("Bank Account No and Type already exist.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }
-                        else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGVBank
-                    //this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
-                    //Refresh DGVBankAccounts
-                    this.bankAccountDetailsTableAdapter.Fill(this.financeDataSet.BankAccountDetails);
-                    ClearTemplate();
                 }
-            }
         }
         
         
          //Delete Bank Record
         private void btnDelete_Click(object sender, EventArgs e)
-    {
-        DialogResult diagResult;
-        if (txtBankID.Text == "")
         {
-            MessageBox.Show("Please select a Record!", "Record Deletion Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        else
-        {
-            diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (diagResult == DialogResult.Yes)
-            {
-                //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
-                //Instantiate SQL Connection
-                SqlConnection objSqlConnection = new SqlConnection(cs);
-
-                //Prepare Delete String
-                string deleteCommand = "Delete from Finance.dbo.BankMaster where BankID = @BankID;";
-                SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
-
-                objDeleteCommand.Parameters.AddWithValue("@BankID", txtBankID.Text);
-
-                try
+                DialogResult diagResult;
+                if (txtBankID.Text == "")
                 {
-                    objSqlConnection.Open();
-                    objDeleteCommand.ExecuteNonQuery();
-                    MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearTemplate();
+                    MessageBox.Show("Please select a Record!", "Record Deletion Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (SqlException ex)
+                else
                 {
-                    if (ex.Message.Contains("FK_BankAccount_BankMaster"))
+                    diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (diagResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("Bank Account(s) exist(s) for the the Bank. Cannot Delete Recotrd!! ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtBankName.Focus();
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                        //Prepare Delete String
+                        string deleteCommand = "Delete from Finance.dbo.BankMaster where BankID = @BankID;";
+                        SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                        objDeleteCommand.Parameters.AddWithValue("@BankID", txtBankID.Text);
+
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objDeleteCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("FK_BankAccount_BankMaster"))
+                            {
+                                MessageBox.Show("Bank Account(s) exist(s) for the the Bank. Cannot Delete Recotrd!! ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGVBank
+                        this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
+                        ClearTemplate();
                     }
-                    else
-                        MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                finally
-                {
-                    objSqlConnection.Close();
-                }
-                //Refresh DGVBank
-                this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
-                ClearTemplate();
-            }
         }
-    }
 
         //Delete Bank Account Record
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
-            DialogResult diagResult;
-            if (txtBankNameForAcc.Text == "")
-            {
-                MessageBox.Show("Please select a Record!", "Record Deletion Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (diagResult == DialogResult.Yes)
+                DialogResult diagResult;
+                if (txtBankNameForAcc.Text == "")
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                    MessageBox.Show("Please select a Record!", "Record Deletion Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-
-                    //Prepare Delete String
-                    string deleteCommand = "Delete from Finance.dbo.BankAccount where PKBANKACC = @PKBANKACC;";
-                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
-
-                    objDeleteCommand.Parameters.AddWithValue("@PKBANKACC", txtPKBANKACC.Text);
-
-                    try
+                    if (diagResult == DialogResult.Yes)
                     {
-                        objSqlConnection.Open();
-                        objDeleteCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                        //Prepare Delete String
+                        string deleteCommand = "Delete from Finance.dbo.BankAccount where PKBANKACC = @PKBANKACC;";
+                        SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                        objDeleteCommand.Parameters.AddWithValue("@PKBANKACC", txtPKBANKACC.Text);
+
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objDeleteCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("FK_BankAccount_BankMaster"))
+                            {
+                                MessageBox.Show("Bank Account(s) exist(s) for the the Bank. Cannot Delete Recotrd!! ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBankName.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGVBank
+                        //this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
+                        //Refresh DGVBankAccounts
+                        this.bankAccountDetailsTableAdapter.Fill(this.financeDataSet.BankAccountDetails);
+
                         ClearTemplate();
                     }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("FK_BankAccount_BankMaster"))
-                        {
-                            MessageBox.Show("Bank Account(s) exist(s) for the the Bank. Cannot Delete Recotrd!! ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBankName.Focus();
-                        }
-                        else
-                            MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGVBank
-                    //this.bankMasterTableAdapter.Fill(this.financeDataSet.BankMaster);
-                    //Refresh DGVBankAccounts
-                    this.bankAccountDetailsTableAdapter.Fill(this.financeDataSet.BankAccountDetails);
-
-                    ClearTemplate();
                 }
-            }
         }
 
         //Prepare AccountTypes LOV
@@ -585,9 +592,31 @@ namespace MANUUFinance
             }
         }
 
-
-
-
+        // prepare action add, update, delete
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+        }
         #endregion
 
     }

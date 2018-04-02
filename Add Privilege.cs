@@ -14,7 +14,7 @@ namespace MANUUFinance
 {
     public partial class Privilege : Form
     {
-        bool retrievedForUpdate = false;
+        bool   retrievedForUpdate = false;
         public Privilege()
         {
             InitializeComponent();
@@ -351,6 +351,26 @@ namespace MANUUFinance
             txtRoleSearch.Text = "";
             txtFormSearch.Text = "";
             roleFormPrivilegesBindingSource5.Filter = null;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                checkbt1.Checked = true;
+                checkbt2.Checked = true;
+                checkbt3.Checked = true;
+                checkbt4.Checked = true;
+                checkbt5.Checked = true;
+            }
+            else
+            {
+                checkbt1.Checked = false;
+                checkbt2.Checked = false;
+                checkbt3.Checked = false;
+                checkbt4.Checked = false;
+                checkbt5.Checked = false;
+            }
         }
     }
 }

@@ -36,13 +36,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mastersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.sL1MasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sL2MasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sL3MasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bankMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billDespatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,16 +49,15 @@
             this.mastersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleHierarchyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.managePrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mappingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.departemtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPrivilegesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,14 +122,12 @@
             // 
             this.mastersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
-            this.toolStripSeparator3,
             this.sL1MasterToolStripMenuItem,
             this.sL2MasterToolStripMenuItem,
             this.sL3MasterToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.bankMasterToolStripMenuItem,
-            this.toolStripSeparator2});
+            this.bankMasterToolStripMenuItem});
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
+            this.mastersToolStripMenuItem.ShowShortcutKeys = false;
             this.mastersToolStripMenuItem.Size = new System.Drawing.Size(60, 28);
             this.mastersToolStripMenuItem.Text = "Masters";
             // 
@@ -142,18 +136,15 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(139, 22);
             this.toolStripMenuItem2.Text = "Account";
+            this.toolStripMenuItem2.Visible = false;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(136, 6);
             // 
             // sL1MasterToolStripMenuItem
             // 
             this.sL1MasterToolStripMenuItem.Name = "sL1MasterToolStripMenuItem";
             this.sL1MasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.sL1MasterToolStripMenuItem.Text = "SL-1 Master";
+            this.sL1MasterToolStripMenuItem.Visible = false;
             this.sL1MasterToolStripMenuItem.Click += new System.EventHandler(this.sL1MasterToolStripMenuItem_Click);
             // 
             // sL2MasterToolStripMenuItem
@@ -161,6 +152,7 @@
             this.sL2MasterToolStripMenuItem.Name = "sL2MasterToolStripMenuItem";
             this.sL2MasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.sL2MasterToolStripMenuItem.Text = "SL-2 Master";
+            this.sL2MasterToolStripMenuItem.Visible = false;
             this.sL2MasterToolStripMenuItem.Click += new System.EventHandler(this.sL2MasterToolStripMenuItem_Click);
             // 
             // sL3MasterToolStripMenuItem
@@ -168,24 +160,16 @@
             this.sL3MasterToolStripMenuItem.Name = "sL3MasterToolStripMenuItem";
             this.sL3MasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.sL3MasterToolStripMenuItem.Text = "SL-3 Master";
+            this.sL3MasterToolStripMenuItem.Visible = false;
             this.sL3MasterToolStripMenuItem.Click += new System.EventHandler(this.sL3MasterToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
             // 
             // bankMasterToolStripMenuItem
             // 
             this.bankMasterToolStripMenuItem.Name = "bankMasterToolStripMenuItem";
             this.bankMasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.bankMasterToolStripMenuItem.Text = "Bank Master";
+            this.bankMasterToolStripMenuItem.Visible = false;
             this.bankMasterToolStripMenuItem.Click += new System.EventHandler(this.bankMasterToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(136, 6);
             // 
             // transactionsToolStripMenuItem
             // 
@@ -203,6 +187,7 @@
             this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
             this.budgetToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.budgetToolStripMenuItem.Text = "Budget";
+            this.budgetToolStripMenuItem.Visible = false;
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
             // 
             // billDespatchToolStripMenuItem
@@ -210,6 +195,7 @@
             this.billDespatchToolStripMenuItem.Name = "billDespatchToolStripMenuItem";
             this.billDespatchToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.billDespatchToolStripMenuItem.Text = "Bill Despatch";
+            this.billDespatchToolStripMenuItem.Visible = false;
             this.billDespatchToolStripMenuItem.Click += new System.EventHandler(this.billDespatchToolStripMenuItem_Click);
             // 
             // copyBudgetToolStripMenuItem
@@ -217,6 +203,7 @@
             this.copyBudgetToolStripMenuItem.Name = "copyBudgetToolStripMenuItem";
             this.copyBudgetToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.copyBudgetToolStripMenuItem.Text = "Copy Budget";
+            this.copyBudgetToolStripMenuItem.Visible = false;
             this.copyBudgetToolStripMenuItem.Click += new System.EventHandler(this.copyBudgetToolStripMenuItem_Click);
             // 
             // demonstrationToolStripMenuItem
@@ -224,6 +211,7 @@
             this.demonstrationToolStripMenuItem.Name = "demonstrationToolStripMenuItem";
             this.demonstrationToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.demonstrationToolStripMenuItem.Text = "Demonstration";
+            this.demonstrationToolStripMenuItem.Visible = false;
             this.demonstrationToolStripMenuItem.Click += new System.EventHandler(this.demonstrationToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
@@ -241,6 +229,7 @@
             this.mastersToolStripMenuItem1.Name = "mastersToolStripMenuItem1";
             this.mastersToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.mastersToolStripMenuItem1.Text = "Masters";
+            this.mastersToolStripMenuItem1.Visible = false;
             // 
             // scheduleHierarchyToolStripMenuItem
             // 
@@ -251,45 +240,46 @@
             // administrationToolStripMenuItem
             // 
             this.administrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addPrivilegesToolStripMenuItem,
-            this.managePrivilegesToolStripMenuItem});
+            this.manageToolStripMenuItem,
+            this.mappingToolStripMenuItem,
+            this.addPrivilegesToolStripMenuItem});
             this.administrationToolStripMenuItem.Image = global::MANUUFinance.Properties.Resources.admin1;
             this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
             this.administrationToolStripMenuItem.Size = new System.Drawing.Size(79, 28);
             this.administrationToolStripMenuItem.Text = "Admin";
             // 
-            // addPrivilegesToolStripMenuItem
+            // manageToolStripMenuItem
             // 
-            this.addPrivilegesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
-            this.formToolStripMenuItem,
             this.departmentToolStripMenuItem,
+            this.formToolStripMenuItem,
             this.rolesToolStripMenuItem});
-            this.addPrivilegesToolStripMenuItem.Name = "addPrivilegesToolStripMenuItem";
-            this.addPrivilegesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.addPrivilegesToolStripMenuItem.Text = "Manage";
-            this.addPrivilegesToolStripMenuItem.Click += new System.EventHandler(this.addPrivilegesToolStripMenuItem_Click);
+            this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manageToolStripMenuItem.Text = "Manage";
+            this.manageToolStripMenuItem.Visible = false;
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userToolStripMenuItem.Text = "User";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
-            // 
-            // formToolStripMenuItem
-            // 
-            this.formToolStripMenuItem.Name = "formToolStripMenuItem";
-            this.formToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.formToolStripMenuItem.Text = "Forms";
-            this.formToolStripMenuItem.Click += new System.EventHandler(this.formToolStripMenuItem_Click);
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click_1);
             // 
             // departmentToolStripMenuItem
             // 
             this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
             this.departmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.departmentToolStripMenuItem.Text = "Departments";
+            this.departmentToolStripMenuItem.Text = "Department";
             this.departmentToolStripMenuItem.Click += new System.EventHandler(this.departmentToolStripMenuItem_Click);
+            // 
+            // formToolStripMenuItem
+            // 
+            this.formToolStripMenuItem.Name = "formToolStripMenuItem";
+            this.formToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.formToolStripMenuItem.Text = "Form";
+            this.formToolStripMenuItem.Click += new System.EventHandler(this.formToolStripMenuItem_Click);
             // 
             // rolesToolStripMenuItem
             // 
@@ -298,31 +288,22 @@
             this.rolesToolStripMenuItem.Text = "Roles";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
-            // managePrivilegesToolStripMenuItem
+            // mappingToolStripMenuItem
             // 
-            this.managePrivilegesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifyPrivilegesToolStripMenuItem,
-            this.addPrivilegesToolStripMenuItem1});
-            this.managePrivilegesToolStripMenuItem.Name = "managePrivilegesToolStripMenuItem";
-            this.managePrivilegesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.managePrivilegesToolStripMenuItem.Text = "Manage Privileges";
-            this.managePrivilegesToolStripMenuItem.Click += new System.EventHandler(this.managePrivilegesToolStripMenuItem_Click);
-            // 
-            // modifyPrivilegesToolStripMenuItem
-            // 
-            this.modifyPrivilegesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.departmentsToolStripMenuItem,
+            this.mappingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.departemtToolStripMenuItem,
             this.rolesToolStripMenuItem1});
-            this.modifyPrivilegesToolStripMenuItem.Name = "modifyPrivilegesToolStripMenuItem";
-            this.modifyPrivilegesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.modifyPrivilegesToolStripMenuItem.Text = "Modify Privileges";
+            this.mappingToolStripMenuItem.Name = "mappingToolStripMenuItem";
+            this.mappingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mappingToolStripMenuItem.Text = "Mapping";
+            this.mappingToolStripMenuItem.Visible = false;
             // 
-            // departmentsToolStripMenuItem
+            // departemtToolStripMenuItem
             // 
-            this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.departmentsToolStripMenuItem.Text = "Departments";
-            this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.departmentsToolStripMenuItem_Click);
+            this.departemtToolStripMenuItem.Name = "departemtToolStripMenuItem";
+            this.departemtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.departemtToolStripMenuItem.Text = "Departemt";
+            this.departemtToolStripMenuItem.Click += new System.EventHandler(this.departemtToolStripMenuItem_Click);
             // 
             // rolesToolStripMenuItem1
             // 
@@ -331,12 +312,13 @@
             this.rolesToolStripMenuItem1.Text = "Roles";
             this.rolesToolStripMenuItem1.Click += new System.EventHandler(this.rolesToolStripMenuItem1_Click);
             // 
-            // addPrivilegesToolStripMenuItem1
+            // addPrivilegesToolStripMenuItem
             // 
-            this.addPrivilegesToolStripMenuItem1.Name = "addPrivilegesToolStripMenuItem1";
-            this.addPrivilegesToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
-            this.addPrivilegesToolStripMenuItem1.Text = "Add Privileges";
-            this.addPrivilegesToolStripMenuItem1.Click += new System.EventHandler(this.addPrivilegesToolStripMenuItem1_Click);
+            this.addPrivilegesToolStripMenuItem.Name = "addPrivilegesToolStripMenuItem";
+            this.addPrivilegesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addPrivilegesToolStripMenuItem.Text = "Add Privileges";
+            this.addPrivilegesToolStripMenuItem.Visible = false;
+            this.addPrivilegesToolStripMenuItem.Click += new System.EventHandler(this.addPrivilegesToolStripMenuItem_Click_1);
             // 
             // aboutToolStripMenuItem
             // 
@@ -349,12 +331,12 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 28);
             this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.AutoToolTip = true;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShowShortcutKeys = false;
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 28);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exit the application";
@@ -442,30 +424,26 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem bankMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem billDespatchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyBudgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem demonstrationToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem administrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem managePrivilegesToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem modifyPrivilegesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem departmentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mappingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem departemtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem;
     }
 }
 

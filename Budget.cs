@@ -15,11 +15,16 @@ namespace MANUUFinance
     public partial class frmBudget : Form
     {
         bool retrievedForUpdate;
-        bool queryMode;        
-
-        public frmBudget()
+        bool queryMode;
+        private int userId, deptId, roleId;
+        string formName;
+        public frmBudget(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void Budget_Load(object sender, EventArgs e)
@@ -35,8 +40,8 @@ namespace MANUUFinance
             UnpinControls();
             retrievedForUpdate = false;
             queryMode = false;
+            prepareaction();
         }
-
         #region
 
         //Prepare Department Combo
@@ -260,116 +265,129 @@ namespace MANUUFinance
 
         //Add Account Record
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            //If Form Controls are validated proceed to add record
-            if (validateRecord())
+        {            // Check the action permission
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
             {
-                //Check if we are not Updating Record
-                if (!retrievedForUpdate)
+
+                //If Form Controls are validated proceed to add record
+                if (validateRecord())
                 {
-
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                    string insertCommand =  "INSERT INTO [dbo].[Budget] (FKFYID, FKDEPID, FKACID, BECY, RBECY, BENY) " +
-                                            "VALUES (@FKFYID, @FKDEPID, @FKACID, @BECY, @RBECY, @BENY)";
-
-                    SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
-
-                    objInsertCommand.Parameters.AddWithValue("@FKFYID", comboFY.SelectedValue);
-                    objInsertCommand.Parameters.AddWithValue("@FKDEPID", comboDept.SelectedValue);
-                    objInsertCommand.Parameters.AddWithValue("@FKACID", comboAccount.SelectedValue);
-                    objInsertCommand.Parameters.AddWithValue("@BECY", txtBECY.Text);
-                    objInsertCommand.Parameters.AddWithValue("@RBECY", txtRBECY.Text);
-                    objInsertCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
-
-                    try
+                    //Check if we are not Updating Record
+                    if (!retrievedForUpdate)
                     {
-                        objSqlConnection.Open();
-                        objInsertCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_Budget"))
+
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+                        string insertCommand = "INSERT INTO [dbo].[Budget] (FKFYID, FKDEPID, FKACID, BECY, RBECY, BENY) " +
+                                                "VALUES (@FKFYID, @FKDEPID, @FKACID, @BECY, @RBECY, @BENY)";
+
+                        SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
+
+                        objInsertCommand.Parameters.AddWithValue("@FKFYID", comboFY.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@FKDEPID", comboDept.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@FKACID", comboAccount.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@BECY", txtBECY.Text);
+                        objInsertCommand.Parameters.AddWithValue("@RBECY", txtRBECY.Text);
+                        objInsertCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
+
+                        try
                         {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBECY.Focus();
+                            objSqlConnection.Open();
+                            objInsertCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
                         }
-                        else if (ex.Message.Contains("Unique_Dep_Budget_Account"))
+                        catch (SqlException ex)
                         {
-                            MessageBox.Show("This account head has already been added to departmental Budget", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBECY.Focus();
-                        }
-                        else                            
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (ex.Message.Contains("PK_Budget"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBECY.Focus();
+                            }
+                            else if (ex.Message.Contains("Unique_Dep_Budget_Account"))
+                            {
+                                MessageBox.Show("This account head has already been added to departmental Budget", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBECY.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGV 
+                        this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
                     }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGV 
-                    this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
                 }
             }
-
+            else
+                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Update record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //If Form Controls are validated proceed to add record
-            if (validateRecord())
+            // Check the action permission
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
             {
-                //Check if we are not Updating Record
-                if (retrievedForUpdate)
+
+                //If Form Controls are validated proceed to add record
+                if (validateRecord())
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-                    //Prepare Update String
-                     
-                    string updateCommand = "Update [dbo].[Budget] set FKACID = @FKACID, BECY = @BECY, RBECY = @RBECY, BENY = @BENY " +
-                                           "where PKBUDGETID = @PKBUDGETID";
-                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
-                    objUpdateCommand.Parameters.AddWithValue("@FKACID", comboAccount.SelectedValue);
-                    objUpdateCommand.Parameters.AddWithValue("@PKBUDGETID",txtPKBudgetID.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@BECY",  txtBECY.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@RBECY ", txtRBECY.Text);
-                    objUpdateCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
+                    //Check if we are not Updating Record
+                    if (retrievedForUpdate)
+                    {
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
 
-                    try
-                    {
-                        objSqlConnection.Open();
-                        objUpdateCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("PK_Accounts"))
+                        string updateCommand = "Update [dbo].[Budget] set FKACID = @FKACID, BECY = @BECY, RBECY = @RBECY, BENY = @BENY " +
+                                               "where PKBUDGETID = @PKBUDGETID";
+                        SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+                        objUpdateCommand.Parameters.AddWithValue("@FKACID", comboAccount.SelectedValue);
+                        objUpdateCommand.Parameters.AddWithValue("@PKBUDGETID", txtPKBudgetID.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@BECY", txtBECY.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@RBECY ", txtRBECY.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
+
+                        try
                         {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtBECY.Focus();
+                            objSqlConnection.Open();
+                            objUpdateCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
                         }
-                        else
-                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        catch (SqlException ex)
+                        {
+                            if (ex.Message.Contains("PK_Accounts"))
+                            {
+                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtBECY.Focus();
+                            }
+                            else
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGV 
+                        this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
                     }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    //Refresh DGV 
-                    this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
                 }
-
             }
+            else
+                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion
@@ -836,6 +854,18 @@ namespace MANUUFinance
 
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Check the action permission
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                // write the code for delete
+            }
+            else
+                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         //Clear Name Search Form
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
@@ -846,8 +876,31 @@ namespace MANUUFinance
             txtDeptSearch.Text = "";
             budgetWithAccountsBindingSource.Filter = "";
         }
-
-        #endregion
+        // prepare action add, update, delete
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+        }
 
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)
         {
@@ -856,9 +909,36 @@ namespace MANUUFinance
             objfrmVirtualAccount.parentAccount = comboAccount.Text;
             objfrmVirtualAccount.DEPID = Convert.ToInt32(comboDept.SelectedValue);
             objfrmVirtualAccount.DepName = comboDept.Text;
-            objfrmVirtualAccount.ShowDialog();  
-            
+            objfrmVirtualAccount.ShowDialog();
+
         }
+        // prepare action add, update and delete
+        private void priviletesaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+        }
+        #endregion
+
     }
 
 }

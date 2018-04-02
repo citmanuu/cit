@@ -16,12 +16,14 @@ namespace MANUUFinance
     {
         bool retrievedForUpdate;
         private int userId, deptId, roleId;
-        public frmAccount(int userId, int deptId, int roleId)
+        private string formName;
+        public frmAccount(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             this.userId = userId;
             this.deptId = deptId;
             this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void frmAccount_Load(object sender, EventArgs e)
@@ -34,26 +36,17 @@ namespace MANUUFinance
             PrepareSL2Combo("0");
             PrepareSL3Combo("0");
             PrepareAccountType();
-
+            prepareaction();
             PrepareBankAccountCombo();
             retrievedForUpdate = false;
         }
-
-        
-
         //DML Region
         #region
 
         //Add Account Record
         private void btnAdd_Click(object sender, EventArgs e)
         {          
-            // Check the action permission
-            string CanAdd = "CanAdd";
-            string formName = "ACCOUNTS";
-            CheckingPrivileges objectcheckingaction = new  CheckingPrivileges();
-
-            if (objectcheckingaction.CheckingPrivilegesaction(userId, deptId,roleId,CanAdd, formName))
-            { //If Form Controls are validated proceed to add record
+                //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
                     //Check if we are not Updating Record
@@ -109,21 +102,11 @@ namespace MANUUFinance
                         this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                     }
                 }
-
-            }
-            else
-                MessageBox.Show("You don't have permission. Please contact your Administrator ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         //Update Record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            CheckingPrivileges objectcheckingaction = new CheckingPrivileges();
-            // Check the action permission
-            string CanUpdate = "CanUpdate";
-            string formName = "ACCOUNTS";
-            if (objectcheckingaction.CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
                 //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
@@ -179,20 +162,11 @@ namespace MANUUFinance
                         this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                     }
                 }
-            } 
-            else
-                MessageBox.Show("You don't have permission. Please contact your Administrator ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //check the action permission
-            string CanDelete = "CanDelete";
-            string formName = "ACCOUNTS";
-            CheckingPrivileges objectcheckingaction = new CheckingPrivileges();
-            if (objectcheckingaction.CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
                 DialogResult diagResult;
                 diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (diagResult == DialogResult.Yes)
@@ -227,10 +201,6 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
-            }
-            else
-                MessageBox.Show("You don't have permission. Please contact your Administrator  ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
         }
 
         //Prepare SL1Combo
@@ -593,6 +563,31 @@ namespace MANUUFinance
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        //prepare the action add, delete, update
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
         }
 
         #endregion

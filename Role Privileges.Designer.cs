@@ -41,7 +41,7 @@
             this.roleMSTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ldapDataSet = new MANUUFinance.LdapDataSet();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.viewUserMapping = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btAddToDatabase = new System.Windows.Forms.Button();
@@ -179,15 +179,15 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Available Roles";
             // 
-            // button1
+            // viewUserMapping
             // 
-            this.button1.Location = new System.Drawing.Point(482, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "View";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.viewUserMapping.Location = new System.Drawing.Point(482, 50);
+            this.viewUserMapping.Name = "viewUserMapping";
+            this.viewUserMapping.Size = new System.Drawing.Size(75, 23);
+            this.viewUserMapping.TabIndex = 37;
+            this.viewUserMapping.Text = "View";
+            this.viewUserMapping.UseVisualStyleBackColor = true;
+            this.viewUserMapping.Click += new System.EventHandler(this.viewUserMapping_Click);
             // 
             // comboBox1
             // 
@@ -247,7 +247,7 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btAddToDatabase);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.viewUserMapping);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
@@ -275,7 +275,7 @@
         private System.Windows.Forms.ListBox toRolesList;
         private System.Windows.Forms.ListBox fromRolesList;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button viewUserMapping;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAddToDatabase;

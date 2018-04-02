@@ -40,10 +40,10 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btClearRecord = new System.Windows.Forms.Button();
-            this.btExit = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.btUpdate = new System.Windows.Forms.Button();
-            this.btAdd = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -140,10 +140,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btClearRecord);
-            this.groupBox2.Controls.Add(this.btExit);
-            this.groupBox2.Controls.Add(this.btDelete);
-            this.groupBox2.Controls.Add(this.btUpdate);
-            this.groupBox2.Controls.Add(this.btAdd);
+            this.groupBox2.Controls.Add(this.btnExit);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Controls.Add(this.btnUpdate);
+            this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox2.Location = new System.Drawing.Point(31, 244);
             this.groupBox2.Name = "groupBox2";
@@ -161,45 +161,45 @@
             this.btClearRecord.UseVisualStyleBackColor = true;
             this.btClearRecord.Click += new System.EventHandler(this.btClearRecord_Click);
             // 
-            // btExit
+            // btnExit
             // 
-            this.btExit.Location = new System.Drawing.Point(419, 12);
-            this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(97, 28);
-            this.btExit.TabIndex = 6;
-            this.btExit.Text = "Exit";
-            this.btExit.UseVisualStyleBackColor = true;
-            this.btExit.Click += new System.EventHandler(this.btExit_Click_1);
+            this.btnExit.Location = new System.Drawing.Point(419, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(97, 28);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btDelete
+            // btnDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(213, 12);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(97, 28);
-            this.btDelete.TabIndex = 5;
-            this.btDelete.Text = "Delete Record";
-            this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            this.btnDelete.Location = new System.Drawing.Point(213, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(97, 28);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete Record";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btUpdate
+            // btnUpdate
             // 
-            this.btUpdate.Location = new System.Drawing.Point(110, 12);
-            this.btUpdate.Name = "btUpdate";
-            this.btUpdate.Size = new System.Drawing.Size(97, 28);
-            this.btUpdate.TabIndex = 4;
-            this.btUpdate.Text = "Update Record";
-            this.btUpdate.UseVisualStyleBackColor = true;
-            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(110, 12);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(97, 28);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Update Record";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btAdd
+            // btnAdd
             // 
-            this.btAdd.Location = new System.Drawing.Point(7, 12);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(97, 28);
-            this.btAdd.TabIndex = 3;
-            this.btAdd.Text = "Add Record";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.btnAdd.Location = new System.Drawing.Point(7, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(97, 28);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add Record";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label2
             // 
@@ -357,10 +357,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btExit;
-        private System.Windows.Forms.Button btDelete;
-        private System.Windows.Forms.Button btUpdate;
-        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox4;

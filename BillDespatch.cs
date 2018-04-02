@@ -18,10 +18,15 @@ namespace MANUUFinance
         bool retrievedForUpdate;
         bool queryMode;
         DateTime today = DateTime.Today;
-
-        public frmBillDespatch()
+        private int userId, deptId, roleId;
+        string formName;
+        public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
         private void frmBillDespatch_Load(object sender, EventArgs e)
@@ -40,6 +45,7 @@ namespace MANUUFinance
             PrepareDeptCombo();
             PrepareBillTypeCombo();
             PrepareBillStatusCombo();
+            prepareaction();
         }
 
         //DML Region Starts here
@@ -811,6 +817,31 @@ namespace MANUUFinance
             }
             //Refresh DGV 
             //this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+        }
+        // prepare action add, update and delete
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
         }
     }
 

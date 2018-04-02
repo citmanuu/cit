@@ -89,69 +89,56 @@ namespace MANUUFinance
 
         private void sL1MasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSL1 objFrmSL1 = new frmSL1();
+            string sl1master = "SL-1 MASTER";
+            frmSL1 objFrmSL1 = new frmSL1(userId, deptId, roleId, sl1master);
             objFrmSL1.ShowDialog();
         }
 
         private void sL2MasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSL2 objFrmSL2 = new frmSL2();
+            string sl2master = "SL-2 MASTER";
+            frmSL2 objFrmSL2 = new frmSL2(userId, deptId, roleId, sl2master);
             objFrmSL2.ShowDialog();
         }
 
         private void sL3MasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSL3 objFrmSL3 = new frmSL3();
+            string sl3master = "SL-3 MASTER";
+            frmSL3 objFrmSL3 = new frmSL3(userId, deptId, roleId, sl3master);
             objFrmSL3.ShowDialog();
         }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string exits = "EXIT";
-            CheckingPrivileges objectcheckingform = new CheckingPrivileges();
-            if (objectcheckingform.CheckingPrivilegesform(userId, deptId, roleId, exits))
-            {
-                this.Close();
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         private void bankMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBank objFrmBank = new frmBank();
+            string bankmaster = "BANK MASTER";
+            frmBank objFrmBank = new frmBank(userId, deptId, roleId, bankmaster);
             objFrmBank.ShowDialog();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            string account = "ACCOUNTS";
-            CheckingPrivileges objectforcheckingform = new CheckingPrivileges();
-           if (objectforcheckingform.CheckingPrivilegesform(userId,deptId,roleId,account))
-            {
-                frmAccount objFrmAccount = new frmAccount(userId,deptId,roleId);
-                objFrmAccount.ShowDialog();
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            string account = "ACCOUNT";
+            frmAccount objFrmAccount = new frmAccount(userId,deptId,roleId, account);
+            objFrmAccount.ShowDialog();
         }
 
         private void budgetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBudget objFrmBudget = new frmBudget();
+            string budget = "BUDGET";
+            frmBudget objFrmBudget = new frmBudget(userId, deptId, roleId, budget);
             objFrmBudget.ShowDialog();
         }
 
         private void billDespatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBillDespatch objFrmBillDespatch = new frmBillDespatch();
+            string billdispatch = "BILL DISPATCH";
+            frmBillDespatch objFrmBillDespatch = new frmBillDespatch(userId, deptId, roleId, billdispatch);
             objFrmBillDespatch.ShowDialog();
         }
 
         private void copyBudgetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCloneDeptBudget objfrmCloneDeptBudget = new frmCloneDeptBudget();
+            string copybudget = "COPY BUDGET";
+            frmCloneDeptBudget objfrmCloneDeptBudget = new frmCloneDeptBudget(userId, deptId, roleId, copybudget);
             objfrmCloneDeptBudget.ShowDialog();
         }
 
@@ -160,74 +147,128 @@ namespace MANUUFinance
             frmDemonstration objFrmDemonstration = new frmDemonstration();
             objFrmDemonstration.ShowDialog();
         }
-
-        private void addPrivilegesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void managePrivilegesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void MDIParent_Load(object sender, EventArgs e)
         {
             Printtheusername();
+            if (userId == 5 || userId == 6 || userId == 7)
+            {
+                preparationofadminmenu();
+            }
+            else
+               preparationofmenu();
         }
 
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        private void preparationofadminmenu()
         {
-            Users objectusers = new Users();
-            objectusers.ShowDialog();
+            List<ToolStripMenuItem> menuname = menuitemcheck();
+            foreach (var menuName in menuname)
+            {
+                 menuName.Visible = true;
+            }
+
+        }
+
+        private void preparationofmenu()
+        {
+            List<string> formname = new CheckingPrivileges().CheckingPrivilegesformcheck(userId, deptId, roleId);
+            List<ToolStripMenuItem> menuname = menuitemcheck();
+            if (formname.Count != 0)
+            {
+                foreach (var formNameId in formname)
+                {
+                    foreach (var menuName in menuname)
+                    {
+                        if (formNameId.Equals(menuName.ToString().ToUpper()))
+                        {
+                            menuName.Visible = true;
+                        }
+                    }
+
+                }
+
+                foreach(var formNameId in formname)
+                {
+                  //  MessageBox.Show(formNameId);
+                }
+            }
+        }
+        private List<ToolStripMenuItem> menuitemcheck()
+        {
+            List<ToolStripMenuItem> allItems = new List<ToolStripMenuItem>();
+            foreach (ToolStripMenuItem toolItem in menuStrip1.Items)
+            {
+                allItems.Add(toolItem);
+                //add sub items
+                allItems.AddRange(GetItems(toolItem));
+            }
+            return allItems;
+        }
+
+        private IEnumerable<ToolStripMenuItem> GetItems(ToolStripMenuItem item)
+        {
+            if (item is ToolStripMenuItem)
+            {
+                foreach (var dropDownItem in item.DropDownItems.OfType<ToolStripMenuItem>())
+                {
+                    if (dropDownItem.HasDropDownItems)
+                    {
+                        foreach (ToolStripMenuItem subItem in GetItems(dropDownItem))
+                            yield return subItem;
+                    }
+                    yield return dropDownItem;
+                }
+            }
+        }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void userToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            string user = "USER";
+            Users objectuseradd = new Users(userId, deptId, roleId, user);
+            objectuseradd.ShowDialog();
+        }
+        private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string department = "DEPARTMENT";
+            Departments objectdepartmentadd = new Departments(userId, deptId, roleId, department);
+            objectdepartmentadd.ShowDialog();
         }
 
         private void formToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms objectform = new Forms();
-            objectform.ShowDialog();
-        }
-
-        private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Departments objectdepartment = new Departments();
-            objectdepartment.ShowDialog();
+            string form = "FORM";
+            Forms objectformadd = new Forms(userId, deptId, roleId, form);
+            objectformadd.ShowDialog();
         }
 
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Roles objectrole = new Roles();
-            objectrole.ShowDialog();
+            string roles = "ROLES";
+            Roles objectrolesadd = new Roles(userId, deptId, roleId, roles);
+            objectrolesadd.ShowDialog();
         }
 
-        private void addPrivilegesToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void departemtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Privilege objprivilege = new Privilege();
-            objprivilege.ShowDialog();
-        }
-
-        private void departmentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DeptPrivileges objectdepartmentprivileges = new DeptPrivileges();
-            objectdepartmentprivileges.ShowDialog();
-        }
-
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string help = "HELP";
-            CheckingPrivileges objectforcheckingform = new CheckingPrivileges();
-            if (objectforcheckingform.CheckingPrivilegesform(userId, deptId, roleId, help))
-            {
-                MessageBox.Show("Wowwwwwwww ", " Access", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string deptartmentPrivileges = "DEPT PRIVILEGES";
+            deptartmentPrivileges abjectmappingdept = new deptartmentPrivileges(userId, deptId, roleId, deptartmentPrivileges);
+            abjectmappingdept.ShowDialog();
         }
 
         private void rolesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            RolePrivileges objectroleprivileges = new RolePrivileges();
-            objectroleprivileges.ShowDialog();
+            string roleprivileges = "ROLE PRIVILEGES";
+            RolePrivileges objectmappingroles = new RolePrivileges(userId, deptId, roleId, roleprivileges);
+            objectmappingroles.ShowDialog();
         }
 
+        private void addPrivilegesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Privilege objectaddprivileges = new Privilege();
+            objectaddprivileges.ShowDialog();
+        }
         private void Printtheusername()
         {
             //Connection String

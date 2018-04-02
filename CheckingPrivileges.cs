@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MANUUFinance
 {
@@ -61,33 +62,44 @@ namespace MANUUFinance
                 if (buttonName.Equals("CanAdd") && Convert.ToInt32(objDataReader["CanAdd"]) == 1)
                 {
                     privileges = true;
+                    break;
                 }
                 if (buttonName.Equals("CanUpdate") && Convert.ToInt32(objDataReader["CanUpdate"]) == 1)
                 {
                     privileges = true;
+                    break;
                 }
                 if (buttonName.Equals("CanDelete") && Convert.ToInt32(objDataReader["CanDelete"]) == 1)
                 {
                     privileges = true;
+                    break;
                 }
                 if (buttonName.Equals("CanPrint") && Convert.ToInt32(objDataReader["CanPrint"]) == 1)
                 {
                     privileges = true;
+                    break;
                 }
                 if (buttonName.Equals("CanSearch") && Convert.ToInt32(objDataReader["CanPrint"]) == 1)
                 {
-                    privileges = false;
+                    privileges = true;
+                    break;
                 }
             }
+            if (privileges == false)
+            {
+                if (userId == 5 || userId == 6 || userId == 7)
+                {
+                    privileges = true;
+                }
+            }
+
             return privileges;
         }
-        public bool CheckingPrivilegesform(int _userId, int _deptId, int _roleId, string _formName)
+        public List<string> CheckingPrivilegesformcheck(int _userId, int _deptId, int _roleId)
         {
-            bool privilegesform = false;
             userId = _userId;
             deptId = _deptId;
             roleId = _roleId;
-            FormName = _formName;
 
             List<string> FormClass = new List<string>();
             //Connection String
@@ -103,22 +115,52 @@ namespace MANUUFinance
             {
                 FormClass.Add((objDataReader.GetValue(0).ToString()));
             }
-            if (FormClass.Count != 0)
-            {
-                foreach (var formNameId in FormClass)
-                {
-                    if (FormName.Equals(formNameId))
-                    {
-                        privilegesform = true;
-                    }
-                }
-            }
-            else
-            {
-                privilegesform = false;
-            }
             objSqlConnection.Close();
-            return privilegesform;
+            return FormClass;
         }
+        //public bool CheckingPrivilegesform(int _userId, int _deptId, int _roleId, string _formName)
+        //{
+        //    bool privilegesform = false;
+        //    userId = _userId;
+        //    deptId = _deptId;
+        //    roleId = _roleId;
+        //    FormName = _formName;
+
+        //    List<string> FormClass = new List<string>();
+        //    //Connection String
+        //    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+        //    //Instantiate SQL Connection
+        //    SqlConnection objSqlConnection = new SqlConnection(cs);
+        //    objSqlConnection.Open();
+        //    SqlCommand myCommand = new SqlCommand("SELECT a.FormName FROM [Ldap].[dbo].[FormMST] as a " +
+        //        "inner join [Ldap].[dbo].[Privileges] as b on a.FormId = b.FormId " +
+        //        "where b.RoleId = '" + roleId + "'", objSqlConnection);
+        //    SqlDataReader objDataReader = myCommand.ExecuteReader();
+        //    while (objDataReader.Read())
+        //    {
+        //        FormClass.Add((objDataReader.GetValue(0).ToString()));
+        //    }
+        //    if (FormClass.Count != 0)
+        //    {
+        //        foreach (var formNameId in FormClass)
+        //        {
+        //            if (FormName.Equals(formNameId))
+        //            {
+        //              privilegesform = true;
+        //             }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (userId == 5 || userId == 6 || userId == 7)
+        //        {
+        //            privilegesform = true;
+        //        }
+        //        else
+        //            privilegesform = false;
+        //    }
+        //    objSqlConnection.Close();
+        //    return privilegesform;
+        //}
     }
 }

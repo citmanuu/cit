@@ -162,18 +162,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LdapDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Manage Account.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage Account.Designer.cs">
-      <DependentUpon>Manage Account.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manage Privilege.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage Privilege.Designer.cs">
-      <DependentUpon>Manage Privilege.cs</DependentUpon>
-    </Compile>
     <Compile Include="Add Privilege.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,11 +232,11 @@
     <Compile Include="MDIParent.Designer.cs">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
-    <Compile Include="SL1.cs">
+    <Compile Include="frmSL1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SL1.Designer.cs">
-      <DependentUpon>SL1.cs</DependentUpon>
+    <Compile Include="frmSL1.Designer.cs">
+      <DependentUpon>frmSL1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -287,12 +275,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Account.resx">
-      <DependentUpon>Manage Account.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manage Privilege.resx">
-      <DependentUpon>Manage Privilege.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Add Privilege.resx">
       <DependentUpon>Add Privilege.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,8 +305,8 @@
     <EmbeddedResource Include="MDIParent.resx">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SL1.resx">
-      <DependentUpon>SL1.cs</DependentUpon>
+    <EmbeddedResource Include="frmSL1.resx">
+      <DependentUpon>frmSL1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

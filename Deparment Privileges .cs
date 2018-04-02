@@ -12,56 +12,27 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class DeptPrivileges : Form
+    public partial class deptartmentPrivileges : Form
     {
-        public DeptPrivileges()
+        private int userId, deptId, roleId;
+        private string formName;
+        public deptartmentPrivileges(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.deptId = deptId;
+            this.roleId = roleId;
+            this.formName = formName;
         }
 
-        private void AssignUser_Load(object sender, EventArgs e)
+        private void mapping_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'ldapDataSet.Department' table. You can move, or remove it, as needed.
             this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
-
             PreparedcomboUser();
         }
-
-        private void PreparedcomboUser()
-        {
-            var objLOVClass = new List<LOV>();
-            objLOVClass.Add(new LOV(0, "-- Please Select --"));
-
-            //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
-            //Instantiate SQL Connection
-            SqlConnection objSqlConnection = new SqlConnection(cs);
-            //Prepare Update String
-            string selectCommand = "SELECT UserId, Name FROM [Ldap].[dbo].[Users] Order by 1";
-            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
-            try
-            {
-                objSqlConnection.Open();
-                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
-                while (objDataReader.Read())
-                {
-                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
-                }
-                // Bind combobox list to the items
-                comboBox1.DisplayMember = "ListItemDesc"; // will display Name property
-                comboBox1.ValueMember = "ListItemID"; // will select Value property
-                comboBox1.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                objSqlConnection.Close();
-            }
-        }
-
+        // DML 
+        #region
         private void btnMove_Click(object sender, EventArgs e)
         {
             MoveDepartments();
@@ -91,24 +62,6 @@ namespace MANUUFinance
             toDepartmentList.DisplayMember = "ListItemDesc";
             toDepartmentList.ValueMember = "ListItemID ";
             toDepartmentList.DataSource = depts;
-        }
-
-        private bool CheckDuplicate(string newItem)
-        {
-            int itemCount = toDepartmentList.Items.Count;
-            int index = 0;
-            while (index < itemCount)
-            {
-                LOV s = (LOV)toDepartmentList.Items[index];
-                // do something with s
-                if (s.ListItemDesc == newItem)
-                {
-                    MessageBox.Show(s.ListItemDesc + " already exists.", "Item addition error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                index++;
-            }
-            return true;
         }
 
         private void btnMoveAll_Click(object sender, EventArgs e)
@@ -172,24 +125,6 @@ namespace MANUUFinance
             MessageBox.Show(" Items removed.", "Items Removed from the List", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btRolesMove_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btRolesMoveAll_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btRolesRemove_Click(object sender, EventArgs e)
-        {
-            }
-
-        private void btRolesRemoveAll_Click(object sender, EventArgs e)
-        {
-        }
-
         private void btAddToDatabase_Click(object sender, EventArgs e)
         {
             if (validateRecord())
@@ -233,6 +168,63 @@ namespace MANUUFinance
             }
         }
 
+        #endregion
+        // suppot
+        #region
+
+        private void PreparedcomboUser()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT UserId, Name FROM [Ldap].[dbo].[Users] Order by 1";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboBox1.DisplayMember = "ListItemDesc"; // will display Name property
+                comboBox1.ValueMember = "ListItemID"; // will select Value property
+                comboBox1.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+        }
+
+        private bool CheckDuplicate(string newItem)
+        {
+            int itemCount = toDepartmentList.Items.Count;
+            int index = 0;
+            while (index < itemCount)
+            {
+                LOV s = (LOV)toDepartmentList.Items[index];
+                // do something with s
+                if (s.ListItemDesc == newItem)
+                {
+                    MessageBox.Show(s.ListItemDesc + " already exists.", "Item addition error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                index++;
+            }
+            return true;
+        }
+
         private void clearcombobox()
         {
             comboBox1.SelectedIndex = 0;
@@ -262,12 +254,6 @@ namespace MANUUFinance
                 return true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            View objectview = new View();
-            objectview.ShowDialog();
-        }
-
         private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
@@ -280,5 +266,6 @@ namespace MANUUFinance
             }
 
         }
+        #endregion
     }
 }
