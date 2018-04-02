@@ -380,36 +380,39 @@ namespace MANUUFinance
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (validateRecord())
+            if (MessageBox.Show("Do you want to Delete ?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //Connection String 
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
-
-                //Instantiate SQL Connection
-                SqlConnection con = new SqlConnection(cs);
-
-                // Open the connection
-                con.Open();
-                // Get the number of the row in database
-                SqlCommand cmd = new SqlCommand("privilege_delete", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
-                cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
-
-                bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                if (success)
+                if (validateRecord())
                 {
-                    MessageBox.Show("Privileges is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // TODO: This line of code loads data into the 'ldapDataSet8.RoleFormPrivileges' table. You can move, or remove it, as needed.
-                    this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
-                    con.Close();
-                    cleartextbox();
-                }
-                else
-                {
-                    MessageBox.Show("Please Click Department, Role and Form Box", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cleartextbox();
+                    //Connection String 
+                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+
+                    //Instantiate SQL Connection
+                    SqlConnection con = new SqlConnection(cs);
+
+                    // Open the connection
+                    con.Open();
+                    // Get the number of the row in database
+                    SqlCommand cmd = new SqlCommand("privilege_delete", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
+                    cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
+
+                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                    if (success)
+                    {
+                        MessageBox.Show("Privileges is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // TODO: This line of code loads data into the 'ldapDataSet8.RoleFormPrivileges' table. You can move, or remove it, as needed.
+                        this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
+                        con.Close();
+                        cleartextbox();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Click Department, Role and Form Box", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cleartextbox();
+                    }
                 }
             }
         }

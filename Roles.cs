@@ -116,7 +116,7 @@ namespace MANUUFinance
         // delete the form
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to Delete the department?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to Delete the Role?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (validateRecord())
                 {
