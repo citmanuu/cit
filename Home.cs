@@ -38,5 +38,9 @@ namespace MANUUFinance
             Administrator objectadmin = new Administrator();
             objectadmin.ShowDialog();
         }
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

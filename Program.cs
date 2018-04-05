@@ -15,9 +15,9 @@ namespace MANUUFinance
         static void Main()
         {
             Application.EnableVisualStyles();
-           // Application.SetCompatibleTextRenderingDefault(false);
-           //Application.Run(new MDIParent(0,0,0));
-            Application.Run(new Home());
+            // Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new MDIParent(0,0,0));
+              Application.Run(new Home());
         }
     }
 }

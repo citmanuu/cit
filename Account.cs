@@ -546,19 +546,21 @@ namespace MANUUFinance
         {
             PrepareSL2Combo(Convert.ToString(comboSL1.SelectedValue));
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         //Filter entries for comboSL2 based on Selection of comboSL1
         private void comboSL2_SelectedIndexChanged(object sender, EventArgs e)
         {
             PrepareSL3Combo(Convert.ToString(comboSL2.SelectedValue));
         }
 
+        private void btnPrintRecord_Click(object sender, EventArgs e)
+        {
+            // PdfCreator objectprint = new PdfCreator();
+            //    objectprint.exportgridpdf(DGVAccounts,"Account");
+            //  objectprint.pdfsupports(DGVAccounts, "Account"); 
 
+            Supports objectsupport = new Supports(DGVAccounts, "Account");
+            objectsupport.ShowDialog();
+        }
         //Close the Form
         private void btnClose_Click(object sender, EventArgs e)
         {

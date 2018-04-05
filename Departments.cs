@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace MANUUFinance
 {
@@ -254,12 +257,17 @@ namespace MANUUFinance
                 //Refresh DGV 
                 departmentBindingSource.Filter = SearchStatement.ToString();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please close the PDF file first:");
             }
         }
 
+        private void btnPrintRecord_Click(object sender, EventArgs e)
+        {
+            PdfCreator objectpdfcreator = new PdfCreator();
+            objectpdfcreator.exportgridviewpdf(DGVForm, "Department");
+        }
         // clear the text
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
@@ -274,3 +282,4 @@ namespace MANUUFinance
         #endregion
     }
 }
+

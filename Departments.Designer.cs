@@ -57,6 +57,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.departmentTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.DepartmentTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnPrintRecord = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
@@ -109,9 +110,9 @@
             this.label12.Location = new System.Drawing.Point(10, 32);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 26;
-            this.label12.Text = "Form Name";
+            this.label12.Text = "Department Name";
             // 
             // txtDeptNameSearch
             // 
@@ -228,6 +229,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrintRecord);
             this.groupBox2.Controls.Add(this.btClearRecord);
             this.groupBox2.Controls.Add(this.btnExit);
             this.groupBox2.Controls.Add(this.btnDelete);
@@ -242,7 +244,7 @@
             // 
             // btClearRecord
             // 
-            this.btClearRecord.Location = new System.Drawing.Point(316, 12);
+            this.btClearRecord.Location = new System.Drawing.Point(421, 12);
             this.btClearRecord.Name = "btClearRecord";
             this.btClearRecord.Size = new System.Drawing.Size(97, 28);
             this.btClearRecord.TabIndex = 7;
@@ -252,11 +254,11 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(419, 12);
+            this.btnExit.Location = new System.Drawing.Point(525, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(97, 28);
             this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Close form";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -322,6 +324,16 @@
             this.label4.TabIndex = 45;
             this.label4.Text = resources.GetString("label4.Text");
             // 
+            // btnPrintRecord
+            // 
+            this.btnPrintRecord.Location = new System.Drawing.Point(317, 12);
+            this.btnPrintRecord.Name = "btnPrintRecord";
+            this.btnPrintRecord.Size = new System.Drawing.Size(97, 28);
+            this.btnPrintRecord.TabIndex = 8;
+            this.btnPrintRecord.Text = "Print Records";
+            this.btnPrintRecord.UseVisualStyleBackColor = true;
+            this.btnPrintRecord.Click += new System.EventHandler(this.btnPrintRecord_Click);
+            // 
             // Departments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,5 +391,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn deptIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnPrintRecord;
     }
 }

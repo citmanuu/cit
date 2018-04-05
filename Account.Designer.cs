@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -99,6 +100,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnDelete);
@@ -108,13 +110,24 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(481, 45);
+            this.groupBox2.Size = new System.Drawing.Size(565, 45);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(286, 12);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrintRecord_Click);
+            // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(379, 12);
+            this.btnClose.Location = new System.Drawing.Point(472, 12);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 25);
@@ -125,7 +138,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(286, 12);
+            this.btnClear.Location = new System.Drawing.Point(379, 12);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 25);
@@ -195,7 +208,6 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Account";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboAccountType
             // 
@@ -788,5 +800,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FKBankAccountID;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

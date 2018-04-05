@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class frmDemonstration
+    partial class pdfsupports
     {
         /// <summary>
         /// Required designer variable.
@@ -39,66 +39,73 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(440, 74);
+            this.label1.Location = new System.Drawing.Point(293, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "hello Everybody";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 142);
+            this.label2.Location = new System.Drawing.Point(37, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Field-1";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 179);
+            this.label3.Location = new System.Drawing.Point(37, 116);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 20);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Field-2";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(171, 135);
+            this.txtName.Location = new System.Drawing.Point(114, 88);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 26);
+            this.txtName.Size = new System.Drawing.Size(68, 20);
             this.txtName.TabIndex = 1;
             // 
             // txtFatherName
             // 
-            this.txtFatherName.Location = new System.Drawing.Point(171, 167);
+            this.txtFatherName.Location = new System.Drawing.Point(114, 109);
+            this.txtFatherName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFatherName.Name = "txtFatherName";
-            this.txtFatherName.Size = new System.Drawing.Size(100, 26);
+            this.txtFatherName.Size = new System.Drawing.Size(68, 20);
             this.txtFatherName.TabIndex = 1;
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(171, 236);
+            this.btnCheck.Location = new System.Drawing.Point(114, 153);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(203, 31);
+            this.btnCheck.Size = new System.Drawing.Size(135, 20);
             this.btnCheck.TabIndex = 2;
             this.btnCheck.Text = "Check Your Input";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
-            // frmDemonstration
+            // pdfsupport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 750);
+            this.ClientSize = new System.Drawing.Size(709, 487);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.txtFatherName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "frmDemonstration";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "pdfsupport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Demonstration";
             this.ResumeLayout(false);

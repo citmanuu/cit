@@ -144,8 +144,8 @@ namespace MANUUFinance
 
         private void demonstrationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDemonstration objFrmDemonstration = new frmDemonstration();
-            objFrmDemonstration.ShowDialog();
+            //frmDemonstration objFrmDemonstration = new frmDemonstration();
+            //objFrmDemonstration.ShowDialog();
         }
         private void MDIParent_Load(object sender, EventArgs e)
         {
