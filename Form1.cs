@@ -24,7 +24,12 @@ namespace MANUUFinance
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello Name is: " + txtName.Text,"Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Hello Name is testing 1235: " + txtName.Text,"Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void openPDF()
