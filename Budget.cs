@@ -40,7 +40,10 @@ namespace MANUUFinance
             UnpinControls();
             retrievedForUpdate = false;
             queryMode = false;
-            prepareaction();
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
         }
         #region
 
@@ -900,6 +903,19 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVBudgetAccounts, "BudgetAccount");
+            objectsupport.ShowDialog();
         }
 
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)

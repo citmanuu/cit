@@ -33,7 +33,10 @@ namespace MANUUFinance
             //Prepare Combo for Showing Account Types
             PrepareSL1Combo();
             retrievedForUpdate = false;
-            prepareaction();
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
         }
 
         //DML Region
@@ -382,6 +385,12 @@ namespace MANUUFinance
 
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVSL2SL1, "SL2");
+            objectsupport.ShowDialog();
+        }
+
         //Close Form
         private void button1_Click(object sender, EventArgs e)
         {
@@ -411,6 +420,13 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
 
         #endregion

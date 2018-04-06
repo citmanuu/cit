@@ -133,6 +133,14 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
 
         private void cleartextbox()
@@ -315,6 +323,12 @@ namespace MANUUFinance
                         cleartextbox();
                     }             
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVPrivilege, "Privileges");
+            objectsupport.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

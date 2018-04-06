@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -88,6 +88,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBillAmount = new System.Windows.Forms.TextBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboACID)).BeginInit();
@@ -100,23 +101,27 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btnQuery);
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Location = new System.Drawing.Point(231, 414);
+            this.groupBox2.Location = new System.Drawing.Point(147, 269);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(858, 70);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(659, 45);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(568, 19);
+            this.btnQuery.Location = new System.Drawing.Point(471, 12);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(133, 38);
+            this.btnQuery.Size = new System.Drawing.Size(89, 25);
             this.btnQuery.TabIndex = 4;
             this.btnQuery.Text = "Query";
             this.btnQuery.UseVisualStyleBackColor = true;
@@ -124,9 +129,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(707, 19);
+            this.btnClose.Location = new System.Drawing.Point(563, 12);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(133, 38);
+            this.btnClose.Size = new System.Drawing.Size(89, 25);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close Form";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -134,9 +140,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(429, 19);
+            this.btnClear.Location = new System.Drawing.Point(286, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(133, 38);
+            this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Clear Controls";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -144,9 +151,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(290, 19);
+            this.btnDelete.Location = new System.Drawing.Point(193, 12);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(133, 38);
+            this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -154,9 +162,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(151, 19);
+            this.btnUpdate.Location = new System.Drawing.Point(101, 12);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(133, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update Record";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -164,9 +173,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 19);
+            this.btnAdd.Location = new System.Drawing.Point(8, 12);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(133, 38);
+            this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add Record";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -189,9 +199,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox1.Location = new System.Drawing.Point(44, 35);
+            this.groupBox1.Location = new System.Drawing.Point(29, 23);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1165, 171);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(777, 111);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bill Master";
@@ -199,33 +211,37 @@
             // txtBillNumber
             // 
             this.txtBillNumber.Enabled = false;
-            this.txtBillNumber.Location = new System.Drawing.Point(392, 38);
+            this.txtBillNumber.Location = new System.Drawing.Point(261, 25);
+            this.txtBillNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBillNumber.Name = "txtBillNumber";
-            this.txtBillNumber.Size = new System.Drawing.Size(100, 26);
+            this.txtBillNumber.Size = new System.Drawing.Size(68, 20);
             this.txtBillNumber.TabIndex = 44;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(282, 41);
+            this.label3.Location = new System.Drawing.Point(188, 27);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
+            this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 45;
             this.label3.Text = "Bill Number";
             // 
             // txtBillNarration
             // 
-            this.txtBillNarration.Location = new System.Drawing.Point(679, 123);
+            this.txtBillNarration.Location = new System.Drawing.Point(453, 80);
+            this.txtBillNarration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBillNarration.Name = "txtBillNarration";
-            this.txtBillNarration.Size = new System.Drawing.Size(455, 26);
+            this.txtBillNarration.Size = new System.Drawing.Size(305, 20);
             this.txtBillNarration.TabIndex = 42;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(571, 126);
+            this.label1.Location = new System.Drawing.Point(381, 82);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 43;
             this.label1.Text = "Bill Narration";
             // 
@@ -234,34 +250,38 @@
             this.comboBillStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBillStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBillStatus.FormattingEnabled = true;
-            this.comboBillStatus.Location = new System.Drawing.Point(127, 121);
+            this.comboBillStatus.Location = new System.Drawing.Point(85, 79);
+            this.comboBillStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBillStatus.Name = "comboBillStatus";
-            this.comboBillStatus.Size = new System.Drawing.Size(368, 28);
+            this.comboBillStatus.Size = new System.Drawing.Size(247, 21);
             this.comboBillStatus.TabIndex = 40;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 121);
+            this.label9.Location = new System.Drawing.Point(24, 79);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 20);
+            this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 41;
             this.label9.Text = "Bill Status";
             // 
             // txtBillDate
             // 
             this.txtBillDate.Enabled = false;
-            this.txtBillDate.Location = new System.Drawing.Point(127, 38);
+            this.txtBillDate.Location = new System.Drawing.Point(85, 25);
+            this.txtBillDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBillDate.Name = "txtBillDate";
-            this.txtBillDate.Size = new System.Drawing.Size(100, 26);
+            this.txtBillDate.Size = new System.Drawing.Size(68, 20);
             this.txtBillDate.TabIndex = 38;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 41);
+            this.label5.Location = new System.Drawing.Point(24, 27);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 39;
             this.label5.Text = "Bill Date";
             // 
@@ -270,9 +290,10 @@
             this.comboBeneficiery.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBeneficiery.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBeneficiery.FormattingEnabled = true;
-            this.comboBeneficiery.Location = new System.Drawing.Point(679, 80);
+            this.comboBeneficiery.Location = new System.Drawing.Point(453, 52);
+            this.comboBeneficiery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBeneficiery.Name = "comboBeneficiery";
-            this.comboBeneficiery.Size = new System.Drawing.Size(455, 28);
+            this.comboBeneficiery.Size = new System.Drawing.Size(305, 21);
             this.comboBeneficiery.TabIndex = 5;
             // 
             // comboDept
@@ -280,18 +301,20 @@
             this.comboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboDept.FormattingEnabled = true;
-            this.comboDept.Location = new System.Drawing.Point(679, 33);
+            this.comboDept.Location = new System.Drawing.Point(453, 21);
+            this.comboDept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboDept.Name = "comboDept";
-            this.comboDept.Size = new System.Drawing.Size(455, 28);
+            this.comboDept.Size = new System.Drawing.Size(305, 21);
             this.comboDept.TabIndex = 1;
             this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(571, 35);
+            this.label14.Location = new System.Drawing.Point(381, 23);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 20);
+            this.label14.Size = new System.Drawing.Size(62, 13);
             this.label14.TabIndex = 32;
             this.label14.Text = "Department";
             // 
@@ -300,43 +323,47 @@
             this.comboBillType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBillType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBillType.FormattingEnabled = true;
-            this.comboBillType.Location = new System.Drawing.Point(127, 80);
+            this.comboBillType.Location = new System.Drawing.Point(85, 52);
+            this.comboBillType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBillType.Name = "comboBillType";
-            this.comboBillType.Size = new System.Drawing.Size(368, 28);
+            this.comboBillType.Size = new System.Drawing.Size(247, 21);
             this.comboBillType.TabIndex = 4;
             this.comboBillType.SelectedIndexChanged += new System.EventHandler(this.comboBillType_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 80);
+            this.label2.Location = new System.Drawing.Point(24, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Bill Type";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(571, 83);
+            this.label4.Location = new System.Drawing.Point(381, 54);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Beneficiery";
             // 
             // txtPKBillID
             // 
-            this.txtPKBillID.Location = new System.Drawing.Point(171, 3);
+            this.txtPKBillID.Location = new System.Drawing.Point(114, 2);
+            this.txtPKBillID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPKBillID.Name = "txtPKBillID";
-            this.txtPKBillID.Size = new System.Drawing.Size(100, 26);
+            this.txtPKBillID.Size = new System.Drawing.Size(68, 20);
             this.txtPKBillID.TabIndex = 1;
             // 
             // comboACID
             // 
             this.comboACID.AllowUserToAddRows = false;
             this.comboACID.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.comboACID.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.comboACID.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.comboACID.AutoGenerateColumns = false;
             this.comboACID.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.comboACID.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -357,10 +384,11 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.comboACID.DataSource = this.billMstViewBindingSource;
-            this.comboACID.Location = new System.Drawing.Point(1238, 35);
+            this.comboACID.Location = new System.Drawing.Point(825, 23);
+            this.comboACID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboACID.Name = "comboACID";
             this.comboACID.RowTemplate.Height = 28;
-            this.comboACID.Size = new System.Drawing.Size(672, 457);
+            this.comboACID.Size = new System.Drawing.Size(448, 297);
             this.comboACID.TabIndex = 37;
             this.comboACID.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVbillMstView_CellClick);
             // 
@@ -377,42 +405,42 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "BillNumber";
             this.dataGridViewTextBoxColumn2.HeaderText = "Bill No";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 89;
+            this.dataGridViewTextBoxColumn2.Width = 62;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "BillNarration";
             this.dataGridViewTextBoxColumn3.HeaderText = "BillNarration";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 130;
+            this.dataGridViewTextBoxColumn3.Width = 88;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "DEPNAME";
             this.dataGridViewTextBoxColumn4.HeaderText = "Department";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 130;
+            this.dataGridViewTextBoxColumn4.Width = 87;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "BeneficieryName";
             this.dataGridViewTextBoxColumn5.HeaderText = "Beneficiery";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 123;
+            this.dataGridViewTextBoxColumn5.Width = 84;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "BillStatus";
             this.dataGridViewTextBoxColumn6.HeaderText = "BillStatus";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 112;
+            this.dataGridViewTextBoxColumn6.Width = 75;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "BillType";
             this.dataGridViewTextBoxColumn7.HeaderText = "BillType";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 99;
+            this.dataGridViewTextBoxColumn7.Width = 69;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -491,6 +519,7 @@
             this.tableAdapterManager.BankMasterTableAdapter = null;
             this.tableAdapterManager.BillDtlTableAdapter = null;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.DEPTTableAdapter = null;
             this.tableAdapterManager.SL1TableAdapter = null;
             this.tableAdapterManager.SL2TableAdapter = null;
             this.tableAdapterManager.SL3TableAdapter = null;
@@ -525,9 +554,11 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.txtBillAmount);
             this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox3.Location = new System.Drawing.Point(44, 222);
+            this.groupBox3.Location = new System.Drawing.Point(29, 144);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1165, 176);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(777, 114);
             this.groupBox3.TabIndex = 38;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bill Details";
@@ -535,68 +566,76 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(545, 117);
+            this.label10.Location = new System.Drawing.Point(363, 76);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 20);
+            this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 48;
             this.label10.Text = "Account Balance";
             // 
             // txtAccountBalance
             // 
             this.txtAccountBalance.Enabled = false;
-            this.txtAccountBalance.Location = new System.Drawing.Point(681, 113);
+            this.txtAccountBalance.Location = new System.Drawing.Point(454, 73);
+            this.txtAccountBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAccountBalance.Name = "txtAccountBalance";
-            this.txtAccountBalance.Size = new System.Drawing.Size(100, 26);
+            this.txtAccountBalance.Size = new System.Drawing.Size(68, 20);
             this.txtAccountBalance.TabIndex = 47;
             // 
             // txtSL2Name
             // 
             this.txtSL2Name.Enabled = false;
-            this.txtSL2Name.Location = new System.Drawing.Point(127, 80);
+            this.txtSL2Name.Location = new System.Drawing.Point(85, 52);
+            this.txtSL2Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL2Name.Name = "txtSL2Name";
-            this.txtSL2Name.Size = new System.Drawing.Size(380, 26);
+            this.txtSL2Name.Size = new System.Drawing.Size(255, 20);
             this.txtSL2Name.TabIndex = 46;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 80);
+            this.label7.Location = new System.Drawing.Point(15, 52);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 20);
+            this.label7.Size = new System.Drawing.Size(26, 13);
             this.label7.TabIndex = 45;
             this.label7.Text = "SL2";
             // 
             // txtSL3Name
             // 
             this.txtSL3Name.Enabled = false;
-            this.txtSL3Name.Location = new System.Drawing.Point(683, 74);
+            this.txtSL3Name.Location = new System.Drawing.Point(455, 48);
+            this.txtSL3Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL3Name.Name = "txtSL3Name";
-            this.txtSL3Name.Size = new System.Drawing.Size(455, 26);
+            this.txtSL3Name.Size = new System.Drawing.Size(305, 20);
             this.txtSL3Name.TabIndex = 44;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(545, 74);
+            this.label6.Location = new System.Drawing.Point(363, 48);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 20);
+            this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 43;
             this.label6.Text = "SL3";
             // 
             // txtSL1Name
             // 
             this.txtSL1Name.Enabled = false;
-            this.txtSL1Name.Location = new System.Drawing.Point(683, 37);
+            this.txtSL1Name.Location = new System.Drawing.Point(455, 24);
+            this.txtSL1Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL1Name.Name = "txtSL1Name";
-            this.txtSL1Name.Size = new System.Drawing.Size(455, 26);
+            this.txtSL1Name.Size = new System.Drawing.Size(305, 20);
             this.txtSL1Name.TabIndex = 42;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 121);
+            this.label8.Location = new System.Drawing.Point(15, 79);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 20);
+            this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 41;
             this.label8.Text = "Bill Amount";
             // 
@@ -605,48 +644,63 @@
             this.comboAccountName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboAccountName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboAccountName.FormattingEnabled = true;
-            this.comboAccountName.Location = new System.Drawing.Point(127, 39);
+            this.comboAccountName.Location = new System.Drawing.Point(85, 25);
+            this.comboAccountName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboAccountName.Name = "comboAccountName";
-            this.comboAccountName.Size = new System.Drawing.Size(380, 28);
+            this.comboAccountName.Size = new System.Drawing.Size(255, 21);
             this.comboAccountName.TabIndex = 1;
             this.comboAccountName.SelectedIndexChanged += new System.EventHandler(this.comboAccountName_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(22, 47);
+            this.label11.Location = new System.Drawing.Point(15, 31);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 20);
+            this.label11.Size = new System.Drawing.Size(47, 13);
             this.label11.TabIndex = 32;
             this.label11.Text = "Account";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(545, 40);
+            this.label12.Location = new System.Drawing.Point(363, 26);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 20);
+            this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 25;
             this.label12.Text = "SL1";
             // 
             // txtBillAmount
             // 
-            this.txtBillAmount.Location = new System.Drawing.Point(127, 117);
+            this.txtBillAmount.Location = new System.Drawing.Point(85, 76);
+            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBillAmount.Name = "txtBillAmount";
-            this.txtBillAmount.Size = new System.Drawing.Size(100, 26);
+            this.txtBillAmount.Size = new System.Drawing.Size(68, 20);
             this.txtBillAmount.TabIndex = 1;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(379, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 39;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // frmBillDespatch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1922, 844);
+            this.ClientSize = new System.Drawing.Size(1293, 487);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.comboACID);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPKBillID);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmBillDespatch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bill Despatch";
@@ -726,5 +780,6 @@
         private System.Windows.Forms.TextBox txtBillAmount;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtAccountBalance;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

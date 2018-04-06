@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPrintAccount = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
@@ -66,17 +68,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtAccountNo = new System.Windows.Forms.TextBox();
             this.DGVBankAccounts = new System.Windows.Forms.DataGridView();
-            this.bankAccountDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtPKBANKACC = new System.Windows.Forms.TextBox();
-            this.bankMasterTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BankMasterTableAdapter();
-            this.bankAccountDetailsTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BankAccountDetailsTableAdapter();
-            this.label7 = new System.Windows.Forms.Label();
             this.bankNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKBankIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PKBANKACC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FKAccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bankAccountDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtPKBANKACC = new System.Windows.Forms.TextBox();
+            this.bankMasterTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BankMasterTableAdapter();
+            this.bankAccountDetailsTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BankAccountDetailsTableAdapter();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVBanks)).BeginInit();
@@ -90,22 +92,37 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Location = new System.Drawing.Point(85, 184);
+            this.groupBox2.Location = new System.Drawing.Point(22, 120);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(709, 74);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(569, 48);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(285, 14);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(566, 21);
+            this.button1.Location = new System.Drawing.Point(473, 14);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 38);
+            this.button1.Size = new System.Drawing.Size(89, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "Cl&ose Form";
             this.button1.UseVisualStyleBackColor = true;
@@ -113,9 +130,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(427, 21);
+            this.btnClear.Location = new System.Drawing.Point(379, 14);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(133, 38);
+            this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "&Clear Controls";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -123,9 +141,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(288, 21);
+            this.btnDelete.Location = new System.Drawing.Point(192, 14);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(133, 38);
+            this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -133,9 +152,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(149, 21);
+            this.btnUpdate.Location = new System.Drawing.Point(99, 14);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(133, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "&Update Record";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -143,9 +163,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 21);
+            this.btnAdd.Location = new System.Drawing.Point(7, 14);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(133, 38);
+            this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "&Add Record";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -160,59 +181,67 @@
             this.groupBox1.Controls.Add(this.txtBankName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox1.Location = new System.Drawing.Point(33, 33);
+            this.groupBox1.Location = new System.Drawing.Point(22, 21);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(853, 136);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(569, 88);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bank Master";
             // 
             // txtBankShortName
             // 
-            this.txtBankShortName.Location = new System.Drawing.Point(446, 82);
+            this.txtBankShortName.Location = new System.Drawing.Point(297, 53);
+            this.txtBankShortName.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankShortName.Name = "txtBankShortName";
-            this.txtBankShortName.Size = new System.Drawing.Size(100, 26);
+            this.txtBankShortName.Size = new System.Drawing.Size(68, 20);
             this.txtBankShortName.TabIndex = 36;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(308, 85);
+            this.label8.Location = new System.Drawing.Point(205, 55);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 20);
+            this.label8.Size = new System.Drawing.Size(91, 13);
             this.label8.TabIndex = 35;
             this.label8.Text = "Bank Short Name";
             // 
             // txtBankID
             // 
             this.txtBankID.Enabled = false;
-            this.txtBankID.Location = new System.Drawing.Point(143, 45);
+            this.txtBankID.Location = new System.Drawing.Point(95, 29);
+            this.txtBankID.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankID.Name = "txtBankID";
-            this.txtBankID.Size = new System.Drawing.Size(100, 26);
+            this.txtBankID.Size = new System.Drawing.Size(68, 20);
             this.txtBankID.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(60, 48);
+            this.label6.Location = new System.Drawing.Point(40, 31);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 20);
+            this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Bank ID";
             // 
             // txtBankName
             // 
-            this.txtBankName.Location = new System.Drawing.Point(446, 45);
+            this.txtBankName.Location = new System.Drawing.Point(297, 29);
+            this.txtBankName.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Size = new System.Drawing.Size(381, 26);
+            this.txtBankName.Size = new System.Drawing.Size(255, 20);
             this.txtBankName.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(308, 48);
+            this.label3.Location = new System.Drawing.Point(205, 31);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Bank Name";
             // 
@@ -232,12 +261,13 @@
             this.BankShortName,
             this.bankNameDataGridViewTextBoxColumn});
             this.DGVBanks.DataSource = this.bankMasterBindingSource;
-            this.DGVBanks.Location = new System.Drawing.Point(912, 35);
+            this.DGVBanks.Location = new System.Drawing.Point(608, 23);
+            this.DGVBanks.Margin = new System.Windows.Forms.Padding(2);
             this.DGVBanks.MultiSelect = false;
             this.DGVBanks.Name = "DGVBanks";
             this.DGVBanks.ReadOnly = true;
             this.DGVBanks.RowTemplate.Height = 28;
-            this.DGVBanks.Size = new System.Drawing.Size(462, 223);
+            this.DGVBanks.Size = new System.Drawing.Size(308, 145);
             this.DGVBanks.TabIndex = 23;
             this.DGVBanks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVBanks_CellClick);
             // 
@@ -283,30 +313,46 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1068, 9);
+            this.label1.Location = new System.Drawing.Point(712, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 20);
+            this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 24;
             this.label1.Text = "Registered Banks";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnPrintAccount);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.btnDeleteAccount);
             this.groupBox3.Controls.Add(this.btnUpdateAccount);
             this.groupBox3.Controls.Add(this.btnAddAccount);
-            this.groupBox3.Location = new System.Drawing.Point(73, 532);
+            this.groupBox3.Location = new System.Drawing.Point(29, 346);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(711, 74);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(562, 48);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
+            // btnPrintAccount
+            // 
+            this.btnPrintAccount.Location = new System.Drawing.Point(285, 14);
+            this.btnPrintAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrintAccount.Name = "btnPrintAccount";
+            this.btnPrintAccount.Size = new System.Drawing.Size(89, 25);
+            this.btnPrintAccount.TabIndex = 6;
+            this.btnPrintAccount.Text = "Print Record";
+            this.btnPrintAccount.UseVisualStyleBackColor = true;
+            this.btnPrintAccount.Click += new System.EventHandler(this.btnPrintAccount_Click);
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(566, 21);
+            this.button4.Location = new System.Drawing.Point(467, 14);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 38);
+            this.button4.Size = new System.Drawing.Size(89, 25);
             this.button4.TabIndex = 4;
             this.button4.Text = "Cl&ose Form";
             this.button4.UseVisualStyleBackColor = true;
@@ -314,18 +360,20 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(427, 21);
+            this.button5.Location = new System.Drawing.Point(376, 14);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 38);
+            this.button5.Size = new System.Drawing.Size(89, 25);
             this.button5.TabIndex = 3;
             this.button5.Text = "&Clear Controls";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // btnDeleteAccount
             // 
-            this.btnDeleteAccount.Location = new System.Drawing.Point(288, 21);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(192, 14);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(133, 38);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(89, 25);
             this.btnDeleteAccount.TabIndex = 2;
             this.btnDeleteAccount.Text = "&Delete Record";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
@@ -333,9 +381,10 @@
             // 
             // btnUpdateAccount
             // 
-            this.btnUpdateAccount.Location = new System.Drawing.Point(149, 21);
+            this.btnUpdateAccount.Location = new System.Drawing.Point(99, 14);
+            this.btnUpdateAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateAccount.Name = "btnUpdateAccount";
-            this.btnUpdateAccount.Size = new System.Drawing.Size(133, 38);
+            this.btnUpdateAccount.Size = new System.Drawing.Size(89, 25);
             this.btnUpdateAccount.TabIndex = 1;
             this.btnUpdateAccount.Text = "&Update Record";
             this.btnUpdateAccount.UseVisualStyleBackColor = true;
@@ -343,9 +392,10 @@
             // 
             // btnAddAccount
             // 
-            this.btnAddAccount.Location = new System.Drawing.Point(10, 21);
+            this.btnAddAccount.Location = new System.Drawing.Point(7, 14);
+            this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(133, 38);
+            this.btnAddAccount.Size = new System.Drawing.Size(89, 25);
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "&Add Record";
             this.btnAddAccount.UseVisualStyleBackColor = true;
@@ -361,9 +411,11 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtAccountNo);
             this.groupBox4.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox4.Location = new System.Drawing.Point(43, 364);
+            this.groupBox4.Location = new System.Drawing.Point(29, 237);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(843, 150);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(562, 97);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Bank Accounts";
@@ -371,60 +423,67 @@
             // txtBankShortNameRO
             // 
             this.txtBankShortNameRO.Enabled = false;
-            this.txtBankShortNameRO.Location = new System.Drawing.Point(508, 46);
+            this.txtBankShortNameRO.Location = new System.Drawing.Point(339, 30);
+            this.txtBankShortNameRO.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankShortNameRO.Name = "txtBankShortNameRO";
-            this.txtBankShortNameRO.Size = new System.Drawing.Size(100, 26);
+            this.txtBankShortNameRO.Size = new System.Drawing.Size(68, 20);
             this.txtBankShortNameRO.TabIndex = 37;
             // 
             // txtBankNameForAcc
             // 
             this.txtBankNameForAcc.Enabled = false;
-            this.txtBankNameForAcc.Location = new System.Drawing.Point(148, 46);
+            this.txtBankNameForAcc.Location = new System.Drawing.Point(99, 30);
+            this.txtBankNameForAcc.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankNameForAcc.Name = "txtBankNameForAcc";
-            this.txtBankNameForAcc.Size = new System.Drawing.Size(325, 26);
+            this.txtBankNameForAcc.Size = new System.Drawing.Size(218, 20);
             this.txtBankNameForAcc.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 49);
+            this.label2.Location = new System.Drawing.Point(18, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 31;
             this.label2.Text = "Bank Name";
             // 
             // comboAcType
             // 
             this.comboAcType.FormattingEnabled = true;
-            this.comboAcType.Location = new System.Drawing.Point(145, 89);
+            this.comboAcType.Location = new System.Drawing.Point(97, 58);
+            this.comboAcType.Margin = new System.Windows.Forms.Padding(2);
             this.comboAcType.Name = "comboAcType";
-            this.comboAcType.Size = new System.Drawing.Size(211, 28);
+            this.comboAcType.Size = new System.Drawing.Size(142, 21);
             this.comboAcType.TabIndex = 28;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(381, 95);
+            this.label5.Location = new System.Drawing.Point(254, 62);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 20);
+            this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 29;
             this.label5.Text = "Account No";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 95);
+            this.label4.Location = new System.Drawing.Point(18, 62);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 20);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 27;
             this.label4.Text = "Account Type";
             // 
             // txtAccountNo
             // 
             this.txtAccountNo.Enabled = false;
-            this.txtAccountNo.Location = new System.Drawing.Point(503, 89);
+            this.txtAccountNo.Location = new System.Drawing.Point(335, 58);
+            this.txtAccountNo.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccountNo.Name = "txtAccountNo";
-            this.txtAccountNo.Size = new System.Drawing.Size(314, 26);
+            this.txtAccountNo.Size = new System.Drawing.Size(211, 20);
             this.txtAccountNo.TabIndex = 29;
             // 
             // DGVBankAccounts
@@ -446,46 +505,15 @@
             this.PKBANKACC,
             this.FKAccountType});
             this.DGVBankAccounts.DataSource = this.bankAccountDetailsBindingSource;
-            this.DGVBankAccounts.Location = new System.Drawing.Point(912, 364);
+            this.DGVBankAccounts.Location = new System.Drawing.Point(608, 237);
+            this.DGVBankAccounts.Margin = new System.Windows.Forms.Padding(2);
             this.DGVBankAccounts.MultiSelect = false;
             this.DGVBankAccounts.Name = "DGVBankAccounts";
             this.DGVBankAccounts.ReadOnly = true;
             this.DGVBankAccounts.RowTemplate.Height = 28;
-            this.DGVBankAccounts.Size = new System.Drawing.Size(472, 242);
+            this.DGVBankAccounts.Size = new System.Drawing.Size(315, 157);
             this.DGVBankAccounts.TabIndex = 27;
             this.DGVBankAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVBankAccounts_CellClick);
-            // 
-            // bankAccountDetailsBindingSource
-            // 
-            this.bankAccountDetailsBindingSource.DataMember = "BankAccountDetails";
-            this.bankAccountDetailsBindingSource.DataSource = this.financeDataSet;
-            // 
-            // txtPKBANKACC
-            // 
-            this.txtPKBANKACC.Enabled = false;
-            this.txtPKBANKACC.Location = new System.Drawing.Point(191, 612);
-            this.txtPKBANKACC.Name = "txtPKBANKACC";
-            this.txtPKBANKACC.Size = new System.Drawing.Size(48, 26);
-            this.txtPKBANKACC.TabIndex = 31;
-            this.txtPKBANKACC.Visible = false;
-            // 
-            // bankMasterTableAdapter
-            // 
-            this.bankMasterTableAdapter.ClearBeforeFill = true;
-            // 
-            // bankAccountDetailsTableAdapter
-            // 
-            this.bankAccountDetailsTableAdapter.ClearBeforeFill = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1081, 337);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 20);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Bank Accounts";
             // 
             // bankNameDataGridViewTextBoxColumn1
             // 
@@ -532,11 +560,45 @@
             this.FKAccountType.ReadOnly = true;
             this.FKAccountType.Visible = false;
             // 
+            // bankAccountDetailsBindingSource
+            // 
+            this.bankAccountDetailsBindingSource.DataMember = "BankAccountDetails";
+            this.bankAccountDetailsBindingSource.DataSource = this.financeDataSet;
+            // 
+            // txtPKBANKACC
+            // 
+            this.txtPKBANKACC.Enabled = false;
+            this.txtPKBANKACC.Location = new System.Drawing.Point(127, 398);
+            this.txtPKBANKACC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPKBANKACC.Name = "txtPKBANKACC";
+            this.txtPKBANKACC.Size = new System.Drawing.Size(33, 20);
+            this.txtPKBANKACC.TabIndex = 31;
+            this.txtPKBANKACC.Visible = false;
+            // 
+            // bankMasterTableAdapter
+            // 
+            this.bankMasterTableAdapter.ClearBeforeFill = true;
+            // 
+            // bankAccountDetailsTableAdapter
+            // 
+            this.bankAccountDetailsTableAdapter.ClearBeforeFill = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(721, 219);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Bank Accounts";
+            // 
             // frmBank
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1441, 702);
+            this.ClientSize = new System.Drawing.Size(941, 456);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPKBANKACC);
             this.Controls.Add(this.DGVBankAccounts);
@@ -546,6 +608,7 @@
             this.Controls.Add(this.DGVBanks);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank Master";
@@ -616,5 +679,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fKBankIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PKBANKACC;
         private System.Windows.Forms.DataGridViewTextBoxColumn FKAccountType;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnPrintAccount;
     }
 }

@@ -81,6 +81,7 @@
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource1)).BeginInit();
@@ -99,6 +100,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btClearRecord);
             this.groupBox2.Controls.Add(this.closeForm);
             this.groupBox2.Controls.Add(this.btnDelete);
@@ -113,7 +115,7 @@
             // 
             // btClearRecord
             // 
-            this.btClearRecord.Location = new System.Drawing.Point(315, 12);
+            this.btClearRecord.Location = new System.Drawing.Point(419, 12);
             this.btClearRecord.Name = "btClearRecord";
             this.btClearRecord.Size = new System.Drawing.Size(97, 28);
             this.btClearRecord.TabIndex = 8;
@@ -123,7 +125,7 @@
             // 
             // closeForm
             // 
-            this.closeForm.Location = new System.Drawing.Point(418, 13);
+            this.closeForm.Location = new System.Drawing.Point(522, 12);
             this.closeForm.Name = "closeForm";
             this.closeForm.Size = new System.Drawing.Size(97, 28);
             this.closeForm.TabIndex = 3;
@@ -534,6 +536,16 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(316, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(97, 28);
+            this.btnPrint.TabIndex = 9;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // Privilege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,5 +637,6 @@
         private System.Windows.Forms.Button btnClearSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

@@ -49,8 +49,11 @@ namespace MANUUFinance
             //Disable AccountTypeCombo
             comboAcType.Enabled = false;
 
-            // prepare action add, update, delete
-            prepareaction();
+            // prepare action add, update, delete, print
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
         }
 
 
@@ -577,6 +580,18 @@ namespace MANUUFinance
             this.Close();
             }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVBanks, "Bank");
+            objectsupport.ShowDialog();
+        }
+
+        private void btnPrintAccount_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVBankAccounts, "BankAccounts");
+            objectsupport.ShowDialog();
+        }
+
         //Prepare Filter for Bank Accounts
         private void PrepareFilterForBankAccountDetails(int row)
         {
@@ -599,23 +614,47 @@ namespace MANUUFinance
             if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
             {
                 btnAdd.Enabled = true;
+                btnAddAccount.Enabled = true;
             }
             else
+            {
                 btnAdd.Enabled = false;
+                btnAddAccount.Enabled = false;
+            }
+
             string CanUpdate = "CanUpdate";
             if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
             {
                 btnUpdate.Enabled = true;
+                btnUpdateAccount.Enabled = true;
             }
             else
+            {
                 btnUpdate.Enabled = false;
+                btnUpdateAccount.Enabled = false;
+            }
             string CanDelete = "CanDelete";
             if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
             {
                 btnDelete.Enabled = true;
+                btnDeleteAccount.Enabled = true;
             }
             else
+            {
                 btnDelete.Enabled = false;
+                btnDeleteAccount.Enabled = false;
+            }
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+                btnPrintAccount.Enabled = true;
+            }
+            else
+            {
+                btnPrintAccount.Enabled = false;
+                btnPrint.Enabled = false;
+            }
         }
         #endregion
 

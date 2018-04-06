@@ -69,6 +69,7 @@
             this.sL3SL2SL1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.sL3SL2SL1TableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.SL3SL2SL1TableAdapter();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -79,30 +80,35 @@
             // 
             // txtPKSL3
             // 
-            this.txtPKSL3.Location = new System.Drawing.Point(1071, 354);
+            this.txtPKSL3.Location = new System.Drawing.Point(714, 230);
+            this.txtPKSL3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPKSL3.Name = "txtPKSL3";
-            this.txtPKSL3.Size = new System.Drawing.Size(100, 26);
+            this.txtPKSL3.Size = new System.Drawing.Size(68, 20);
             this.txtPKSL3.TabIndex = 27;
             this.txtPKSL3.Visible = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Location = new System.Drawing.Point(266, 325);
+            this.groupBox2.Location = new System.Drawing.Point(87, 211);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(715, 70);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(567, 45);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(566, 18);
+            this.button1.Location = new System.Drawing.Point(468, 12);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 38);
+            this.button1.Size = new System.Drawing.Size(89, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "Cl&ose Form";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,9 +116,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(427, 18);
+            this.btnClear.Location = new System.Drawing.Point(376, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(133, 38);
+            this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "&Clear Controls";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -120,9 +127,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(288, 18);
+            this.btnDelete.Location = new System.Drawing.Point(192, 12);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(133, 38);
+            this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -130,9 +138,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(149, 18);
+            this.btnUpdate.Location = new System.Drawing.Point(99, 12);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(133, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "&Update Record";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -140,9 +149,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 18);
+            this.btnAdd.Location = new System.Drawing.Point(7, 12);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(133, 38);
+            this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "&Add Record";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -165,9 +175,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtSL3ID);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox1.Location = new System.Drawing.Point(68, 42);
+            this.groupBox1.Location = new System.Drawing.Point(45, 27);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1140, 277);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(760, 180);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Schedule Level - 3";
@@ -177,35 +189,39 @@
             this.comboSL2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboSL2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL2.FormattingEnabled = true;
-            this.comboSL2.Location = new System.Drawing.Point(215, 77);
+            this.comboSL2.Location = new System.Drawing.Point(143, 50);
+            this.comboSL2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboSL2.Name = "comboSL2";
-            this.comboSL2.Size = new System.Drawing.Size(472, 28);
+            this.comboSL2.Size = new System.Drawing.Size(316, 21);
             this.comboSL2.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(87, 80);
+            this.label3.Location = new System.Drawing.Point(58, 52);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 24;
             this.label3.Text = "SL2 Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(818, 46);
+            this.label2.Location = new System.Drawing.Point(545, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "SL3 Code";
             // 
             // txtSL3Code
             // 
             this.txtSL3Code.Enabled = false;
-            this.txtSL3Code.Location = new System.Drawing.Point(938, 40);
+            this.txtSL3Code.Location = new System.Drawing.Point(625, 26);
+            this.txtSL3Code.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL3Code.Name = "txtSL3Code";
-            this.txtSL3Code.Size = new System.Drawing.Size(100, 26);
+            this.txtSL3Code.Size = new System.Drawing.Size(68, 20);
             this.txtSL3Code.TabIndex = 1;
             // 
             // comboSL1
@@ -213,44 +229,49 @@
             this.comboSL1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboSL1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL1.FormattingEnabled = true;
-            this.comboSL1.Location = new System.Drawing.Point(215, 37);
+            this.comboSL1.Location = new System.Drawing.Point(143, 24);
+            this.comboSL1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboSL1.Name = "comboSL1";
-            this.comboSL1.Size = new System.Drawing.Size(472, 28);
+            this.comboSL1.Size = new System.Drawing.Size(316, 21);
             this.comboSL1.TabIndex = 0;
             this.comboSL1.SelectedIndexChanged += new System.EventHandler(this.comboSL1_SelectedIndexChanged);
             // 
             // txtSL3Order
             // 
-            this.txtSL3Order.Location = new System.Drawing.Point(938, 122);
+            this.txtSL3Order.Location = new System.Drawing.Point(625, 79);
+            this.txtSL3Order.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL3Order.Name = "txtSL3Order";
-            this.txtSL3Order.Size = new System.Drawing.Size(100, 26);
+            this.txtSL3Order.Size = new System.Drawing.Size(68, 20);
             this.txtSL3Order.TabIndex = 5;
             this.txtSL3Order.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSL3Order_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(820, 123);
+            this.label1.Location = new System.Drawing.Point(547, 80);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 20;
             this.label1.Text = "SL3 Order";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(86, 198);
+            this.label8.Location = new System.Drawing.Point(57, 129);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 19;
             this.label8.Text = "SL3 Active";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(86, 40);
+            this.label6.Location = new System.Drawing.Point(57, 26);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "SL1 Name";
             // 
@@ -258,18 +279,21 @@
             // 
             this.groupBox3.Controls.Add(this.radioBtnSL3InActive);
             this.groupBox3.Controls.Add(this.radioBtnSL3Active);
-            this.groupBox3.Location = new System.Drawing.Point(214, 190);
+            this.groupBox3.Location = new System.Drawing.Point(143, 123);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(273, 47);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(182, 31);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
             // radioBtnSL3InActive
             // 
             this.radioBtnSL3InActive.AutoSize = true;
-            this.radioBtnSL3InActive.Location = new System.Drawing.Point(148, 16);
+            this.radioBtnSL3InActive.Location = new System.Drawing.Point(99, 10);
+            this.radioBtnSL3InActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioBtnSL3InActive.Name = "radioBtnSL3InActive";
-            this.radioBtnSL3InActive.Size = new System.Drawing.Size(89, 24);
+            this.radioBtnSL3InActive.Size = new System.Drawing.Size(63, 17);
             this.radioBtnSL3InActive.TabIndex = 1;
             this.radioBtnSL3InActive.Text = "Inactive";
             this.radioBtnSL3InActive.UseVisualStyleBackColor = true;
@@ -278,9 +302,10 @@
             // 
             this.radioBtnSL3Active.AutoSize = true;
             this.radioBtnSL3Active.Checked = true;
-            this.radioBtnSL3Active.Location = new System.Drawing.Point(40, 16);
+            this.radioBtnSL3Active.Location = new System.Drawing.Point(27, 10);
+            this.radioBtnSL3Active.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioBtnSL3Active.Name = "radioBtnSL3Active";
-            this.radioBtnSL3Active.Size = new System.Drawing.Size(77, 24);
+            this.radioBtnSL3Active.Size = new System.Drawing.Size(55, 17);
             this.radioBtnSL3Active.TabIndex = 0;
             this.radioBtnSL3Active.TabStop = true;
             this.radioBtnSL3Active.Text = "Active";
@@ -289,33 +314,37 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(86, 159);
+            this.label7.Location = new System.Drawing.Point(57, 103);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "SL3 Name";
             // 
             // txtSL3Name
             // 
-            this.txtSL3Name.Location = new System.Drawing.Point(214, 159);
+            this.txtSL3Name.Location = new System.Drawing.Point(143, 103);
+            this.txtSL3Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL3Name.Name = "txtSL3Name";
-            this.txtSL3Name.Size = new System.Drawing.Size(472, 26);
+            this.txtSL3Name.Size = new System.Drawing.Size(316, 20);
             this.txtSL3Name.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(86, 120);
+            this.label4.Location = new System.Drawing.Point(57, 78);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "SL3 ID";
             // 
             // txtSL3ID
             // 
-            this.txtSL3ID.Location = new System.Drawing.Point(214, 117);
+            this.txtSL3ID.Location = new System.Drawing.Point(143, 76);
+            this.txtSL3ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL3ID.Name = "txtSL3ID";
-            this.txtSL3ID.Size = new System.Drawing.Size(100, 26);
+            this.txtSL3ID.Size = new System.Drawing.Size(68, 20);
             this.txtSL3ID.TabIndex = 3;
             this.txtSL3ID.TextChanged += new System.EventHandler(this.txtSL3ID_TextChanged);
             this.txtSL3ID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSL3ID_KeyPress);
@@ -345,12 +374,13 @@
             this.sL3IDDataGridViewTextBoxColumn,
             this.SL3ID});
             this.DGVSL3SL2SL1.DataSource = this.sL3SL2SL1BindingSource;
-            this.DGVSL3SL2SL1.Location = new System.Drawing.Point(68, 414);
+            this.DGVSL3SL2SL1.Location = new System.Drawing.Point(45, 269);
+            this.DGVSL3SL2SL1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DGVSL3SL2SL1.MultiSelect = false;
             this.DGVSL3SL2SL1.Name = "DGVSL3SL2SL1";
             this.DGVSL3SL2SL1.ReadOnly = true;
             this.DGVSL3SL2SL1.RowTemplate.Height = 28;
-            this.DGVSL3SL2SL1.Size = new System.Drawing.Size(1140, 358);
+            this.DGVSL3SL2SL1.Size = new System.Drawing.Size(760, 233);
             this.DGVSL3SL2SL1.TabIndex = 28;
             this.DGVSL3SL2SL1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL3SL2SL1_CellClick);
             // 
@@ -369,7 +399,7 @@
             this.sL3CodeDataGridViewTextBoxColumn.HeaderText = "SL3Code";
             this.sL3CodeDataGridViewTextBoxColumn.Name = "sL3CodeDataGridViewTextBoxColumn";
             this.sL3CodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3CodeDataGridViewTextBoxColumn.Width = 112;
+            this.sL3CodeDataGridViewTextBoxColumn.Width = 76;
             // 
             // sL1IDDataGridViewTextBoxColumn
             // 
@@ -395,7 +425,7 @@
             this.sL3NameDataGridViewTextBoxColumn.HeaderText = "SL3Name";
             this.sL3NameDataGridViewTextBoxColumn.Name = "sL3NameDataGridViewTextBoxColumn";
             this.sL3NameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3NameDataGridViewTextBoxColumn.Width = 116;
+            this.sL3NameDataGridViewTextBoxColumn.Width = 79;
             // 
             // sL2NameDataGridViewTextBoxColumn
             // 
@@ -403,7 +433,7 @@
             this.sL2NameDataGridViewTextBoxColumn.HeaderText = "SL2Name";
             this.sL2NameDataGridViewTextBoxColumn.Name = "sL2NameDataGridViewTextBoxColumn";
             this.sL2NameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL2NameDataGridViewTextBoxColumn.Width = 116;
+            this.sL2NameDataGridViewTextBoxColumn.Width = 79;
             // 
             // sL1NameDataGridViewTextBoxColumn
             // 
@@ -411,7 +441,7 @@
             this.sL1NameDataGridViewTextBoxColumn.HeaderText = "SL1Name";
             this.sL1NameDataGridViewTextBoxColumn.Name = "sL1NameDataGridViewTextBoxColumn";
             this.sL1NameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL1NameDataGridViewTextBoxColumn.Width = 116;
+            this.sL1NameDataGridViewTextBoxColumn.Width = 79;
             // 
             // sL3ActiveDataGridViewCheckBoxColumn
             // 
@@ -419,7 +449,7 @@
             this.sL3ActiveDataGridViewCheckBoxColumn.HeaderText = "SL3Active";
             this.sL3ActiveDataGridViewCheckBoxColumn.Name = "sL3ActiveDataGridViewCheckBoxColumn";
             this.sL3ActiveDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.sL3ActiveDataGridViewCheckBoxColumn.Width = 87;
+            this.sL3ActiveDataGridViewCheckBoxColumn.Width = 62;
             // 
             // sL3OrderDataGridViewTextBoxColumn
             // 
@@ -427,7 +457,7 @@
             this.sL3OrderDataGridViewTextBoxColumn.HeaderText = "SL3Order";
             this.sL3OrderDataGridViewTextBoxColumn.Name = "sL3OrderDataGridViewTextBoxColumn";
             this.sL3OrderDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3OrderDataGridViewTextBoxColumn.Width = 114;
+            this.sL3OrderDataGridViewTextBoxColumn.Width = 77;
             // 
             // sL3IDDataGridViewTextBoxColumn
             // 
@@ -461,15 +491,27 @@
             // 
             this.sL3SL2SL1TableAdapter.ClearBeforeFill = true;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(284, 12);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmSL3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1308, 841);
+            this.ClientSize = new System.Drawing.Size(872, 487);
             this.Controls.Add(this.DGVSL3SL2SL1);
             this.Controls.Add(this.txtPKSL3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmSL3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule Level - 3";
@@ -528,5 +570,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sL3IDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL3ID;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

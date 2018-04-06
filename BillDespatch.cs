@@ -45,7 +45,10 @@ namespace MANUUFinance
             PrepareDeptCombo();
             PrepareBillTypeCombo();
             PrepareBillStatusCombo();
-            prepareaction();
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
         }
 
         //DML Region Starts here
@@ -785,6 +788,12 @@ namespace MANUUFinance
             }
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(comboACID, "Bill Dispatch");
+            objectsupport.ShowDialog();
+        }
+
         private void comboAccountName_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Connection String
@@ -842,6 +851,14 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
     }
 

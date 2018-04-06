@@ -30,7 +30,10 @@ namespace MANUUFinance
         {
             //Prepare Combo for Showing Account Types
             PrepareAccountTypesCombo();
-            prepareaction();
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
             retrievedForUpdate = false;
 
             // TODO: This line of code loads data into the 'financeDataSet.SL1' table. You can move, or remove it, as needed.
@@ -384,6 +387,13 @@ namespace MANUUFinance
             txtScheduleID.Enabled = true;
             retrievedForUpdate = false;
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVSL1, "SL1");
+            objectsupport.ShowDialog();
+        }
+
         // prepare the action add, update, delete
         private void prepareaction()
         {
@@ -408,6 +418,13 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
         //Close Form
         private void button1_Click(object sender, EventArgs e)

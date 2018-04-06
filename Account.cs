@@ -36,7 +36,10 @@ namespace MANUUFinance
             PrepareSL2Combo("0");
             PrepareSL3Combo("0");
             PrepareAccountType();
-            prepareaction();
+            if (userId != 5 || userId != 6 || userId != 7)
+            {
+                prepareaction();
+            }
             PrepareBankAccountCombo();
             retrievedForUpdate = false;
         }
@@ -554,10 +557,6 @@ namespace MANUUFinance
 
         private void btnPrintRecord_Click(object sender, EventArgs e)
         {
-            // PdfCreator objectprint = new PdfCreator();
-            //    objectprint.exportgridpdf(DGVAccounts,"Account");
-            //  objectprint.pdfsupports(DGVAccounts, "Account"); 
-
             Supports objectsupport = new Supports(DGVAccounts, "Account");
             objectsupport.ShowDialog();
         }
@@ -566,7 +565,7 @@ namespace MANUUFinance
         {
             this.Close();
         }
-        //prepare the action add, delete, update
+        //prepare the action add, delete, update and print
         private void prepareaction()
         {
             string CanAdd = "CanAdd";
@@ -590,6 +589,13 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
 
         #endregion

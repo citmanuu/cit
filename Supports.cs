@@ -48,22 +48,12 @@ namespace MANUUFinance
 
                 this.Controls.Add(box[j]);
             }
-            
         }
-
         private void generatePDF_Click(object sender, EventArgs e)
         {
+            this.Close();
             PdfCreator objectpdfgenerate = new PdfCreator();
-            objectpdfgenerate.exportgridpdf(DGV, fileName, box);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            for (var j = 0; j < i; j++)
-            {
-               // if (box[j].Checked == true)
-                    MessageBox.Show(box[j].Text);
-            }
+            objectpdfgenerate.exportgridpdf(DGV, fileName, box,i);
         }
     }
 }
