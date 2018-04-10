@@ -36,7 +36,7 @@ namespace MANUUFinance
             PrepareSL2Combo("0");
             PrepareSL3Combo("0");
             PrepareAccountType();
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }

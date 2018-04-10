@@ -28,11 +28,11 @@ namespace MANUUFinance
 
         private void Privilege_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet8.RoleFormPrivileges' table. You can move, or remove it, as needed.
-            this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
+            // TODO: This line of code loads data into the 'financeDataSet2.RoleFormPrivileges' table. You can move, or remove it, as needed.
+            this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
             PreparedcomboRole();
             preparedcomboform();
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }
@@ -45,11 +45,11 @@ namespace MANUUFinance
             objLOVClass.Add(new LOV(0, "-- Please Select --"));
 
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT FormId, FormName FROM [Ldap].[dbo].[FormMST] Order by 1";
+            string selectCommand = "SELECT FormId, FormName FROM [finance].[dbo].[FormMST] Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -80,11 +80,11 @@ namespace MANUUFinance
             objLOVClass.Add(new LOV(0, "-- Please Select --"));
 
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT RoleId, RoleName FROM [Ldap].[dbo].[RoleMST] Order by 1";
+            string selectCommand = "SELECT RoleId, RoleName FROM [finance].[dbo].[RoleMST] Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -145,14 +145,15 @@ namespace MANUUFinance
 
         private void cleartextbox()
         {
-            comboBox1.Text = String.Empty;
-            comboBox2.Text = String.Empty;
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
             checkbt1.Checked = false;
             checkbt2.Checked = false;
             checkbt3.Checked = false;
             checkbt4.Checked = false;
             checkbt5.Checked = false;
             retrievedForUpdate = false;
+            checkBox1.Checked = false;
         }
 
         private bool validateRecord()
@@ -271,7 +272,7 @@ namespace MANUUFinance
             if (validateRecord())
             {
                     //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                     //Instantiate SQL Connection
                     SqlConnection con = new SqlConnection(cs);
@@ -281,8 +282,8 @@ namespace MANUUFinance
                     // Get the number of the row in database
                     SqlCommand cmd = new SqlCommand("privileges_insert", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
-                    cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
+                    cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [finance].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
+                    cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [finance].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
                     if (checkbt1.Checked == true)
                         cmd.Parameters.AddWithValue("@CanAdd", 1);
                     else
@@ -308,20 +309,28 @@ namespace MANUUFinance
                     else
                         cmd.Parameters.AddWithValue("@CanSearch", 0);
 
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+                try
+                {
+                   bool sucess =  Convert.ToBoolean(cmd.ExecuteScalar());
+                    if(sucess)
                     {
-                        MessageBox.Show("Privileges is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // TODO: This line of code loads data into the 'ldapDataSet8.RoleFormPrivileges' table. You can move, or remove it, as needed.
-                    this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
-                    con.Close();
+                        MessageBox.Show("Privileges is Added ", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
                         cleartextbox();
                     }
                     else
-                    {
-                        MessageBox.Show("Please check your Form Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cleartextbox();
-                    }             
+                        MessageBox.Show("Some Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Please check your Form Name : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
+                    cleartextbox();
+                    con.Close();
+                }                      
             }
         }
 
@@ -336,7 +345,7 @@ namespace MANUUFinance
             if (validateRecord())
             {
                 //Connection String 
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                 //Instantiate SQL Connection
                 SqlConnection con = new SqlConnection(cs);
@@ -345,11 +354,11 @@ namespace MANUUFinance
                 con.Open();
                
                 // Get the number of the row in database
-                SqlCommand cmd = new SqlCommand("privilege_update", con);
+                SqlCommand cmd = new SqlCommand("Privileges_addoreditordelete", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
-                cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
+                cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [finance].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
+                cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [finance].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
                 if (checkbt1.Checked == true)
                     cmd.Parameters.AddWithValue("@CanAdd", 1);
                 else
@@ -375,19 +384,27 @@ namespace MANUUFinance
                 else
                     cmd.Parameters.AddWithValue("@CanSearch", 0);
 
-                bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                if (success)
+                try
                 {
-                    MessageBox.Show("Privileges is Update", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // TODO: This line of code loads data into the 'ldapDataSet8.RoleFormPrivileges' table. You can move, or remove it, as needed.
-                    this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
-                    con.Close();
-                    cleartextbox();
+                    bool sucess = Convert.ToBoolean(cmd.ExecuteScalar());
+                    if (sucess)
+                    {
+                        MessageBox.Show("Privileges is Updated ", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
+                        cleartextbox();
+                    }
+                    else
+                        MessageBox.Show("Some Error ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Please Click the Add Button", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please check your Form Name : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
                     cleartextbox();
+                    con.Close();
                 }
             }
         }
@@ -398,35 +415,50 @@ namespace MANUUFinance
             {
                 if (validateRecord())
                 {
-                    //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
-
-                    //Instantiate SQL Connection
-                    SqlConnection con = new SqlConnection(cs);
-
-                    // Open the connection
-                    con.Open();
-                    // Get the number of the row in database
-                    SqlCommand cmd = new SqlCommand("privilege_delete", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
-                    cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
-
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+                    if(retrievedForUpdate)
                     {
-                        MessageBox.Show("Privileges is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // TODO: This line of code loads data into the 'ldapDataSet8.RoleFormPrivileges' table. You can move, or remove it, as needed.
-                        this.roleFormPrivilegesTableAdapter3.Fill(this.ldapDataSet8.RoleFormPrivileges);
-                        con.Close();
-                        cleartextbox();
+
+                        //Connection String 
+                        string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+
+                        //Instantiate SQL Connection
+                        SqlConnection con = new SqlConnection(cs);
+
+                        // Open the connection
+                        con.Open();
+                        // Get the number of the row in database
+                        SqlCommand cmd = new SqlCommand("Privileges_addoreditordelete", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
+                        cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
+
+                        try
+                        {
+                            bool sucess = Convert.ToBoolean(cmd.ExecuteScalar());
+                            if (sucess)
+                            {
+                                MessageBox.Show("Privileges is deleted ", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
+                                cleartextbox();
+                            }
+                            else
+                                MessageBox.Show("Some Error ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("Please check your Form Name : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
+                            cleartextbox();
+                            con.Close();
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("Please Click Department, Role and Form Box", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        cleartextbox();
-                    }
+                        MessageBox.Show("Please select first ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
             }
         }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departments));
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrintRecord = new System.Windows.Forms.Button();
             this.btClearRecord = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -57,12 +58,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.departmentTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.DepartmentTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnPrintRecord = new System.Windows.Forms.Button();
+            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
+            this.departmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.departmentTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.DepartmentTableAdapter();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -164,7 +169,7 @@
             this.deptIdDataGridViewTextBoxColumn,
             this.deptNameDataGridViewTextBoxColumn,
             this.deptDescriptionDataGridViewTextBoxColumn});
-            this.DGVForm.DataSource = this.departmentBindingSource;
+            this.DGVForm.DataSource = this.departmentBindingSource1;
             this.DGVForm.Location = new System.Drawing.Point(29, 319);
             this.DGVForm.Name = "DGVForm";
             this.DGVForm.ReadOnly = true;
@@ -175,8 +180,8 @@
             // deptIdDataGridViewTextBoxColumn
             // 
             this.deptIdDataGridViewTextBoxColumn.DataPropertyName = "DeptId";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.deptIdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.deptIdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.deptIdDataGridViewTextBoxColumn.HeaderText = "DeptId";
             this.deptIdDataGridViewTextBoxColumn.Name = "deptIdDataGridViewTextBoxColumn";
             this.deptIdDataGridViewTextBoxColumn.ReadOnly = true;
@@ -241,6 +246,16 @@
             this.groupBox2.Size = new System.Drawing.Size(821, 47);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
+            // 
+            // btnPrintRecord
+            // 
+            this.btnPrintRecord.Location = new System.Drawing.Point(317, 12);
+            this.btnPrintRecord.Name = "btnPrintRecord";
+            this.btnPrintRecord.Size = new System.Drawing.Size(97, 28);
+            this.btnPrintRecord.TabIndex = 8;
+            this.btnPrintRecord.Text = "Print Records";
+            this.btnPrintRecord.UseVisualStyleBackColor = true;
+            this.btnPrintRecord.Click += new System.EventHandler(this.btnPrintRecord_Click);
             // 
             // btClearRecord
             // 
@@ -324,15 +339,19 @@
             this.label4.TabIndex = 45;
             this.label4.Text = resources.GetString("label4.Text");
             // 
-            // btnPrintRecord
+            // financeDataSet1
             // 
-            this.btnPrintRecord.Location = new System.Drawing.Point(317, 12);
-            this.btnPrintRecord.Name = "btnPrintRecord";
-            this.btnPrintRecord.Size = new System.Drawing.Size(97, 28);
-            this.btnPrintRecord.TabIndex = 8;
-            this.btnPrintRecord.Text = "Print Records";
-            this.btnPrintRecord.UseVisualStyleBackColor = true;
-            this.btnPrintRecord.Click += new System.EventHandler(this.btnPrintRecord_Click);
+            this.financeDataSet1.DataSetName = "FinanceDataSet1";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // departmentBindingSource1
+            // 
+            this.departmentBindingSource1.DataMember = "Department";
+            this.departmentBindingSource1.DataSource = this.financeDataSet1;
+            // 
+            // departmentTableAdapter1
+            // 
+            this.departmentTableAdapter1.ClearBeforeFill = true;
             // 
             // Departments
             // 
@@ -358,6 +377,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,5 +413,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn deptNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnPrintRecord;
+        private FinanceDataSet1 financeDataSet1;
+        private System.Windows.Forms.BindingSource departmentBindingSource1;
+        private FinanceDataSet1TableAdapters.DepartmentTableAdapter departmentTableAdapter1;
     }
 }

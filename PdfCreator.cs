@@ -24,64 +24,66 @@ namespace MANUUFinance
                 if (box[i].Checked == true)
                     count++;
             }
-            PdfPTable pdftable = new PdfPTable(count);
-            pdftable.DefaultCell.Padding = 5;
-            pdftable.HorizontalAlignment = Element.ALIGN_LEFT;
-            pdftable.DefaultCell.BorderWidth = 1;
-
-            iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 6, iTextSharp.text.Font.BOLD);
-            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 7, iTextSharp.text.Font.NORMAL);
-
-            // Add the logo
-            string startupPath = AppDomain.CurrentDomain.BaseDirectory;
-            string imagepath = startupPath + "logo1.png";
-            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagepath);
-            image.ScalePercent(60f);
- 
-            // Add header
-
-            for (var j = 0; j < data.Columns.Count; j++)
+            if (count !=0)
             {
+                PdfPTable pdftable = new PdfPTable(count);
+                pdftable.DefaultCell.Padding = 5;
+                pdftable.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdftable.DefaultCell.BorderWidth = 1;
 
-                foreach (CheckBox box1 in box)
+                iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 6, iTextSharp.text.Font.BOLD);
+                iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 7, iTextSharp.text.Font.NORMAL);
+
+                // Add the logo
+                string startupPath = AppDomain.CurrentDomain.BaseDirectory;
+                string imagepath = startupPath + "logo1.png";
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagepath);
+                image.ScalePercent(60f);
+
+                // Add header
+
+                for (var j = 0; j < data.Columns.Count; j++)
                 {
-                    if (box1 == null)
-                        continue;
-                    else
+
+                    foreach (CheckBox box1 in box)
                     {
-                        if (data.Columns[j].HeaderText == box1.Text)
+                        if (box1 == null)
+                            continue;
+                        else
                         {
-                            if (box1.Checked == true)
+                            if (data.Columns[j].HeaderText == box1.Text)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(data.Columns[j].HeaderText, font));
-                                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                                pdftable.AddCell(data.Columns[j].HeaderText);                                
+                                if (box1.Checked == true)
+                                {
+                                    PdfPCell cell = new PdfPCell(new Phrase(data.Columns[j].HeaderText, font));
+                                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                                    pdftable.AddCell(data.Columns[j].HeaderText);
+                                }
+
                             }
-
                         }
+
                     }
-
                 }
-            }
 
-            //Add datarow 
-            foreach (DataGridViewRow row in data.Rows)
-            {
-                int j = 0;
-                int i = 0;
-                foreach (DataGridViewCell cell in row.Cells)
+                //Add datarow 
+                foreach (DataGridViewRow row in data.Rows)
                 {
-                    if (data.Columns[j].Visible == true)
+                    int j = 0;
+                    int i = 0;
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if(box[i].Checked == true)
+                        if (data.Columns[j].Visible == true)
                         {
-                            pdftable.AddCell(new Phrase(cell.Value.ToString(), text));
+                            if (box[i].Checked == true)
+                            {
+                                pdftable.AddCell(new Phrase(cell.Value.ToString(), text));
+                            }
+                            i++;
                         }
-                        i++;
+                        j++;
                     }
-                    j++;
                 }
-            }
                 var savefiledialoge = new SaveFileDialog();
                 savefiledialoge.FileName = filename;
                 savefiledialoge.DefaultExt = ".pdf";
@@ -102,11 +104,14 @@ namespace MANUUFinance
 
                     }
                     catch (Exception)
-                    {
-                        MessageBox.Show("Please close the PDF and then save");
+                    {                        
+                        MessageBox.Show("Please close the PDF and then save :EXIT", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+            else
+                MessageBox.Show("Please choose any one of them : EXIT", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         public void exportgridviewpdf(DataGridView data, string filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1257, BaseFont.EMBEDDED);

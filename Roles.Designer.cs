@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btClearRecord = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -56,11 +57,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.roleMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.RoleMSTTableAdapter();
+            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
+            this.roleMSTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.roleMSTTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.RoleMSTTableAdapter();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -162,7 +168,7 @@
             this.roleIdDataGridViewTextBoxColumn,
             this.roleNameDataGridViewTextBoxColumn,
             this.roleDescriptionDataGridViewTextBoxColumn});
-            this.DGVRole.DataSource = this.roleMSTBindingSource;
+            this.DGVRole.DataSource = this.roleMSTBindingSource1;
             this.DGVRole.Location = new System.Drawing.Point(29, 319);
             this.DGVRole.Name = "DGVRole";
             this.DGVRole.ReadOnly = true;
@@ -237,6 +243,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btClearRecord);
             this.groupBox2.Controls.Add(this.btnExit);
             this.groupBox2.Controls.Add(this.btnDelete);
@@ -249,9 +256,19 @@
             this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(316, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(97, 28);
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // btClearRecord
             // 
-            this.btClearRecord.Location = new System.Drawing.Point(316, 12);
+            this.btClearRecord.Location = new System.Drawing.Point(419, 12);
             this.btClearRecord.Name = "btClearRecord";
             this.btClearRecord.Size = new System.Drawing.Size(97, 28);
             this.btClearRecord.TabIndex = 7;
@@ -261,7 +278,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(419, 12);
+            this.btnExit.Location = new System.Drawing.Point(522, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(97, 28);
             this.btnExit.TabIndex = 6;
@@ -319,6 +336,20 @@
             // 
             this.roleMSTTableAdapter.ClearBeforeFill = true;
             // 
+            // financeDataSet1
+            // 
+            this.financeDataSet1.DataSetName = "FinanceDataSet1";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // roleMSTBindingSource1
+            // 
+            this.roleMSTBindingSource1.DataMember = "RoleMST";
+            this.roleMSTBindingSource1.DataSource = this.financeDataSet1;
+            // 
+            // roleMSTTableAdapter1
+            // 
+            this.roleMSTTableAdapter1.ClearBeforeFill = true;
+            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,6 +374,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +409,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn roleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnPrint;
+        private FinanceDataSet1 financeDataSet1;
+        private System.Windows.Forms.BindingSource roleMSTBindingSource1;
+        private FinanceDataSet1TableAdapters.RoleMSTTableAdapter roleMSTTableAdapter1;
     }
 }

@@ -132,14 +132,14 @@ namespace MANUUFinance
             if (validateRecord())
             {
                 //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                 //Instantiate SQL Connection
                 SqlConnection objSqlConnection = new SqlConnection(cs);
 
                 //Prepare for record addition
 
-                SqlCommand objSqlCmd = new SqlCommand("usertodepttorole_insert", objSqlConnection);
+                SqlCommand objSqlCmd = new SqlCommand("UsertoDepttoRole_insert", objSqlConnection);
                 objSqlCmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
@@ -219,8 +219,8 @@ namespace MANUUFinance
 
         private void Role_Modify_Privileges_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet.RoleMST' table. You can move, or remove it, as needed.
-            this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
+            // TODO: This line of code loads data into the 'financeDataSet1.RoleMST' table. You can move, or remove it, as needed.
+            this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
             preparedcombo();
         }
 
@@ -230,11 +230,11 @@ namespace MANUUFinance
             objLOVClass.Add(new LOV(0, "-- Please Select --"));
 
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT UserId, Name FROM [Ldap].[dbo].[Users] Order by 1";
+            string selectCommand = "SELECT UserId, Name FROM [finance].[dbo].[Users] Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -265,11 +265,11 @@ namespace MANUUFinance
                 objLOVClass.Add(new LOV(0, "-- Please Select --"));
 
                 //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
                 //Instantiate SQL Connection
                 SqlConnection objSqlConnection = new SqlConnection(cs);
                 //Prepare Update String                
-                string selectCommand = "SELECT a.DeptId, a.DeptName FROM [Ldap].[dbo].[Department] as a inner join [Ldap].[dbo].[UserDept] as b on a.DeptId = b.DeptId where b.UserId = '" + Convert.ToInt32(comboBox1.SelectedValue) + "'Order by 1";
+                string selectCommand = "SELECT a.DeptId, a.DeptName FROM [finance].[dbo].[Department] as a inner join [finance].[dbo].[UserDept] as b on a.DeptId = b.DeptId where b.UserId = '" + Convert.ToInt32(comboBox1.SelectedValue) + "'Order by 1";
                 SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
                 try
                 {

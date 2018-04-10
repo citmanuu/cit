@@ -31,18 +31,20 @@ namespace MANUUFinance
         }
 
         // Load the file while load the form
+        #region
         private void AddDepartment_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet.Department' table. You can move, or remove it, as needed.
-            this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+            // TODO: This line of code loads data into the 'financeDataSet1.Department' table. You can move, or remove it, as needed.
+            this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
 
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }
         }
+        #endregion
 
-       //DML region
+        //DML region
         #region
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace MANUUFinance
                 if (validateRecord())
                 {
                     //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                     //Instantiate SQL Connection
                     SqlConnection con = new SqlConnection(cs);
@@ -58,25 +60,36 @@ namespace MANUUFinance
                     // Open the connection
                     con.Open();
                     // Get the number of the row in database
-                    SqlCommand cmd = new SqlCommand("department_insert", con);
+                    SqlCommand cmd = new SqlCommand("Dept_addoreditordelete", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@DeptName", textBox1.Text.ToString().ToUpper());
                     cmd.Parameters.AddWithValue("@DeptDescription", richTextBox1.Text.ToString().ToUpper());
+                    cmd.Parameters.AddWithValue("@DeptId", -1);
+                try
+                {
                     bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+                    MessageBox.Show("Department is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
+                    cleartextbox();
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Message.Contains("Name_Department"))
                     {
-                        MessageBox.Show("Department is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
-                        con.Close();
-                        cleartextbox();
-
+                        MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox1.Focus();
                     }
                     else
-                    {
-                        MessageBox.Show("Please check your Department Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cleartextbox();
-                    }
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
+                finally
+                {
+                    this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+                    cleartextbox();
+                    con.Close();
+                }
+            }
         }
                      
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -88,30 +101,40 @@ namespace MANUUFinance
                 if (retrievedForUpdate)
                 {
                     //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                     //Instantiate SQL Connection
                     SqlConnection con = new SqlConnection(cs);
                     // Open the connection
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("department_update", con);
+                    SqlCommand cmd = new SqlCommand("Dept_addoreditordelete", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@DeptId", GlobalId);
                     cmd.Parameters.AddWithValue("@DeptName", textBox1.Text.ToString().ToUpper());
-                    cmd.Parameters.AddWithValue("@DeptDescription", richTextBox1.Text.ToString().ToUpper());
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+                    cmd.Parameters.AddWithValue("@DeptDescription", richTextBox1.Text.ToString().ToUpper());                  
+                    try
                     {
+                        bool success = Convert.ToBoolean(cmd.ExecuteScalar());
                         MessageBox.Show("Department is Updated", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
-                        con.Close();
+                        this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
                         cleartextbox();
+                    }
+                    catch (SqlException ex)
+                    {
+                        if (ex.Message.Contains("Name_Department"))
+                        {
+                            MessageBox.Show("Record already added. Perhaps you want to change.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBox1.Focus();
+                        }
+                        else
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
-                    else
+                    finally
                     {
-                        MessageBox.Show("Please check your Department Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
                         cleartextbox();
+                        con.Close();
                     }
                 }
 
@@ -131,7 +154,7 @@ namespace MANUUFinance
                     if (validateRecord())
                     {
                         //Connection String 
-                        string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                         //Instantiate SQL Connection
                         SqlConnection con = new SqlConnection(cs);
@@ -139,23 +162,29 @@ namespace MANUUFinance
                         // Open the connection
                         con.Open();
                         // Get the number of the row in database
-                        SqlCommand cmd = new SqlCommand("department_delete", con);
+                        SqlCommand cmd = new SqlCommand("Dept_addoreditordelete", con);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@DeptName", textBox1.Text);
-
+                        cmd.Parameters.AddWithValue("@DeptDescription", richTextBox1.Text.ToString().ToUpper());
+                        cmd.Parameters.AddWithValue("@DeptId", 0);
+                    try
+                    {
                         bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                        if (success)
-                        {
-                            MessageBox.Show("Department is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
-                            con.Close();
-                            cleartextbox();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please select the department", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            cleartextbox();
-                        }
+                        MessageBox.Show("Department is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
+                        cleartextbox();
+                    }
+                    catch (SqlException ex)
+                    {
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    finally
+                    {
+                        this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+                        cleartextbox();
+                        con.Close();
+                    }
                 }
             }
         }
@@ -171,10 +200,10 @@ namespace MANUUFinance
                 textBox1.Text = DGVForm.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 richTextBox1.Text = DGVForm.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 retrievedForUpdate = true;
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                SqlCommand myCommand = new SqlCommand("SELECT DeptId FROM [Ldap].[dbo].[Department] where DeptName = '" + textBox1.Text + "'", con);
+                SqlCommand myCommand = new SqlCommand("SELECT DeptId FROM [Finance].[dbo].[Department] where DeptName = '" + textBox1.Text + "'", con);
                 GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
                 con.Close();
             }

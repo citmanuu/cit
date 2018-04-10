@@ -30,7 +30,7 @@ namespace MANUUFinance
         {
             //Prepare Combo for Showing Account Types
             PrepareAccountTypesCombo();
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }

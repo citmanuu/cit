@@ -49,12 +49,17 @@
             this.departmentTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.DepartmentTableAdapter();
             this.roleMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.RoleMSTTableAdapter();
             this.departmentBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
+            this.departmentBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.departmentTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.DepartmentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // roleMSTBindingSource
@@ -161,7 +166,7 @@
             // 
             // fromDepartmentList
             // 
-            this.fromDepartmentList.DataSource = this.departmentBindingSource;
+            this.fromDepartmentList.DataSource = this.departmentBindingSource3;
             this.fromDepartmentList.DisplayMember = "DeptName";
             this.fromDepartmentList.FormattingEnabled = true;
             this.fromDepartmentList.Location = new System.Drawing.Point(17, 35);
@@ -234,6 +239,20 @@
             this.departmentBindingSource2.DataMember = "Department";
             this.departmentBindingSource2.DataSource = this.ldapDataSet;
             // 
+            // financeDataSet1
+            // 
+            this.financeDataSet1.DataSetName = "FinanceDataSet1";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // departmentBindingSource3
+            // 
+            this.departmentBindingSource3.DataMember = "Department";
+            this.departmentBindingSource3.DataSource = this.financeDataSet1;
+            // 
+            // departmentTableAdapter1
+            // 
+            this.departmentTableAdapter1.ClearBeforeFill = true;
+            // 
             // deptartmentPrivileges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +272,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +300,8 @@
         private System.Windows.Forms.BindingSource departmentBindingSource2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
+        private FinanceDataSet1 financeDataSet1;
+        private System.Windows.Forms.BindingSource departmentBindingSource3;
+        private FinanceDataSet1TableAdapters.DepartmentTableAdapter departmentTableAdapter1;
     }
 }

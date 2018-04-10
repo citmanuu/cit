@@ -150,12 +150,12 @@ namespace MANUUFinance
         private void MDIParent_Load(object sender, EventArgs e)
         {
             Printtheusername();
-            if (userId == 5 || userId == 6 || userId == 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
-                preparationofadminmenu();
+                preparationofmenu();
             }
             else
-               preparationofmenu();
+                preparationofadminmenu();
         }
 
         private void preparationofadminmenu()
@@ -273,11 +273,11 @@ namespace MANUUFinance
         private void Printtheusername()
         {
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT NAME FROM [Ldap].[dbo].[Users] where  UserId = '" + userId + "'", objSqlConnection);
+            SqlCommand myCommand = new SqlCommand("SELECT NAME FROM [Finance].[dbo].[Users] where  UserId = '" + userId + "'", objSqlConnection);
             label1.Text = myCommand.ExecuteScalar().ToString().ToUpper();
             objSqlConnection.Close();
         }

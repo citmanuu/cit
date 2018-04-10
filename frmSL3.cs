@@ -43,7 +43,7 @@ namespace MANUUFinance
             PrepareSL1Combo();
             PrepareSL2Combo("0");
             prepareaction();
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }
@@ -463,6 +463,11 @@ namespace MANUUFinance
         {
             Supports objectsupport = new Supports(DGVSL3SL2SL1, "SL3");
             objectsupport.ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
 

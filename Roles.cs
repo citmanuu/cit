@@ -29,9 +29,13 @@ namespace MANUUFinance
 
         private void AddRole_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet.RoleMST' table. You can move, or remove it, as needed.
-            this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-            prepareaction();
+            // TODO: This line of code loads data into the 'financeDataSet1.RoleMST' table. You can move, or remove it, as needed.
+            this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
+
+            if (new AdministratorLogin().administratorLogin(userId))
+            {
+                prepareaction();
+            }
         }
 
         // DML 
@@ -42,7 +46,7 @@ namespace MANUUFinance
             if (validateRecord())
             {
                 //Connection String 
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                 //Instantiate SQL Connection
                 SqlConnection con = new SqlConnection(cs);
@@ -50,24 +54,36 @@ namespace MANUUFinance
                 // Open the connection
                 con.Open();
                 // Get the number of the row in database
-                SqlCommand cmd = new SqlCommand("RoleMST_insert", con);
+                SqlCommand cmd = new SqlCommand("Role_addoreditordelete", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString().ToUpper());
                 cmd.Parameters.AddWithValue("@RoleDescription", richTextBox1.Text.ToString().ToUpper());
-                bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                if (success)
+                cmd.Parameters.AddWithValue("@RoleId", -1);
+
+                try
                 {
+                    Convert.ToBoolean(cmd.ExecuteScalar());
                     MessageBox.Show("Role is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-                    con.Close();
+                    this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
                     cleartextbox();
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Message.Contains("Name_RoleMST"))
+                    {
+                        MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox1.Focus();
+                    }
+                    else
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                else
+                finally
                 {
-                    MessageBox.Show("Please check your Role Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
                     cleartextbox();
-                }
+                    con.Close();
+                }               
             }
         }
         // exit the form
@@ -85,32 +101,45 @@ namespace MANUUFinance
                 if (retrievedForUpdate)
                 {
                     //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                     //Instantiate SQL Connection
                     SqlConnection con = new SqlConnection(cs);
                     // Open the connection
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("RoleMST_update", con);
+                    SqlCommand cmd = new SqlCommand("Role_addoreditordelete", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@RoleId", GlobalId);
                     cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString().ToUpper());
                     cmd.Parameters.AddWithValue("@RoleDescription", richTextBox1.Text.ToString().ToUpper());
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+
+                    try
                     {
+                        Convert.ToBoolean(cmd.ExecuteScalar());
                         MessageBox.Show("Role is Updated", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-                        con.Close();
+                        this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
                         cleartextbox();
+                    }
+                    catch (SqlException ex)
+                    {
+                        if (ex.Message.Contains("Name_RoleMST"))
+                        {
+                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBox1.Focus();
+                        }
+                        else
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
-                    else
+                    finally
                     {
-                        MessageBox.Show("Please check your Role Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
                         cleartextbox();
-                    }
+                        con.Close();
+                    }                   
                 }
+                else
+                    MessageBox.Show("Record is about to add. Perhaps you want to Add " , "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // delete the form
@@ -121,7 +150,7 @@ namespace MANUUFinance
                 if (validateRecord())
                 {
                     //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                     //Instantiate SQL Connection
                     SqlConnection con = new SqlConnection(cs);
@@ -130,22 +159,29 @@ namespace MANUUFinance
                     con.Open();
 
                     // Get the number of the row in database
-                    SqlCommand cmd = new SqlCommand("RoleMST_delete", con);
+                    SqlCommand cmd = new SqlCommand("Role_addoreditordelete", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@RoleName", textBox1.Text.ToString());
+                    cmd.Parameters.AddWithValue("@RoleId", 0);
+                    cmd.Parameters.AddWithValue("@RoleName", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@RoleDescription", richTextBox1.Text);
 
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+                    try
                     {
+                        Convert.ToBoolean(cmd.ExecuteScalar());
                         MessageBox.Show("Role is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.roleMSTTableAdapter.Fill(this.ldapDataSet.RoleMST);
-                        con.Close();
+                        this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
                         cleartextbox();
                     }
-                    else
+                    catch (SqlException ex)
                     {
-                        MessageBox.Show("Please Click Role Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    finally
+                    {
+                        this.roleMSTTableAdapter1.Fill(this.financeDataSet1.RoleMST);
                         cleartextbox();
+                        con.Close();
                     }
                 }
             }
@@ -223,6 +259,12 @@ namespace MANUUFinance
             cleartextbox();
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVRole, "Role");
+            objectsupport.ShowDialog();
+        }
+
         private void DGVRole_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -230,10 +272,10 @@ namespace MANUUFinance
                 textBox1.Text = DGVRole.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 richTextBox1.Text = DGVRole.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 retrievedForUpdate = true;
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                SqlCommand myCommand = new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + textBox1.Text + "'", con);
+                SqlCommand myCommand = new SqlCommand("SELECT RoleId FROM [finance].[dbo].[RoleMST] where RoleName = '" + textBox1.Text + "'", con);
                 GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
                 con.Close();
             }
@@ -262,6 +304,14 @@ namespace MANUUFinance
             }
             else
                 btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
         #endregion
     }

@@ -40,7 +40,7 @@ namespace MANUUFinance
             UnpinControls();
             retrievedForUpdate = false;
             queryMode = false;
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }

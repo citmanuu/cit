@@ -19,8 +19,8 @@ namespace MANUUFinance
 
         private void View_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet6.UserDeptRoleview' table. You can move, or remove it, as needed.
-            this.userDeptRoleviewTableAdapter.Fill(this.ldapDataSet6.UserDeptRoleview);
+            // TODO: This line of code loads data into the 'financeDataSet3.UserDeptRoleview' table. You can move, or remove it, as needed.
+            this.userDeptRoleviewTableAdapter1.Fill(this.financeDataSet3.UserDeptRoleview);            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

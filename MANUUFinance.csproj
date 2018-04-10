@@ -76,6 +76,7 @@
     <Compile Include="Administrator.Designer.cs">
       <DependentUpon>Administrator.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministratorLogin.cs" />
     <Compile Include="Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,21 @@
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckingPrivileges.cs" />
+    <Compile Include="FinanceDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +374,39 @@
     </None>
     <None Include="FinanceDataSet.xss">
       <DependentUpon>FinanceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet1.xsc">
+      <DependentUpon>FinanceDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet1.xss">
+      <DependentUpon>FinanceDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet2.xsc">
+      <DependentUpon>FinanceDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet2.xss">
+      <DependentUpon>FinanceDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet3.xsc">
+      <DependentUpon>FinanceDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet3.xss">
+      <DependentUpon>FinanceDataSet3.xsd</DependentUpon>
     </None>
     <None Include="LdapDataSet.xsc">
       <DependentUpon>LdapDataSet.xsd</DependentUpon>

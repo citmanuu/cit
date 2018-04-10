@@ -48,9 +48,14 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.roleMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.RoleMSTTableAdapter();
+            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
+            this.roleMSTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.roleMSTTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.RoleMSTTableAdapter();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -147,7 +152,7 @@
             // 
             // fromRolesList
             // 
-            this.fromRolesList.DataSource = this.roleMSTBindingSource;
+            this.fromRolesList.DataSource = this.roleMSTBindingSource1;
             this.fromRolesList.DisplayMember = "RoleName";
             this.fromRolesList.FormattingEnabled = true;
             this.fromRolesList.Location = new System.Drawing.Point(17, 35);
@@ -239,6 +244,20 @@
             // 
             this.roleMSTTableAdapter.ClearBeforeFill = true;
             // 
+            // financeDataSet1
+            // 
+            this.financeDataSet1.DataSetName = "FinanceDataSet1";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // roleMSTBindingSource1
+            // 
+            this.roleMSTBindingSource1.DataMember = "RoleMST";
+            this.roleMSTBindingSource1.DataSource = this.financeDataSet1;
+            // 
+            // roleMSTTableAdapter1
+            // 
+            this.roleMSTTableAdapter1.ClearBeforeFill = true;
+            // 
             // RolePrivileges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +277,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +305,8 @@
         private LdapDataSet ldapDataSet;
         private System.Windows.Forms.BindingSource roleMSTBindingSource;
         private LdapDataSetTableAdapters.RoleMSTTableAdapter roleMSTTableAdapter;
+        private FinanceDataSet1 financeDataSet1;
+        private System.Windows.Forms.BindingSource roleMSTBindingSource1;
+        private FinanceDataSet1TableAdapters.RoleMSTTableAdapter roleMSTTableAdapter1;
     }
 }

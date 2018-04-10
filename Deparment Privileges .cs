@@ -27,8 +27,8 @@ namespace MANUUFinance
 
         private void mapping_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet.Department' table. You can move, or remove it, as needed.
-            this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+            // TODO: This line of code loads data into the 'financeDataSet1.Department' table. You can move, or remove it, as needed.
+            this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
             PreparedcomboUser();
         }
         // DML 
@@ -130,14 +130,14 @@ namespace MANUUFinance
             if (validateRecord())
             {
                 //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                 //Instantiate SQL Connection
                 SqlConnection objSqlConnection = new SqlConnection(cs);
 
                 //Prepare for record addition
 
-                SqlCommand objSqlCmd = new SqlCommand("userdept_insert", objSqlConnection);
+                SqlCommand objSqlCmd = new SqlCommand("Userdept_insert  ", objSqlConnection);
                 objSqlCmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
@@ -151,15 +151,12 @@ namespace MANUUFinance
                         Convert.ToString(objSqlCmd.ExecuteScalar());
                         objSqlCmd.Parameters.Clear();
                     }
-                    MessageBox.Show("Records added for Selected Department(s) and Selected Role(s)", "Record(s) Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Records added for Selected Department(s)", "Record(s) Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearcombobox();
                 }
                 catch (SqlException ex)
                 {
-                    if (ex.Message.Contains("PK_Budget"))
-                    {
-                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                     MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -178,11 +175,11 @@ namespace MANUUFinance
             objLOVClass.Add(new LOV(0, "-- Please Select --"));
 
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT UserId, Name FROM [Ldap].[dbo].[Users] Order by 1";
+            string selectCommand = "SELECT UserId, Name FROM [finance].[dbo].[Users] Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {

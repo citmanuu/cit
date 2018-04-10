@@ -50,7 +50,7 @@ namespace MANUUFinance
             comboAcType.Enabled = false;
 
             // prepare action add, update, delete, print
-            if (userId != 5 || userId != 6 || userId != 7)
+            if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }
@@ -590,6 +590,11 @@ namespace MANUUFinance
         {
             Supports objectsupport = new Supports(DGVBankAccounts, "BankAccounts");
             objectsupport.ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         //Prepare Filter for Bank Accounts

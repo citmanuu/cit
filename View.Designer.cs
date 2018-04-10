@@ -43,13 +43,6 @@
             this.userDeptRoleTableAdapter1 = new MANUUFinance.LdapDataSet4TableAdapters.UserDeptRoleTableAdapter();
             this.userDeptRoleBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userDeptRoleBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet5 = new MANUUFinance.LdapDataSet5();
-            this.userDeptRoleBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.userDeptRoleTableAdapter2 = new MANUUFinance.LdapDataSet5TableAdapters.UserDeptRoleTableAdapter();
-            this.ldapDataSet6 = new MANUUFinance.LdapDataSet6();
-            this.userDeptRoleviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userDeptRoleviewTableAdapter = new MANUUFinance.LdapDataSet6TableAdapters.UserDeptRoleviewTableAdapter();
             this.uDRIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +50,17 @@
             this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deptIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userDeptRoleviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ldapDataSet6 = new MANUUFinance.LdapDataSet6();
+            this.userDeptRoleBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.ldapDataSet5 = new MANUUFinance.LdapDataSet5();
+            this.userDeptRoleBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.userDeptRoleTableAdapter2 = new MANUUFinance.LdapDataSet5TableAdapters.UserDeptRoleTableAdapter();
+            this.userDeptRoleviewTableAdapter = new MANUUFinance.LdapDataSet6TableAdapters.UserDeptRoleviewTableAdapter();
+            this.financeDataSet3 = new MANUUFinance.FinanceDataSet3();
+            this.userDeptRoleviewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.userDeptRoleviewTableAdapter1 = new MANUUFinance.FinanceDataSet3TableAdapters.UserDeptRoleviewTableAdapter();
+            this.userDeptRoleviewBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource)).BeginInit();
@@ -64,11 +68,14 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // userDeptRoleBindingSource1
@@ -184,45 +191,12 @@
             this.roleNameDataGridViewTextBoxColumn,
             this.deptIdDataGridViewTextBoxColumn,
             this.deptNameDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.userDeptRoleviewBindingSource;
+            this.dataGridView1.DataSource = this.userDeptRoleviewBindingSource2;
             this.dataGridView1.Location = new System.Drawing.Point(42, 29);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(336, 257);
             this.dataGridView1.TabIndex = 38;
-            // 
-            // userDeptRoleBindingSource3
-            // 
-            this.userDeptRoleBindingSource3.DataMember = "UserDeptRole";
-            this.userDeptRoleBindingSource3.DataSource = this.ldapDataSet4;
-            // 
-            // ldapDataSet5
-            // 
-            this.ldapDataSet5.DataSetName = "LdapDataSet5";
-            this.ldapDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userDeptRoleBindingSource4
-            // 
-            this.userDeptRoleBindingSource4.DataMember = "UserDeptRole";
-            this.userDeptRoleBindingSource4.DataSource = this.ldapDataSet5;
-            // 
-            // userDeptRoleTableAdapter2
-            // 
-            this.userDeptRoleTableAdapter2.ClearBeforeFill = true;
-            // 
-            // ldapDataSet6
-            // 
-            this.ldapDataSet6.DataSetName = "LdapDataSet6";
-            this.ldapDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userDeptRoleviewBindingSource
-            // 
-            this.userDeptRoleviewBindingSource.DataMember = "UserDeptRoleview";
-            this.userDeptRoleviewBindingSource.DataSource = this.ldapDataSet6;
-            // 
-            // userDeptRoleviewTableAdapter
-            // 
-            this.userDeptRoleviewTableAdapter.ClearBeforeFill = true;
             // 
             // uDRIDDataGridViewTextBoxColumn
             // 
@@ -277,6 +251,58 @@
             this.deptNameDataGridViewTextBoxColumn.Name = "deptNameDataGridViewTextBoxColumn";
             this.deptNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // userDeptRoleviewBindingSource
+            // 
+            this.userDeptRoleviewBindingSource.DataMember = "UserDeptRoleview";
+            this.userDeptRoleviewBindingSource.DataSource = this.ldapDataSet6;
+            // 
+            // ldapDataSet6
+            // 
+            this.ldapDataSet6.DataSetName = "LdapDataSet6";
+            this.ldapDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userDeptRoleBindingSource3
+            // 
+            this.userDeptRoleBindingSource3.DataMember = "UserDeptRole";
+            this.userDeptRoleBindingSource3.DataSource = this.ldapDataSet4;
+            // 
+            // ldapDataSet5
+            // 
+            this.ldapDataSet5.DataSetName = "LdapDataSet5";
+            this.ldapDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userDeptRoleBindingSource4
+            // 
+            this.userDeptRoleBindingSource4.DataMember = "UserDeptRole";
+            this.userDeptRoleBindingSource4.DataSource = this.ldapDataSet5;
+            // 
+            // userDeptRoleTableAdapter2
+            // 
+            this.userDeptRoleTableAdapter2.ClearBeforeFill = true;
+            // 
+            // userDeptRoleviewTableAdapter
+            // 
+            this.userDeptRoleviewTableAdapter.ClearBeforeFill = true;
+            // 
+            // financeDataSet3
+            // 
+            this.financeDataSet3.DataSetName = "FinanceDataSet3";
+            this.financeDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userDeptRoleviewBindingSource1
+            // 
+            this.userDeptRoleviewBindingSource1.DataMember = "UserDeptRoleview";
+            this.userDeptRoleviewBindingSource1.DataSource = this.financeDataSet3;
+            // 
+            // userDeptRoleviewTableAdapter1
+            // 
+            this.userDeptRoleviewTableAdapter1.ClearBeforeFill = true;
+            // 
+            // userDeptRoleviewBindingSource2
+            // 
+            this.userDeptRoleviewBindingSource2.DataMember = "UserDeptRoleview";
+            this.userDeptRoleviewBindingSource2.DataSource = this.financeDataSet3;
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,11 +321,14 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleBindingSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDeptRoleviewBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +362,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptNameDataGridViewTextBoxColumn;
+        private FinanceDataSet3 financeDataSet3;
+        private System.Windows.Forms.BindingSource userDeptRoleviewBindingSource1;
+        private FinanceDataSet3TableAdapters.UserDeptRoleviewTableAdapter userDeptRoleviewTableAdapter1;
+        private System.Windows.Forms.BindingSource userDeptRoleviewBindingSource2;
     }
 }

@@ -25,7 +25,7 @@ namespace MANUUFinance
             if (validateRecord())
             {
                 //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                 //Instantiate SQL Connection
                 SqlConnection con = new SqlConnection(cs);

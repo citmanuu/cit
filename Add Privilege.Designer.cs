@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Privilege));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btClearRecord = new System.Windows.Forms.Button();
             this.closeForm = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -81,7 +82,11 @@
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.financeDataSet2 = new MANUUFinance.FinanceDataSet2();
+            this.roleFormPrivilegesBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.roleFormPrivilegesTableAdapter4 = new MANUUFinance.FinanceDataSet2TableAdapters.RoleFormPrivilegesTableAdapter();
+            this.roleFormPrivilegesBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.roleFormPrivilegesBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource1)).BeginInit();
@@ -96,6 +101,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource4)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -112,6 +121,16 @@
             this.groupBox2.Size = new System.Drawing.Size(727, 47);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(316, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(97, 28);
+            this.btnPrint.TabIndex = 9;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btClearRecord
             // 
@@ -326,7 +345,7 @@
             this.canDeleteDataGridViewCheckBoxColumn,
             this.canPrintDataGridViewCheckBoxColumn,
             this.canSearchDataGridViewCheckBoxColumn});
-            this.DGVPrivilege.DataSource = this.roleFormPrivilegesBindingSource5;
+            this.DGVPrivilege.DataSource = this.roleFormPrivilegesBindingSource8;
             this.DGVPrivilege.Location = new System.Drawing.Point(34, 255);
             this.DGVPrivilege.Name = "DGVPrivilege";
             this.DGVPrivilege.ReadOnly = true;
@@ -536,15 +555,29 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // btnPrint
+            // financeDataSet2
             // 
-            this.btnPrint.Location = new System.Drawing.Point(316, 12);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(97, 28);
-            this.btnPrint.TabIndex = 9;
-            this.btnPrint.Text = "Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.financeDataSet2.DataSetName = "FinanceDataSet2";
+            this.financeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // roleFormPrivilegesBindingSource6
+            // 
+            this.roleFormPrivilegesBindingSource6.DataMember = "RoleFormPrivileges";
+            this.roleFormPrivilegesBindingSource6.DataSource = this.financeDataSet2;
+            // 
+            // roleFormPrivilegesTableAdapter4
+            // 
+            this.roleFormPrivilegesTableAdapter4.ClearBeforeFill = true;
+            // 
+            // roleFormPrivilegesBindingSource7
+            // 
+            this.roleFormPrivilegesBindingSource7.DataMember = "RoleFormPrivileges";
+            this.roleFormPrivilegesBindingSource7.DataSource = this.financeDataSet2;
+            // 
+            // roleFormPrivilegesBindingSource8
+            // 
+            this.roleFormPrivilegesBindingSource8.DataMember = "RoleFormPrivileges";
+            this.roleFormPrivilegesBindingSource8.DataSource = this.financeDataSet2;
             // 
             // Privilege
             // 
@@ -580,6 +613,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource4)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -638,5 +675,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnPrint;
+        private FinanceDataSet2 financeDataSet2;
+        private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource6;
+        private FinanceDataSet2TableAdapters.RoleFormPrivilegesTableAdapter roleFormPrivilegesTableAdapter4;
+        private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource7;
+        private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource8;
     }
 }

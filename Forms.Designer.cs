@@ -56,11 +56,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
+            this.formMSTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.formMSTTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.FormMSTTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formMSTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formMSTBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // DGVForm
@@ -73,7 +78,7 @@
             this.formIdDataGridViewTextBoxColumn,
             this.formNameDataGridViewTextBoxColumn,
             this.formDescriptionDataGridViewTextBoxColumn});
-            this.DGVForm.DataSource = this.formMSTBindingSource;
+            this.DGVForm.DataSource = this.formMSTBindingSource1;
             this.DGVForm.Location = new System.Drawing.Point(29, 319);
             this.DGVForm.Name = "DGVForm";
             this.DGVForm.ReadOnly = true;
@@ -322,6 +327,20 @@
             this.label4.TabIndex = 45;
             this.label4.Text = resources.GetString("label4.Text");
             // 
+            // financeDataSet1
+            // 
+            this.financeDataSet1.DataSetName = "FinanceDataSet1";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // formMSTBindingSource1
+            // 
+            this.formMSTBindingSource1.DataMember = "FormMST";
+            this.formMSTBindingSource1.DataSource = this.financeDataSet1;
+            // 
+            // formMSTTableAdapter1
+            // 
+            this.formMSTTableAdapter1.ClearBeforeFill = true;
+            // 
             // Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +365,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formMSTBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +400,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label4;
+        private FinanceDataSet1 financeDataSet1;
+        private System.Windows.Forms.BindingSource formMSTBindingSource1;
+        private FinanceDataSet1TableAdapters.FormMSTTableAdapter formMSTTableAdapter1;
     }
 }

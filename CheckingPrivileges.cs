@@ -29,7 +29,7 @@ namespace MANUUFinance
             private set;
         }
 
-        public string FormName
+        public string formName
         {
             get;
             private set;
@@ -47,14 +47,14 @@ namespace MANUUFinance
             deptId = _deptId;
             roleId = _roleId;
             buttonName = _buttonName;
-            FormName = _formName;
+            formName = _formName;
 
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT CanAdd, CanUpdate, CanDelete, CanPrint, CanSearch FROM [Ldap].[dbo].[Privileges]  where RoleId = '" + roleId + "' and FormId = (select FormId from [Ldap].[dbo].[FormMST] where FormName = '" + FormName + "')", objSqlConnection);
+            SqlCommand myCommand = new SqlCommand("SELECT CanAdd, CanUpdate, CanDelete, CanPrint, CanSearch FROM [Finance].[dbo].[Privileges]  where RoleId = '" + roleId + "' and FormId = (select FormId from [Finance].[dbo].[FormMST] where FormName = '" + formName + "')", objSqlConnection);
             SqlDataReader objDataReader = myCommand.ExecuteReader();
             while (objDataReader.Read())
             {
@@ -85,13 +85,6 @@ namespace MANUUFinance
                     break;
                 }
             }
-            if (privileges == false)
-            {
-                if (userId == 5 || userId == 6 || userId == 7)
-                {
-                    privileges = true;
-                }
-            }
 
             return privileges;
         }
@@ -103,12 +96,12 @@ namespace MANUUFinance
 
             List<string> FormClass = new List<string>();
             //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT a.FormName FROM [Ldap].[dbo].[FormMST] as a " +
-                "inner join [Ldap].[dbo].[Privileges] as b on a.FormId = b.FormId " +
+            SqlCommand myCommand = new SqlCommand("SELECT a.FormName FROM [Finance].[dbo].[FormMST] as a " +
+                "inner join [Finance].[dbo].[Privileges] as b on a.FormId = b.FormId " +
                 "where b.RoleId = '" + roleId + "'", objSqlConnection);
             SqlDataReader objDataReader = myCommand.ExecuteReader();
             while (objDataReader.Read())

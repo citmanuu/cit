@@ -27,15 +27,20 @@ namespace MANUUFinance
             this.roleId = roleId;
             this.formName = formName;
         }
+        // Pre Load
+        #region
 
         private void AddForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ldapDataSet.FormMST' table. You can move, or remove it, as needed.
-            this.formMSTTableAdapter.Fill(this.ldapDataSet.FormMST);
+            // TODO: This line of code loads data into the 'financeDataSet1.FormMST' table. You can move, or remove it, as needed.
+            this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
             prepareaction();
 
         }
-        // DML 
+
+        #endregion
+
+        // DML     
         #region
         // add the record
         private void btnAdd_Click(object sender, EventArgs e)
@@ -43,7 +48,7 @@ namespace MANUUFinance
             if (validateRecord())
             {
                 //Connection String 
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                 //Instantiate SQL Connection
                 SqlConnection con = new SqlConnection(cs);
@@ -54,25 +59,38 @@ namespace MANUUFinance
 
 
                 // Get the number of the row in database
-                SqlCommand cmd = new SqlCommand("FormsMST_insert", con);
+                SqlCommand cmd = new SqlCommand("Form_addoreditordelete", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@FormName", textBox1.Text.ToString().ToUpper());
                 cmd.Parameters.AddWithValue("@FormDescription", richTextBox1.Text.ToString().ToUpper());
-                bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                if (success)
+                cmd.Parameters.AddWithValue("@FormId", -1);
+
+                try
                 {
-                    MessageBox.Show("Form is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.formMSTTableAdapter.Fill(this.ldapDataSet.FormMST);
-                    con.Close();
+                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                    MessageBox.Show("Department is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
                     cleartextbox();
                 }
-                else
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Please check your Form Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (ex.Message.Contains("Name_FormMST"))
+                    {
+                        MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox1.Focus();
+                    }
+                    else
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally
+                {
+                    this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
                     cleartextbox();
+                    con.Close();
                 }
             }
-     }
+        }
         // exit the form
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -88,33 +106,43 @@ namespace MANUUFinance
                 if (retrievedForUpdate)
                 {
                     //Connection String 
-                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                     //Instantiate SQL Connection
                     SqlConnection con = new SqlConnection(cs);
                     // Open the connection
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("FormsMST_update", con);
+                    SqlCommand cmd = new SqlCommand("Form_addoreditordelete", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@FormId", GlobalId);
                     cmd.Parameters.AddWithValue("@FormName", textBox1.Text.ToString().ToUpper());
                     cmd.Parameters.AddWithValue("@FormDescription", richTextBox1.Text.ToString().ToUpper());
-                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                    if (success)
+
+                    try
                     {
+                        Convert.ToBoolean(cmd.ExecuteScalar());
                         MessageBox.Show("Form is Updated", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.formMSTTableAdapter.Fill(this.ldapDataSet.FormMST);
-                        con.Close();
+                        this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
                         cleartextbox();
-
                     }
-                    else
+                    catch (SqlException ex)
                     {
-                        MessageBox.Show("Please check your Form Name", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cleartextbox();
-                    }
-                }
+                        if (ex.Message.Contains("Name_FormMST"))
+                        {
+                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBox1.Focus();
+                        }
+                        else
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                    }
+                    finally
+                    {
+                        this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
+                        cleartextbox();
+                        con.Close();
+                    }                                    
+                }
             }
         }
         // delete the record
@@ -129,28 +157,36 @@ namespace MANUUFinance
                     if (retrievedForUpdate)
                     {
                         //Connection String 
-                        string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                         //Instantiate SQL Connection
                         SqlConnection con = new SqlConnection(cs);
                         // Open the connection
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("FormsMST_delete", con);
+                        SqlCommand cmd = new SqlCommand("Form_addoreditordelete", con);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@FormName", textBox1.Text.ToString());
-                        bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                        if (success)
+                        cmd.Parameters.AddWithValue("@FormId", 0);
+                        cmd.Parameters.AddWithValue("@FormName", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@FormDescription", richTextBox1.Text);
+
+                        try
                         {
+                            Convert.ToBoolean(cmd.ExecuteScalar());
                             MessageBox.Show("Form is Deleted", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.formMSTTableAdapter.Fill(this.ldapDataSet.FormMST);
-                            con.Close();
+                            this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
                             cleartextbox();
                         }
-                        else
+                        catch (SqlException ex)
                         {
-                            MessageBox.Show("Please check your Form Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            cleartextbox();
+                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                         }
+                        finally
+                        {
+                            this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
+                            cleartextbox();
+                            con.Close();
+                        }                    
                     }
                 }
             }
@@ -206,10 +242,10 @@ namespace MANUUFinance
                 textBox1.Text = DGVForm.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 richTextBox1.Text = DGVForm.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 retrievedForUpdate = true;
-                string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                SqlCommand myCommand = new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + textBox1.Text + "'", con);
+                SqlCommand myCommand = new SqlCommand("SELECT FormId FROM [finance].[dbo].[FormMST] where FormName = '" + textBox1.Text + "'", con);
                 GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
                 con.Close();
             }

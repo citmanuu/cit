@@ -62,7 +62,7 @@ namespace MANUUFinance
                                 if (regex.Match(textBox4.Text).Success)
                                 {
                                     //Connection String 
-                                    string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                                     //Instantiate SQL Connection
                                     SqlConnection con = new SqlConnection(cs);
@@ -75,24 +75,40 @@ namespace MANUUFinance
                                     // UserId = Convert.ToInt32(myCommand.ExecuteScalar());
                                     // UserId++;
 
-                                    SqlCommand cmd = new SqlCommand("Users_insert", con);
+                                    SqlCommand cmd = new SqlCommand("User_insert", con);
                                     cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.Parameters.AddWithValue("@Name", textBox1.Text.ToString());
                                     cmd.Parameters.AddWithValue("@Password", textBox2.Text.ToString());
                                     cmd.Parameters.AddWithValue("@Email", textBox4.Text.ToString());
                                     cmd.Parameters.AddWithValue("@CreationDate", DateTime.Now);
-
-                                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                                    if (success)
+                                    try
                                     {
-                                        MessageBox.Show("Account is Created : Please check your email id for username and pasword", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        con.Close();
+                                        bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                                        MessageBox.Show("User is Added", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         cleartextbox();
                                     }
-                                    else
+                                    catch (SqlException ex)
                                     {
-                                        MessageBox.Show("Please check your Username and Email", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        if (ex.Message.Contains("Name_Users"))
+                                        {
+                                            MessageBox.Show("Users already added. Perhaps you want to change.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            textBox1.Focus();
+                                            cleartextbox();
+                                        }
+                                        else if (ex.Message.Contains("Email_Users"))
+                                        {
+                                            MessageBox.Show("Email already added. Perhaps you want to change.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            textBox1.Focus();
+                                            cleartextbox();
+                                        }
+                                         else
+                                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                    }
+                                    finally
+                                    {
                                         cleartextbox();
+                                        con.Close();
                                     }
                                 }
                                 else
@@ -110,6 +126,8 @@ namespace MANUUFinance
                         }
                     }
                 }
+                else
+                    MessageBox.Show("Please Insert the Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 MessageBox.Show("Please Insert the Username", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
