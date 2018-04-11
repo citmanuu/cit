@@ -45,10 +45,6 @@ namespace MANUUFinance
         //Add Record
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId,CanAdd, formName))
-            {
                 if (retrievedForUpdate == false && validateRecord() == true)
                 {
                     if (txtSL1ID.Text.Length == 0)
@@ -69,8 +65,8 @@ namespace MANUUFinance
                         //Instantiate SQL Connection
                         SqlConnection objSqlConnection = new SqlConnection(cs);
                         //Prepare Update String
-                        string insertCommand = "Insert into SL1 (SL1Code, SL1Name, ScheduleID, SL1Active, SL1Order, GroupID, AcTypeID) values " +
-                                                "(@SL1Code, @SL1Name, @ScheduleID, @SL1Active, @SL1Order, @GroupID, @AcTypeID)";
+                        string insertCommand = "Insert into SL1 (SL1Code, SL1Name, ScheduleID, SL1Active, SL1Order, GroupID, AcTypeID, DeptId) values " +
+                                                "(@SL1Code, @SL1Name, @ScheduleID, @SL1Active, @SL1Order, @GroupID, @AcTypeID, @DeptId)";
                         SqlCommand objUpdateCommand = new SqlCommand(insertCommand, objSqlConnection);
 
                         objUpdateCommand.Parameters.AddWithValue("@SL1ID", txtSL1ID.Text);
@@ -81,6 +77,7 @@ namespace MANUUFinance
                         objUpdateCommand.Parameters.AddWithValue("@SL1UC", txtSL1UCode.Text);
                         objUpdateCommand.Parameters.AddWithValue("@ScheduleID", txtScheduleID.Text);
                         objUpdateCommand.Parameters.AddWithValue("@AcTypeID", comboAcType.SelectedValue);
+                        objUpdateCommand.Parameters.AddWithValue("@DeptId", deptId);
 
                         if (radioBtnSL1Active.Checked == true)
                             objUpdateCommand.Parameters.AddWithValue("@SL1Active", "1");
@@ -122,19 +119,11 @@ namespace MANUUFinance
                         this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
                     }
                 }
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Update record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-
                 if (validateRecord())
                 {
                     //Check if Record is populated
@@ -186,18 +175,11 @@ namespace MANUUFinance
                         MessageBox.Show("Please select record from the Grid.", "Record not selected..", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-            }
-            else
-                 MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
                 DialogResult diagResult;
                 diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (diagResult == DialogResult.Yes)
@@ -231,9 +213,6 @@ namespace MANUUFinance
                     }
                     this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
                 }
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 
@@ -392,6 +371,11 @@ namespace MANUUFinance
         {
             Supports objectsupport = new Supports(DGVSL1, "SL1");
             objectsupport.ShowDialog();
+        }
+
+        private void DGVSL1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         // prepare the action add, update, delete

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Privilege));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -68,6 +69,8 @@
             this.canDeleteDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.canPrintDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.canSearchDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.roleFormPrivilegesBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet2 = new MANUUFinance.FinanceDataSet2();
             this.roleFormPrivilegesBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.ldapDataSet8 = new MANUUFinance.LdapDataSet8();
             this.roleFormPrivilegesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
@@ -82,11 +85,9 @@
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.financeDataSet2 = new MANUUFinance.FinanceDataSet2();
             this.roleFormPrivilegesBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.roleFormPrivilegesTableAdapter4 = new MANUUFinance.FinanceDataSet2TableAdapters.RoleFormPrivilegesTableAdapter();
             this.roleFormPrivilegesBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
-            this.roleFormPrivilegesBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource1)).BeginInit();
@@ -97,14 +98,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPrivilege)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource4)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -332,6 +333,9 @@
             // 
             this.DGVPrivilege.AllowUserToAddRows = false;
             this.DGVPrivilege.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DGVPrivilege.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVPrivilege.AutoGenerateColumns = false;
             this.DGVPrivilege.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVPrivilege.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -425,6 +429,16 @@
             this.canSearchDataGridViewCheckBoxColumn.HeaderText = "CanSearch";
             this.canSearchDataGridViewCheckBoxColumn.Name = "canSearchDataGridViewCheckBoxColumn";
             this.canSearchDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // roleFormPrivilegesBindingSource8
+            // 
+            this.roleFormPrivilegesBindingSource8.DataMember = "RoleFormPrivileges";
+            this.roleFormPrivilegesBindingSource8.DataSource = this.financeDataSet2;
+            // 
+            // financeDataSet2
+            // 
+            this.financeDataSet2.DataSetName = "FinanceDataSet2";
+            this.financeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // roleFormPrivilegesBindingSource5
             // 
@@ -555,11 +569,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // financeDataSet2
-            // 
-            this.financeDataSet2.DataSetName = "FinanceDataSet2";
-            this.financeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // roleFormPrivilegesBindingSource6
             // 
             this.roleFormPrivilegesBindingSource6.DataMember = "RoleFormPrivileges";
@@ -573,11 +582,6 @@
             // 
             this.roleFormPrivilegesBindingSource7.DataMember = "RoleFormPrivileges";
             this.roleFormPrivilegesBindingSource7.DataSource = this.financeDataSet2;
-            // 
-            // roleFormPrivilegesBindingSource8
-            // 
-            this.roleFormPrivilegesBindingSource8.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource8.DataSource = this.financeDataSet2;
             // 
             // Privilege
             // 
@@ -608,15 +612,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPrivilege)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource4)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

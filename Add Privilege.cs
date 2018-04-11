@@ -30,6 +30,7 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet2.RoleFormPrivileges' table. You can move, or remove it, as needed.
             this.roleFormPrivilegesTableAdapter4.Fill(this.financeDataSet2.RoleFormPrivileges);
+
             PreparedcomboRole();
             preparedcomboform();
             if (new AdministratorLogin().administratorLogin(userId))

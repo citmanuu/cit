@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -72,7 +73,6 @@
             this.sL1TableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.SL1TableAdapter();
             this.financeDataSet1 = new MANUUFinance.FinanceDataSet();
             this.sL1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -92,17 +92,28 @@
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Location = new System.Drawing.Point(56, 194);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(573, 45);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(285, 14);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(470, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 25);
             this.button1.TabIndex = 4;
@@ -113,7 +124,7 @@
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(378, 14);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
@@ -124,7 +135,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(192, 14);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
@@ -135,7 +146,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(99, 14);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
@@ -146,7 +157,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(7, 14);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
@@ -158,7 +169,7 @@
             // 
             this.txtSL1ID.Enabled = false;
             this.txtSL1ID.Location = new System.Drawing.Point(199, 56);
-            this.txtSL1ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL1ID.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL1ID.Name = "txtSL1ID";
             this.txtSL1ID.Size = new System.Drawing.Size(68, 20);
             this.txtSL1ID.TabIndex = 17;
@@ -184,9 +195,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(56, 27);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(739, 153);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
@@ -206,7 +217,7 @@
             // 
             this.comboAcType.FormattingEnabled = true;
             this.comboAcType.Location = new System.Drawing.Point(325, 52);
-            this.comboAcType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboAcType.Margin = new System.Windows.Forms.Padding(2);
             this.comboAcType.Name = "comboAcType";
             this.comboAcType.Size = new System.Drawing.Size(134, 21);
             this.comboAcType.TabIndex = 17;
@@ -214,7 +225,7 @@
             // txtSL1Order
             // 
             this.txtSL1Order.Location = new System.Drawing.Point(602, 103);
-            this.txtSL1Order.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL1Order.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL1Order.Name = "txtSL1Order";
             this.txtSL1Order.Size = new System.Drawing.Size(68, 20);
             this.txtSL1Order.TabIndex = 5;
@@ -242,7 +253,7 @@
             // txtGroupID
             // 
             this.txtGroupID.Location = new System.Drawing.Point(602, 78);
-            this.txtGroupID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGroupID.Margin = new System.Windows.Forms.Padding(2);
             this.txtGroupID.Name = "txtGroupID";
             this.txtGroupID.Size = new System.Drawing.Size(68, 20);
             this.txtGroupID.TabIndex = 4;
@@ -260,7 +271,7 @@
             // txtScheduleID
             // 
             this.txtScheduleID.Location = new System.Drawing.Point(602, 53);
-            this.txtScheduleID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtScheduleID.Margin = new System.Windows.Forms.Padding(2);
             this.txtScheduleID.Name = "txtScheduleID";
             this.txtScheduleID.Size = new System.Drawing.Size(68, 20);
             this.txtScheduleID.TabIndex = 2;
@@ -290,9 +301,9 @@
             this.groupBox3.Controls.Add(this.radioBtnSL1InActive);
             this.groupBox3.Controls.Add(this.radioBtnSL1Active);
             this.groupBox3.Location = new System.Drawing.Point(143, 99);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(182, 31);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
@@ -301,7 +312,7 @@
             // 
             this.radioBtnSL1InActive.AutoSize = true;
             this.radioBtnSL1InActive.Location = new System.Drawing.Point(99, 10);
-            this.radioBtnSL1InActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioBtnSL1InActive.Margin = new System.Windows.Forms.Padding(2);
             this.radioBtnSL1InActive.Name = "radioBtnSL1InActive";
             this.radioBtnSL1InActive.Size = new System.Drawing.Size(63, 17);
             this.radioBtnSL1InActive.TabIndex = 1;
@@ -313,7 +324,7 @@
             // 
             this.radioBtnSL1Active.AutoSize = true;
             this.radioBtnSL1Active.Location = new System.Drawing.Point(27, 10);
-            this.radioBtnSL1Active.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioBtnSL1Active.Margin = new System.Windows.Forms.Padding(2);
             this.radioBtnSL1Active.Name = "radioBtnSL1Active";
             this.radioBtnSL1Active.Size = new System.Drawing.Size(55, 17);
             this.radioBtnSL1Active.TabIndex = 0;
@@ -334,7 +345,7 @@
             // txtSL1Name
             // 
             this.txtSL1Name.Location = new System.Drawing.Point(143, 79);
-            this.txtSL1Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL1Name.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL1Name.Name = "txtSL1Name";
             this.txtSL1Name.Size = new System.Drawing.Size(316, 20);
             this.txtSL1Name.TabIndex = 3;
@@ -352,7 +363,7 @@
             // txtSL1Code
             // 
             this.txtSL1Code.Location = new System.Drawing.Point(602, 29);
-            this.txtSL1Code.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL1Code.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL1Code.Name = "txtSL1Code";
             this.txtSL1Code.Size = new System.Drawing.Size(68, 20);
             this.txtSL1Code.TabIndex = 0;
@@ -361,7 +372,7 @@
             // 
             this.txtSL1UCode.Enabled = false;
             this.txtSL1UCode.Location = new System.Drawing.Point(143, 54);
-            this.txtSL1UCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL1UCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL1UCode.Name = "txtSL1UCode";
             this.txtSL1UCode.Size = new System.Drawing.Size(68, 20);
             this.txtSL1UCode.TabIndex = 1;
@@ -403,13 +414,14 @@
             this.sL1OrderDataGridViewTextBoxColumn});
             this.DGVSL1.DataSource = this.sL1BindingSource;
             this.DGVSL1.Location = new System.Drawing.Point(56, 252);
-            this.DGVSL1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DGVSL1.Margin = new System.Windows.Forms.Padding(2);
             this.DGVSL1.Name = "DGVSL1";
             this.DGVSL1.ReadOnly = true;
             this.DGVSL1.RowTemplate.Height = 28;
             this.DGVSL1.Size = new System.Drawing.Size(739, 247);
             this.DGVSL1.TabIndex = 20;
             this.DGVSL1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL1_CellClick);
+            this.DGVSL1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL1_CellContentClick);
             // 
             // sL1IDDataGridViewTextBoxColumn
             // 
@@ -502,17 +514,6 @@
             this.sL1BindingSource1.DataMember = "SL1";
             this.sL1BindingSource1.DataSource = this.financeDataSet;
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(285, 14);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 25);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // frmSL1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,7 +523,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtSL1ID);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSL1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule Level - 1";
