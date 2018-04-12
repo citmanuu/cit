@@ -26,7 +26,8 @@ namespace MANUUFinance.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EIPL-PC2\\SQLEXPRESS;Initial Catalog=Finance;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EIPL-PC1\\SQLEXPRESS02;Initial Catalog=Finance;Integrated Security=Tru" +
+            "e")]
         public string FinanceConnectionString {
             get {
                 return ((string)(this["FinanceConnectionString"]));
@@ -36,7 +37,7 @@ namespace MANUUFinance.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EIPL-PC2\\SQLEXPRESS;Initial Catalog=Ldap;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EIPL-PC1\\SQLEXPRESS02;Initial Catalog=Ldap;Integrated Security=True")]
         public string LdapConnectionString {
             get {
                 return ((string)(this["LdapConnectionString"]));
