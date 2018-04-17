@@ -20,7 +20,7 @@ namespace MANUUFinance
             // Application.Run(new Home());
             // Application.Run(new pdfsupports());
             //Application.Run(new frmAccount(0,0,0, null));
-            Application.Run(new FreeUpdate());
+            Application.Run(new FreeUpdatecs());
         }
     }
 }

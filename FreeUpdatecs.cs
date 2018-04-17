@@ -14,19 +14,19 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class FreeUpdate : Form
+    public partial class FreeUpdatecs : Form
     {
-        public FreeUpdate()
+        public FreeUpdatecs()
         {
             InitializeComponent();
         }
 
-        private void FreeUpdate_Load(object sender, EventArgs e)
+        private void FreeUpdatecs_Load(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             System.Windows.Forms.DialogResult str = openFileDialog.ShowDialog();
             String FileName = openFileDialog.FileName;
-            
+
             String FileExt = FileName.Substring(FileName.LastIndexOf("."));
 
             if (FileExt.CompareTo(".xls") == 0 || FileExt.CompareTo(".xlsx") == 0)
@@ -162,8 +162,8 @@ namespace MANUUFinance
                     }
                 }
                 //MessageBox.Show("Row no is: " + currentRow + " Ref5 = " + Ref5) ;
-                row++;             
-            }            
+                row++;
+            }
         }
 
 
