@@ -39,7 +39,6 @@
             this.toRolesList = new System.Windows.Forms.ListBox();
             this.fromRolesList = new System.Windows.Forms.ListBox();
             this.roleMSTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet = new MANUUFinance.LdapDataSet();
             this.label6 = new System.Windows.Forms.Label();
             this.viewUserMapping = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -47,13 +46,11 @@
             this.btAddToDatabase = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.roleMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.RoleMSTTableAdapter();
             this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
             this.roleMSTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.roleMSTTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.RoleMSTTableAdapter();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -165,14 +162,7 @@
             // 
             // roleMSTBindingSource
             // 
-            this.roleMSTBindingSource.DataMember = "RoleMST";
-            this.roleMSTBindingSource.DataSource = this.ldapDataSet;
-            // 
-            // ldapDataSet
-            // 
-            this.ldapDataSet.DataSetName = "LdapDataSet";
-            this.ldapDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+            this.roleMSTBindingSource.DataMember = "RoleMST"; 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -240,9 +230,6 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "Department";
             // 
-            // roleMSTTableAdapter
-            // 
-            this.roleMSTTableAdapter.ClearBeforeFill = true;
             // 
             // financeDataSet1
             // 
@@ -276,7 +263,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -302,9 +288,7 @@
         private System.Windows.Forms.Button btAddToDatabase;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private LdapDataSet ldapDataSet;
         private System.Windows.Forms.BindingSource roleMSTBindingSource;
-        private LdapDataSetTableAdapters.RoleMSTTableAdapter roleMSTTableAdapter;
         private FinanceDataSet1 financeDataSet1;
         private System.Windows.Forms.BindingSource roleMSTBindingSource1;
         private FinanceDataSet1TableAdapters.RoleMSTTableAdapter roleMSTTableAdapter1;

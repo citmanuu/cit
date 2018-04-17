@@ -49,14 +49,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.roleFormPrivilegesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet2 = new MANUUFinance.LdapDataSet2();
-            this.ldapDataSet1 = new MANUUFinance.LdapDataSet1();
             this.roleFormPrivilegesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleFormPrivilegesTableAdapter = new MANUUFinance.LdapDataSet1TableAdapters.RoleFormPrivilegesTableAdapter();
-            this.roleFormPrivilegesTableAdapter1 = new MANUUFinance.LdapDataSet2TableAdapters.RoleFormPrivilegesTableAdapter();
-            this.ldapDataSet7 = new MANUUFinance.LdapDataSet7();
             this.roleFormPrivilegesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.roleFormPrivilegesTableAdapter2 = new MANUUFinance.LdapDataSet7TableAdapters.RoleFormPrivilegesTableAdapter();
             this.roleFormPrivilegesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.DGVPrivilege = new System.Windows.Forms.DataGridView();
             this.privilegeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,9 +66,7 @@
             this.roleFormPrivilegesBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet2 = new MANUUFinance.FinanceDataSet2();
             this.roleFormPrivilegesBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet8 = new MANUUFinance.LdapDataSet8();
             this.roleFormPrivilegesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.roleFormPrivilegesTableAdapter3 = new MANUUFinance.LdapDataSet8TableAdapters.RoleFormPrivilegesTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -91,17 +83,13 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPrivilege)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource4)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource6)).BeginInit();
@@ -284,50 +272,16 @@
             // 
             // roleFormPrivilegesBindingSource1
             // 
-            this.roleFormPrivilegesBindingSource1.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource1.DataSource = this.ldapDataSet2;
-            // 
-            // ldapDataSet2
-            // 
-            this.ldapDataSet2.DataSetName = "LdapDataSet2";
-            this.ldapDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ldapDataSet1
-            // 
-            this.ldapDataSet1.DataSetName = "LdapDataSet1";
-            this.ldapDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+            this.roleFormPrivilegesBindingSource1.DataMember = "RoleFormPrivileges"; 
             // roleFormPrivilegesBindingSource
             // 
             this.roleFormPrivilegesBindingSource.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource.DataSource = this.ldapDataSet1;
-            // 
-            // roleFormPrivilegesTableAdapter
-            // 
-            this.roleFormPrivilegesTableAdapter.ClearBeforeFill = true;
-            // 
-            // roleFormPrivilegesTableAdapter1
-            // 
-            this.roleFormPrivilegesTableAdapter1.ClearBeforeFill = true;
-            // 
-            // ldapDataSet7
-            // 
-            this.ldapDataSet7.DataSetName = "LdapDataSet7";
-            this.ldapDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // roleFormPrivilegesBindingSource2
             // 
             this.roleFormPrivilegesBindingSource2.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource2.DataSource = this.ldapDataSet7;
-            // 
-            // roleFormPrivilegesTableAdapter2
-            // 
-            this.roleFormPrivilegesTableAdapter2.ClearBeforeFill = true;
             // 
             // roleFormPrivilegesBindingSource3
             // 
             this.roleFormPrivilegesBindingSource3.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource3.DataSource = this.ldapDataSet7;
             // 
             // DGVPrivilege
             // 
@@ -443,22 +397,9 @@
             // roleFormPrivilegesBindingSource5
             // 
             this.roleFormPrivilegesBindingSource5.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource5.DataSource = this.ldapDataSet8;
-            // 
-            // ldapDataSet8
-            // 
-            this.ldapDataSet8.DataSetName = "LdapDataSet8";
-            this.ldapDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // roleFormPrivilegesBindingSource4
             // 
-            this.roleFormPrivilegesBindingSource4.DataMember = "RoleFormPrivileges";
-            this.roleFormPrivilegesBindingSource4.DataSource = this.ldapDataSet7;
-            // 
-            // roleFormPrivilegesTableAdapter3
-            // 
-            this.roleFormPrivilegesTableAdapter3.ClearBeforeFill = true;
-            // 
+            this.roleFormPrivilegesBindingSource4.DataMember = "RoleFormPrivileges"; 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -605,17 +546,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPrivilege)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleFormPrivilegesBindingSource4)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -642,15 +579,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private LdapDataSet1 ldapDataSet1;
         private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource;
-        private LdapDataSet1TableAdapters.RoleFormPrivilegesTableAdapter roleFormPrivilegesTableAdapter;
-        private LdapDataSet2 ldapDataSet2;
         private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource1;
-        private LdapDataSet2TableAdapters.RoleFormPrivilegesTableAdapter roleFormPrivilegesTableAdapter1;
-        private LdapDataSet7 ldapDataSet7;
         private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource2;
-        private LdapDataSet7TableAdapters.RoleFormPrivilegesTableAdapter roleFormPrivilegesTableAdapter2;
         private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource3;
         private System.Windows.Forms.DataGridView DGVPrivilege;
         private System.Windows.Forms.DataGridViewTextBoxColumn privilegeIDDataGridViewTextBoxColumn;
@@ -664,9 +595,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn canPrintDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn canSearchDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource4;
-        private LdapDataSet8 ldapDataSet8;
         private System.Windows.Forms.BindingSource roleFormPrivilegesBindingSource5;
-        private LdapDataSet8TableAdapters.RoleFormPrivilegesTableAdapter roleFormPrivilegesTableAdapter3;
         private System.Windows.Forms.Button btClearRecord;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;

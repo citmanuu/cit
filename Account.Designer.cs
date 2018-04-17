@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -70,32 +71,33 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtSL2Search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.DGVAccounts = new System.Windows.Forms.DataGridView();
-            this.pKACIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL1Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL2Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL3Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKSL3IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BankAccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FKBankAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.accountsViewTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.AccountsViewTableAdapter();
+            this.DGVAccounts = new System.Windows.Forms.DataGridView();
+            this.SL1Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL2Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL3Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AcOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AcActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BankAccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL3Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PKACID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FKSL3ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FKBankAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL1ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PKSL2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountsViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -553,48 +555,50 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Account Name";
             // 
+            // accountsViewBindingSource
+            // 
+            this.accountsViewBindingSource.DataMember = "AccountsView";
+            this.accountsViewBindingSource.DataSource = this.financeDataSet;
+            // 
+            // financeDataSet
+            // 
+            this.financeDataSet.DataSetName = "FinanceDataSet";
+            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // accountsViewTableAdapter
+            // 
+            this.accountsViewTableAdapter.ClearBeforeFill = true;
+            // 
             // DGVAccounts
             // 
             this.DGVAccounts.AllowUserToAddRows = false;
             this.DGVAccounts.AllowUserToDeleteRows = false;
-            this.DGVAccounts.AllowUserToResizeRows = false;
-            this.DGVAccounts.AutoGenerateColumns = false;
-            this.DGVAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DGVAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pKACIDDataGridViewTextBoxColumn,
             this.SL1Name,
             this.SL2Name,
             this.SL3Name,
-            this.fKSL3IDDataGridViewTextBoxColumn,
-            this.accountNameDataGridViewTextBoxColumn,
-            this.acOrderDataGridViewTextBoxColumn,
-            this.acActiveDataGridViewCheckBoxColumn,
-            this.bankNameDataGridViewTextBoxColumn,
+            this.AccountName,
+            this.AcOrder,
+            this.AcActive,
             this.BankAccountType,
-            this.accountNumberDataGridViewTextBoxColumn,
-            this.sL1IDDataGridViewTextBoxColumn,
-            this.pKSL2DataGridViewTextBoxColumn,
+            this.AccountNumber,
+            this.SL3Code,
+            this.PKACID,
+            this.FKSL3ID,
             this.FKBankAccountID,
-            this.accountTypeDataGridViewTextBoxColumn});
-            this.DGVAccounts.DataSource = this.accountsViewBindingSource;
-            this.DGVAccounts.Location = new System.Drawing.Point(22, 257);
-            this.DGVAccounts.Margin = new System.Windows.Forms.Padding(2);
-            this.DGVAccounts.MultiSelect = false;
+            this.BankName,
+            this.SL1ID,
+            this.PKSL2,
+            this.AccountType});
+            this.DGVAccounts.Location = new System.Drawing.Point(22, 256);
             this.DGVAccounts.Name = "DGVAccounts";
             this.DGVAccounts.ReadOnly = true;
-            this.DGVAccounts.RowTemplate.Height = 28;
-            this.DGVAccounts.Size = new System.Drawing.Size(670, 252);
+            this.DGVAccounts.Size = new System.Drawing.Size(666, 253);
             this.DGVAccounts.TabIndex = 26;
-            this.DGVAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVAccounts_CellClick);
-            // 
-            // pKACIDDataGridViewTextBoxColumn
-            // 
-            this.pKACIDDataGridViewTextBoxColumn.DataPropertyName = "PKACID";
-            this.pKACIDDataGridViewTextBoxColumn.HeaderText = "PKACID";
-            this.pKACIDDataGridViewTextBoxColumn.Name = "pKACIDDataGridViewTextBoxColumn";
-            this.pKACIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKACIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // SL1Name
             // 
@@ -617,41 +621,26 @@
             this.SL3Name.Name = "SL3Name";
             this.SL3Name.ReadOnly = true;
             // 
-            // fKSL3IDDataGridViewTextBoxColumn
+            // AccountName
             // 
-            this.fKSL3IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL3ID";
-            this.fKSL3IDDataGridViewTextBoxColumn.HeaderText = "FKSL3ID";
-            this.fKSL3IDDataGridViewTextBoxColumn.Name = "fKSL3IDDataGridViewTextBoxColumn";
-            this.fKSL3IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKSL3IDDataGridViewTextBoxColumn.Visible = false;
+            this.AccountName.DataPropertyName = "AccountName";
+            this.AccountName.HeaderText = "AccountName";
+            this.AccountName.Name = "AccountName";
+            this.AccountName.ReadOnly = true;
             // 
-            // accountNameDataGridViewTextBoxColumn
+            // AcOrder
             // 
-            this.accountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName";
-            this.accountNameDataGridViewTextBoxColumn.HeaderText = "AccountName";
-            this.accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
-            this.accountNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.AcOrder.DataPropertyName = "AcOrder";
+            this.AcOrder.HeaderText = "Order";
+            this.AcOrder.Name = "AcOrder";
+            this.AcOrder.ReadOnly = true;
             // 
-            // acOrderDataGridViewTextBoxColumn
+            // AcActive
             // 
-            this.acOrderDataGridViewTextBoxColumn.DataPropertyName = "AcOrder";
-            this.acOrderDataGridViewTextBoxColumn.HeaderText = "Order";
-            this.acOrderDataGridViewTextBoxColumn.Name = "acOrderDataGridViewTextBoxColumn";
-            this.acOrderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // acActiveDataGridViewCheckBoxColumn
-            // 
-            this.acActiveDataGridViewCheckBoxColumn.DataPropertyName = "AcActive";
-            this.acActiveDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.acActiveDataGridViewCheckBoxColumn.Name = "acActiveDataGridViewCheckBoxColumn";
-            this.acActiveDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // bankNameDataGridViewTextBoxColumn
-            // 
-            this.bankNameDataGridViewTextBoxColumn.DataPropertyName = "BankName";
-            this.bankNameDataGridViewTextBoxColumn.HeaderText = "BankName";
-            this.bankNameDataGridViewTextBoxColumn.Name = "bankNameDataGridViewTextBoxColumn";
-            this.bankNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.AcActive.DataPropertyName = "AcActive";
+            this.AcActive.HeaderText = "Active";
+            this.AcActive.Name = "AcActive";
+            this.AcActive.ReadOnly = true;
             // 
             // BankAccountType
             // 
@@ -660,28 +649,36 @@
             this.BankAccountType.Name = "BankAccountType";
             this.BankAccountType.ReadOnly = true;
             // 
-            // accountNumberDataGridViewTextBoxColumn
+            // AccountNumber
             // 
-            this.accountNumberDataGridViewTextBoxColumn.DataPropertyName = "AccountNumber";
-            this.accountNumberDataGridViewTextBoxColumn.HeaderText = "AccountNumber";
-            this.accountNumberDataGridViewTextBoxColumn.Name = "accountNumberDataGridViewTextBoxColumn";
-            this.accountNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.AccountNumber.DataPropertyName = "AccountNumber";
+            this.AccountNumber.HeaderText = "AccountNumber";
+            this.AccountNumber.Name = "AccountNumber";
+            this.AccountNumber.ReadOnly = true;
             // 
-            // sL1IDDataGridViewTextBoxColumn
+            // SL3Code
             // 
-            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
-            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
+            this.SL3Code.DataPropertyName = "SL3Code";
+            this.SL3Code.HeaderText = "SL3Code";
+            this.SL3Code.Name = "SL3Code";
+            this.SL3Code.ReadOnly = true;
+            this.SL3Code.Visible = false;
             // 
-            // pKSL2DataGridViewTextBoxColumn
+            // PKACID
             // 
-            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
-            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKSL2DataGridViewTextBoxColumn.Visible = false;
+            this.PKACID.DataPropertyName = "PKACID";
+            this.PKACID.HeaderText = "PKACID";
+            this.PKACID.Name = "PKACID";
+            this.PKACID.ReadOnly = true;
+            this.PKACID.Visible = false;
+            // 
+            // FKSL3ID
+            // 
+            this.FKSL3ID.DataPropertyName = "FKSL3ID";
+            this.FKSL3ID.HeaderText = "FKSL3ID";
+            this.FKSL3ID.Name = "FKSL3ID";
+            this.FKSL3ID.ReadOnly = true;
+            this.FKSL3ID.Visible = false;
             // 
             // FKBankAccountID
             // 
@@ -691,33 +688,41 @@
             this.FKBankAccountID.ReadOnly = true;
             this.FKBankAccountID.Visible = false;
             // 
-            // accountTypeDataGridViewTextBoxColumn
+            // BankName
             // 
-            this.accountTypeDataGridViewTextBoxColumn.DataPropertyName = "AccountType";
-            this.accountTypeDataGridViewTextBoxColumn.HeaderText = "AccountType";
-            this.accountTypeDataGridViewTextBoxColumn.Name = "accountTypeDataGridViewTextBoxColumn";
-            this.accountTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.accountTypeDataGridViewTextBoxColumn.Visible = false;
+            this.BankName.DataPropertyName = "BankName";
+            this.BankName.HeaderText = "BankName";
+            this.BankName.Name = "BankName";
+            this.BankName.ReadOnly = true;
             // 
-            // accountsViewBindingSource
+            // SL1ID
             // 
-            this.accountsViewBindingSource.DataMember = "AccountsView";
-            this.accountsViewBindingSource.DataSource = this.financeDataSet;
+            this.SL1ID.DataPropertyName = "SL1ID";
+            this.SL1ID.HeaderText = "SL1ID";
+            this.SL1ID.Name = "SL1ID";
+            this.SL1ID.ReadOnly = true;
+            this.SL1ID.Visible = false;
             // 
-            // financeDataSet
+            // PKSL2
             // 
-            this.financeDataSet.DataSetName = "FinanceDataSet";
-            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.PKSL2.DataPropertyName = "PKSL2";
+            this.PKSL2.HeaderText = "PKSL2";
+            this.PKSL2.Name = "PKSL2";
+            this.PKSL2.ReadOnly = true;
+            this.PKSL2.Visible = false;
             // 
-            // accountsViewTableAdapter
+            // AccountType
             // 
-            this.accountsViewTableAdapter.ClearBeforeFill = true;
+            this.AccountType.DataPropertyName = "AccountType";
+            this.AccountType.HeaderText = "AccountType";
+            this.AccountType.Name = "AccountType";
+            this.AccountType.ReadOnly = true;
             // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 525);
+            this.ClientSize = new System.Drawing.Size(979, 529);
             this.Controls.Add(this.DGVAccounts);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -733,9 +738,9 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountsViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -766,7 +771,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBankAccount;
-        private System.Windows.Forms.DataGridView DGVAccounts;
         private FinanceDataSet financeDataSet;
         private System.Windows.Forms.BindingSource accountsViewBindingSource;
         private FinanceDataSetTableAdapters.AccountsViewTableAdapter accountsViewTableAdapter;
@@ -786,21 +790,23 @@
         private System.Windows.Forms.ComboBox comboAccountType;
         private System.Windows.Forms.TextBox txtAccountName;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKACIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.DataGridView DGVAccounts;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL1Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL2Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL3Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL3IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acOrderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn acActiveDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bankNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn BankAccountType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accountNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL3Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PKACID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FKSL3ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FKBankAccountID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accountTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BankName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL1ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PKSL2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountType;
     }
 }

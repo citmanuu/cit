@@ -105,36 +105,6 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="LdapDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet6.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet7.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet8.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet8.xsd</DependentUpon>
-    </Compile>
     <Compile Include="PdfCreator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,21 +164,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LdapDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LdapDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Add Privilege.cs">
       <SubType>Form</SubType>
@@ -407,105 +362,6 @@
     </None>
     <None Include="FinanceDataSet3.xss">
       <DependentUpon>FinanceDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet.xsc">
-      <DependentUpon>LdapDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet.xss">
-      <DependentUpon>LdapDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet1.xsc">
-      <DependentUpon>LdapDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet1.xss">
-      <DependentUpon>LdapDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet2.xsc">
-      <DependentUpon>LdapDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet2.xss">
-      <DependentUpon>LdapDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet3.xsc">
-      <DependentUpon>LdapDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet3.xss">
-      <DependentUpon>LdapDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet4.xsc">
-      <DependentUpon>LdapDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet4.xss">
-      <DependentUpon>LdapDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet5.xsc">
-      <DependentUpon>LdapDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet5.xss">
-      <DependentUpon>LdapDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet6.xsc">
-      <DependentUpon>LdapDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet6.xss">
-      <DependentUpon>LdapDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet7.xsc">
-      <DependentUpon>LdapDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet7.xss">
-      <DependentUpon>LdapDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet8.xsc">
-      <DependentUpon>LdapDataSet8.xsd</DependentUpon>
-    </None>
-    <None Include="LdapDataSet8.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LdapDataSet8.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LdapDataSet8.xss">
-      <DependentUpon>LdapDataSet8.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

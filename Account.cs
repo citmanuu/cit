@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -30,7 +30,11 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet.ACCOUNTSVIEW' table. You can move, or remove it, as needed.
             this.financeDataSet.EnforceConstraints = false;
-            this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
+            // prepartion for datagrid view
+
+            load_DataGridView();
+
+
             //Prepare SL1, SL2 and SL3 Combos
             PrepareSL1Combo();
             PrepareSL2Combo("0");
@@ -43,159 +47,85 @@ namespace MANUUFinance
             PrepareBankAccountCombo();
             retrievedForUpdate = false;
         }
+
+        private void load_DataGridView()
+        {
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            if (new AdministratorLogin().administratorLogin(userId))
+            {
+                SqlDataAdapter sqldb = new SqlDataAdapter("SELECT A.PKACID, A.FKSL3ID, A.AccountName, A.AcOrder, A.AcActive, A.FKBankAccountID, B.BankName, B.AccountType AS BankAccountType, B.AccountNumber, C.SL1ID, C.PKSL2, C.SL1Name, C.SL2Name, C.SL3Name, C.SL3Code, A.AccountType " +
+                        "FROM dbo.Accounts AS A LEFT OUTER JOIN dbo.BankAccountDetails AS B ON A.FKBankAccountID = B.PKBANKACC INNER JOIN dbo.SL3SL2SL1 AS C ON A.FKSL3ID = C.PKSL3 where A.DeptId ='" + deptId + "'", objSqlConnection);
+                DataTable dtb1 = new DataTable();
+                sqldb.Fill(dtb1);
+                DGVAccounts.DataSource = dtb1;
+            }
+            else
+            {
+                SqlDataAdapter sqldb = new SqlDataAdapter("SELECT A.PKACID, A.FKSL3ID, A.AccountName, A.AcOrder, A.AcActive, A.FKBankAccountID, B.BankName, B.AccountType AS BankAccountType, B.AccountNumber, C.SL1ID, C.PKSL2, C.SL1Name, C.SL2Name, C.SL3Name, C.SL3Code, A.AccountType " +
+                                        "FROM dbo.Accounts AS A LEFT OUTER JOIN dbo.BankAccountDetails AS B ON A.FKBankAccountID = B.PKBANKACC INNER JOIN dbo.SL3SL2SL1 AS C ON A.FKSL3ID = C.PKSL3 ", objSqlConnection);
+                DataTable dtb1 = new DataTable();
+                sqldb.Fill(dtb1);
+                DGVAccounts.DataSource = dtb1;
+            }
+
+        }
+
         //DML Region
         #region
 
         //Add Account Record
         private void btnAdd_Click(object sender, EventArgs e)
-        {          
-                //If Form Controls are validated proceed to add record
-                if (validateRecord())
-                {
-                    //Check if we are not Updating Record
-                    if (!retrievedForUpdate)
-                    {
-
-                        //Connection String
-                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                        //Instantiate SQL Connection
-                        SqlConnection objSqlConnection = new SqlConnection(cs);
-                        //Prepare Update String
-                        string insertCommand = "Insert into Accounts (FKSL3ID, AccountType, AccountName, FKBankAccountID, AcOrder, AcActive) values " +
-                                                "(@FKSL3ID, @AccountType, @AccountName, @FKBankAccountID, @AcOrder, @AcActive)";
-                        SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
-
-                        objInsertCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
-                        objInsertCommand.Parameters.AddWithValue("@AccountType", comboAccountType.SelectedValue);
-                        objInsertCommand.Parameters.AddWithValue("@AccountName", txtAccountName.Text);
-                        objInsertCommand.Parameters.AddWithValue("@AcOrder", txtAccountOrder.Text);
-                        if (Convert.ToInt32(comboBankAccount.SelectedValue) == 0)
-                            objInsertCommand.Parameters.AddWithValue("@FKBankAccountID", DBNull.Value);
-                        else
-                            objInsertCommand.Parameters.AddWithValue("@FKBankAccountID", comboBankAccount.SelectedValue);
-
-                        if (radioBtnAccountActive.Checked == true)
-                            objInsertCommand.Parameters.AddWithValue("@AcActive", "1");
-                        else
-                            objInsertCommand.Parameters.AddWithValue("@AcActive", "0");
-
-                        try
-                        {
-                            objSqlConnection.Open();
-                            objInsertCommand.ExecuteNonQuery();
-                            MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ClearTemplate();
-                        }
-                        catch (SqlException ex)
-                        {
-                            if (ex.Message.Contains("PK_Accounts"))
-                            {
-                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                txtAccountName.Focus();
-                            }
-                            else
-                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        }
-                        finally
-                        {
-                            objSqlConnection.Close();
-                        }
-                        //Refresh DGV 
-                        this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
-                    }
-                }
-        }
-
-        //Update Record
-        private void btnUpdate_Click(object sender, EventArgs e)
         {
-                //If Form Controls are validated proceed to add record
-                if (validateRecord())
+            //If Form Controls are validated proceed to add record
+            if (validateRecord())
+            {
+                //Check if we are not Updating Record
+                if (!retrievedForUpdate)
                 {
-                    //Check if we are not Updating Record
-                    if (retrievedForUpdate)
-                    {
-                        //Connection String
-                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                        //Instantiate SQL Connection
-                        SqlConnection objSqlConnection = new SqlConnection(cs);
-                        //Prepare Update String
-                        string updateCommand = "Update Accounts set AccountType = @AccountType, AccountName = @AccountName, AcActive = @AcActive, AcOrder = @AcOrder, " +
-                                               "FKBankAccountID = @FKBankAccountID where PKACID = @PKACID";
-                        SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
 
-                        objUpdateCommand.Parameters.AddWithValue("@AccountType ", comboAccountType.SelectedValue);
-                        objUpdateCommand.Parameters.AddWithValue("@AccountName", txtAccountName.Text);
-                        objUpdateCommand.Parameters.AddWithValue("@AcOrder ", txtAccountOrder.Text);
-                        objUpdateCommand.Parameters.AddWithValue("@PKACID", txtPKACID.Text);
-                        if (Convert.ToInt32(comboBankAccount.SelectedValue) == 0)
-                            objUpdateCommand.Parameters.AddWithValue("@FKBankAccountID", DBNull.Value);
-                        else
-                            objUpdateCommand.Parameters.AddWithValue("@FKBankAccountID", comboBankAccount.SelectedValue);
-
-                        if (radioBtnAccountActive.Checked == true)
-                            objUpdateCommand.Parameters.AddWithValue("@AcActive", "1");
-                        else
-                            objUpdateCommand.Parameters.AddWithValue("@AcActive", "0");
-
-                        try
-                        {
-                            objSqlConnection.Open();
-                            objUpdateCommand.ExecuteNonQuery();
-                            MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ClearTemplate();
-                        }
-                        catch (SqlException ex)
-                        {
-                            if (ex.Message.Contains("PK_Accounts"))
-                            {
-                                MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                txtAccountName.Focus();
-                            }
-                            else
-                                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        }
-                        finally
-                        {
-                            objSqlConnection.Close();
-                        }
-                        //Refresh DGV 
-                        this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
-                    }
-                }
-        }
-
-        //Delete Record
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-                DialogResult diagResult;
-                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (diagResult == DialogResult.Yes)
-                {
                     //Connection String
                     string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
                     //Instantiate SQL Connection
                     SqlConnection objSqlConnection = new SqlConnection(cs);
+                    //Prepare Update String
+                    string insertCommand = "Insert into Accounts (FKSL3ID, AccountType, AccountName, FKBankAccountID, AcOrder, AcActive, DeptId) values (@FKSL3ID, @AccountType, @AccountName, @FKBankAccountID, @AcOrder, @AcActive, @DeptId)";
+                    SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
 
-                    //Prepare Delete String
-                    string deleteCommand = "Delete from Finance.dbo.Accounts where PKACID = @PKACID;";
-                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+                    objInsertCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@AccountType", comboAccountType.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@AccountName", txtAccountName.Text);
+                    objInsertCommand.Parameters.AddWithValue("@AcOrder", txtAccountOrder.Text);
+                    objInsertCommand.Parameters.AddWithValue("@DeptId", deptId);
+                    if (Convert.ToInt32(comboBankAccount.SelectedValue) == 0)
+                        objInsertCommand.Parameters.AddWithValue("@FKBankAccountID", DBNull.Value);
+                    else
+                        objInsertCommand.Parameters.AddWithValue("@FKBankAccountID", comboBankAccount.SelectedValue);
 
-                    objDeleteCommand.Parameters.AddWithValue("@PKACID", txtPKACID.Text);
+                    if (radioBtnAccountActive.Checked == true)
+                        objInsertCommand.Parameters.AddWithValue("@AcActive", "1");
+                    else
+                        objInsertCommand.Parameters.AddWithValue("@AcActive", "0");
 
                     try
                     {
                         objSqlConnection.Open();
-                        objDeleteCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        objInsertCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearTemplate();
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (ex.Message.Contains("PK_Accounts"))
+                        {
+                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtAccountName.Focus();
+                        }
+                        else
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     }
                     finally
                     {
@@ -204,6 +134,106 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
+            }
+        }
+
+        //Update Record
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //If Form Controls are validated proceed to add record
+            if (validateRecord())
+            {
+                //Check if we are not Updating Record
+                if (retrievedForUpdate)
+                {
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+                    //Prepare Update String
+                    string updateCommand = "Update Accounts set AccountType = @AccountType, AccountName = @AccountName, AcActive = @AcActive, AcOrder = @AcOrder, " +
+                                           "FKBankAccountID = @FKBankAccountID where PKACID = @PKACID";
+                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+
+                    objUpdateCommand.Parameters.AddWithValue("@AccountType ", comboAccountType.SelectedValue);
+                    objUpdateCommand.Parameters.AddWithValue("@AccountName", txtAccountName.Text);
+                    objUpdateCommand.Parameters.AddWithValue("@AcOrder ", txtAccountOrder.Text);
+                    objUpdateCommand.Parameters.AddWithValue("@PKACID", txtPKACID.Text);
+                    if (Convert.ToInt32(comboBankAccount.SelectedValue) == 0)
+                        objUpdateCommand.Parameters.AddWithValue("@FKBankAccountID", DBNull.Value);
+                    else
+                        objUpdateCommand.Parameters.AddWithValue("@FKBankAccountID", comboBankAccount.SelectedValue);
+
+                    if (radioBtnAccountActive.Checked == true)
+                        objUpdateCommand.Parameters.AddWithValue("@AcActive", "1");
+                    else
+                        objUpdateCommand.Parameters.AddWithValue("@AcActive", "0");
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objUpdateCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        if (ex.Message.Contains("PK_Accounts"))
+                        {
+                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtAccountName.Focus();
+                        }
+                        else
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    //Refresh DGV 
+                    this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
+                }
+            }
+        }
+
+        //Delete Record
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult diagResult;
+            diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (diagResult == DialogResult.Yes)
+            {
+                //Connection String
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                //Instantiate SQL Connection
+                SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                //Prepare Delete String
+                string deleteCommand = "Delete from Finance.dbo.Accounts where PKACID = @PKACID;";
+                SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                objDeleteCommand.Parameters.AddWithValue("@PKACID", txtPKACID.Text);
+
+                try
+                {
+                    objSqlConnection.Open();
+                    objDeleteCommand.ExecuteNonQuery();
+                    MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTemplate();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    objSqlConnection.Close();
+                }
+                //Refresh DGV 
+                this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
+            }
         }
 
         //Prepare SL1Combo
@@ -370,13 +400,13 @@ namespace MANUUFinance
             try
             {
                 SearchStatement.Clear();
-                if(txtSL1Seacrh.Text.Length > 0)
+                if (txtSL1Seacrh.Text.Length > 0)
                 {
                     SearchStatement.Append("SL1Name like '%" + txtSL1Seacrh.Text + "%'");
                 }
                 if (txtSL2Search.Text.Length > 0)
                 {
-                    if(SearchStatement.Length > 0)
+                    if (SearchStatement.Length > 0)
                     {
                         SearchStatement.Append(" and ");
                     }
@@ -411,7 +441,7 @@ namespace MANUUFinance
 
                 //Refresh DGV 
                 accountsViewBindingSource.Filter = SearchStatement.ToString();
-                
+
             }
             catch (Exception ex)
             {
@@ -419,7 +449,7 @@ namespace MANUUFinance
             }
 
         }
-        
+
         //Clear Filter
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
@@ -466,13 +496,13 @@ namespace MANUUFinance
             {
                 comboSL1.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
                 comboSL2.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[12].FormattedValue.ToString());
-                if(DGVAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString() == "")
+                if (DGVAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString() == "")
                 {
                     comboBankAccount.SelectedValue = 0;
                     comboBankAccount.Enabled = false;
                 }
                 else
-                {                
+                {
                     comboBankAccount.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString());
                     comboBankAccount.Enabled = true;
                 }

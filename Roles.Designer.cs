@@ -43,7 +43,6 @@
             this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleMSTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet = new MANUUFinance.LdapDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -56,14 +55,12 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.roleMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.RoleMSTTableAdapter();
             this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
             this.roleMSTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.roleMSTTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.RoleMSTTableAdapter();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).BeginInit();
@@ -203,14 +200,7 @@
             // 
             // roleMSTBindingSource
             // 
-            this.roleMSTBindingSource.DataMember = "RoleMST";
-            this.roleMSTBindingSource.DataSource = this.ldapDataSet;
-            // 
-            // ldapDataSet
-            // 
-            this.ldapDataSet.DataSetName = "LdapDataSet";
-            this.ldapDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+            this.roleMSTBindingSource.DataMember = "RoleMST"; 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -332,10 +322,7 @@
             this.textBox1.Size = new System.Drawing.Size(249, 20);
             this.textBox1.TabIndex = 39;
             // 
-            // roleMSTTableAdapter
-            // 
-            this.roleMSTTableAdapter.ClearBeforeFill = true;
-            // 
+
             // financeDataSet1
             // 
             this.financeDataSet1.DataSetName = "FinanceDataSet1";
@@ -372,7 +359,6 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource1)).EndInit();
@@ -403,9 +389,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private LdapDataSet ldapDataSet;
         private System.Windows.Forms.BindingSource roleMSTBindingSource;
-        private LdapDataSetTableAdapters.RoleMSTTableAdapter roleMSTTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleDescriptionDataGridViewTextBoxColumn;

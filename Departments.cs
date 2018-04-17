@@ -85,7 +85,7 @@ namespace MANUUFinance
                 }
                 finally
                 {
-                    this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+                    this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
                     cleartextbox();
                     con.Close();
                 }
@@ -132,7 +132,7 @@ namespace MANUUFinance
                     }
                     finally
                     {
-                        this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+                        this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
                         cleartextbox();
                         con.Close();
                     }
@@ -181,7 +181,7 @@ namespace MANUUFinance
                     }
                     finally
                     {
-                        this.departmentTableAdapter.Fill(this.ldapDataSet.Department);
+                        this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
                         cleartextbox();
                         con.Close();
                     }
@@ -297,6 +297,7 @@ namespace MANUUFinance
             PdfCreator objectpdfcreator = new PdfCreator();
             objectpdfcreator.exportgridviewpdf(DGVForm, "Department");
         }
+
         // clear the text
         private void btnClearSearch_Click(object sender, EventArgs e)
         {

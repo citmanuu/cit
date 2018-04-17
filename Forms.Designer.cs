@@ -35,7 +35,6 @@
             this.formNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formMSTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet = new MANUUFinance.LdapDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -52,7 +51,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.formMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.FormMSTTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +59,6 @@
             this.formMSTTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.FormMSTTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formMSTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
@@ -117,12 +114,6 @@
             // formMSTBindingSource
             // 
             this.formMSTBindingSource.DataMember = "FormMST";
-            this.formMSTBindingSource.DataSource = this.ldapDataSet;
-            // 
-            // ldapDataSet
-            // 
-            this.ldapDataSet.DataSetName = "LdapDataSet";
-            this.ldapDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -289,9 +280,6 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Account Name";
             // 
-            // formMSTTableAdapter
-            // 
-            this.formMSTTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -361,7 +349,6 @@
             this.Load += new System.EventHandler(this.AddForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formMSTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -390,9 +377,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnClearSearch;
         private System.Windows.Forms.Label label5;
-        private LdapDataSet ldapDataSet;
         private System.Windows.Forms.BindingSource formMSTBindingSource;
-        private LdapDataSetTableAdapters.FormMSTTableAdapter formMSTTableAdapter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btClearRecord;

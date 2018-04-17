@@ -35,7 +35,7 @@ namespace MANUUFinance
             SqlConnection objSqlConnection = new SqlConnection(cs);
 
             SqlDataAdapter sqldb = new SqlDataAdapter("SELECT A.PKACID, A.FKSL3ID, A.AccountName, A.AcOrder, A.AcActive, A.FKBankAccountID, B.BankName, B.AccountType AS BankAccountType, B.AccountNumber, C.SL1ID, C.PKSL2, C.SL1Name, C.SL2Name, C.SL3Name, C.SL3Code, A.AccountType " +
-                                    "FROM dbo.Accounts AS A LEFT OUTER JOIN dbo.BankAccountDetails AS B ON A.FKBankAccountID = B.PKBANKACC INNER JOIN dbo.SL3SL2SL1 AS C ON A.FKSL3ID = C.PKSL3 where A.DeptId = '"+ 4 +"'", objSqlConnection);
+                                    "FROM dbo.Accounts AS A LEFT OUTER JOIN dbo.BankAccountDetails AS B ON A.FKBankAccountID = B.PKBANKACC INNER JOIN dbo.SL3SL2SL1 AS C ON A.FKSL3ID = C.PKSL3 ", objSqlConnection);
             DataTable dtb1 = new DataTable();
             sqldb.Fill(dtb1);
             dataGridView1.DataSource = dtb1;

@@ -255,7 +255,7 @@ namespace MANUUFinance
         {
             try
             {
-                this.departmentTableAdapter.FillBy(this.ldapDataSet.Department);
+                this.departmentTableAdapter1.Fill(this.financeDataSet1.Department);
             }
             catch (System.Exception ex)
             {

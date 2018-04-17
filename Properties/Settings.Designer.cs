@@ -12,7 +12,7 @@ namespace MANUUFinance.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,7 @@ namespace MANUUFinance.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EIPL-PC1\\SQLEXPRESS02;Initial Catalog=Finance;Integrated Security=Tru" +
-            "e")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FINANCE\\SQLFINANCE;Initial Catalog=Finance;Integrated Security=True")]
         public string FinanceConnectionString {
             get {
                 return ((string)(this["FinanceConnectionString"]));
@@ -37,7 +36,7 @@ namespace MANUUFinance.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=EIPL-PC1\\SQLEXPRESS02;Initial Catalog=Ldap;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FINANCE\\SQLFINANCE;Initial Catalog=Ldap;Integrated Security=True")]
         public string LdapConnectionString {
             get {
                 return ((string)(this["LdapConnectionString"]));

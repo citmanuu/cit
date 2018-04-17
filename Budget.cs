@@ -58,7 +58,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT PKDEPID, DEPNAME FROM [Finance].[dbo].[DEPT] Order by 1";
+            string selectCommand = "SELECT DeptId, DeptName FROM [Finance].[dbo].[Department] Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -268,12 +268,9 @@ namespace MANUUFinance
 
         //Add Account Record
         private void btnAdd_Click(object sender, EventArgs e)
-        {            // Check the action permission
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-
-                //If Form Controls are validated proceed to add record
+        {
+            
+            //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
                     //Check if we are not Updating Record
@@ -328,19 +325,11 @@ namespace MANUUFinance
                         this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
                     }
                 }
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+         }
 
         //Update record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-
                 //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
@@ -388,9 +377,6 @@ namespace MANUUFinance
                         this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
                     }
                 }
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion
@@ -591,7 +577,7 @@ namespace MANUUFinance
                     {
                         SearchStatement.Append(" and ");
                     }
-                    SearchStatement.Append("PKDEPID = " + Convert.ToInt32(comboDept.SelectedValue));
+                    SearchStatement.Append("DeptId = " + Convert.ToInt32(comboDept.SelectedValue));
                 }
 
                 if (Convert.ToInt32(comboSL1.SelectedValue) > 0)

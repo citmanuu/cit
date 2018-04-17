@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departments));
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,8 +43,9 @@
             this.deptIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deptDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet = new MANUUFinance.LdapDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,18 +57,14 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.departmentTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.DepartmentTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
-            this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
-            this.departmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.departmentTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.DepartmentTableAdapter();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -180,8 +177,8 @@
             // deptIdDataGridViewTextBoxColumn
             // 
             this.deptIdDataGridViewTextBoxColumn.DataPropertyName = "DeptId";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.deptIdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.deptIdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.deptIdDataGridViewTextBoxColumn.HeaderText = "DeptId";
             this.deptIdDataGridViewTextBoxColumn.Name = "deptIdDataGridViewTextBoxColumn";
             this.deptIdDataGridViewTextBoxColumn.ReadOnly = true;
@@ -204,15 +201,19 @@
             this.deptDescriptionDataGridViewTextBoxColumn.Name = "deptDescriptionDataGridViewTextBoxColumn";
             this.deptDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // departmentBindingSource1
+            // 
+            this.departmentBindingSource1.DataMember = "Department";
+            this.departmentBindingSource1.DataSource = this.financeDataSet1;
+            // 
+            // financeDataSet1
+            // 
+            this.financeDataSet1.DataSetName = "FinanceDataSet1";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // departmentBindingSource
             // 
             this.departmentBindingSource.DataMember = "Department";
-            this.departmentBindingSource.DataSource = this.ldapDataSet;
-            // 
-            // ldapDataSet
-            // 
-            this.ldapDataSet.DataSetName = "LdapDataSet";
-            this.ldapDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -323,10 +324,6 @@
             this.textBox1.Size = new System.Drawing.Size(249, 20);
             this.textBox1.TabIndex = 29;
             // 
-            // departmentTableAdapter
-            // 
-            this.departmentTableAdapter.ClearBeforeFill = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -338,16 +335,6 @@
             this.label4.Size = new System.Drawing.Size(379, 158);
             this.label4.TabIndex = 45;
             this.label4.Text = resources.GetString("label4.Text");
-            // 
-            // financeDataSet1
-            // 
-            this.financeDataSet1.DataSetName = "FinanceDataSet1";
-            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // departmentBindingSource1
-            // 
-            this.departmentBindingSource1.DataMember = "Department";
-            this.departmentBindingSource1.DataSource = this.financeDataSet1;
             // 
             // departmentTableAdapter1
             // 
@@ -374,11 +361,10 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVForm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,9 +391,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private LdapDataSet ldapDataSet;
+       
         private System.Windows.Forms.BindingSource departmentBindingSource;
-        private LdapDataSetTableAdapters.DepartmentTableAdapter departmentTableAdapter;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deptNameDataGridViewTextBoxColumn;

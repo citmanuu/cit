@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.roleMSTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ldapDataSet = new MANUUFinance.LdapDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,14 +45,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btAddToDatabase = new System.Windows.Forms.Button();
-            this.departmentTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.DepartmentTableAdapter();
-            this.roleMSTTableAdapter = new MANUUFinance.LdapDataSetTableAdapters.RoleMSTTableAdapter();
             this.departmentBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet1 = new MANUUFinance.FinanceDataSet1();
             this.departmentBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.departmentTableAdapter1 = new MANUUFinance.FinanceDataSet1TableAdapters.DepartmentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).BeginInit();
@@ -65,13 +61,6 @@
             // roleMSTBindingSource
             // 
             this.roleMSTBindingSource.DataMember = "RoleMST";
-            this.roleMSTBindingSource.DataSource = this.ldapDataSet;
-            // 
-            // ldapDataSet
-            // 
-            this.ldapDataSet.DataSetName = "LdapDataSet";
-            this.ldapDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label7);
@@ -180,7 +169,6 @@
             // departmentBindingSource
             // 
             this.departmentBindingSource.DataMember = "Department";
-            this.departmentBindingSource.DataSource = this.ldapDataSet;
             // 
             // label4
             // 
@@ -196,7 +184,6 @@
             // departmentBindingSource1
             // 
             this.departmentBindingSource1.DataMember = "Department";
-            this.departmentBindingSource1.DataSource = this.ldapDataSet;
             // 
             // comboBox1
             // 
@@ -226,18 +213,9 @@
             this.btAddToDatabase.UseVisualStyleBackColor = true;
             this.btAddToDatabase.Click += new System.EventHandler(this.btAddToDatabase_Click);
             // 
-            // departmentTableAdapter
-            // 
-            this.departmentTableAdapter.ClearBeforeFill = true;
-            // 
-            // roleMSTTableAdapter
-            // 
-            this.roleMSTTableAdapter.ClearBeforeFill = true;
-            // 
             // departmentBindingSource2
             // 
             this.departmentBindingSource2.DataMember = "Department";
-            this.departmentBindingSource2.DataSource = this.ldapDataSet;
             // 
             // financeDataSet1
             // 
@@ -266,7 +244,6 @@
             this.Text = "Dept Privileges";
             this.Load += new System.EventHandler(this.mapping_Load);
             ((System.ComponentModel.ISupportInitialize)(this.roleMSTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ldapDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
@@ -291,11 +268,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAddToDatabase;
-        private LdapDataSet ldapDataSet;
         private System.Windows.Forms.BindingSource departmentBindingSource;
-        private LdapDataSetTableAdapters.DepartmentTableAdapter departmentTableAdapter;
         private System.Windows.Forms.BindingSource roleMSTBindingSource;
-        private LdapDataSetTableAdapters.RoleMSTTableAdapter roleMSTTableAdapter;
         private System.Windows.Forms.BindingSource departmentBindingSource1;
         private System.Windows.Forms.BindingSource departmentBindingSource2;
         private System.Windows.Forms.Label label7;
