@@ -29,8 +29,8 @@ namespace MANUUFinance
 
         private void Budget_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'financeDataSet.BudgetWithAccounts' table. You can move, or remove it, as needed.
-            this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
+            // TODO: This line of code loads data into the 'financeDataSet4.BudgetWithAccounts' table. You can move, or remove it, as needed.
+            this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
             PrepareDeptCombo();
             PrepareFYCombo();
             PrepareSL1Combo();
@@ -321,9 +321,9 @@ namespace MANUUFinance
                         {
                             objSqlConnection.Close();
                         }
-                        //Refresh DGV 
-                        this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
-                    }
+                    //Refresh DGV 
+                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
+                }
                 }
          }
 
@@ -373,9 +373,9 @@ namespace MANUUFinance
                         {
                             objSqlConnection.Close();
                         }
-                        //Refresh DGV 
-                        this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
-                    }
+                    //Refresh DGV 
+                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
+                }
                 }
         }
 
@@ -427,37 +427,6 @@ namespace MANUUFinance
             queryMode = false;
             budgetWithAccountsBindingSource.Filter = "";
         }
-
-        //Trasfer Record to Template from the row where user has clicked the mouse
-        private void DGVBudgetAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-                {
-                //D.FYName(0), DEPNAME(1), SL3Code(2), AccountName(3), BECY(4), RBECY(5), BENY(6), SL1Name (7), 
-                //SL2Name (8), SL3Name (9), SL1ID (10), PKSL2 (11), FKSL3ID (12), C.PKDEPID (13), D.PKFYID (14), ACID (15), PKBUDGETID (16)
-                    
-                    comboFY.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString());
-                    comboDept.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString());
-                    comboSL1.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());
-                    comboSL2.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
-                    comboSL3.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[12].FormattedValue.ToString());
-                    comboAccount.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[15].FormattedValue.ToString());
-
-                    txtBECY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                    txtRBECY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-                    txtBENY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
-                    txtPKBudgetID.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[16].FormattedValue.ToString();
-                   
-                    if (DGVBudgetAccounts.Rows[e.RowIndex].Cells[7].FormattedValue.ToString() == "DUMMY SL1")
-                    {
-                        btnMapVirtualAccount.Enabled = true;
-                    }
-                    else
-                    btnMapVirtualAccount.Enabled = false;
-                retrievedForUpdate = true;
-                    LockKeys();
-                    }
-            }
 
         //Set Locks on Keys
         private void LockKeys()
@@ -823,7 +792,7 @@ namespace MANUUFinance
                 {
                     SearchStatement.Append(" and ");
                 }
-                SearchStatement.Append(" DepName like '%" + txtDeptSearch.Text + "%'");
+                SearchStatement.Append(" DeptName like '%" + txtDeptSearch.Text + "%'");
             }
 
             try
@@ -902,6 +871,37 @@ namespace MANUUFinance
         {
             Supports objectsupport = new Supports(DGVBudgetAccounts, "BudgetAccount");
             objectsupport.ShowDialog();
+        }
+
+        //Trasfer Record to Template from the row where user has clicked the mouse
+        private void DGVBudgetAccounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //D.FYName(0), DEPNAME(1), SL3Code(2), AccountName(3), BECY(4), RBECY(5), BENY(6), SL1Name (7), 
+                //SL2Name (8), SL3Name (9), SL1ID (10), PKSL2 (11), FKSL3ID (12), C.PKDEPID (13), D.PKFYID (14), ACID (15), PKBUDGETID (16)
+
+                comboFY.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString());
+                comboDept.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString());
+                comboSL1.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());
+                comboSL2.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
+                comboSL3.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[12].FormattedValue.ToString());
+                comboAccount.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[15].FormattedValue.ToString());
+
+                txtBECY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+                txtRBECY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
+                txtBENY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
+                txtPKBudgetID.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[16].FormattedValue.ToString();
+
+                if (DGVBudgetAccounts.Rows[e.RowIndex].Cells[7].FormattedValue.ToString() == "DUMMY SL1")
+                {
+                    btnMapVirtualAccount.Enabled = true;
+                }
+                else
+                    btnMapVirtualAccount.Enabled = false;
+                retrievedForUpdate = true;
+                LockKeys();
+            }
         }
 
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)

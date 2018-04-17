@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinanceDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +367,17 @@
     </None>
     <None Include="FinanceDataSet3.xss">
       <DependentUpon>FinanceDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet4.xsc">
+      <DependentUpon>FinanceDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet4.xss">
+      <DependentUpon>FinanceDataSet4.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

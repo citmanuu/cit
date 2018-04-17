@@ -44,6 +44,7 @@
             this.txtSL2Search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnMapVirtualAccount = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -76,34 +77,44 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPKBudgetID = new System.Windows.Forms.TextBox();
-            this.DGVBudgetAccounts = new System.Windows.Forms.DataGridView();
-            this.fYNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3CodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bECYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rBECYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bENYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKSL3IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKDEPIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKFYIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKACID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKBUDGETID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.budgetWithAccountsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet4 = new MANUUFinance.FinanceDataSet4();
             this.budgetWithAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.budgetWithAccountsTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BudgetWithAccountsTableAdapter();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.budgetWithAccountsTableAdapter1 = new MANUUFinance.FinanceDataSet4TableAdapters.BudgetWithAccountsTableAdapter();
+            this.DGVBudgetAccounts = new System.Windows.Forms.DataGridView();
+            this.budgetWithAccountsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.fYNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3CodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bECYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rBECYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bENYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1NameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL2NameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3NameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1IDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKSL2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKSL3IDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deptIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKFYIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKACIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKBUDGETIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btImport = new System.Windows.Forms.Button();
+            this.btExport = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVBudgetAccounts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVBudgetAccounts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource2)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -269,6 +280,16 @@
             this.groupBox2.Size = new System.Drawing.Size(754, 45);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(286, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 40;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnMapVirtualAccount
             // 
@@ -668,166 +689,15 @@
             this.txtPKBudgetID.Size = new System.Drawing.Size(68, 20);
             this.txtPKBudgetID.TabIndex = 1;
             // 
-            // DGVBudgetAccounts
+            // budgetWithAccountsBindingSource1
             // 
-            this.DGVBudgetAccounts.AllowUserToAddRows = false;
-            this.DGVBudgetAccounts.AllowUserToDeleteRows = false;
-            this.DGVBudgetAccounts.AutoGenerateColumns = false;
-            this.DGVBudgetAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGVBudgetAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVBudgetAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fYNameDataGridViewTextBoxColumn,
-            this.dEPNAMEDataGridViewTextBoxColumn,
-            this.sL3CodeDataGridViewTextBoxColumn,
-            this.accountNameDataGridViewTextBoxColumn,
-            this.bECYDataGridViewTextBoxColumn,
-            this.rBECYDataGridViewTextBoxColumn,
-            this.bENYDataGridViewTextBoxColumn,
-            this.sL1NameDataGridViewTextBoxColumn,
-            this.sL2NameDataGridViewTextBoxColumn,
-            this.sL3NameDataGridViewTextBoxColumn,
-            this.sL1IDDataGridViewTextBoxColumn,
-            this.pKSL2DataGridViewTextBoxColumn,
-            this.fKSL3IDDataGridViewTextBoxColumn,
-            this.pKDEPIDDataGridViewTextBoxColumn,
-            this.pKFYIDDataGridViewTextBoxColumn,
-            this.PKACID,
-            this.PKBUDGETID});
-            this.DGVBudgetAccounts.DataSource = this.budgetWithAccountsBindingSource;
-            this.DGVBudgetAccounts.Location = new System.Drawing.Point(34, 263);
-            this.DGVBudgetAccounts.Margin = new System.Windows.Forms.Padding(2);
-            this.DGVBudgetAccounts.Name = "DGVBudgetAccounts";
-            this.DGVBudgetAccounts.ReadOnly = true;
-            this.DGVBudgetAccounts.RowTemplate.Height = 28;
-            this.DGVBudgetAccounts.Size = new System.Drawing.Size(699, 254);
-            this.DGVBudgetAccounts.TabIndex = 29;
-            this.DGVBudgetAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVBudgetAccounts_CellClick);
+            this.budgetWithAccountsBindingSource1.DataMember = "BudgetWithAccounts";
+            this.budgetWithAccountsBindingSource1.DataSource = this.financeDataSet4;
             // 
-            // fYNameDataGridViewTextBoxColumn
+            // financeDataSet4
             // 
-            this.fYNameDataGridViewTextBoxColumn.DataPropertyName = "FYName";
-            this.fYNameDataGridViewTextBoxColumn.HeaderText = "FYName";
-            this.fYNameDataGridViewTextBoxColumn.Name = "fYNameDataGridViewTextBoxColumn";
-            this.fYNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dEPNAMEDataGridViewTextBoxColumn
-            // 
-            this.dEPNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPNAME";
-            this.dEPNAMEDataGridViewTextBoxColumn.HeaderText = "DEPNAME";
-            this.dEPNAMEDataGridViewTextBoxColumn.Name = "dEPNAMEDataGridViewTextBoxColumn";
-            this.dEPNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sL3CodeDataGridViewTextBoxColumn
-            // 
-            this.sL3CodeDataGridViewTextBoxColumn.DataPropertyName = "SL3Code";
-            this.sL3CodeDataGridViewTextBoxColumn.HeaderText = "SL3Code";
-            this.sL3CodeDataGridViewTextBoxColumn.Name = "sL3CodeDataGridViewTextBoxColumn";
-            this.sL3CodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountNameDataGridViewTextBoxColumn
-            // 
-            this.accountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName";
-            this.accountNameDataGridViewTextBoxColumn.HeaderText = "AccountName";
-            this.accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
-            this.accountNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bECYDataGridViewTextBoxColumn
-            // 
-            this.bECYDataGridViewTextBoxColumn.DataPropertyName = "BECY";
-            this.bECYDataGridViewTextBoxColumn.HeaderText = "BECY";
-            this.bECYDataGridViewTextBoxColumn.Name = "bECYDataGridViewTextBoxColumn";
-            this.bECYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rBECYDataGridViewTextBoxColumn
-            // 
-            this.rBECYDataGridViewTextBoxColumn.DataPropertyName = "RBECY";
-            this.rBECYDataGridViewTextBoxColumn.HeaderText = "RBECY";
-            this.rBECYDataGridViewTextBoxColumn.Name = "rBECYDataGridViewTextBoxColumn";
-            this.rBECYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bENYDataGridViewTextBoxColumn
-            // 
-            this.bENYDataGridViewTextBoxColumn.DataPropertyName = "BENY";
-            this.bENYDataGridViewTextBoxColumn.HeaderText = "BENY";
-            this.bENYDataGridViewTextBoxColumn.Name = "bENYDataGridViewTextBoxColumn";
-            this.bENYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sL1NameDataGridViewTextBoxColumn
-            // 
-            this.sL1NameDataGridViewTextBoxColumn.DataPropertyName = "SL1Name";
-            this.sL1NameDataGridViewTextBoxColumn.HeaderText = "SL1Name";
-            this.sL1NameDataGridViewTextBoxColumn.Name = "sL1NameDataGridViewTextBoxColumn";
-            this.sL1NameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sL2NameDataGridViewTextBoxColumn
-            // 
-            this.sL2NameDataGridViewTextBoxColumn.DataPropertyName = "SL2Name";
-            this.sL2NameDataGridViewTextBoxColumn.HeaderText = "SL2Name";
-            this.sL2NameDataGridViewTextBoxColumn.Name = "sL2NameDataGridViewTextBoxColumn";
-            this.sL2NameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sL3NameDataGridViewTextBoxColumn
-            // 
-            this.sL3NameDataGridViewTextBoxColumn.DataPropertyName = "SL3Name";
-            this.sL3NameDataGridViewTextBoxColumn.HeaderText = "SL3Name";
-            this.sL3NameDataGridViewTextBoxColumn.Name = "sL3NameDataGridViewTextBoxColumn";
-            this.sL3NameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sL1IDDataGridViewTextBoxColumn
-            // 
-            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
-            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pKSL2DataGridViewTextBoxColumn
-            // 
-            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
-            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKSL2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fKSL3IDDataGridViewTextBoxColumn
-            // 
-            this.fKSL3IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL3ID";
-            this.fKSL3IDDataGridViewTextBoxColumn.HeaderText = "FKSL3ID";
-            this.fKSL3IDDataGridViewTextBoxColumn.Name = "fKSL3IDDataGridViewTextBoxColumn";
-            this.fKSL3IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKSL3IDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pKDEPIDDataGridViewTextBoxColumn
-            // 
-            this.pKDEPIDDataGridViewTextBoxColumn.DataPropertyName = "PKDEPID";
-            this.pKDEPIDDataGridViewTextBoxColumn.HeaderText = "PKDEPID";
-            this.pKDEPIDDataGridViewTextBoxColumn.Name = "pKDEPIDDataGridViewTextBoxColumn";
-            this.pKDEPIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKDEPIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pKFYIDDataGridViewTextBoxColumn
-            // 
-            this.pKFYIDDataGridViewTextBoxColumn.DataPropertyName = "PKFYID";
-            this.pKFYIDDataGridViewTextBoxColumn.HeaderText = "PKFYID";
-            this.pKFYIDDataGridViewTextBoxColumn.Name = "pKFYIDDataGridViewTextBoxColumn";
-            this.pKFYIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKFYIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // PKACID
-            // 
-            this.PKACID.DataPropertyName = "PKACID";
-            this.PKACID.HeaderText = "PKACID";
-            this.PKACID.Name = "PKACID";
-            this.PKACID.ReadOnly = true;
-            this.PKACID.Visible = false;
-            // 
-            // PKBUDGETID
-            // 
-            this.PKBUDGETID.DataPropertyName = "PKBUDGETID";
-            this.PKBUDGETID.HeaderText = "PKBUDGETID";
-            this.PKBUDGETID.Name = "PKBUDGETID";
-            this.PKBUDGETID.ReadOnly = true;
-            this.PKBUDGETID.Visible = false;
+            this.financeDataSet4.DataSetName = "FinanceDataSet4";
+            this.financeDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // budgetWithAccountsBindingSource
             // 
@@ -843,26 +713,222 @@
             // 
             this.budgetWithAccountsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnPrint
+            // budgetWithAccountsTableAdapter1
             // 
-            this.btnPrint.Location = new System.Drawing.Point(286, 12);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 25);
-            this.btnPrint.TabIndex = 40;
-            this.btnPrint.Text = "Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.budgetWithAccountsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // DGVBudgetAccounts
+            // 
+            this.DGVBudgetAccounts.AllowUserToAddRows = false;
+            this.DGVBudgetAccounts.AllowUserToDeleteRows = false;
+            this.DGVBudgetAccounts.AutoGenerateColumns = false;
+            this.DGVBudgetAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVBudgetAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fYNameDataGridViewTextBoxColumn1,
+            this.deptNameDataGridViewTextBoxColumn,
+            this.sL3CodeDataGridViewTextBoxColumn1,
+            this.accountNameDataGridViewTextBoxColumn1,
+            this.bECYDataGridViewTextBoxColumn1,
+            this.rBECYDataGridViewTextBoxColumn1,
+            this.bENYDataGridViewTextBoxColumn1,
+            this.sL1NameDataGridViewTextBoxColumn1,
+            this.sL2NameDataGridViewTextBoxColumn1,
+            this.sL3NameDataGridViewTextBoxColumn1,
+            this.sL1IDDataGridViewTextBoxColumn1,
+            this.pKSL2DataGridViewTextBoxColumn1,
+            this.fKSL3IDDataGridViewTextBoxColumn1,
+            this.deptIdDataGridViewTextBoxColumn,
+            this.pKFYIDDataGridViewTextBoxColumn1,
+            this.pKACIDDataGridViewTextBoxColumn,
+            this.pKBUDGETIDDataGridViewTextBoxColumn});
+            this.DGVBudgetAccounts.DataSource = this.budgetWithAccountsBindingSource2;
+            this.DGVBudgetAccounts.Location = new System.Drawing.Point(34, 263);
+            this.DGVBudgetAccounts.Name = "DGVBudgetAccounts";
+            this.DGVBudgetAccounts.ReadOnly = true;
+            this.DGVBudgetAccounts.Size = new System.Drawing.Size(700, 254);
+            this.DGVBudgetAccounts.TabIndex = 30;
+            this.DGVBudgetAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVBudgetAccounts_CellContentClick);
+            // 
+            // budgetWithAccountsBindingSource2
+            // 
+            this.budgetWithAccountsBindingSource2.DataMember = "BudgetWithAccounts";
+            this.budgetWithAccountsBindingSource2.DataSource = this.financeDataSet4;
+            // 
+            // fYNameDataGridViewTextBoxColumn1
+            // 
+            this.fYNameDataGridViewTextBoxColumn1.DataPropertyName = "FYName";
+            this.fYNameDataGridViewTextBoxColumn1.HeaderText = "FYName";
+            this.fYNameDataGridViewTextBoxColumn1.Name = "fYNameDataGridViewTextBoxColumn1";
+            this.fYNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // deptNameDataGridViewTextBoxColumn
+            // 
+            this.deptNameDataGridViewTextBoxColumn.DataPropertyName = "DeptName";
+            this.deptNameDataGridViewTextBoxColumn.HeaderText = "DeptName";
+            this.deptNameDataGridViewTextBoxColumn.Name = "deptNameDataGridViewTextBoxColumn";
+            this.deptNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sL3CodeDataGridViewTextBoxColumn1
+            // 
+            this.sL3CodeDataGridViewTextBoxColumn1.DataPropertyName = "SL3Code";
+            this.sL3CodeDataGridViewTextBoxColumn1.HeaderText = "SL3Code";
+            this.sL3CodeDataGridViewTextBoxColumn1.Name = "sL3CodeDataGridViewTextBoxColumn1";
+            this.sL3CodeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // accountNameDataGridViewTextBoxColumn1
+            // 
+            this.accountNameDataGridViewTextBoxColumn1.DataPropertyName = "AccountName";
+            this.accountNameDataGridViewTextBoxColumn1.HeaderText = "AccountName";
+            this.accountNameDataGridViewTextBoxColumn1.Name = "accountNameDataGridViewTextBoxColumn1";
+            this.accountNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // bECYDataGridViewTextBoxColumn1
+            // 
+            this.bECYDataGridViewTextBoxColumn1.DataPropertyName = "BECY";
+            this.bECYDataGridViewTextBoxColumn1.HeaderText = "BECY";
+            this.bECYDataGridViewTextBoxColumn1.Name = "bECYDataGridViewTextBoxColumn1";
+            this.bECYDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // rBECYDataGridViewTextBoxColumn1
+            // 
+            this.rBECYDataGridViewTextBoxColumn1.DataPropertyName = "RBECY";
+            this.rBECYDataGridViewTextBoxColumn1.HeaderText = "RBECY";
+            this.rBECYDataGridViewTextBoxColumn1.Name = "rBECYDataGridViewTextBoxColumn1";
+            this.rBECYDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // bENYDataGridViewTextBoxColumn1
+            // 
+            this.bENYDataGridViewTextBoxColumn1.DataPropertyName = "BENY";
+            this.bENYDataGridViewTextBoxColumn1.HeaderText = "BENY";
+            this.bENYDataGridViewTextBoxColumn1.Name = "bENYDataGridViewTextBoxColumn1";
+            this.bENYDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sL1NameDataGridViewTextBoxColumn1
+            // 
+            this.sL1NameDataGridViewTextBoxColumn1.DataPropertyName = "SL1Name";
+            this.sL1NameDataGridViewTextBoxColumn1.HeaderText = "SL1Name";
+            this.sL1NameDataGridViewTextBoxColumn1.Name = "sL1NameDataGridViewTextBoxColumn1";
+            this.sL1NameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sL2NameDataGridViewTextBoxColumn1
+            // 
+            this.sL2NameDataGridViewTextBoxColumn1.DataPropertyName = "SL2Name";
+            this.sL2NameDataGridViewTextBoxColumn1.HeaderText = "SL2Name";
+            this.sL2NameDataGridViewTextBoxColumn1.Name = "sL2NameDataGridViewTextBoxColumn1";
+            this.sL2NameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sL3NameDataGridViewTextBoxColumn1
+            // 
+            this.sL3NameDataGridViewTextBoxColumn1.DataPropertyName = "SL3Name";
+            this.sL3NameDataGridViewTextBoxColumn1.HeaderText = "SL3Name";
+            this.sL3NameDataGridViewTextBoxColumn1.Name = "sL3NameDataGridViewTextBoxColumn1";
+            this.sL3NameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sL1IDDataGridViewTextBoxColumn1
+            // 
+            this.sL1IDDataGridViewTextBoxColumn1.DataPropertyName = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn1.HeaderText = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn1.Name = "sL1IDDataGridViewTextBoxColumn1";
+            this.sL1IDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sL1IDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // pKSL2DataGridViewTextBoxColumn1
+            // 
+            this.pKSL2DataGridViewTextBoxColumn1.DataPropertyName = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn1.HeaderText = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn1.Name = "pKSL2DataGridViewTextBoxColumn1";
+            this.pKSL2DataGridViewTextBoxColumn1.ReadOnly = true;
+            this.pKSL2DataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // fKSL3IDDataGridViewTextBoxColumn1
+            // 
+            this.fKSL3IDDataGridViewTextBoxColumn1.DataPropertyName = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn1.HeaderText = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn1.Name = "fKSL3IDDataGridViewTextBoxColumn1";
+            this.fKSL3IDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.fKSL3IDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // deptIdDataGridViewTextBoxColumn
+            // 
+            this.deptIdDataGridViewTextBoxColumn.DataPropertyName = "DeptId";
+            this.deptIdDataGridViewTextBoxColumn.HeaderText = "DeptId";
+            this.deptIdDataGridViewTextBoxColumn.Name = "deptIdDataGridViewTextBoxColumn";
+            this.deptIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deptIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pKFYIDDataGridViewTextBoxColumn1
+            // 
+            this.pKFYIDDataGridViewTextBoxColumn1.DataPropertyName = "PKFYID";
+            this.pKFYIDDataGridViewTextBoxColumn1.HeaderText = "PKFYID";
+            this.pKFYIDDataGridViewTextBoxColumn1.Name = "pKFYIDDataGridViewTextBoxColumn1";
+            this.pKFYIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.pKFYIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // pKACIDDataGridViewTextBoxColumn
+            // 
+            this.pKACIDDataGridViewTextBoxColumn.DataPropertyName = "PKACID";
+            this.pKACIDDataGridViewTextBoxColumn.HeaderText = "PKACID";
+            this.pKACIDDataGridViewTextBoxColumn.Name = "pKACIDDataGridViewTextBoxColumn";
+            this.pKACIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKACIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pKBUDGETIDDataGridViewTextBoxColumn
+            // 
+            this.pKBUDGETIDDataGridViewTextBoxColumn.DataPropertyName = "PKBUDGETID";
+            this.pKBUDGETIDDataGridViewTextBoxColumn.HeaderText = "PKBUDGETID";
+            this.pKBUDGETIDDataGridViewTextBoxColumn.Name = "pKBUDGETIDDataGridViewTextBoxColumn";
+            this.pKBUDGETIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKBUDGETIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox3.Controls.Add(this.btExport);
+            this.groupBox3.Controls.Add(this.btImport);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox3.Location = new System.Drawing.Point(812, 201);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 45);
+            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabStop = false;
+            // 
+            // btImport
+            // 
+            this.btImport.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btImport.Location = new System.Drawing.Point(8, 13);
+            this.btImport.Margin = new System.Windows.Forms.Padding(2);
+            this.btImport.Name = "btImport";
+            this.btImport.Size = new System.Drawing.Size(89, 25);
+            this.btImport.TabIndex = 41;
+            this.btImport.Text = "ImportExcel";
+            this.btImport.UseVisualStyleBackColor = false;
+            // 
+            // btExport
+            // 
+            this.btExport.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExport.Location = new System.Drawing.Point(103, 13);
+            this.btExport.Margin = new System.Windows.Forms.Padding(2);
+            this.btExport.Name = "btExport";
+            this.btExport.Size = new System.Drawing.Size(89, 25);
+            this.btExport.TabIndex = 42;
+            this.btExport.Text = "ImportExcel";
+            this.btExport.UseVisualStyleBackColor = false;
             // 
             // frmBudget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(913, 487);
+            this.ClientSize = new System.Drawing.Size(1026, 543);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.DGVBudgetAccounts);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBudget";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -873,9 +939,13 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVBudgetAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVBudgetAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource2)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -927,29 +997,36 @@
         private System.Windows.Forms.ComboBox comboAccount;
         private System.Windows.Forms.TextBox txtBECY;
         private System.Windows.Forms.CheckBox pinSL2;
-        private System.Windows.Forms.DataGridView DGVBudgetAccounts;
         private FinanceDataSet financeDataSet;
         private System.Windows.Forms.BindingSource budgetWithAccountsBindingSource;
         private FinanceDataSetTableAdapters.BudgetWithAccountsTableAdapter budgetWithAccountsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fYNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dEPNAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL3CodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bECYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rBECYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bENYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL1NameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL2NameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL3NameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL3IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKDEPIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKFYIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PKACID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PKBUDGETID;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Button btnMapVirtualAccount;
         private System.Windows.Forms.Button btnPrint;
+        private FinanceDataSet4 financeDataSet4;
+        private System.Windows.Forms.BindingSource budgetWithAccountsBindingSource1;
+        private FinanceDataSet4TableAdapters.BudgetWithAccountsTableAdapter budgetWithAccountsTableAdapter1;
+        private System.Windows.Forms.DataGridView DGVBudgetAccounts;
+        private System.Windows.Forms.BindingSource budgetWithAccountsBindingSource2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fYNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deptNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3CodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bECYDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rBECYDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bENYDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL1NameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL2NameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3NameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL3IDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deptIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKFYIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKACIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKBUDGETIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btExport;
+        private System.Windows.Forms.Button btImport;
     }
 }
