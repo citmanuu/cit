@@ -60,6 +60,7 @@
             this.Controls.Add(this.dataGridView);
             this.Name = "FreeUpdatecs";
             this.Text = "FreeUpdatecs";
+            this.Load += new System.EventHandler(this.FreeUpdatecs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
