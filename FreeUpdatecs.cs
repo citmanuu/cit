@@ -21,36 +21,6 @@ namespace MANUUFinance
             InitializeComponent();
         }
 
-        private void FreeUpdatecs_Load(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            System.Windows.Forms.DialogResult str = openFileDialog.ShowDialog();
-            String FileName = openFileDialog.FileName;
-
-            String FileExt = FileName.Substring(FileName.LastIndexOf("."));
-
-            if (FileExt.CompareTo(".xls") == 0 || FileExt.CompareTo(".xlsx") == 0)
-            {
-                try
-                {
-                    DataTable dtExcel = new DataTable();
-                    dtExcel = ReadExcel(FileName, FileExt); //read excel file  
-                    dataGridView.Visible = true;
-                    dataGridView.DataSource = dtExcel;
-
-                    ReconclieFee();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.InnerException.ToString());
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please choose .xls or .xlsx file only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); //custom messageBox to show error  
-            }
-        }
-
         public DataTable ReadExcel(string FileName, string FileExt)
         {
 
@@ -441,6 +411,36 @@ namespace MANUUFinance
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            System.Windows.Forms.DialogResult str = openFileDialog.ShowDialog();
+            String FileName = openFileDialog.FileName;
 
+            if (FileName.ToString() != "")
+            {
+                String FileExt = FileName.Substring(FileName.LastIndexOf("."));
+                if (FileExt.CompareTo(".xls") == 0 || FileExt.CompareTo(".xlsx") == 0)
+                {
+                    try
+                    {
+                        DataTable dtExcel = new DataTable();
+                        dtExcel = ReadExcel(FileName, FileExt); //read excel file  
+                        dataGridView.Visible = true;
+                        dataGridView.DataSource = dtExcel;
+
+                        ReconclieFee();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.InnerException.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please choose .xls or .xlsx file only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); //custom messageBox to show error  
+                }
+            }
+        }
     }
 }
