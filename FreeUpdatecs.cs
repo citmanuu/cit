@@ -47,94 +47,94 @@ namespace MANUUFinance
 
         }
         #region
-        //private void ReconclieFee()
-        //{
-        //    //Read First Line
-        //    String BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status;
-        //    String PaymentStatus = "", OnlinePaymentId = "";
-        //    int row = 0;
-        //    int refunds = 0, updates = 0;
+        private void ReconclieFee()
+        {
+            //Read First Line
+            String BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status;
+            String PaymentStatus = "", OnlinePaymentId = "";
+            int row = 0;
+            int refunds = 0, updates = 0;
 
-        //    //Connection String 
-        //    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Connection String 
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
-        //    //Instantiate SQL Connection
+            //Instantiate SQL Connection
 
-        //    SqlConnection objSqlConnection = new SqlConnection(cs);
+            SqlConnection objSqlConnection = new SqlConnection(cs);
 
-        //    while (row < dataGridView.Rows.Count - 1)
-        //    {
-        //        PaymentStatus = "";
-        //        BillerId = dataGridView.Rows[row].Cells[0].FormattedValue.ToString();
-        //        BankId = dataGridView.Rows[row].Cells[1].FormattedValue.ToString();
-        //        BankRefNo = dataGridView.Rows[row].Cells[2].FormattedValue.ToString();
-        //        PGIRefNo = dataGridView.Rows[row].Cells[3].FormattedValue.ToString();
-        //        Ref1 = dataGridView.Rows[row].Cells[4].FormattedValue.ToString();
-        //        Ref2 = dataGridView.Rows[row].Cells[5].FormattedValue.ToString();
-        //        Ref3 = dataGridView.Rows[row].Cells[6].FormattedValue.ToString();
-        //        Ref4 = dataGridView.Rows[row].Cells[7].FormattedValue.ToString();
-        //        Ref5 = dataGridView.Rows[row].Cells[8].FormattedValue.ToString();
-        //        Ref6 = dataGridView.Rows[row].Cells[9].FormattedValue.ToString();
-        //        Ref7 = dataGridView.Rows[row].Cells[10].FormattedValue.ToString();
-        //        Ref8 = dataGridView.Rows[row].Cells[11].FormattedValue.ToString();
-        //        DateofTxn = dataGridView.Rows[row].Cells[12].FormattedValue.ToString();
-        //        Amount = dataGridView.Rows[row].Cells[13].FormattedValue.ToString();
-        //        Status = dataGridView.Rows[row].Cells[14].FormattedValue.ToString();
-        //        int currentRow = row + 2;
-        //        //Update Admission Fee
-        //        if (Ref3 == "REG-ADM" && Status.ToUpper() == "SUCCESS")
-        //        {
-        //            //Find Status of Fee in respect of this candidate
-        //            string selectCommand = "Select [PaymentStatus], [OnlinePaymentId] from [OnlineAdmission].[dbo].[AdmissionCourse] " +
-        //                                   "where ApplicationNo = '" + Ref2 + "'";
-        //            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
-        //            try
-        //            {
-        //                objSqlConnection.Open();
-        //                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
-        //                while (objDataReader.Read())
-        //                {
-        //                    PaymentStatus = Convert.ToString(objDataReader[0]);
-        //                    OnlinePaymentId = Convert.ToString(objDataReader[1]);
-        //                }
-        //                objSqlConnection.Close();
-        //                //Case-I: Fee status is pending in Database and is to be updated
-        //                if (PaymentStatus.ToUpper() != "SUCCESS")
-        //                {
-        //                    //Update AdmissionCourse Table
-        //                    UpdateFeeStatus(Amount, DateofTxn, Ref1, Ref2);
+            while (row < dataGridView.Rows.Count - 1)
+            {
+                PaymentStatus = "";
+                BillerId = dataGridView.Rows[row].Cells[0].FormattedValue.ToString();
+                BankId = dataGridView.Rows[row].Cells[1].FormattedValue.ToString();
+                BankRefNo = dataGridView.Rows[row].Cells[2].FormattedValue.ToString();
+                PGIRefNo = dataGridView.Rows[row].Cells[3].FormattedValue.ToString();
+                Ref1 = dataGridView.Rows[row].Cells[4].FormattedValue.ToString();
+                Ref2 = dataGridView.Rows[row].Cells[5].FormattedValue.ToString();
+                Ref3 = dataGridView.Rows[row].Cells[6].FormattedValue.ToString();
+                Ref4 = dataGridView.Rows[row].Cells[7].FormattedValue.ToString();
+                Ref5 = dataGridView.Rows[row].Cells[8].FormattedValue.ToString();
+                Ref6 = dataGridView.Rows[row].Cells[9].FormattedValue.ToString();
+                Ref7 = dataGridView.Rows[row].Cells[10].FormattedValue.ToString();
+                Ref8 = dataGridView.Rows[row].Cells[11].FormattedValue.ToString();
+                DateofTxn = dataGridView.Rows[row].Cells[12].FormattedValue.ToString();
+                Amount = dataGridView.Rows[row].Cells[13].FormattedValue.ToString();
+                Status = dataGridView.Rows[row].Cells[14].FormattedValue.ToString();
+                int currentRow = row + 2;
+                //Update Admission Fee
+                if (Ref3 == "REG-ADM" && Status.ToUpper() == "SUCCESS")
+                {
+                    //Find Status of Fee in respect of this candidate
+                    string selectCommand = "Select [PaymentStatus], [OnlinePaymentId] from [OnlineAdmission].[dbo].[AdmissionCourse] " +
+                                           "where ApplicationNo = '" + Ref2 + "'";
+                    SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+                    try
+                    {
+                        objSqlConnection.Open();
+                        SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                        while (objDataReader.Read())
+                        {
+                            PaymentStatus = Convert.ToString(objDataReader[0]);
+                            OnlinePaymentId = Convert.ToString(objDataReader[1]);
+                        }
+                        objSqlConnection.Close();
+                        //Case-I: Fee status is pending in Database and is to be updated
+                        if (PaymentStatus.ToUpper() != "SUCCESS")
+                        {
+                            //Update AdmissionCourse Table
+                            UpdateFeeStatus(Amount, DateofTxn, Ref1, Ref2);
 
-        //                    //Update OnlinePayment Table
-        //                    UpdateOnlinePayment(Ref1, Ref2, DateofTxn, PGIRefNo, BankRefNo);
+                            //Update OnlinePayment Table
+                            UpdateOnlinePayment(Ref1, Ref2, DateofTxn, PGIRefNo, BankRefNo);
 
-        //                    //Add Record to Update Excel File
-        //                    AddUpdateRecord(BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status);
-        //                    updates++;
-        //                }
-        //                else if (PaymentStatus.ToUpper() == "SUCCESS" && OnlinePaymentId != Ref1)
-        //                {
-        //                    //Refund Record in Excel File
-        //                    AddRefundRecord(BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status);
+                            //Add Record to Update Excel File
+                            AddUpdateRecord(BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status);
+                            updates++;
+                        }
+                        else if (PaymentStatus.ToUpper() == "SUCCESS" && OnlinePaymentId != Ref1)
+                        {
+                            //Refund Record in Excel File
+                            AddRefundRecord(BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status);
 
-        //                    //Add Refund Record in RefundTable
-        //                    AddRefundRecordinDB(BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status);
+                            //Add Refund Record in RefundTable
+                            AddRefundRecordinDB(BillerId, BankId, BankRefNo, PGIRefNo, Ref1, Ref2, Ref3, Ref4, Ref5, Ref6, Ref7, Ref8, DateofTxn, Amount, Status);
 
-        //                    refunds++;
-        //                }
-        //            }
-        //            catch (SqlException ex)
-        //            {
-        //                MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //            finally
-        //            {
-        //                objSqlConnection.Close();
-        //            }
-        //        }
-        //        //MessageBox.Show("Row no is: " + currentRow + " Ref5 = " + Ref5) ;
-        //        row++;
-        //    }
-        //}
+                            refunds++;
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                }
+                //MessageBox.Show("Row no is: " + currentRow + " Ref5 = " + Ref5) ;
+                row++;
+            }
+        }
         #endregion
 
         private void UpdateFeeStatus(string amount, string dateofTxn, string ref1, string ref2)
@@ -410,7 +410,7 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
         }
-
+        #region
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -428,8 +428,7 @@ namespace MANUUFinance
                         dtExcel = ReadExcel(FileName, FileExt); //read excel file  
                         dataGridView.Visible = true;
                         dataGridView.DataSource = dtExcel;
-
-                        //ReconclieFee();
+                        ReconclieFee();
                     }
                     catch (Exception ex)
                     {
@@ -442,7 +441,7 @@ namespace MANUUFinance
                 }
             }
         }
-
+        #endregion
         private void FreeUpdatecs_Load(object sender, EventArgs e)
         {
 
