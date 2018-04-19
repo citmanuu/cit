@@ -30,7 +30,6 @@ namespace MANUUFinance
                 {
                     this.tb_path.Text = openFileDialog.FileName; // get the file Name
                 }
-
                 if (tb_path.Text.ToString() != "")
                 {
                     string conn = string.Empty;
@@ -76,15 +75,22 @@ namespace MANUUFinance
                         dataGridView.DataSource = dtexcel;
                     }
                     Updateindb();
+                    cleartext();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Warning", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
             else
                 MessageBox.Show("Please Select the Open", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void cleartext()
+        {
+            tb_path.Text = "";
+            dropdown_sheet.SelectedValue = ToString().DefaultIfEmpty() ;
         }
 
         private void Updateindb()

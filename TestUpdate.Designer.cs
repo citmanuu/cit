@@ -141,7 +141,6 @@
             this.Standard.HeaderText = "Standard";
             this.Standard.Name = "Standard";
             this.Standard.ReadOnly = true;
-            this.Standard.Visible = false;
             // 
             // TestUpdate
             // 
