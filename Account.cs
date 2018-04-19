@@ -32,8 +32,8 @@ namespace MANUUFinance
             this.financeDataSet.EnforceConstraints = false;
             // prepartion for datagrid view
 
+            //load the datagridview
             load_DataGridView();
-
 
             //Prepare SL1, SL2 and SL3 Combos
             PrepareSL1Combo();
@@ -70,7 +70,6 @@ namespace MANUUFinance
                 sqldb.Fill(dtb1);
                 DGVAccounts.DataSource = dtb1;
             }
-
         }
 
         //DML Region
@@ -590,6 +589,12 @@ namespace MANUUFinance
             Supports objectsupport = new Supports(DGVAccounts, "Account");
             objectsupport.ShowDialog();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         //Close the Form
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -25,10 +25,10 @@ namespace MANUUFinance
         {
             string conn = string.Empty;
             DataTable dtexcel = new DataTable();
-            if (FileExt.CompareTo(".xls") == 0)
-                conn = @"provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + FileName + ";Extended Properties='Excel 8.0;HRD=Yes;IMEX=1';"; //for below excel 2007  
-            else
-                conn = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";Extended Properties='Excel 12.0;HDR=NO';"; //for above excel 2007  
+            //if (FileExt.CompareTo(".xls") == 0)
+            //    conn = @"provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + FileName + ";Extended Properties='Excel 8.0;HRD=Yes;IMEX=1';"; //for below excel 2007  
+            //else
+            //    conn = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";Extended Properties='Excel 12.0;HDR=NO';"; //for above excel 2007  
 
             using (OleDbConnection con = new OleDbConnection(conn))
             {
@@ -412,5 +412,10 @@ namespace MANUUFinance
             }
         }
         #endregion
+
+        private void FreeUpdatecs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
