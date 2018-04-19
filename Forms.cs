@@ -34,8 +34,10 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet1.FormMST' table. You can move, or remove it, as needed.
             this.formMSTTableAdapter1.Fill(this.financeDataSet1.FormMST);
-            prepareaction();
-
+            if (new AdministratorLogin().administratorLogin(userId))
+            {
+                prepareaction();
+            }
         }
 
         #endregion
