@@ -232,5 +232,4 @@ E:\citmanuu\bin\Debug\itextsharp.pdfa.dll
 E:\citmanuu\bin\Debug\itextsharp.xtra.dll
 E:\citmanuu\bin\Debug\itextsharp.xml
 E:\citmanuu\obj\Debug\MANUUFinance.csproj.CopyComplete
-E:\citmanuu\obj\Debug\MANUUFinance.FreeUpdatecs.resources
 E:\citmanuu\obj\Debug\MANUUFinance.TestUpdate.resources

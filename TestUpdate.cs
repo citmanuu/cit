@@ -56,29 +56,35 @@ namespace MANUUFinance
 
         private void Load_Click(object sender, EventArgs e)
         {
-            try
+            if (tb_path.Text.ToString() != "")
             {
-                string conn = string.Empty;
-                DataTable dtexcel = new DataTable();
-                String FileExt = tb_path.Text.Substring(tb_path.Text.LastIndexOf("."));
-                if (FileExt.CompareTo(".xls") == 0)
-                    conn = @"provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + tb_path.Text + ";Extended Properties='Excel 8.0;HRD=Yes;IMEX=1';"; //for below excel 2007  
-                else
-                    conn = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + tb_path.Text + ";Extended Properties='Excel 12.0;HDR=NO';"; //for above excel 2007  
-
-                OleDbConnection con = new OleDbConnection(conn);
-                OleDbDataAdapter oleAdpt = new OleDbDataAdapter("select F1 AS SrId, F2 AS RegistrationId, F3 AS Student, F4 AS RollNumber, F5 AS Standard from [" + dropdown_sheet.SelectedValue + "]", con); //here we read data from sheet1  
-                oleAdpt.Fill(dtexcel); //fill excel data into dataTable  
-                foreach (DataRow row in dtexcel.Rows)
+                try
                 {
-                    dataGridView.DataSource = dtexcel;
+                    string conn = string.Empty;
+                    DataTable dtexcel = new DataTable();
+                    String FileExt = tb_path.Text.Substring(tb_path.Text.LastIndexOf("."));
+                    if (FileExt.CompareTo(".xls") == 0)
+                        conn = @"provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + tb_path.Text + ";Extended Properties='Excel 8.0;HRD=Yes;IMEX=1';"; //for below excel 2007  
+                    else
+                        conn = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + tb_path.Text + ";Extended Properties='Excel 12.0;HDR=NO';"; //for above excel 2007  
+
+                    OleDbConnection con = new OleDbConnection(conn);
+                    OleDbDataAdapter oleAdpt = new OleDbDataAdapter("select F1 AS SrId, F2 AS RegistrationId, F3 AS Student, F4 AS RollNumber, F5 AS Standard from [" + dropdown_sheet.SelectedValue + "]", con); //here we read data from sheet1  
+                    oleAdpt.Fill(dtexcel); //fill excel data into dataTable  
+                    foreach (DataRow row in dtexcel.Rows)
+                    {
+                        dataGridView.DataSource = dtexcel;
+                    }
+                    Updateindb();
                 }
-                Updateindb();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else
+                MessageBox.Show("Please Select the Open", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Updateindb()
@@ -127,6 +133,10 @@ namespace MANUUFinance
                 }
                 row++;
             }
+        }
+        private void TestUpdate_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

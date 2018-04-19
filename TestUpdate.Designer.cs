@@ -31,10 +31,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dropdown_sheet = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_path = new System.Windows.Forms.TextBox();
             this.open = new System.Windows.Forms.Button();
             this.Load = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.tb_path = new System.Windows.Forms.TextBox();
+            this.SrID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RollNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,18 +60,11 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Sheet";
             // 
-            // tb_path
-            // 
-            this.tb_path.Location = new System.Drawing.Point(174, 105);
-            this.tb_path.Name = "tb_path";
-            this.tb_path.Size = new System.Drawing.Size(278, 20);
-            this.tb_path.TabIndex = 8;
-            // 
             // open
             // 
             this.open.Location = new System.Drawing.Point(57, 104);
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(111, 21);
+            this.open.Size = new System.Drawing.Size(109, 23);
             this.open.TabIndex = 7;
             this.open.Text = "Open";
             this.open.UseVisualStyleBackColor = true;
@@ -90,11 +88,60 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SrID,
+            this.RegistrationID,
+            this.Student,
+            this.RollNumber,
+            this.Standard});
             this.dataGridView.Location = new System.Drawing.Point(57, 159);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(685, 150);
             this.dataGridView.TabIndex = 11;
+            // 
+            // tb_path
+            // 
+            this.tb_path.Location = new System.Drawing.Point(174, 105);
+            this.tb_path.Name = "tb_path";
+            this.tb_path.Size = new System.Drawing.Size(278, 20);
+            this.tb_path.TabIndex = 8;
+            // 
+            // SrID
+            // 
+            this.SrID.DataPropertyName = "SrID";
+            this.SrID.HeaderText = "SrID";
+            this.SrID.Name = "SrID";
+            this.SrID.ReadOnly = true;
+            // 
+            // RegistrationID
+            // 
+            this.RegistrationID.DataPropertyName = "RegistrationID";
+            this.RegistrationID.HeaderText = "RegistrationID";
+            this.RegistrationID.Name = "RegistrationID";
+            this.RegistrationID.ReadOnly = true;
+            // 
+            // Student
+            // 
+            this.Student.DataPropertyName = "Student";
+            this.Student.HeaderText = "Student";
+            this.Student.Name = "Student";
+            this.Student.ReadOnly = true;
+            // 
+            // RollNumber
+            // 
+            this.RollNumber.DataPropertyName = "RollNumber";
+            this.RollNumber.HeaderText = "RollNumber";
+            this.RollNumber.Name = "RollNumber";
+            this.RollNumber.ReadOnly = true;
+            // 
+            // Standard
+            // 
+            this.Standard.DataPropertyName = "Standard";
+            this.Standard.HeaderText = "Standard";
+            this.Standard.Name = "Standard";
+            this.Standard.ReadOnly = true;
+            this.Standard.Visible = false;
             // 
             // TestUpdate
             // 
@@ -119,9 +166,14 @@
 
         private System.Windows.Forms.ComboBox dropdown_sheet;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_path;
         private System.Windows.Forms.Button open;
         private System.Windows.Forms.Button Load;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.TextBox tb_path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SrID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Student;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RollNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Standard;
     }
 }
