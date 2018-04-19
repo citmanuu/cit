@@ -65,7 +65,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT PKDEPID, DEPNAME FROM [Finance].[dbo].[DEPT] Order by 1";
+            string selectCommand = "SELECT DeptId, DeptName FROM [Finance].[dbo].[Department] Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -657,7 +657,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT PKACID, AccountName + ' (' +  SL3Code + ')' FROM [Finance].[dbo].[BudgetWithAccounts] WHERE PKDEPID = " + comboDept.SelectedValue + " Order by 1";
+            string selectCommand = "SELECT PKACID, AccountName + ' (' +  SL3Code + ')' FROM [Finance].[dbo].[BudgetWithAccounts] WHERE DeptId = " + comboDept.SelectedValue + " Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
