@@ -156,6 +156,12 @@
     <Compile Include="Supports.Designer.cs">
       <DependentUpon>Supports.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestUpdate.Designer.cs">
+      <DependentUpon>TestUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Supports.resx">
       <DependentUpon>Supports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUpdate.resx">
+      <DependentUpon>TestUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
