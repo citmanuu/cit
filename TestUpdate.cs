@@ -115,14 +115,11 @@ namespace MANUUFinance
                 Standard = dataGridView.Rows[row].Cells[4].FormattedValue.ToString();
 
                 int currentRow = row + 2;
-                //Update Admission Fee
 
-                //Find Status of Fee in respect of this candidate
+                //insert the data into the the database
 
                 string insertCommand = "Insert into [finance].[dbo].[testingExcell] values ('" + SrID + "', '" + RegistrationId + "','" + Student + "','" +
                 RollNumber + "','" + Standard + "')";
-
-
                 SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
                 try
                 {
@@ -141,6 +138,76 @@ namespace MANUUFinance
             }
         }
         private void TestUpdate_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'financeDataSet5.testingExcell' table. You can move, or remove it, as needed.
+            this.testingExcellTableAdapter.Fill(this.financeDataSet5.testingExcell);
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        private void ExportToExcel()
+        {
+            // Creating a Excel object. 
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            try
+            {
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = txtExport.Text.ToString();
+
+                int cellRowIndex = 1;
+                int cellColumnIndex = 1;
+
+                //Loop through each row and read value from each column. 
+                for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGridView.Columns.Count; j++)
+                    {
+                        // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check. 
+                        if (cellRowIndex == 1)
+                        {
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView.Columns[j].HeaderText;
+                        }
+                        else
+                        {
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                        cellColumnIndex++;
+                    }
+                    cellColumnIndex = 1;
+                    cellRowIndex++;
+                }
+
+                //Getting the location and file name of the excel to save from user. 
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    MessageBox.Show("Export Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtExport.Text = "";
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
+            }
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
