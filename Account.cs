@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -30,11 +30,7 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet.ACCOUNTSVIEW' table. You can move, or remove it, as needed.
             this.financeDataSet.EnforceConstraints = false;
-            // prepartion for datagrid view
-
-            //load the datagridview
-            load_DataGridView();
-
+            this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
             //Prepare SL1, SL2 and SL3 Combos
             PrepareSL1Combo();
             PrepareSL2Combo("0");
@@ -48,29 +44,39 @@ namespace MANUUFinance
             retrievedForUpdate = false;
         }
 
-        private void load_DataGridView()
+        private void prepareaction()
         {
-            //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-            //Instantiate SQL Connection
-            SqlConnection objSqlConnection = new SqlConnection(cs);
-            if (new AdministratorLogin().administratorLogin(userId))
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
             {
-                SqlDataAdapter sqldb = new SqlDataAdapter("SELECT A.PKACID, A.FKSL3ID, A.AccountName, A.AcOrder, A.AcActive, A.FKBankAccountID, B.BankName, B.AccountType AS BankAccountType, B.AccountNumber, C.SL1ID, C.PKSL2, C.SL1Name, C.SL2Name, C.SL3Name, C.SL3Code, A.AccountType " +
-                        "FROM dbo.Accounts AS A LEFT OUTER JOIN dbo.BankAccountDetails AS B ON A.FKBankAccountID = B.PKBANKACC INNER JOIN dbo.SL3SL2SL1 AS C ON A.FKSL3ID = C.PKSL3 where A.DeptId ='" + deptId + "'", objSqlConnection);
-                DataTable dtb1 = new DataTable();
-                sqldb.Fill(dtb1);
-                DGVAccounts.DataSource = dtb1;
+                btnAdd.Enabled = true;
             }
             else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
             {
-                SqlDataAdapter sqldb = new SqlDataAdapter("SELECT A.PKACID, A.FKSL3ID, A.AccountName, A.AcOrder, A.AcActive, A.FKBankAccountID, B.BankName, B.AccountType AS BankAccountType, B.AccountNumber, C.SL1ID, C.PKSL2, C.SL1Name, C.SL2Name, C.SL3Name, C.SL3Code, A.AccountType " +
-                                        "FROM dbo.Accounts AS A LEFT OUTER JOIN dbo.BankAccountDetails AS B ON A.FKBankAccountID = B.PKBANKACC INNER JOIN dbo.SL3SL2SL1 AS C ON A.FKSL3ID = C.PKSL3 ", objSqlConnection);
-                DataTable dtb1 = new DataTable();
-                sqldb.Fill(dtb1);
-                DGVAccounts.DataSource = dtb1;
+                btnUpdate.Enabled = true;
             }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
+
+
 
         //DML Region
         #region
@@ -90,14 +96,14 @@ namespace MANUUFinance
                     //Instantiate SQL Connection
                     SqlConnection objSqlConnection = new SqlConnection(cs);
                     //Prepare Update String
-                    string insertCommand = "Insert into Accounts (FKSL3ID, AccountType, AccountName, FKBankAccountID, AcOrder, AcActive, DeptId) values (@FKSL3ID, @AccountType, @AccountName, @FKBankAccountID, @AcOrder, @AcActive, @DeptId)";
+                    string insertCommand = "Insert into Accounts (FKSL3ID, AccountType, AccountName, FKBankAccountID, AcOrder, AcActive) values " +
+                                            "(@FKSL3ID, @AccountType, @AccountName, @FKBankAccountID, @AcOrder, @AcActive)";
                     SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
 
                     objInsertCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
                     objInsertCommand.Parameters.AddWithValue("@AccountType", comboAccountType.SelectedValue);
                     objInsertCommand.Parameters.AddWithValue("@AccountName", txtAccountName.Text);
                     objInsertCommand.Parameters.AddWithValue("@AcOrder", txtAccountOrder.Text);
-                    objInsertCommand.Parameters.AddWithValue("@DeptId", deptId);
                     if (Convert.ToInt32(comboBankAccount.SelectedValue) == 0)
                         objInsertCommand.Parameters.AddWithValue("@FKBankAccountID", DBNull.Value);
                     else
@@ -134,6 +140,7 @@ namespace MANUUFinance
                     this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
             }
+
         }
 
         //Update Record
@@ -193,6 +200,7 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
+
             }
         }
 
@@ -399,13 +407,13 @@ namespace MANUUFinance
             try
             {
                 SearchStatement.Clear();
-                if (txtSL1Seacrh.Text.Length > 0)
+                if(txtSL1Seacrh.Text.Length > 0)
                 {
                     SearchStatement.Append("SL1Name like '%" + txtSL1Seacrh.Text + "%'");
                 }
                 if (txtSL2Search.Text.Length > 0)
                 {
-                    if (SearchStatement.Length > 0)
+                    if(SearchStatement.Length > 0)
                     {
                         SearchStatement.Append(" and ");
                     }
@@ -440,7 +448,7 @@ namespace MANUUFinance
 
                 //Refresh DGV 
                 accountsViewBindingSource.Filter = SearchStatement.ToString();
-
+                
             }
             catch (Exception ex)
             {
@@ -448,7 +456,7 @@ namespace MANUUFinance
             }
 
         }
-
+        
         //Clear Filter
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
@@ -495,13 +503,13 @@ namespace MANUUFinance
             {
                 comboSL1.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
                 comboSL2.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[12].FormattedValue.ToString());
-                if (DGVAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString() == "")
+                if(DGVAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString() == "")
                 {
                     comboBankAccount.SelectedValue = 0;
                     comboBankAccount.Enabled = false;
                 }
                 else
-                {
+                {                
                     comboBankAccount.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString());
                     comboBankAccount.Enabled = true;
                 }
@@ -578,59 +586,18 @@ namespace MANUUFinance
         {
             PrepareSL2Combo(Convert.ToString(comboSL1.SelectedValue));
         }
+
         //Filter entries for comboSL2 based on Selection of comboSL1
         private void comboSL2_SelectedIndexChanged(object sender, EventArgs e)
         {
             PrepareSL3Combo(Convert.ToString(comboSL2.SelectedValue));
         }
 
-        private void btnPrintRecord_Click(object sender, EventArgs e)
-        {
-            Supports objectsupport = new Supports(DGVAccounts, "Account");
-            objectsupport.ShowDialog();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         //Close the Form
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-        //prepare the action add, delete, update and print
-        private void prepareaction()
-        {
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-                btnAdd.Enabled = true;
-            }
-            else
-                btnAdd.Enabled = false;
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-                btnUpdate.Enabled = true;
-            }
-            else
-                btnUpdate.Enabled = false;
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
-                btnDelete.Enabled = true;
-            }
-            else
-                btnDelete.Enabled = false;
-            string CanPrint = "CanPrint";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
-            {
-                btnPrint.Enabled = true;
-            }
-            else
-                btnPrint.Enabled = false;
         }
 
         #endregion

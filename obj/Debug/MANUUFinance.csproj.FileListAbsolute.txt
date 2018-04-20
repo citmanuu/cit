@@ -195,7 +195,6 @@ C:\Users\CIT\Desktop\github\citmanuu\obj\Debug\MANUUFinance.csproj.GenerateResou
 C:\Users\CIT\Desktop\github\citmanuu\obj\Debug\MANUUFinance.csproj.CoreCompileInputs.cache
 C:\Users\CIT\Desktop\github\citmanuu\obj\Debug\MANUUFinance.exe
 C:\Users\CIT\Desktop\github\citmanuu\obj\Debug\MANUUFinance.pdb
-E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
 E:\citmanuu\obj\Debug\MANUUFinance.Administrator.resources
 E:\citmanuu\obj\Debug\MANUUFinance.Authentication.resources
 E:\citmanuu\obj\Debug\MANUUFinance.Departments.resources

@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinanceDataSet6" targetNamespace="http://tempuri.org/FinanceDataSet6.xsd" xmlns:mstns="http://tempuri.org/FinanceDataSet6.xsd" xmlns="http://tempuri.org/FinanceDataSet6.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinanceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinanceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MANUUFinance.Properties.Settings.GlobalReference.Default.FinanceConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AccountsViewTableAdapter" GeneratorDataComponentClassName="AccountsViewTableAdapter" Name="AccountsView" UserDataComponentName="AccountsViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.AccountsView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PKACID, FKSL3ID, AccountName, AcOrder, AcActive, FKBankAccountID, BankName, BankAccountType, AccountNumber, SL1ID, PKSL2, SL1Name, SL2Name, SL3Name, SL3Code, AccountType FROM dbo.AccountsView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PKACID" DataSetColumn="PKACID" />
+              <Mapping SourceColumn="FKSL3ID" DataSetColumn="FKSL3ID" />
+              <Mapping SourceColumn="AccountName" DataSetColumn="AccountName" />
+              <Mapping SourceColumn="AcOrder" DataSetColumn="AcOrder" />
+              <Mapping SourceColumn="AcActive" DataSetColumn="AcActive" />
+              <Mapping SourceColumn="FKBankAccountID" DataSetColumn="FKBankAccountID" />
+              <Mapping SourceColumn="BankName" DataSetColumn="BankName" />
+              <Mapping SourceColumn="BankAccountType" DataSetColumn="BankAccountType" />
+              <Mapping SourceColumn="AccountNumber" DataSetColumn="AccountNumber" />
+              <Mapping SourceColumn="SL1ID" DataSetColumn="SL1ID" />
+              <Mapping SourceColumn="PKSL2" DataSetColumn="PKSL2" />
+              <Mapping SourceColumn="SL1Name" DataSetColumn="SL1Name" />
+              <Mapping SourceColumn="SL2Name" DataSetColumn="SL2Name" />
+              <Mapping SourceColumn="SL3Name" DataSetColumn="SL3Name" />
+              <Mapping SourceColumn="SL3Code" DataSetColumn="SL3Code" />
+              <Mapping SourceColumn="AccountType" DataSetColumn="AccountType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BankAccountDetailsTableAdapter" GeneratorDataComponentClassName="BankAccountDetailsTableAdapter" Name="BankAccountDetails" UserDataComponentName="BankAccountDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.BankAccountDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BankName, AccountType, AccountNumber, FKBankID, PKBANKACC, FKAccountType, BankShortName FROM dbo.BankAccountDetails</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BankName" DataSetColumn="BankName" />
+              <Mapping SourceColumn="AccountType" DataSetColumn="AccountType" />
+              <Mapping SourceColumn="AccountNumber" DataSetColumn="AccountNumber" />
+              <Mapping SourceColumn="FKBankID" DataSetColumn="FKBankID" />
+              <Mapping SourceColumn="PKBANKACC" DataSetColumn="PKBANKACC" />
+              <Mapping SourceColumn="FKAccountType" DataSetColumn="FKAccountType" />
+              <Mapping SourceColumn="BankShortName" DataSetColumn="BankShortName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BillMstViewTableAdapter" GeneratorDataComponentClassName="BillMstViewTableAdapter" Name="BillMstView" UserDataComponentName="BillMstViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.BillMstView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PKBillID, BillNumber, BillNarration, DEPNAME, BeneficieryName, BillStatus, BillType, FKDepID, BeneficiaryID, FKBillStatus, FKBillType, BillCreatedOn, BillUpdatedOn, BillUpdatedBy FROM dbo.BillMstView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PKBillID" DataSetColumn="PKBillID" />
+              <Mapping SourceColumn="BillNumber" DataSetColumn="BillNumber" />
+              <Mapping SourceColumn="BillNarration" DataSetColumn="BillNarration" />
+              <Mapping SourceColumn="DEPNAME" DataSetColumn="DEPNAME" />
+              <Mapping SourceColumn="BeneficieryName" DataSetColumn="BeneficieryName" />
+              <Mapping SourceColumn="BillStatus" DataSetColumn="BillStatus" />
+              <Mapping SourceColumn="BillType" DataSetColumn="BillType" />
+              <Mapping SourceColumn="FKDepID" DataSetColumn="FKDepID" />
+              <Mapping SourceColumn="BeneficiaryID" DataSetColumn="BeneficiaryID" />
+              <Mapping SourceColumn="FKBillStatus" DataSetColumn="FKBillStatus" />
+              <Mapping SourceColumn="FKBillType" DataSetColumn="FKBillType" />
+              <Mapping SourceColumn="BillCreatedOn" DataSetColumn="BillCreatedOn" />
+              <Mapping SourceColumn="BillUpdatedOn" DataSetColumn="BillUpdatedOn" />
+              <Mapping SourceColumn="BillUpdatedBy" DataSetColumn="BillUpdatedBy" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BudgetWithAccountsTableAdapter" GeneratorDataComponentClassName="BudgetWithAccountsTableAdapter" Name="BudgetWithAccounts" UserDataComponentName="BudgetWithAccountsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.BudgetWithAccounts" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT FYName, DeptName, SL3Code, AccountName, BECY, RBECY, BENY, SL1Name, SL2Name, SL3Name, SL1ID, PKSL2, FKSL3ID, DeptId, PKFYID, PKACID, PKBUDGETID FROM dbo.BudgetWithAccounts</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FYName" DataSetColumn="FYName" />
+              <Mapping SourceColumn="DeptName" DataSetColumn="DeptName" />
+              <Mapping SourceColumn="SL3Code" DataSetColumn="SL3Code" />
+              <Mapping SourceColumn="AccountName" DataSetColumn="AccountName" />
+              <Mapping SourceColumn="BECY" DataSetColumn="BECY" />
+              <Mapping SourceColumn="RBECY" DataSetColumn="RBECY" />
+              <Mapping SourceColumn="BENY" DataSetColumn="BENY" />
+              <Mapping SourceColumn="SL1Name" DataSetColumn="SL1Name" />
+              <Mapping SourceColumn="SL2Name" DataSetColumn="SL2Name" />
+              <Mapping SourceColumn="SL3Name" DataSetColumn="SL3Name" />
+              <Mapping SourceColumn="SL1ID" DataSetColumn="SL1ID" />
+              <Mapping SourceColumn="PKSL2" DataSetColumn="PKSL2" />
+              <Mapping SourceColumn="FKSL3ID" DataSetColumn="FKSL3ID" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="PKFYID" DataSetColumn="PKFYID" />
+              <Mapping SourceColumn="PKACID" DataSetColumn="PKACID" />
+              <Mapping SourceColumn="PKBUDGETID" DataSetColumn="PKBUDGETID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RoleFormPrivilegesTableAdapter" GeneratorDataComponentClassName="RoleFormPrivilegesTableAdapter" Name="RoleFormPrivileges" UserDataComponentName="RoleFormPrivilegesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.RoleFormPrivileges" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PrivilegeID, RoleId, RoleName, FormId, FormName, CanAdd, CanUpdate, CanDelete, CanPrint, CanSearch FROM dbo.RoleFormPrivileges</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PrivilegeID" DataSetColumn="PrivilegeID" />
+              <Mapping SourceColumn="RoleId" DataSetColumn="RoleId" />
+              <Mapping SourceColumn="RoleName" DataSetColumn="RoleName" />
+              <Mapping SourceColumn="FormId" DataSetColumn="FormId" />
+              <Mapping SourceColumn="FormName" DataSetColumn="FormName" />
+              <Mapping SourceColumn="CanAdd" DataSetColumn="CanAdd" />
+              <Mapping SourceColumn="CanUpdate" DataSetColumn="CanUpdate" />
+              <Mapping SourceColumn="CanDelete" DataSetColumn="CanDelete" />
+              <Mapping SourceColumn="CanPrint" DataSetColumn="CanPrint" />
+              <Mapping SourceColumn="CanSearch" DataSetColumn="CanSearch" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SL2SL1TableAdapter" GeneratorDataComponentClassName="SL2SL1TableAdapter" Name="SL2SL1" UserDataComponentName="SL2SL1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.SL2SL1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PKSL2, SL1ID, SL2ID, SL1Name, Sl2Name, SL2Order, SL2Active, SL2Code FROM dbo.SL2SL1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PKSL2" DataSetColumn="PKSL2" />
+              <Mapping SourceColumn="SL1ID" DataSetColumn="SL1ID" />
+              <Mapping SourceColumn="SL2ID" DataSetColumn="SL2ID" />
+              <Mapping SourceColumn="SL1Name" DataSetColumn="SL1Name" />
+              <Mapping SourceColumn="Sl2Name" DataSetColumn="Sl2Name" />
+              <Mapping SourceColumn="SL2Order" DataSetColumn="SL2Order" />
+              <Mapping SourceColumn="SL2Active" DataSetColumn="SL2Active" />
+              <Mapping SourceColumn="SL2Code" DataSetColumn="SL2Code" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SL3SL2SL1TableAdapter" GeneratorDataComponentClassName="SL3SL2SL1TableAdapter" Name="SL3SL2SL1" UserDataComponentName="SL3SL2SL1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.SL3SL2SL1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PKSL3, SL3ID, PKSL2, SL1ID, SL1Name, SL2Name, SL3Name, SL3Order, SL3Active, SL3Code FROM dbo.SL3SL2SL1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PKSL3" DataSetColumn="PKSL3" />
+              <Mapping SourceColumn="SL3ID" DataSetColumn="SL3ID" />
+              <Mapping SourceColumn="PKSL2" DataSetColumn="PKSL2" />
+              <Mapping SourceColumn="SL1ID" DataSetColumn="SL1ID" />
+              <Mapping SourceColumn="SL1Name" DataSetColumn="SL1Name" />
+              <Mapping SourceColumn="SL2Name" DataSetColumn="SL2Name" />
+              <Mapping SourceColumn="SL3Name" DataSetColumn="SL3Name" />
+              <Mapping SourceColumn="SL3Order" DataSetColumn="SL3Order" />
+              <Mapping SourceColumn="SL3Active" DataSetColumn="SL3Active" />
+              <Mapping SourceColumn="SL3Code" DataSetColumn="SL3Code" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserDeptRoleviewTableAdapter" GeneratorDataComponentClassName="UserDeptRoleviewTableAdapter" Name="UserDeptRoleview" UserDataComponentName="UserDeptRoleviewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.UserDeptRoleview" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT UDRID, UserId, Name, RoleId, RoleName, DeptId, DeptName FROM dbo.UserDeptRoleview</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="UDRID" DataSetColumn="UDRID" />
+              <Mapping SourceColumn="UserId" DataSetColumn="UserId" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="RoleId" DataSetColumn="RoleId" />
+              <Mapping SourceColumn="RoleName" DataSetColumn="RoleName" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="DeptName" DataSetColumn="DeptName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VirtualAccoountsViewTableAdapter" GeneratorDataComponentClassName="VirtualAccoountsViewTableAdapter" Name="VirtualAccoountsView" UserDataComponentName="VirtualAccoountsViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.VirtualAccoountsView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ParentAccountName, ChildAccountName, ChildSL1Name, ChildSL2Name, ChildSL3Name, ParentACID, ChildACID, ChildSL1ID, ChildSL2ID, ChildSL3ID, DEPID, FKDEPID, PKVACID FROM dbo.VirtualAccoountsView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ParentAccountName" DataSetColumn="ParentAccountName" />
+              <Mapping SourceColumn="ChildAccountName" DataSetColumn="ChildAccountName" />
+              <Mapping SourceColumn="ChildSL1Name" DataSetColumn="ChildSL1Name" />
+              <Mapping SourceColumn="ChildSL2Name" DataSetColumn="ChildSL2Name" />
+              <Mapping SourceColumn="ChildSL3Name" DataSetColumn="ChildSL3Name" />
+              <Mapping SourceColumn="ParentACID" DataSetColumn="ParentACID" />
+              <Mapping SourceColumn="ChildACID" DataSetColumn="ChildACID" />
+              <Mapping SourceColumn="ChildSL1ID" DataSetColumn="ChildSL1ID" />
+              <Mapping SourceColumn="ChildSL2ID" DataSetColumn="ChildSL2ID" />
+              <Mapping SourceColumn="ChildSL3ID" DataSetColumn="ChildSL3ID" />
+              <Mapping SourceColumn="DEPID" DataSetColumn="DEPID" />
+              <Mapping SourceColumn="FKDEPID" DataSetColumn="FKDEPID" />
+              <Mapping SourceColumn="PKVACID" DataSetColumn="PKVACID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinanceDataSet6" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FinanceDataSet6" msprop:Generator_UserDSName="FinanceDataSet6">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AccountsView" msprop:Generator_TableClassName="AccountsViewDataTable" msprop:Generator_TableVarName="tableAccountsView" msprop:Generator_TablePropName="AccountsView" msprop:Generator_RowDeletingName="AccountsViewRowDeleting" msprop:Generator_RowChangingName="AccountsViewRowChanging" msprop:Generator_RowEvHandlerName="AccountsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="AccountsViewRowDeleted" msprop:Generator_UserTableName="AccountsView" msprop:Generator_RowChangedName="AccountsViewRowChanged" msprop:Generator_RowEvArgName="AccountsViewRowChangeEvent" msprop:Generator_RowClassName="AccountsViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PKACID" msprop:Generator_ColumnVarNameInTable="columnPKACID" msprop:Generator_ColumnPropNameInRow="PKACID" msprop:Generator_ColumnPropNameInTable="PKACIDColumn" msprop:Generator_UserColumnName="PKACID" type="xs:short" />
+              <xs:element name="FKSL3ID" msprop:Generator_ColumnVarNameInTable="columnFKSL3ID" msprop:Generator_ColumnPropNameInRow="FKSL3ID" msprop:Generator_ColumnPropNameInTable="FKSL3IDColumn" msprop:Generator_UserColumnName="FKSL3ID" type="xs:short" />
+              <xs:element name="AccountName" msprop:Generator_ColumnVarNameInTable="columnAccountName" msprop:Generator_ColumnPropNameInRow="AccountName" msprop:Generator_ColumnPropNameInTable="AccountNameColumn" msprop:Generator_UserColumnName="AccountName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcOrder" msprop:Generator_ColumnVarNameInTable="columnAcOrder" msprop:Generator_ColumnPropNameInRow="AcOrder" msprop:Generator_ColumnPropNameInTable="AcOrderColumn" msprop:Generator_UserColumnName="AcOrder" type="xs:short" />
+              <xs:element name="AcActive" msprop:Generator_ColumnVarNameInTable="columnAcActive" msprop:Generator_ColumnPropNameInRow="AcActive" msprop:Generator_ColumnPropNameInTable="AcActiveColumn" msprop:Generator_UserColumnName="AcActive" type="xs:boolean" />
+              <xs:element name="FKBankAccountID" msprop:Generator_ColumnVarNameInTable="columnFKBankAccountID" msprop:Generator_ColumnPropNameInRow="FKBankAccountID" msprop:Generator_ColumnPropNameInTable="FKBankAccountIDColumn" msprop:Generator_UserColumnName="FKBankAccountID" type="xs:short" minOccurs="0" />
+              <xs:element name="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankAccountType" msprop:Generator_ColumnVarNameInTable="columnBankAccountType" msprop:Generator_ColumnPropNameInRow="BankAccountType" msprop:Generator_ColumnPropNameInTable="BankAccountTypeColumn" msprop:Generator_UserColumnName="BankAccountType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNumber" msprop:Generator_ColumnVarNameInTable="columnAccountNumber" msprop:Generator_ColumnPropNameInRow="AccountNumber" msprop:Generator_ColumnPropNameInTable="AccountNumberColumn" msprop:Generator_UserColumnName="AccountNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL1ID" msprop:Generator_ColumnVarNameInTable="columnSL1ID" msprop:Generator_ColumnPropNameInRow="SL1ID" msprop:Generator_ColumnPropNameInTable="SL1IDColumn" msprop:Generator_UserColumnName="SL1ID" type="xs:short" />
+              <xs:element name="PKSL2" msprop:Generator_ColumnVarNameInTable="columnPKSL2" msprop:Generator_ColumnPropNameInRow="PKSL2" msprop:Generator_ColumnPropNameInTable="PKSL2Column" msprop:Generator_UserColumnName="PKSL2" type="xs:short" />
+              <xs:element name="SL1Name" msprop:Generator_ColumnVarNameInTable="columnSL1Name" msprop:Generator_ColumnPropNameInRow="SL1Name" msprop:Generator_ColumnPropNameInTable="SL1NameColumn" msprop:Generator_UserColumnName="SL1Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL2Name" msprop:Generator_ColumnVarNameInTable="columnSL2Name" msprop:Generator_ColumnPropNameInRow="SL2Name" msprop:Generator_ColumnPropNameInTable="SL2NameColumn" msprop:Generator_UserColumnName="SL2Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Name" msprop:Generator_ColumnVarNameInTable="columnSL3Name" msprop:Generator_ColumnPropNameInRow="SL3Name" msprop:Generator_ColumnPropNameInTable="SL3NameColumn" msprop:Generator_UserColumnName="SL3Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Code" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSL3Code" msprop:Generator_ColumnPropNameInRow="SL3Code" msprop:Generator_ColumnPropNameInTable="SL3CodeColumn" msprop:Generator_UserColumnName="SL3Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountType" msprop:Generator_ColumnVarNameInTable="columnAccountType" msprop:Generator_ColumnPropNameInRow="AccountType" msprop:Generator_ColumnPropNameInTable="AccountTypeColumn" msprop:Generator_UserColumnName="AccountType" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BankAccountDetails" msprop:Generator_TableClassName="BankAccountDetailsDataTable" msprop:Generator_TableVarName="tableBankAccountDetails" msprop:Generator_TablePropName="BankAccountDetails" msprop:Generator_RowDeletingName="BankAccountDetailsRowDeleting" msprop:Generator_RowChangingName="BankAccountDetailsRowChanging" msprop:Generator_RowEvHandlerName="BankAccountDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="BankAccountDetailsRowDeleted" msprop:Generator_UserTableName="BankAccountDetails" msprop:Generator_RowChangedName="BankAccountDetailsRowChanged" msprop:Generator_RowEvArgName="BankAccountDetailsRowChangeEvent" msprop:Generator_RowClassName="BankAccountDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountType" msprop:Generator_ColumnVarNameInTable="columnAccountType" msprop:Generator_ColumnPropNameInRow="AccountType" msprop:Generator_ColumnPropNameInTable="AccountTypeColumn" msprop:Generator_UserColumnName="AccountType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNumber" msprop:Generator_ColumnVarNameInTable="columnAccountNumber" msprop:Generator_ColumnPropNameInRow="AccountNumber" msprop:Generator_ColumnPropNameInTable="AccountNumberColumn" msprop:Generator_UserColumnName="AccountNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FKBankID" msprop:Generator_ColumnVarNameInTable="columnFKBankID" msprop:Generator_ColumnPropNameInRow="FKBankID" msprop:Generator_ColumnPropNameInTable="FKBankIDColumn" msprop:Generator_UserColumnName="FKBankID" type="xs:short" />
+              <xs:element name="PKBANKACC" msprop:Generator_ColumnVarNameInTable="columnPKBANKACC" msprop:Generator_ColumnPropNameInRow="PKBANKACC" msprop:Generator_ColumnPropNameInTable="PKBANKACCColumn" msprop:Generator_UserColumnName="PKBANKACC" type="xs:short" />
+              <xs:element name="FKAccountType" msprop:Generator_ColumnVarNameInTable="columnFKAccountType" msprop:Generator_ColumnPropNameInRow="FKAccountType" msprop:Generator_ColumnPropNameInTable="FKAccountTypeColumn" msprop:Generator_UserColumnName="FKAccountType" type="xs:short" />
+              <xs:element name="BankShortName" msprop:Generator_ColumnVarNameInTable="columnBankShortName" msprop:Generator_ColumnPropNameInRow="BankShortName" msprop:Generator_ColumnPropNameInTable="BankShortNameColumn" msprop:Generator_UserColumnName="BankShortName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BillMstView" msprop:Generator_TableClassName="BillMstViewDataTable" msprop:Generator_TableVarName="tableBillMstView" msprop:Generator_TablePropName="BillMstView" msprop:Generator_RowDeletingName="BillMstViewRowDeleting" msprop:Generator_RowChangingName="BillMstViewRowChanging" msprop:Generator_RowEvHandlerName="BillMstViewRowChangeEventHandler" msprop:Generator_RowDeletedName="BillMstViewRowDeleted" msprop:Generator_UserTableName="BillMstView" msprop:Generator_RowChangedName="BillMstViewRowChanged" msprop:Generator_RowEvArgName="BillMstViewRowChangeEvent" msprop:Generator_RowClassName="BillMstViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PKBillID" msprop:Generator_ColumnVarNameInTable="columnPKBillID" msprop:Generator_ColumnPropNameInRow="PKBillID" msprop:Generator_ColumnPropNameInTable="PKBillIDColumn" msprop:Generator_UserColumnName="PKBillID" type="xs:short" />
+              <xs:element name="BillNumber" msprop:Generator_ColumnVarNameInTable="columnBillNumber" msprop:Generator_ColumnPropNameInRow="BillNumber" msprop:Generator_ColumnPropNameInTable="BillNumberColumn" msprop:Generator_UserColumnName="BillNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillNarration" msprop:Generator_ColumnVarNameInTable="columnBillNarration" msprop:Generator_ColumnPropNameInRow="BillNarration" msprop:Generator_ColumnPropNameInTable="BillNarrationColumn" msprop:Generator_UserColumnName="BillNarration" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEPNAME" msprop:Generator_ColumnVarNameInTable="columnDEPNAME" msprop:Generator_ColumnPropNameInRow="DEPNAME" msprop:Generator_ColumnPropNameInTable="DEPNAMEColumn" msprop:Generator_UserColumnName="DEPNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BeneficieryName" msprop:Generator_ColumnVarNameInTable="columnBeneficieryName" msprop:Generator_ColumnPropNameInRow="BeneficieryName" msprop:Generator_ColumnPropNameInTable="BeneficieryNameColumn" msprop:Generator_UserColumnName="BeneficieryName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillStatus" msprop:Generator_ColumnVarNameInTable="columnBillStatus" msprop:Generator_ColumnPropNameInRow="BillStatus" msprop:Generator_ColumnPropNameInTable="BillStatusColumn" msprop:Generator_UserColumnName="BillStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillType" msprop:Generator_ColumnVarNameInTable="columnBillType" msprop:Generator_ColumnPropNameInRow="BillType" msprop:Generator_ColumnPropNameInTable="BillTypeColumn" msprop:Generator_UserColumnName="BillType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FKDepID" msprop:Generator_ColumnVarNameInTable="columnFKDepID" msprop:Generator_ColumnPropNameInRow="FKDepID" msprop:Generator_ColumnPropNameInTable="FKDepIDColumn" msprop:Generator_UserColumnName="FKDepID" type="xs:short" minOccurs="0" />
+              <xs:element name="BeneficiaryID" msprop:Generator_ColumnVarNameInTable="columnBeneficiaryID" msprop:Generator_ColumnPropNameInRow="BeneficiaryID" msprop:Generator_ColumnPropNameInTable="BeneficiaryIDColumn" msprop:Generator_UserColumnName="BeneficiaryID" type="xs:short" minOccurs="0" />
+              <xs:element name="FKBillStatus" msprop:Generator_ColumnVarNameInTable="columnFKBillStatus" msprop:Generator_ColumnPropNameInRow="FKBillStatus" msprop:Generator_ColumnPropNameInTable="FKBillStatusColumn" msprop:Generator_UserColumnName="FKBillStatus" type="xs:short" minOccurs="0" />
+              <xs:element name="FKBillType" msprop:Generator_ColumnVarNameInTable="columnFKBillType" msprop:Generator_ColumnPropNameInRow="FKBillType" msprop:Generator_ColumnPropNameInTable="FKBillTypeColumn" msprop:Generator_UserColumnName="FKBillType" type="xs:short" minOccurs="0" />
+              <xs:element name="BillCreatedOn" msprop:Generator_ColumnVarNameInTable="columnBillCreatedOn" msprop:Generator_ColumnPropNameInRow="BillCreatedOn" msprop:Generator_ColumnPropNameInTable="BillCreatedOnColumn" msprop:Generator_UserColumnName="BillCreatedOn" type="xs:dateTime" />
+              <xs:element name="BillUpdatedOn" msprop:Generator_ColumnVarNameInTable="columnBillUpdatedOn" msprop:Generator_ColumnPropNameInRow="BillUpdatedOn" msprop:Generator_ColumnPropNameInTable="BillUpdatedOnColumn" msprop:Generator_UserColumnName="BillUpdatedOn" type="xs:dateTime" />
+              <xs:element name="BillUpdatedBy" msprop:Generator_ColumnVarNameInTable="columnBillUpdatedBy" msprop:Generator_ColumnPropNameInRow="BillUpdatedBy" msprop:Generator_ColumnPropNameInTable="BillUpdatedByColumn" msprop:Generator_UserColumnName="BillUpdatedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BudgetWithAccounts" msprop:Generator_TableClassName="BudgetWithAccountsDataTable" msprop:Generator_TableVarName="tableBudgetWithAccounts" msprop:Generator_TablePropName="BudgetWithAccounts" msprop:Generator_RowDeletingName="BudgetWithAccountsRowDeleting" msprop:Generator_RowChangingName="BudgetWithAccountsRowChanging" msprop:Generator_RowEvHandlerName="BudgetWithAccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="BudgetWithAccountsRowDeleted" msprop:Generator_UserTableName="BudgetWithAccounts" msprop:Generator_RowChangedName="BudgetWithAccountsRowChanged" msprop:Generator_RowEvArgName="BudgetWithAccountsRowChangeEvent" msprop:Generator_RowClassName="BudgetWithAccountsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FYName" msprop:Generator_ColumnVarNameInTable="columnFYName" msprop:Generator_ColumnPropNameInRow="FYName" msprop:Generator_ColumnPropNameInTable="FYNameColumn" msprop:Generator_UserColumnName="FYName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptName" msprop:Generator_ColumnVarNameInTable="columnDeptName" msprop:Generator_ColumnPropNameInRow="DeptName" msprop:Generator_ColumnPropNameInTable="DeptNameColumn" msprop:Generator_UserColumnName="DeptName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Code" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSL3Code" msprop:Generator_ColumnPropNameInRow="SL3Code" msprop:Generator_ColumnPropNameInTable="SL3CodeColumn" msprop:Generator_UserColumnName="SL3Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountName" msprop:Generator_ColumnVarNameInTable="columnAccountName" msprop:Generator_ColumnPropNameInRow="AccountName" msprop:Generator_ColumnPropNameInTable="AccountNameColumn" msprop:Generator_UserColumnName="AccountName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BECY" msprop:Generator_ColumnVarNameInTable="columnBECY" msprop:Generator_ColumnPropNameInRow="BECY" msprop:Generator_ColumnPropNameInTable="BECYColumn" msprop:Generator_UserColumnName="BECY" type="xs:decimal" />
+              <xs:element name="RBECY" msprop:Generator_ColumnVarNameInTable="columnRBECY" msprop:Generator_ColumnPropNameInRow="RBECY" msprop:Generator_ColumnPropNameInTable="RBECYColumn" msprop:Generator_UserColumnName="RBECY" type="xs:decimal" />
+              <xs:element name="BENY" msprop:Generator_ColumnVarNameInTable="columnBENY" msprop:Generator_ColumnPropNameInRow="BENY" msprop:Generator_ColumnPropNameInTable="BENYColumn" msprop:Generator_UserColumnName="BENY" type="xs:decimal" />
+              <xs:element name="SL1Name" msprop:Generator_ColumnVarNameInTable="columnSL1Name" msprop:Generator_ColumnPropNameInRow="SL1Name" msprop:Generator_ColumnPropNameInTable="SL1NameColumn" msprop:Generator_UserColumnName="SL1Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL2Name" msprop:Generator_ColumnVarNameInTable="columnSL2Name" msprop:Generator_ColumnPropNameInRow="SL2Name" msprop:Generator_ColumnPropNameInTable="SL2NameColumn" msprop:Generator_UserColumnName="SL2Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Name" msprop:Generator_ColumnVarNameInTable="columnSL3Name" msprop:Generator_ColumnPropNameInRow="SL3Name" msprop:Generator_ColumnPropNameInTable="SL3NameColumn" msprop:Generator_UserColumnName="SL3Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL1ID" msprop:Generator_ColumnVarNameInTable="columnSL1ID" msprop:Generator_ColumnPropNameInRow="SL1ID" msprop:Generator_ColumnPropNameInTable="SL1IDColumn" msprop:Generator_UserColumnName="SL1ID" type="xs:short" />
+              <xs:element name="PKSL2" msprop:Generator_ColumnVarNameInTable="columnPKSL2" msprop:Generator_ColumnPropNameInRow="PKSL2" msprop:Generator_ColumnPropNameInTable="PKSL2Column" msprop:Generator_UserColumnName="PKSL2" type="xs:short" />
+              <xs:element name="FKSL3ID" msprop:Generator_ColumnVarNameInTable="columnFKSL3ID" msprop:Generator_ColumnPropNameInRow="FKSL3ID" msprop:Generator_ColumnPropNameInTable="FKSL3IDColumn" msprop:Generator_UserColumnName="FKSL3ID" type="xs:short" />
+              <xs:element name="DeptId" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" type="xs:short" />
+              <xs:element name="PKFYID" msprop:Generator_ColumnVarNameInTable="columnPKFYID" msprop:Generator_ColumnPropNameInRow="PKFYID" msprop:Generator_ColumnPropNameInTable="PKFYIDColumn" msprop:Generator_UserColumnName="PKFYID" type="xs:short" />
+              <xs:element name="PKACID" msprop:Generator_ColumnVarNameInTable="columnPKACID" msprop:Generator_ColumnPropNameInRow="PKACID" msprop:Generator_ColumnPropNameInTable="PKACIDColumn" msprop:Generator_UserColumnName="PKACID" type="xs:short" />
+              <xs:element name="PKBUDGETID" msprop:Generator_ColumnVarNameInTable="columnPKBUDGETID" msprop:Generator_ColumnPropNameInRow="PKBUDGETID" msprop:Generator_ColumnPropNameInTable="PKBUDGETIDColumn" msprop:Generator_UserColumnName="PKBUDGETID" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RoleFormPrivileges" msprop:Generator_TableClassName="RoleFormPrivilegesDataTable" msprop:Generator_TableVarName="tableRoleFormPrivileges" msprop:Generator_TablePropName="RoleFormPrivileges" msprop:Generator_RowDeletingName="RoleFormPrivilegesRowDeleting" msprop:Generator_RowChangingName="RoleFormPrivilegesRowChanging" msprop:Generator_RowEvHandlerName="RoleFormPrivilegesRowChangeEventHandler" msprop:Generator_RowDeletedName="RoleFormPrivilegesRowDeleted" msprop:Generator_UserTableName="RoleFormPrivileges" msprop:Generator_RowChangedName="RoleFormPrivilegesRowChanged" msprop:Generator_RowEvArgName="RoleFormPrivilegesRowChangeEvent" msprop:Generator_RowClassName="RoleFormPrivilegesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PrivilegeID" msprop:Generator_ColumnVarNameInTable="columnPrivilegeID" msprop:Generator_ColumnPropNameInRow="PrivilegeID" msprop:Generator_ColumnPropNameInTable="PrivilegeIDColumn" msprop:Generator_UserColumnName="PrivilegeID" type="xs:short" />
+              <xs:element name="RoleId" msprop:Generator_ColumnVarNameInTable="columnRoleId" msprop:Generator_ColumnPropNameInRow="RoleId" msprop:Generator_ColumnPropNameInTable="RoleIdColumn" msprop:Generator_UserColumnName="RoleId" type="xs:short" />
+              <xs:element name="RoleName" msprop:Generator_ColumnVarNameInTable="columnRoleName" msprop:Generator_ColumnPropNameInRow="RoleName" msprop:Generator_ColumnPropNameInTable="RoleNameColumn" msprop:Generator_UserColumnName="RoleName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FormId" msprop:Generator_ColumnVarNameInTable="columnFormId" msprop:Generator_ColumnPropNameInRow="FormId" msprop:Generator_ColumnPropNameInTable="FormIdColumn" msprop:Generator_UserColumnName="FormId" type="xs:short" />
+              <xs:element name="FormName" msprop:Generator_ColumnVarNameInTable="columnFormName" msprop:Generator_ColumnPropNameInRow="FormName" msprop:Generator_ColumnPropNameInTable="FormNameColumn" msprop:Generator_UserColumnName="FormName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CanAdd" msprop:Generator_ColumnVarNameInTable="columnCanAdd" msprop:Generator_ColumnPropNameInRow="CanAdd" msprop:Generator_ColumnPropNameInTable="CanAddColumn" msprop:Generator_UserColumnName="CanAdd" type="xs:boolean" />
+              <xs:element name="CanUpdate" msprop:Generator_ColumnVarNameInTable="columnCanUpdate" msprop:Generator_ColumnPropNameInRow="CanUpdate" msprop:Generator_ColumnPropNameInTable="CanUpdateColumn" msprop:Generator_UserColumnName="CanUpdate" type="xs:boolean" />
+              <xs:element name="CanDelete" msprop:Generator_ColumnVarNameInTable="columnCanDelete" msprop:Generator_ColumnPropNameInRow="CanDelete" msprop:Generator_ColumnPropNameInTable="CanDeleteColumn" msprop:Generator_UserColumnName="CanDelete" type="xs:boolean" />
+              <xs:element name="CanPrint" msprop:Generator_ColumnVarNameInTable="columnCanPrint" msprop:Generator_ColumnPropNameInRow="CanPrint" msprop:Generator_ColumnPropNameInTable="CanPrintColumn" msprop:Generator_UserColumnName="CanPrint" type="xs:boolean" />
+              <xs:element name="CanSearch" msprop:Generator_ColumnVarNameInTable="columnCanSearch" msprop:Generator_ColumnPropNameInRow="CanSearch" msprop:Generator_ColumnPropNameInTable="CanSearchColumn" msprop:Generator_UserColumnName="CanSearch" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SL2SL1" msprop:Generator_TableClassName="SL2SL1DataTable" msprop:Generator_TableVarName="tableSL2SL1" msprop:Generator_TablePropName="SL2SL1" msprop:Generator_RowDeletingName="SL2SL1RowDeleting" msprop:Generator_RowChangingName="SL2SL1RowChanging" msprop:Generator_RowEvHandlerName="SL2SL1RowChangeEventHandler" msprop:Generator_RowDeletedName="SL2SL1RowDeleted" msprop:Generator_UserTableName="SL2SL1" msprop:Generator_RowChangedName="SL2SL1RowChanged" msprop:Generator_RowEvArgName="SL2SL1RowChangeEvent" msprop:Generator_RowClassName="SL2SL1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PKSL2" msprop:Generator_ColumnVarNameInTable="columnPKSL2" msprop:Generator_ColumnPropNameInRow="PKSL2" msprop:Generator_ColumnPropNameInTable="PKSL2Column" msprop:Generator_UserColumnName="PKSL2" type="xs:short" />
+              <xs:element name="SL1ID" msprop:Generator_ColumnVarNameInTable="columnSL1ID" msprop:Generator_ColumnPropNameInRow="SL1ID" msprop:Generator_ColumnPropNameInTable="SL1IDColumn" msprop:Generator_UserColumnName="SL1ID" type="xs:short" />
+              <xs:element name="SL2ID" msprop:Generator_ColumnVarNameInTable="columnSL2ID" msprop:Generator_ColumnPropNameInRow="SL2ID" msprop:Generator_ColumnPropNameInTable="SL2IDColumn" msprop:Generator_UserColumnName="SL2ID" type="xs:short" />
+              <xs:element name="SL1Name" msprop:Generator_ColumnVarNameInTable="columnSL1Name" msprop:Generator_ColumnPropNameInRow="SL1Name" msprop:Generator_ColumnPropNameInTable="SL1NameColumn" msprop:Generator_UserColumnName="SL1Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sl2Name" msprop:Generator_ColumnVarNameInTable="columnSl2Name" msprop:Generator_ColumnPropNameInRow="Sl2Name" msprop:Generator_ColumnPropNameInTable="Sl2NameColumn" msprop:Generator_UserColumnName="Sl2Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL2Order" msprop:Generator_ColumnVarNameInTable="columnSL2Order" msprop:Generator_ColumnPropNameInRow="SL2Order" msprop:Generator_ColumnPropNameInTable="SL2OrderColumn" msprop:Generator_UserColumnName="SL2Order" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="SL2Active" msprop:Generator_ColumnVarNameInTable="columnSL2Active" msprop:Generator_ColumnPropNameInRow="SL2Active" msprop:Generator_ColumnPropNameInTable="SL2ActiveColumn" msprop:Generator_UserColumnName="SL2Active" type="xs:boolean" />
+              <xs:element name="SL2Code" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSL2Code" msprop:Generator_ColumnPropNameInRow="SL2Code" msprop:Generator_ColumnPropNameInTable="SL2CodeColumn" msprop:Generator_UserColumnName="SL2Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SL3SL2SL1" msprop:Generator_TableClassName="SL3SL2SL1DataTable" msprop:Generator_TableVarName="tableSL3SL2SL1" msprop:Generator_TablePropName="SL3SL2SL1" msprop:Generator_RowDeletingName="SL3SL2SL1RowDeleting" msprop:Generator_RowChangingName="SL3SL2SL1RowChanging" msprop:Generator_RowEvHandlerName="SL3SL2SL1RowChangeEventHandler" msprop:Generator_RowDeletedName="SL3SL2SL1RowDeleted" msprop:Generator_UserTableName="SL3SL2SL1" msprop:Generator_RowChangedName="SL3SL2SL1RowChanged" msprop:Generator_RowEvArgName="SL3SL2SL1RowChangeEvent" msprop:Generator_RowClassName="SL3SL2SL1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PKSL3" msprop:Generator_ColumnVarNameInTable="columnPKSL3" msprop:Generator_ColumnPropNameInRow="PKSL3" msprop:Generator_ColumnPropNameInTable="PKSL3Column" msprop:Generator_UserColumnName="PKSL3" type="xs:short" />
+              <xs:element name="SL3ID" msprop:Generator_ColumnVarNameInTable="columnSL3ID" msprop:Generator_ColumnPropNameInRow="SL3ID" msprop:Generator_ColumnPropNameInTable="SL3IDColumn" msprop:Generator_UserColumnName="SL3ID" type="xs:short" />
+              <xs:element name="PKSL2" msprop:Generator_ColumnVarNameInTable="columnPKSL2" msprop:Generator_ColumnPropNameInRow="PKSL2" msprop:Generator_ColumnPropNameInTable="PKSL2Column" msprop:Generator_UserColumnName="PKSL2" type="xs:short" />
+              <xs:element name="SL1ID" msprop:Generator_ColumnVarNameInTable="columnSL1ID" msprop:Generator_ColumnPropNameInRow="SL1ID" msprop:Generator_ColumnPropNameInTable="SL1IDColumn" msprop:Generator_UserColumnName="SL1ID" type="xs:short" />
+              <xs:element name="SL1Name" msprop:Generator_ColumnVarNameInTable="columnSL1Name" msprop:Generator_ColumnPropNameInRow="SL1Name" msprop:Generator_ColumnPropNameInTable="SL1NameColumn" msprop:Generator_UserColumnName="SL1Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL2Name" msprop:Generator_ColumnVarNameInTable="columnSL2Name" msprop:Generator_ColumnPropNameInRow="SL2Name" msprop:Generator_ColumnPropNameInTable="SL2NameColumn" msprop:Generator_UserColumnName="SL2Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Name" msprop:Generator_ColumnVarNameInTable="columnSL3Name" msprop:Generator_ColumnPropNameInRow="SL3Name" msprop:Generator_ColumnPropNameInTable="SL3NameColumn" msprop:Generator_UserColumnName="SL3Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Order" msprop:Generator_ColumnVarNameInTable="columnSL3Order" msprop:Generator_ColumnPropNameInRow="SL3Order" msprop:Generator_ColumnPropNameInTable="SL3OrderColumn" msprop:Generator_UserColumnName="SL3Order" type="xs:unsignedByte" />
+              <xs:element name="SL3Active" msprop:Generator_ColumnVarNameInTable="columnSL3Active" msprop:Generator_ColumnPropNameInRow="SL3Active" msprop:Generator_ColumnPropNameInTable="SL3ActiveColumn" msprop:Generator_UserColumnName="SL3Active" type="xs:boolean" />
+              <xs:element name="SL3Code" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSL3Code" msprop:Generator_ColumnPropNameInRow="SL3Code" msprop:Generator_ColumnPropNameInTable="SL3CodeColumn" msprop:Generator_UserColumnName="SL3Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UserDeptRoleview" msprop:Generator_TableClassName="UserDeptRoleviewDataTable" msprop:Generator_TableVarName="tableUserDeptRoleview" msprop:Generator_TablePropName="UserDeptRoleview" msprop:Generator_RowDeletingName="UserDeptRoleviewRowDeleting" msprop:Generator_RowChangingName="UserDeptRoleviewRowChanging" msprop:Generator_RowEvHandlerName="UserDeptRoleviewRowChangeEventHandler" msprop:Generator_RowDeletedName="UserDeptRoleviewRowDeleted" msprop:Generator_UserTableName="UserDeptRoleview" msprop:Generator_RowChangedName="UserDeptRoleviewRowChanged" msprop:Generator_RowEvArgName="UserDeptRoleviewRowChangeEvent" msprop:Generator_RowClassName="UserDeptRoleviewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UDRID" msprop:Generator_ColumnVarNameInTable="columnUDRID" msprop:Generator_ColumnPropNameInRow="UDRID" msprop:Generator_ColumnPropNameInTable="UDRIDColumn" msprop:Generator_UserColumnName="UDRID" type="xs:short" />
+              <xs:element name="UserId" msprop:Generator_ColumnVarNameInTable="columnUserId" msprop:Generator_ColumnPropNameInRow="UserId" msprop:Generator_ColumnPropNameInTable="UserIdColumn" msprop:Generator_UserColumnName="UserId" type="xs:short" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RoleId" msprop:Generator_ColumnVarNameInTable="columnRoleId" msprop:Generator_ColumnPropNameInRow="RoleId" msprop:Generator_ColumnPropNameInTable="RoleIdColumn" msprop:Generator_UserColumnName="RoleId" type="xs:short" />
+              <xs:element name="RoleName" msprop:Generator_ColumnVarNameInTable="columnRoleName" msprop:Generator_ColumnPropNameInRow="RoleName" msprop:Generator_ColumnPropNameInTable="RoleNameColumn" msprop:Generator_UserColumnName="RoleName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptId" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" type="xs:short" />
+              <xs:element name="DeptName" msprop:Generator_ColumnVarNameInTable="columnDeptName" msprop:Generator_ColumnPropNameInRow="DeptName" msprop:Generator_ColumnPropNameInTable="DeptNameColumn" msprop:Generator_UserColumnName="DeptName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VirtualAccoountsView" msprop:Generator_TableClassName="VirtualAccoountsViewDataTable" msprop:Generator_TableVarName="tableVirtualAccoountsView" msprop:Generator_TablePropName="VirtualAccoountsView" msprop:Generator_RowDeletingName="VirtualAccoountsViewRowDeleting" msprop:Generator_RowChangingName="VirtualAccoountsViewRowChanging" msprop:Generator_RowEvHandlerName="VirtualAccoountsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="VirtualAccoountsViewRowDeleted" msprop:Generator_UserTableName="VirtualAccoountsView" msprop:Generator_RowChangedName="VirtualAccoountsViewRowChanged" msprop:Generator_RowEvArgName="VirtualAccoountsViewRowChangeEvent" msprop:Generator_RowClassName="VirtualAccoountsViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ParentAccountName" msprop:Generator_ColumnVarNameInTable="columnParentAccountName" msprop:Generator_ColumnPropNameInRow="ParentAccountName" msprop:Generator_ColumnPropNameInTable="ParentAccountNameColumn" msprop:Generator_UserColumnName="ParentAccountName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChildAccountName" msprop:Generator_ColumnVarNameInTable="columnChildAccountName" msprop:Generator_ColumnPropNameInRow="ChildAccountName" msprop:Generator_ColumnPropNameInTable="ChildAccountNameColumn" msprop:Generator_UserColumnName="ChildAccountName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChildSL1Name" msprop:Generator_ColumnVarNameInTable="columnChildSL1Name" msprop:Generator_ColumnPropNameInRow="ChildSL1Name" msprop:Generator_ColumnPropNameInTable="ChildSL1NameColumn" msprop:Generator_UserColumnName="ChildSL1Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChildSL2Name" msprop:Generator_ColumnVarNameInTable="columnChildSL2Name" msprop:Generator_ColumnPropNameInRow="ChildSL2Name" msprop:Generator_ColumnPropNameInTable="ChildSL2NameColumn" msprop:Generator_UserColumnName="ChildSL2Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChildSL3Name" msprop:Generator_ColumnVarNameInTable="columnChildSL3Name" msprop:Generator_ColumnPropNameInRow="ChildSL3Name" msprop:Generator_ColumnPropNameInTable="ChildSL3NameColumn" msprop:Generator_UserColumnName="ChildSL3Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ParentACID" msprop:Generator_ColumnVarNameInTable="columnParentACID" msprop:Generator_ColumnPropNameInRow="ParentACID" msprop:Generator_ColumnPropNameInTable="ParentACIDColumn" msprop:Generator_UserColumnName="ParentACID" type="xs:short" />
+              <xs:element name="ChildACID" msprop:Generator_ColumnVarNameInTable="columnChildACID" msprop:Generator_ColumnPropNameInRow="ChildACID" msprop:Generator_ColumnPropNameInTable="ChildACIDColumn" msprop:Generator_UserColumnName="ChildACID" type="xs:short" />
+              <xs:element name="ChildSL1ID" msprop:Generator_ColumnVarNameInTable="columnChildSL1ID" msprop:Generator_ColumnPropNameInRow="ChildSL1ID" msprop:Generator_ColumnPropNameInTable="ChildSL1IDColumn" msprop:Generator_UserColumnName="ChildSL1ID" type="xs:short" />
+              <xs:element name="ChildSL2ID" msprop:Generator_ColumnVarNameInTable="columnChildSL2ID" msprop:Generator_ColumnPropNameInRow="ChildSL2ID" msprop:Generator_ColumnPropNameInTable="ChildSL2IDColumn" msprop:Generator_UserColumnName="ChildSL2ID" type="xs:short" />
+              <xs:element name="ChildSL3ID" msprop:Generator_ColumnVarNameInTable="columnChildSL3ID" msprop:Generator_ColumnPropNameInRow="ChildSL3ID" msprop:Generator_ColumnPropNameInTable="ChildSL3IDColumn" msprop:Generator_UserColumnName="ChildSL3ID" type="xs:short" />
+              <xs:element name="DEPID" msprop:Generator_ColumnVarNameInTable="columnDEPID" msprop:Generator_ColumnPropNameInRow="DEPID" msprop:Generator_ColumnPropNameInTable="DEPIDColumn" msprop:Generator_UserColumnName="DEPID" type="xs:short" minOccurs="0" />
+              <xs:element name="FKDEPID" msprop:Generator_ColumnVarNameInTable="columnFKDEPID" msprop:Generator_ColumnPropNameInRow="FKDEPID" msprop:Generator_ColumnPropNameInTable="FKDEPIDColumn" msprop:Generator_UserColumnName="FKDEPID" type="xs:short" minOccurs="0" />
+              <xs:element name="PKVACID" msprop:Generator_ColumnVarNameInTable="columnPKVACID" msprop:Generator_ColumnPropNameInRow="PKVACID" msprop:Generator_ColumnPropNameInTable="PKVACIDColumn" msprop:Generator_UserColumnName="PKVACID" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BankAccountDetails" />
+      <xs:field xpath="mstns:PKBANKACC" />
+    </xs:unique>
+    <xs:unique name="RoleFormPrivileges_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RoleFormPrivileges" />
+      <xs:field xpath="mstns:PrivilegeID" />
+      <xs:field xpath="mstns:RoleId" />
+      <xs:field xpath="mstns:FormId" />
+    </xs:unique>
+    <xs:unique name="SL2SL1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SL2SL1" />
+      <xs:field xpath="mstns:PKSL2" />
+    </xs:unique>
+    <xs:unique name="UserDeptRoleview_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:UserDeptRoleview" />
+      <xs:field xpath="mstns:UDRID" />
+      <xs:field xpath="mstns:UserId" />
+      <xs:field xpath="mstns:RoleId" />
+      <xs:field xpath="mstns:DeptId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

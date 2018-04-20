@@ -42,10 +42,9 @@ namespace MANUUFinance
             //Prepare Combo for Showing SL1 and SL2 
             PrepareSL1Combo();
             PrepareSL2Combo("0");
-            prepareaction();
             if (new AdministratorLogin().administratorLogin(userId))
             {
-                prepareaction();
+                prepareaction();                
             }
         }
 

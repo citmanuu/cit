@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -71,115 +69,101 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtSL2Search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.accountsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.financeDataSet = new MANUUFinance.FinanceDataSet();
-            this.accountsViewTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.AccountsViewTableAdapter();
             this.DGVAccounts = new System.Windows.Forms.DataGridView();
+            this.pKACIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SL1Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SL2Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SL3Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AcOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AcActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKSL3IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BankAccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL3Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKACID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FKSL3ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FKBankAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL1ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKSL2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet = new MANUUFinance.FinanceDataSet();
+            this.accountsViewTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.AccountsViewTableAdapter();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountsViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox2.Location = new System.Drawing.Point(127, 193);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(565, 45);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(481, 45);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(286, 12);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 25);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "&Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrintRecord_Click);
-            // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(472, 12);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(379, 12);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 25);
             this.btnClose.TabIndex = 4;
-            this.btnClose.Text = "Cl&ose Form";
+            this.btnClose.Text = "Close Form";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(379, 12);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Location = new System.Drawing.Point(286, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
-            this.btnClear.Text = "&Clear Controls";
+            this.btnClear.Text = "Clear Controls";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(193, 12);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "&Delete Record";
+            this.btnDelete.Text = "Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(101, 12);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "&Update Record";
+            this.btnUpdate.Text = "Update Record";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(8, 12);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "&Add Record";
+            this.btnAdd.Text = "Add Record";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -204,14 +188,13 @@
             this.groupBox1.Controls.Add(this.txtPKACID);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(22, 24);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Size = new System.Drawing.Size(941, 153);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Account";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboAccountType
             // 
@@ -219,7 +202,7 @@
             this.comboAccountType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboAccountType.FormattingEnabled = true;
             this.comboAccountType.Location = new System.Drawing.Point(617, 51);
-            this.comboAccountType.Margin = new System.Windows.Forms.Padding(2);
+            this.comboAccountType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboAccountType.Name = "comboAccountType";
             this.comboAccountType.Size = new System.Drawing.Size(316, 21);
             this.comboAccountType.TabIndex = 29;
@@ -227,7 +210,7 @@
             // txtAccountName
             // 
             this.txtAccountName.Location = new System.Drawing.Point(145, 77);
-            this.txtAccountName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAccountName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAccountName.Name = "txtAccountName";
             this.txtAccountName.Size = new System.Drawing.Size(316, 20);
             this.txtAccountName.TabIndex = 27;
@@ -258,7 +241,7 @@
             this.comboBankAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBankAccount.FormattingEnabled = true;
             this.comboBankAccount.Location = new System.Drawing.Point(617, 79);
-            this.comboBankAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBankAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBankAccount.Name = "comboBankAccount";
             this.comboBankAccount.Size = new System.Drawing.Size(316, 21);
             this.comboBankAccount.TabIndex = 4;
@@ -269,7 +252,7 @@
             this.comboSL3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL3.FormattingEnabled = true;
             this.comboSL3.Location = new System.Drawing.Point(145, 51);
-            this.comboSL3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboSL3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboSL3.Name = "comboSL3";
             this.comboSL3.Size = new System.Drawing.Size(316, 21);
             this.comboSL3.TabIndex = 2;
@@ -290,7 +273,7 @@
             this.comboSL2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL2.FormattingEnabled = true;
             this.comboSL2.Location = new System.Drawing.Point(617, 24);
-            this.comboSL2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboSL2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboSL2.Name = "comboSL2";
             this.comboSL2.Size = new System.Drawing.Size(316, 21);
             this.comboSL2.TabIndex = 1;
@@ -302,7 +285,7 @@
             this.comboSL1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL1.FormattingEnabled = true;
             this.comboSL1.Location = new System.Drawing.Point(145, 24);
-            this.comboSL1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboSL1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboSL1.Name = "comboSL1";
             this.comboSL1.Size = new System.Drawing.Size(316, 21);
             this.comboSL1.TabIndex = 0;
@@ -311,7 +294,7 @@
             // txtAccountOrder
             // 
             this.txtAccountOrder.Location = new System.Drawing.Point(617, 109);
-            this.txtAccountOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAccountOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAccountOrder.Name = "txtAccountOrder";
             this.txtAccountOrder.Size = new System.Drawing.Size(68, 20);
             this.txtAccountOrder.TabIndex = 5;
@@ -351,9 +334,9 @@
             this.groupBox3.Controls.Add(this.radioBtnAccountInActive);
             this.groupBox3.Controls.Add(this.radioBtnAccountActive);
             this.groupBox3.Location = new System.Drawing.Point(145, 99);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Size = new System.Drawing.Size(182, 29);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
@@ -362,7 +345,7 @@
             // 
             this.radioBtnAccountInActive.AutoSize = true;
             this.radioBtnAccountInActive.Location = new System.Drawing.Point(99, 10);
-            this.radioBtnAccountInActive.Margin = new System.Windows.Forms.Padding(2);
+            this.radioBtnAccountInActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioBtnAccountInActive.Name = "radioBtnAccountInActive";
             this.radioBtnAccountInActive.Size = new System.Drawing.Size(63, 17);
             this.radioBtnAccountInActive.TabIndex = 1;
@@ -374,7 +357,7 @@
             // 
             this.radioBtnAccountActive.AutoSize = true;
             this.radioBtnAccountActive.Location = new System.Drawing.Point(27, 10);
-            this.radioBtnAccountActive.Margin = new System.Windows.Forms.Padding(2);
+            this.radioBtnAccountActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioBtnAccountActive.Name = "radioBtnAccountActive";
             this.radioBtnAccountActive.Size = new System.Drawing.Size(55, 17);
             this.radioBtnAccountActive.TabIndex = 0;
@@ -405,7 +388,7 @@
             // txtPKACID
             // 
             this.txtPKACID.Location = new System.Drawing.Point(855, 120);
-            this.txtPKACID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPKACID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPKACID.Name = "txtPKACID";
             this.txtPKACID.Size = new System.Drawing.Size(68, 20);
             this.txtPKACID.TabIndex = 1;
@@ -426,9 +409,9 @@
             this.groupBox4.Controls.Add(this.txtSL2Search);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(725, 248);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Size = new System.Drawing.Size(237, 261);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
@@ -447,7 +430,7 @@
             // txtAccountNameSearch
             // 
             this.txtAccountNameSearch.Location = new System.Drawing.Point(12, 187);
-            this.txtAccountNameSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAccountNameSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAccountNameSearch.Name = "txtAccountNameSearch";
             this.txtAccountNameSearch.Size = new System.Drawing.Size(217, 20);
             this.txtAccountNameSearch.TabIndex = 4;
@@ -465,7 +448,7 @@
             // txtSL3Search
             // 
             this.txtSL3Search.Location = new System.Drawing.Point(12, 111);
-            this.txtSL3Search.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL3Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL3Search.Name = "txtSL3Search";
             this.txtSL3Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL3Search.TabIndex = 2;
@@ -483,7 +466,7 @@
             // txtBankAccSearch
             // 
             this.txtBankAccSearch.Location = new System.Drawing.Point(12, 148);
-            this.txtBankAccSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBankAccSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBankAccSearch.Name = "txtBankAccSearch";
             this.txtBankAccSearch.Size = new System.Drawing.Size(217, 20);
             this.txtBankAccSearch.TabIndex = 3;
@@ -491,7 +474,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(119, 222);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(89, 25);
             this.btnSearch.TabIndex = 6;
@@ -502,7 +485,7 @@
             // btnClearSearch
             // 
             this.btnClearSearch.Location = new System.Drawing.Point(22, 222);
-            this.btnClearSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClearSearch.Name = "btnClearSearch";
             this.btnClearSearch.Size = new System.Drawing.Size(89, 25);
             this.btnClearSearch.TabIndex = 5;
@@ -523,7 +506,7 @@
             // txtSL1Seacrh
             // 
             this.txtSL1Seacrh.Location = new System.Drawing.Point(13, 37);
-            this.txtSL1Seacrh.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL1Seacrh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL1Seacrh.Name = "txtSL1Seacrh";
             this.txtSL1Seacrh.Size = new System.Drawing.Size(217, 20);
             this.txtSL1Seacrh.TabIndex = 0;
@@ -541,7 +524,7 @@
             // txtSL2Search
             // 
             this.txtSL2Search.Location = new System.Drawing.Point(13, 74);
-            this.txtSL2Search.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL2Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSL2Search.Name = "txtSL2Search";
             this.txtSL2Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL2Search.TabIndex = 1;
@@ -556,51 +539,48 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Account Name";
             // 
-            // accountsViewBindingSource
-            // 
-            this.accountsViewBindingSource.DataMember = "AccountsView";
-            this.accountsViewBindingSource.DataSource = this.financeDataSet;
-            // 
-            // financeDataSet
-            // 
-            this.financeDataSet.DataSetName = "FinanceDataSet";
-            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // accountsViewTableAdapter
-            // 
-            this.accountsViewTableAdapter.ClearBeforeFill = true;
-            // 
             // DGVAccounts
             // 
             this.DGVAccounts.AllowUserToAddRows = false;
             this.DGVAccounts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.DGVAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVAccounts.AllowUserToResizeRows = false;
+            this.DGVAccounts.AutoGenerateColumns = false;
+            this.DGVAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pKACIDDataGridViewTextBoxColumn,
             this.SL1Name,
             this.SL2Name,
             this.SL3Name,
-            this.AccountName,
-            this.AcOrder,
-            this.AcActive,
+            this.fKSL3IDDataGridViewTextBoxColumn,
+            this.accountNameDataGridViewTextBoxColumn,
+            this.acOrderDataGridViewTextBoxColumn,
+            this.acActiveDataGridViewCheckBoxColumn,
+            this.bankNameDataGridViewTextBoxColumn,
             this.BankAccountType,
-            this.AccountNumber,
-            this.SL3Code,
-            this.PKACID,
-            this.FKSL3ID,
+            this.accountNumberDataGridViewTextBoxColumn,
+            this.sL1IDDataGridViewTextBoxColumn,
+            this.pKSL2DataGridViewTextBoxColumn,
             this.FKBankAccountID,
-            this.BankName,
-            this.SL1ID,
-            this.PKSL2,
-            this.AccountType});
-            this.DGVAccounts.Location = new System.Drawing.Point(22, 256);
+            this.accountTypeDataGridViewTextBoxColumn});
+            this.DGVAccounts.DataSource = this.accountsViewBindingSource;
+            this.DGVAccounts.Location = new System.Drawing.Point(22, 257);
+            this.DGVAccounts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DGVAccounts.MultiSelect = false;
             this.DGVAccounts.Name = "DGVAccounts";
             this.DGVAccounts.ReadOnly = true;
-            this.DGVAccounts.Size = new System.Drawing.Size(666, 253);
+            this.DGVAccounts.RowTemplate.Height = 28;
+            this.DGVAccounts.Size = new System.Drawing.Size(670, 252);
             this.DGVAccounts.TabIndex = 26;
+            this.DGVAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVAccounts_CellClick);
+            // 
+            // pKACIDDataGridViewTextBoxColumn
+            // 
+            this.pKACIDDataGridViewTextBoxColumn.DataPropertyName = "PKACID";
+            this.pKACIDDataGridViewTextBoxColumn.HeaderText = "PKACID";
+            this.pKACIDDataGridViewTextBoxColumn.Name = "pKACIDDataGridViewTextBoxColumn";
+            this.pKACIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKACIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // SL1Name
             // 
@@ -623,26 +603,41 @@
             this.SL3Name.Name = "SL3Name";
             this.SL3Name.ReadOnly = true;
             // 
-            // AccountName
+            // fKSL3IDDataGridViewTextBoxColumn
             // 
-            this.AccountName.DataPropertyName = "AccountName";
-            this.AccountName.HeaderText = "AccountName";
-            this.AccountName.Name = "AccountName";
-            this.AccountName.ReadOnly = true;
+            this.fKSL3IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn.HeaderText = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn.Name = "fKSL3IDDataGridViewTextBoxColumn";
+            this.fKSL3IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKSL3IDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // AcOrder
+            // accountNameDataGridViewTextBoxColumn
             // 
-            this.AcOrder.DataPropertyName = "AcOrder";
-            this.AcOrder.HeaderText = "Order";
-            this.AcOrder.Name = "AcOrder";
-            this.AcOrder.ReadOnly = true;
+            this.accountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName";
+            this.accountNameDataGridViewTextBoxColumn.HeaderText = "AccountName";
+            this.accountNameDataGridViewTextBoxColumn.Name = "accountNameDataGridViewTextBoxColumn";
+            this.accountNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // AcActive
+            // acOrderDataGridViewTextBoxColumn
             // 
-            this.AcActive.DataPropertyName = "AcActive";
-            this.AcActive.HeaderText = "Active";
-            this.AcActive.Name = "AcActive";
-            this.AcActive.ReadOnly = true;
+            this.acOrderDataGridViewTextBoxColumn.DataPropertyName = "AcOrder";
+            this.acOrderDataGridViewTextBoxColumn.HeaderText = "Order";
+            this.acOrderDataGridViewTextBoxColumn.Name = "acOrderDataGridViewTextBoxColumn";
+            this.acOrderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // acActiveDataGridViewCheckBoxColumn
+            // 
+            this.acActiveDataGridViewCheckBoxColumn.DataPropertyName = "AcActive";
+            this.acActiveDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.acActiveDataGridViewCheckBoxColumn.Name = "acActiveDataGridViewCheckBoxColumn";
+            this.acActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bankNameDataGridViewTextBoxColumn
+            // 
+            this.bankNameDataGridViewTextBoxColumn.DataPropertyName = "BankName";
+            this.bankNameDataGridViewTextBoxColumn.HeaderText = "BankName";
+            this.bankNameDataGridViewTextBoxColumn.Name = "bankNameDataGridViewTextBoxColumn";
+            this.bankNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // BankAccountType
             // 
@@ -651,36 +646,28 @@
             this.BankAccountType.Name = "BankAccountType";
             this.BankAccountType.ReadOnly = true;
             // 
-            // AccountNumber
+            // accountNumberDataGridViewTextBoxColumn
             // 
-            this.AccountNumber.DataPropertyName = "AccountNumber";
-            this.AccountNumber.HeaderText = "AccountNumber";
-            this.AccountNumber.Name = "AccountNumber";
-            this.AccountNumber.ReadOnly = true;
+            this.accountNumberDataGridViewTextBoxColumn.DataPropertyName = "AccountNumber";
+            this.accountNumberDataGridViewTextBoxColumn.HeaderText = "AccountNumber";
+            this.accountNumberDataGridViewTextBoxColumn.Name = "accountNumberDataGridViewTextBoxColumn";
+            this.accountNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // SL3Code
+            // sL1IDDataGridViewTextBoxColumn
             // 
-            this.SL3Code.DataPropertyName = "SL3Code";
-            this.SL3Code.HeaderText = "SL3Code";
-            this.SL3Code.Name = "SL3Code";
-            this.SL3Code.ReadOnly = true;
-            this.SL3Code.Visible = false;
+            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
+            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // PKACID
+            // pKSL2DataGridViewTextBoxColumn
             // 
-            this.PKACID.DataPropertyName = "PKACID";
-            this.PKACID.HeaderText = "PKACID";
-            this.PKACID.Name = "PKACID";
-            this.PKACID.ReadOnly = true;
-            this.PKACID.Visible = false;
-            // 
-            // FKSL3ID
-            // 
-            this.FKSL3ID.DataPropertyName = "FKSL3ID";
-            this.FKSL3ID.HeaderText = "FKSL3ID";
-            this.FKSL3ID.Name = "FKSL3ID";
-            this.FKSL3ID.ReadOnly = true;
-            this.FKSL3ID.Visible = false;
+            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
+            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKSL2DataGridViewTextBoxColumn.Visible = false;
             // 
             // FKBankAccountID
             // 
@@ -690,46 +677,38 @@
             this.FKBankAccountID.ReadOnly = true;
             this.FKBankAccountID.Visible = false;
             // 
-            // BankName
+            // accountTypeDataGridViewTextBoxColumn
             // 
-            this.BankName.DataPropertyName = "BankName";
-            this.BankName.HeaderText = "BankName";
-            this.BankName.Name = "BankName";
-            this.BankName.ReadOnly = true;
+            this.accountTypeDataGridViewTextBoxColumn.DataPropertyName = "AccountType";
+            this.accountTypeDataGridViewTextBoxColumn.HeaderText = "AccountType";
+            this.accountTypeDataGridViewTextBoxColumn.Name = "accountTypeDataGridViewTextBoxColumn";
+            this.accountTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.accountTypeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // SL1ID
+            // accountsViewBindingSource
             // 
-            this.SL1ID.DataPropertyName = "SL1ID";
-            this.SL1ID.HeaderText = "SL1ID";
-            this.SL1ID.Name = "SL1ID";
-            this.SL1ID.ReadOnly = true;
-            this.SL1ID.Visible = false;
+            this.accountsViewBindingSource.DataMember = "AccountsView";
+            this.accountsViewBindingSource.DataSource = this.financeDataSet;
             // 
-            // PKSL2
+            // financeDataSet
             // 
-            this.PKSL2.DataPropertyName = "PKSL2";
-            this.PKSL2.HeaderText = "PKSL2";
-            this.PKSL2.Name = "PKSL2";
-            this.PKSL2.ReadOnly = true;
-            this.PKSL2.Visible = false;
+            this.financeDataSet.DataSetName = "FinanceDataSet";
+            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // AccountType
+            // accountsViewTableAdapter
             // 
-            this.AccountType.DataPropertyName = "AccountType";
-            this.AccountType.HeaderText = "AccountType";
-            this.AccountType.Name = "AccountType";
-            this.AccountType.ReadOnly = true;
+            this.accountsViewTableAdapter.ClearBeforeFill = true;
             // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 529);
+            this.ClientSize = new System.Drawing.Size(989, 532);
             this.Controls.Add(this.DGVAccounts);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAccount";
             this.Text = "Account";
             this.Load += new System.EventHandler(this.frmAccount_Load);
@@ -740,9 +719,9 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountsViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -773,6 +752,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBankAccount;
+        private System.Windows.Forms.DataGridView DGVAccounts;
         private FinanceDataSet financeDataSet;
         private System.Windows.Forms.BindingSource accountsViewBindingSource;
         private FinanceDataSetTableAdapters.AccountsViewTableAdapter accountsViewTableAdapter;
@@ -792,23 +772,20 @@
         private System.Windows.Forms.ComboBox comboAccountType;
         private System.Windows.Forms.TextBox txtAccountName;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.DataGridView DGVAccounts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKACIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL1Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL2Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL3Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcActive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL3IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn acOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn acActiveDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bankNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BankAccountType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL3Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PKACID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FKSL3ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FKBankAccountID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BankName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL1ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PKSL2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountTypeDataGridViewTextBoxColumn;
     }
 }
