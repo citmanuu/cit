@@ -101,7 +101,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 2 Order by 1";
+            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 4 Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -521,23 +521,82 @@ namespace MANUUFinance
         private void PrepareBeneficiaryCombo()
         {
             //Prepare Medical Combo
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
+            if (Convert.ToInt32(comboBillType.SelectedValue) == 13)
             {
                 //PrepareEmployeeCombo();
+                PrepareEmployeesCombo();
             }
             //Prepare Student Combo
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
+            else if (Convert.ToInt32(comboBillType.SelectedValue) == 14)
             {
-                PrepareStudentsCombo();
+                //PrepareStudentsCombo();
+                 PrepareDirectPayment();
             }
             //Prepare Employee Combo
             else if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
             {
-                PrepareEmployeesCombo();
+                //PrepareEmployeesCombo();
+                PrepareDirectPayment();
             }
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+            //else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+            //{
+            //    PrepareSuppliersCombo();
+            //}
+        }
+
+        private void PrepareDirectPayment()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKSTUID, StuFname + ' ' + ISNULL(StuMname,'') + ' ' + ISNULL(StuLname,'') + ' (' + EnrollmentNo + ')' FROM [Finance].[dbo].[Student] WHERE FkStuDeptID = " + comboDept.SelectedValue + " Order by 1";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+
+            string selectCommand2 = "SELECT PKEMPID, EMPFNAME + ' ' + ISNULL(EMPMNAME,'') + ' ' + ISNULL(EMPLNAME,'') + ' (' + EMPIDCardNo + ')' FROM [Finance].[dbo].[EMP] WHERE FKEmpPostDeptID = " + comboDept.SelectedValue + " Order by 1";
+            SqlCommand objSelectCommand2 = new SqlCommand(selectCommand2, objSqlConnection);
+
+            string selectCommand3 = "SELECT PKSUPID, SUPPLIERNAME FROM [Finance].[dbo].[SUPPLIER] Order by 1";
+            SqlCommand objSelectCommand3 = new SqlCommand(selectCommand3, objSqlConnection);
+            try
             {
-                PrepareSuppliersCombo();
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                objSqlConnection.Close();
+                objSqlConnection.Open();
+                SqlDataReader objDataReader2 = objSelectCommand2.ExecuteReader();
+                while (objDataReader2.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader2[0]), Convert.ToString(objDataReader2[1])));
+                }
+                objSqlConnection.Close();
+                objSqlConnection.Open();
+                SqlDataReader objDataReader3 = objSelectCommand3.ExecuteReader();
+                while (objDataReader3.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader3[0]), Convert.ToString(objDataReader3[1])));
+                }
+
+                // Bind combobox list to the items
+                comboBeneficiery.DisplayMember = "ListItemDesc"; // will display Name property
+                comboBeneficiery.ValueMember = "ListItemID"; // will select Value property
+                comboBeneficiery.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
             }
         }
 

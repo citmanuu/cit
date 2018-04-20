@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -88,6 +89,7 @@
             this.accountsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.accountsViewTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.AccountsViewTableAdapter();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -99,23 +101,24 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Location = new System.Drawing.Point(127, 193);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(121, 193);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(481, 45);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(571, 45);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(379, 12);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Location = new System.Drawing.Point(472, 12);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 25);
             this.btnClose.TabIndex = 4;
@@ -125,8 +128,8 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(286, 12);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Location = new System.Drawing.Point(379, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
@@ -136,8 +139,8 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(193, 12);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Location = new System.Drawing.Point(194, 12);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
@@ -147,8 +150,8 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(101, 12);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(102, 12);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
@@ -158,8 +161,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(8, 12);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(9, 12);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
@@ -188,9 +191,9 @@
             this.groupBox1.Controls.Add(this.txtPKACID);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(22, 24);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(941, 153);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
@@ -202,7 +205,7 @@
             this.comboAccountType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboAccountType.FormattingEnabled = true;
             this.comboAccountType.Location = new System.Drawing.Point(617, 51);
-            this.comboAccountType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboAccountType.Margin = new System.Windows.Forms.Padding(2);
             this.comboAccountType.Name = "comboAccountType";
             this.comboAccountType.Size = new System.Drawing.Size(316, 21);
             this.comboAccountType.TabIndex = 29;
@@ -210,7 +213,7 @@
             // txtAccountName
             // 
             this.txtAccountName.Location = new System.Drawing.Point(145, 77);
-            this.txtAccountName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccountName.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccountName.Name = "txtAccountName";
             this.txtAccountName.Size = new System.Drawing.Size(316, 20);
             this.txtAccountName.TabIndex = 27;
@@ -241,7 +244,7 @@
             this.comboBankAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBankAccount.FormattingEnabled = true;
             this.comboBankAccount.Location = new System.Drawing.Point(617, 79);
-            this.comboBankAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBankAccount.Margin = new System.Windows.Forms.Padding(2);
             this.comboBankAccount.Name = "comboBankAccount";
             this.comboBankAccount.Size = new System.Drawing.Size(316, 21);
             this.comboBankAccount.TabIndex = 4;
@@ -252,7 +255,7 @@
             this.comboSL3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL3.FormattingEnabled = true;
             this.comboSL3.Location = new System.Drawing.Point(145, 51);
-            this.comboSL3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboSL3.Margin = new System.Windows.Forms.Padding(2);
             this.comboSL3.Name = "comboSL3";
             this.comboSL3.Size = new System.Drawing.Size(316, 21);
             this.comboSL3.TabIndex = 2;
@@ -273,7 +276,7 @@
             this.comboSL2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL2.FormattingEnabled = true;
             this.comboSL2.Location = new System.Drawing.Point(617, 24);
-            this.comboSL2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboSL2.Margin = new System.Windows.Forms.Padding(2);
             this.comboSL2.Name = "comboSL2";
             this.comboSL2.Size = new System.Drawing.Size(316, 21);
             this.comboSL2.TabIndex = 1;
@@ -285,7 +288,7 @@
             this.comboSL1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL1.FormattingEnabled = true;
             this.comboSL1.Location = new System.Drawing.Point(145, 24);
-            this.comboSL1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboSL1.Margin = new System.Windows.Forms.Padding(2);
             this.comboSL1.Name = "comboSL1";
             this.comboSL1.Size = new System.Drawing.Size(316, 21);
             this.comboSL1.TabIndex = 0;
@@ -294,7 +297,7 @@
             // txtAccountOrder
             // 
             this.txtAccountOrder.Location = new System.Drawing.Point(617, 109);
-            this.txtAccountOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccountOrder.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccountOrder.Name = "txtAccountOrder";
             this.txtAccountOrder.Size = new System.Drawing.Size(68, 20);
             this.txtAccountOrder.TabIndex = 5;
@@ -334,9 +337,9 @@
             this.groupBox3.Controls.Add(this.radioBtnAccountInActive);
             this.groupBox3.Controls.Add(this.radioBtnAccountActive);
             this.groupBox3.Location = new System.Drawing.Point(145, 99);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(182, 29);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
@@ -345,7 +348,7 @@
             // 
             this.radioBtnAccountInActive.AutoSize = true;
             this.radioBtnAccountInActive.Location = new System.Drawing.Point(99, 10);
-            this.radioBtnAccountInActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioBtnAccountInActive.Margin = new System.Windows.Forms.Padding(2);
             this.radioBtnAccountInActive.Name = "radioBtnAccountInActive";
             this.radioBtnAccountInActive.Size = new System.Drawing.Size(63, 17);
             this.radioBtnAccountInActive.TabIndex = 1;
@@ -357,7 +360,7 @@
             // 
             this.radioBtnAccountActive.AutoSize = true;
             this.radioBtnAccountActive.Location = new System.Drawing.Point(27, 10);
-            this.radioBtnAccountActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioBtnAccountActive.Margin = new System.Windows.Forms.Padding(2);
             this.radioBtnAccountActive.Name = "radioBtnAccountActive";
             this.radioBtnAccountActive.Size = new System.Drawing.Size(55, 17);
             this.radioBtnAccountActive.TabIndex = 0;
@@ -388,7 +391,7 @@
             // txtPKACID
             // 
             this.txtPKACID.Location = new System.Drawing.Point(855, 120);
-            this.txtPKACID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPKACID.Margin = new System.Windows.Forms.Padding(2);
             this.txtPKACID.Name = "txtPKACID";
             this.txtPKACID.Size = new System.Drawing.Size(68, 20);
             this.txtPKACID.TabIndex = 1;
@@ -409,9 +412,9 @@
             this.groupBox4.Controls.Add(this.txtSL2Search);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(725, 248);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(237, 261);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
@@ -430,7 +433,7 @@
             // txtAccountNameSearch
             // 
             this.txtAccountNameSearch.Location = new System.Drawing.Point(12, 187);
-            this.txtAccountNameSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccountNameSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccountNameSearch.Name = "txtAccountNameSearch";
             this.txtAccountNameSearch.Size = new System.Drawing.Size(217, 20);
             this.txtAccountNameSearch.TabIndex = 4;
@@ -448,7 +451,7 @@
             // txtSL3Search
             // 
             this.txtSL3Search.Location = new System.Drawing.Point(12, 111);
-            this.txtSL3Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL3Search.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL3Search.Name = "txtSL3Search";
             this.txtSL3Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL3Search.TabIndex = 2;
@@ -466,7 +469,7 @@
             // txtBankAccSearch
             // 
             this.txtBankAccSearch.Location = new System.Drawing.Point(12, 148);
-            this.txtBankAccSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBankAccSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankAccSearch.Name = "txtBankAccSearch";
             this.txtBankAccSearch.Size = new System.Drawing.Size(217, 20);
             this.txtBankAccSearch.TabIndex = 3;
@@ -474,7 +477,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(119, 222);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(89, 25);
             this.btnSearch.TabIndex = 6;
@@ -485,7 +488,7 @@
             // btnClearSearch
             // 
             this.btnClearSearch.Location = new System.Drawing.Point(22, 222);
-            this.btnClearSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClearSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearSearch.Name = "btnClearSearch";
             this.btnClearSearch.Size = new System.Drawing.Size(89, 25);
             this.btnClearSearch.TabIndex = 5;
@@ -506,7 +509,7 @@
             // txtSL1Seacrh
             // 
             this.txtSL1Seacrh.Location = new System.Drawing.Point(13, 37);
-            this.txtSL1Seacrh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL1Seacrh.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL1Seacrh.Name = "txtSL1Seacrh";
             this.txtSL1Seacrh.Size = new System.Drawing.Size(217, 20);
             this.txtSL1Seacrh.TabIndex = 0;
@@ -524,7 +527,7 @@
             // txtSL2Search
             // 
             this.txtSL2Search.Location = new System.Drawing.Point(13, 74);
-            this.txtSL2Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL2Search.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL2Search.Name = "txtSL2Search";
             this.txtSL2Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL2Search.TabIndex = 1;
@@ -544,6 +547,8 @@
             this.DGVAccounts.AllowUserToAddRows = false;
             this.DGVAccounts.AllowUserToDeleteRows = false;
             this.DGVAccounts.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.DGVAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAccounts.AutoGenerateColumns = false;
             this.DGVAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -565,7 +570,7 @@
             this.accountTypeDataGridViewTextBoxColumn});
             this.DGVAccounts.DataSource = this.accountsViewBindingSource;
             this.DGVAccounts.Location = new System.Drawing.Point(22, 257);
-            this.DGVAccounts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DGVAccounts.Margin = new System.Windows.Forms.Padding(2);
             this.DGVAccounts.MultiSelect = false;
             this.DGVAccounts.Name = "DGVAccounts";
             this.DGVAccounts.ReadOnly = true;
@@ -699,6 +704,17 @@
             // 
             this.accountsViewTableAdapter.ClearBeforeFill = true;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(287, 12);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrintRecord_Click);
+            // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -708,7 +724,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAccount";
             this.Text = "Account";
             this.Load += new System.EventHandler(this.frmAccount_Load);
@@ -787,5 +803,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FKBankAccountID;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

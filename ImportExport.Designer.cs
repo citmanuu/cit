@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class TestUpdate
+    partial class ImportExport
     {
         /// <summary>
         /// Required designer variable.
