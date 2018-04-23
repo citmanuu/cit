@@ -72,11 +72,11 @@ namespace MANUUFinance
             string CanPrint = "CanPrint";
             if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
             {
-                //btnPrint.Enabled = true;
+                btnPrint.Enabled = true;
             }
             else
             {
-                // btnPrint.Enabled = false;
+                btnPrint.Enabled = false;
             }
         }
 
@@ -357,7 +357,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
+                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
                 }
             }
 
@@ -410,7 +410,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet.BudgetWithAccounts);
+                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
                 }
 
             }
@@ -504,6 +504,7 @@ namespace MANUUFinance
             comboSL1.Enabled = false;
             comboSL2.Enabled = false;
             comboSL3.Enabled = false;
+            txtRBECY.Enabled = false;
         }    
 
         //Validate Controls
@@ -860,14 +861,14 @@ namespace MANUUFinance
                 {
                     SearchStatement.Append(" and ");
                 }
-                SearchStatement.Append(" DepName like '%" + txtDeptSearch.Text + "%'");
+                SearchStatement.Append(" DeptName like '%" + txtDeptSearch.Text + "%'");
             }
 
             try
             {
                 if (SearchStatement.ToString().Length > 0)
                 {
-                    budgetWithAccountsBindingSource.Filter = SearchStatement.ToString();
+                    budgetWithAccountsBindingSource1.Filter = SearchStatement.ToString();                    
                 }
                 else
                     MessageBox.Show("Nothing to Quyery. Please select/set values for query in the form", "Query paramters not set", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -892,14 +893,10 @@ namespace MANUUFinance
             objimportexport.ShowDialog();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnViewDeptWise_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            BudgetPurpose objbudgetpurpose = new BudgetPurpose(userId, deptId,roleId, formName);
+            objbudgetpurpose.ShowDialog();
         }
 
         //Clear Name Search Form
@@ -910,7 +907,7 @@ namespace MANUUFinance
             txtSL3Search.Text = "";
             txtAccountNameSearch.Text = "";
             txtDeptSearch.Text = "";
-            budgetWithAccountsBindingSource.Filter = "";
+            budgetWithAccountsBindingSource1.Filter = "";
         }
 
         #endregion

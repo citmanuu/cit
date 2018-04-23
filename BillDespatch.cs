@@ -31,12 +31,12 @@ namespace MANUUFinance
 
         private void frmBillDespatch_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'financeDataSet6.BillMstView' table. You can move, or remove it, as needed.
+            this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
             // TODO: This line of code loads data into the 'financeDataSet1.BillDtl' table. You can move, or remove it, as needed.
             this.billDtlTableAdapter.Fill(this.financeDataSet1.BillDtl);
             // TODO: This line of code loads data into the 'financeDataSet.BillDtl' table. You can move, or remove it, as needed.
             this.billDtlTableAdapter.Fill(this.financeDataSet.BillDtl);
-            // TODO: This line of code loads data into the 'financeDataSet.BillMstView' table. You can move, or remove it, as needed.
-            this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
 
             txtPKBillID.Text = "0";
             txtBillDate.Text = today.ToString("dd/MM/yyyy");
@@ -274,6 +274,8 @@ namespace MANUUFinance
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //If Form Controls are validated proceed to add record
+            MessageBox.Show((comboBillStatus.SelectedItem).ToString());
+
             if (validateRecord())
             {
                 //Check if we are not Updating Record
@@ -345,7 +347,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+                    this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
                 }
             }
 
@@ -410,7 +412,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+                    this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
                 }
 
             }
@@ -451,7 +453,7 @@ namespace MANUUFinance
                 {
                     objSqlConnection.Close();
                 }
-                this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+                this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
             }
         }
 
@@ -670,7 +672,7 @@ namespace MANUUFinance
             billMstViewBindingSource.Filter = "";
         }
 
-        //Trasfer Record to Template from the row where user has clicked the mouse
+        //Trasfer Record to Template from the row where user has clicked the mouse 
         private void DGVbillMstView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
