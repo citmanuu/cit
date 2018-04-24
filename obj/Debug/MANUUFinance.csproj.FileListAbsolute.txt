@@ -234,3 +234,4 @@ E:\citmanuu\obj\Debug\MANUUFinance.csproj.CopyComplete
 E:\citmanuu\obj\Debug\MANUUFinance.ImportExport.resources
 E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
 E:\citmanuu\obj\Debug\MANUUFinance.BudgetPurpose.resources
+E:\citmanuu\obj\Debug\MANUUFinance.BudgetApproval.resources

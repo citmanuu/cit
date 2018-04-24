@@ -895,8 +895,8 @@ namespace MANUUFinance
 
         private void btnViewDeptWise_Click(object sender, EventArgs e)
         {
-            BudgetPurpose objbudgetpurpose = new BudgetPurpose(userId, deptId,roleId, formName);
-            objbudgetpurpose.ShowDialog();
+            BudgetApproval objbudgetapproval = new BudgetApproval(userId, deptId,roleId, formName);
+            objbudgetapproval.ShowDialog();
         }
 
         //Clear Name Search Form
