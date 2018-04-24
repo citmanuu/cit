@@ -87,12 +87,6 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetApproval.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BudgetApproval.Designer.cs">
-      <DependentUpon>BudgetApproval.cs</DependentUpon>
-    </Compile>
     <Compile Include="BudgetPurpose.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,9 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BudgetApproval.resx">
-      <DependentUpon>BudgetApproval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BudgetPurpose.resx">
       <DependentUpon>BudgetPurpose.cs</DependentUpon>
