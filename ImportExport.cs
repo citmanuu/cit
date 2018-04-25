@@ -15,11 +15,16 @@ namespace MANUUFinance
 {
     public partial class ImportExport : Form
     {
+        string SL1Name, SL2Name, SL3Name;
+        int DeptId = 0, ACID = 0;
+
         public ImportExport()
         {
             InitializeComponent();
         }
+        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
+        //Instantiate SQL Connection        
         private void open_Click(object sender, EventArgs e)
         {
             try
@@ -68,7 +73,7 @@ namespace MANUUFinance
                         conn = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + tb_path.Text + ";Extended Properties='Excel 12.0;HDR=NO';"; //for above excel 2007  
 
                     OleDbConnection con = new OleDbConnection(conn);
-                    OleDbDataAdapter oleAdpt = new OleDbDataAdapter("select F1 AS SrId, F2 AS RegistrationId, F3 AS Student, F4 AS RollNumber, F5 AS Standard from [" + dropdown_sheet.SelectedValue + "]", con); //here we read data from sheet1  
+                    OleDbDataAdapter oleAdpt = new OleDbDataAdapter("select F1 AS SL1Name, F2 AS SL2Name, F3 AS SL3Name from [" + dropdown_sheet.SelectedValue + "]", con); //here we read data from sheet1  
                     oleAdpt.Fill(dtexcel); //fill excel data into dataTable  
                     foreach (DataRow row in dtexcel.Rows)
                     {
@@ -80,6 +85,10 @@ namespace MANUUFinance
                 catch (Exception ex)
                 {
                     MessageBox.Show("Warning", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                finally
+                {
+                    Updateindb();
                 }
 
             }
@@ -94,38 +103,54 @@ namespace MANUUFinance
         }
 
         private void Updateindb()
-        {
-            //Read First Line
-            String SrID, RegistrationId, Student, RollNumber, Standard;
+        {           
             int row = 0;
-
-            //Connection String 
-            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
-            //Instantiate SQL Connection
-
             SqlConnection objSqlConnection = new SqlConnection(cs);
 
             while (row < dataGridView.Rows.Count - 1)
             {
-                SrID = dataGridView.Rows[row].Cells[0].FormattedValue.ToString();
-                RegistrationId = dataGridView.Rows[row].Cells[1].FormattedValue.ToString();
-                Student = dataGridView.Rows[row].Cells[2].FormattedValue.ToString();
-                RollNumber = dataGridView.Rows[row].Cells[3].FormattedValue.ToString();
-                Standard = dataGridView.Rows[row].Cells[4].FormattedValue.ToString();
-
+                SL1Name = dataGridView.Rows[row].Cells[0].FormattedValue.ToString();
+                SL2Name = dataGridView.Rows[row].Cells[1].FormattedValue.ToString();
+                SL3Name = dataGridView.Rows[row].Cells[2].FormattedValue.ToString();
+                DeptId = 0;
                 int currentRow = row + 2;
 
-                //insert the data into the the database
+                int test1 = SL1Search();
+
+                int test2 = SL2Serach(test1);
 
 
+                objSqlConnection.Open();
+                SqlCommand myCommand = new SqlCommand("SELECT SL1Name FROM [finance].[dbo].[SL1testing] where SL1Name = '" + SL1Name + "'", objSqlConnection);
+                SqlDataReader objDataReader = myCommand.ExecuteReader();
 
-                string insertCommand = "Insert into [finance].[dbo].[testingExcell] values ('" + SrID + "', '" + RegistrationId + "','" + Student + "','" +
-                RollNumber + "','" + Standard + "')";
+                if (objDataReader.Read())
+                {
+                    testing1();
+                    }
+                    else
+                    {
+                    objSqlConnection.Open();
+                    string insertCommand1 = "Insert into [finance].[dbo].[SL1testing] values '" + SL1Name + "'";
+                    SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
+                    try
+                    {
+                        objInsertCommand1.ExecuteNonQuery();
+                        SqlCommand myCommand2 = new SqlCommand("SELECT SL1ID FROM [Finance].[dbo].[SL1testing] where  SL1Name = '" + SL1Name + "'", objSqlConnection);
+                        int test = Convert.ToInt32(myCommand2.ExecuteScalar());
+                        objSqlConnection.Close();
+                        SL2funtion(test);
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    }
+                objSqlConnection.Open();
+                string insertCommand = "Insert into [finance].[dbo].[testingExcell] values ('" + ACID + "', '" + DeptId + "')";
                 SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
                 try
                 {
-                    objSqlConnection.Open();
                     objInsertCommand.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -137,8 +162,151 @@ namespace MANUUFinance
                     objSqlConnection.Close();
                 }
                 row++;
+
             }
         }
+
+        private int SL2Search(int test)
+        {
+            return test;
+        }
+
+        private int SL1Search()
+        {
+            int test = 0;
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            objSqlConnection.Open();
+            SqlCommand myCommand = new SqlCommand("SELECT SL1Name FROM [finance].[dbo].[SL1testing] where SL1Name = '" + SL1Name + "'", objSqlConnection);
+            SqlDataReader objDataReader = myCommand.ExecuteReader();
+
+            if (objDataReader.Read())
+            {
+                SqlCommand myCommand2 = new SqlCommand("SELECT SL1ID FROM [Finance].[dbo].[SL1testing] where  SL1Name = '" + SL1Name + "'", objSqlConnection);
+                SqlDataReader read = myCommand2.ExecuteReader();
+                test = Convert.ToInt32(myCommand2.ExecuteReader());
+               
+            }
+            else
+            {
+                string insertCommand1 = "Insert into [finance].[dbo].[SL1testing] values '" + SL1Name + "'";
+                SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
+                try
+                {
+                    objInsertCommand1.ExecuteNonQuery();
+                    SqlCommand myCommand2 = new SqlCommand("SELECT SL1ID FROM [Finance].[dbo].[SL1testing] where  SL1Name = '" + SL1Name + "'", objSqlConnection);
+                    test = Convert.ToInt32(myCommand2.ExecuteScalar());
+                    SL2funtion(test);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            objSqlConnection.Close();
+            return test;
+        }
+
+        private void SL2funtion(int SL1ID)
+        {
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            objSqlConnection.Open();
+            SqlCommand myCommand = new SqlCommand("SELECT SL2ID FROM [finance].[dbo].[SL2testing] where SL1ID = '"+ SL1ID +"' AND SL2Name = '"+ SL2Name +"' ", objSqlConnection);
+            SqlDataReader objDataReader = myCommand.ExecuteReader();
+            if (objDataReader.Read())
+            {
+                SqlCommand myCommand2 = new SqlCommand("SELECT SL2ID FROM [Finance].[dbo].[SL2testing] where  SL2Name = '" + SL2Name + "' AND SL1ID = '" + SL1ID + "'", objSqlConnection);
+                int test = Convert.ToInt32(myCommand2.ExecuteScalar());
+                 objSqlConnection.Close();
+                SL3funtion(test);                
+            }
+            else
+            {
+                objSqlConnection.Open();
+                string insertCommand1 = "Insert into [finance].[dbo].[SL2testing] values('"+SL1ID + "','" + SL2Name + "')";
+                SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
+                try
+                {                    
+                    objInsertCommand1.ExecuteNonQuery();
+                    SqlCommand myCommand2 = new SqlCommand("SELECT SL2ID FROM [Finance].[dbo].[SL2testing] where  SL2Name = '" + SL2Name + "' AND SL1ID = '" + SL1ID + "'", objSqlConnection);
+                    SL3funtion(Convert.ToInt32(myCommand2.ExecuteScalar()));
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    objSqlConnection.Close();
+                }
+            }
+        }           
+
+        private void SL3funtion(int SL2ID)
+        {
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            objSqlConnection.Open();
+            SqlCommand myCommand = new SqlCommand("SELECT SL3ID FROM [finance].[dbo].[SL3testing] where SL2ID = '" + SL2ID + "' AND SL3Name = '" + SL3Name + "' ", objSqlConnection);
+            SqlDataReader objDataReader = myCommand.ExecuteReader();
+            if (objDataReader.Read())
+            {
+                SqlCommand myCommand2 = new SqlCommand("SELECT SL3ID FROM [Finance].[dbo].[SL3testing] where SL2ID = '" + SL2ID + "' AND SL3Name = '" + SL3Name + "' ", objSqlConnection);
+                int test = Convert.ToInt32(myCommand2.ExecuteScalar());
+                objSqlConnection.Close();
+                SLaccountfuntion(test);
+            }
+            else
+            {
+                objSqlConnection.Open();
+                string insertCommand1 = "Insert into [finance].[dbo].[SL2testing] values('" + SL2ID + "','" + SL3Name + "')";
+                SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
+                try
+                {
+                    objInsertCommand1.ExecuteNonQuery();
+                    SqlCommand myCommand2 = new SqlCommand("SELECT SL3ID FROM [Finance].[dbo].[SL3testing] where  SL2ID = '" + SL2ID + "' AND SL3Name = '" + SL3Name + "' ", objSqlConnection);
+                    int test = Convert.ToInt32(myCommand2.ExecuteScalar());
+                    objSqlConnection.Close();
+                    SLaccountfuntion(test);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void SLaccountfuntion(int SL3ID)
+        {
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            objSqlConnection.Open();
+            SqlCommand myCommand = new SqlCommand("SELECT SL3ID FROM [finance].[dbo].[SL3testing] where SL3ID = '" + SL3ID + "'", objSqlConnection);
+            SqlDataReader objDataReader = myCommand.ExecuteReader();
+            if (objDataReader.Read())
+            {
+                SqlCommand myCommand2 = new SqlCommand("SELECT SL3ID FROM [Finance].[dbo].[SL3testing] where SL3ID = '" + SL3ID + "'", objSqlConnection);
+                int test = Convert.ToInt32(myCommand2.ExecuteScalar());
+                objSqlConnection.Close();
+                SLaccountfuntion(test);
+            }
+            else
+            {
+                objSqlConnection.Open();
+                string insertCommand1 = "Insert into [finance].[dbo].[SL2testing] values('" + SL3ID + "','" + null + "')";
+                SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
+                try
+                { 
+                    objInsertCommand1.ExecuteNonQuery();
+                    SqlCommand myCommand2 = new SqlCommand("SELECT SL3ID FROM [Finance].[dbo].[SL3testing] where  SL3ID = '" + SL3ID + "'", objSqlConnection);
+                    ACID = Convert.ToInt32(Convert.ToInt32(myCommand2.ExecuteScalar()));
+                    objSqlConnection.Close();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured " + ex.Message, "Read Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
         private void TestUpdate_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'financeDataSet5.testingExcell' table. You can move, or remove it, as needed.

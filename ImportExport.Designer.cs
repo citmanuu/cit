@@ -35,11 +35,6 @@
             this.open = new System.Windows.Forms.Button();
             this.Load = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.SrID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegistrationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RollNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Standard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_path = new System.Windows.Forms.TextBox();
             this.testingExcellBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet5 = new MANUUFinance.FinanceDataSet5();
@@ -51,6 +46,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtExport = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SL1Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL2Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL3Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingExcellBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet5)).BeginInit();
@@ -101,57 +99,19 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SrID,
-            this.RegistrationID,
-            this.Student,
-            this.RollNumber,
-            this.Standard});
+            this.SL1Names,
+            this.SL2Names,
+            this.SL3Names});
             this.dataGridView.Location = new System.Drawing.Point(36, 154);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(733, 150);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            // 
-            // SrID
-            // 
-            this.SrID.DataPropertyName = "SrID";
-            this.SrID.HeaderText = "SrID";
-            this.SrID.Name = "SrID";
-            this.SrID.ReadOnly = true;
-            // 
-            // RegistrationID
-            // 
-            this.RegistrationID.DataPropertyName = "RegistrationID";
-            this.RegistrationID.HeaderText = "RegistrationID";
-            this.RegistrationID.Name = "RegistrationID";
-            this.RegistrationID.ReadOnly = true;
-            // 
-            // Student
-            // 
-            this.Student.DataPropertyName = "Student";
-            this.Student.HeaderText = "Student";
-            this.Student.Name = "Student";
-            this.Student.ReadOnly = true;
-            // 
-            // RollNumber
-            // 
-            this.RollNumber.DataPropertyName = "RollNumber";
-            this.RollNumber.HeaderText = "RollNumber";
-            this.RollNumber.Name = "RollNumber";
-            this.RollNumber.ReadOnly = true;
-            // 
-            // Standard
-            // 
-            this.Standard.DataPropertyName = "Standard";
-            this.Standard.HeaderText = "Standard";
-            this.Standard.Name = "Standard";
-            this.Standard.ReadOnly = true;
             // 
             // tb_path
             // 
@@ -228,7 +188,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Export";
             // 
-            // TestUpdate
+            // SL1Names
+            // 
+            this.SL1Names.DataPropertyName = "SL1Name";
+            this.SL1Names.HeaderText = "SL1Names";
+            this.SL1Names.Name = "SL1Names";
+            this.SL1Names.ReadOnly = true;
+            // 
+            // SL2Names
+            // 
+            this.SL2Names.DataPropertyName = "SL2Name";
+            this.SL2Names.HeaderText = "SL2Names";
+            this.SL2Names.Name = "SL2Names";
+            this.SL2Names.ReadOnly = true;
+            // 
+            // SL3Names
+            // 
+            this.SL3Names.DataPropertyName = "SL3Name";
+            this.SL3Names.HeaderText = "SL3Names";
+            this.SL3Names.Name = "SL3Names";
+            this.SL3Names.ReadOnly = true;
+            // 
+            // ImportExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +221,7 @@
             this.Controls.Add(this.tb_path);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.open);
-            this.Name = "TestUpdate";
+            this.Name = "ImportExport";
             this.Text = "Import/Export";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingExcellBindingSource)).EndInit();
@@ -263,11 +244,6 @@
         private System.Windows.Forms.Button Load;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TextBox tb_path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SrID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Student;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RollNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Standard;
         private System.Windows.Forms.Button btnExport;
         private FinanceDataSet5 financeDataSet5;
         private System.Windows.Forms.BindingSource testingExcellBindingSource;
@@ -278,5 +254,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtExport;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL1Names;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL2Names;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL3Names;
     }
 }
