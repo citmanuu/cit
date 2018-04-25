@@ -124,11 +124,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinanceDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportTesting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportTesting.Designer.cs">
+      <DependentUpon>ImportTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="PdfCreator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -294,6 +305,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImportTesting.resx">
+      <DependentUpon>ImportTesting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Role Privileges.resx">
       <DependentUpon>Role Privileges.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,6 +446,17 @@
     </None>
     <None Include="FinanceDataSet6.xss">
       <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet7.xsc">
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet7.xss">
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

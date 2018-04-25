@@ -35,6 +35,9 @@
             this.open = new System.Windows.Forms.Button();
             this.Load = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.SL1Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL2Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL3Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_path = new System.Windows.Forms.TextBox();
             this.testingExcellBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet5 = new MANUUFinance.FinanceDataSet5();
@@ -46,9 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtExport = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.SL1Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL2Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL3Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingExcellBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet5)).BeginInit();
@@ -112,6 +113,27 @@
             this.dataGridView.Size = new System.Drawing.Size(733, 150);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            // 
+            // SL1Names
+            // 
+            this.SL1Names.DataPropertyName = "SL1Name";
+            this.SL1Names.HeaderText = "SL1Names";
+            this.SL1Names.Name = "SL1Names";
+            this.SL1Names.ReadOnly = true;
+            // 
+            // SL2Names
+            // 
+            this.SL2Names.DataPropertyName = "SL2Name";
+            this.SL2Names.HeaderText = "SL2Names";
+            this.SL2Names.Name = "SL2Names";
+            this.SL2Names.ReadOnly = true;
+            // 
+            // SL3Names
+            // 
+            this.SL3Names.DataPropertyName = "SL3Name";
+            this.SL3Names.HeaderText = "SL3Names";
+            this.SL3Names.Name = "SL3Names";
+            this.SL3Names.ReadOnly = true;
             // 
             // tb_path
             // 
@@ -188,32 +210,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Export";
             // 
-            // SL1Names
+            // label3
             // 
-            this.SL1Names.DataPropertyName = "SL1Name";
-            this.SL1Names.HeaderText = "SL1Names";
-            this.SL1Names.Name = "SL1Names";
-            this.SL1Names.ReadOnly = true;
-            // 
-            // SL2Names
-            // 
-            this.SL2Names.DataPropertyName = "SL2Name";
-            this.SL2Names.HeaderText = "SL2Names";
-            this.SL2Names.Name = "SL2Names";
-            this.SL2Names.ReadOnly = true;
-            // 
-            // SL3Names
-            // 
-            this.SL3Names.DataPropertyName = "SL3Name";
-            this.SL3Names.HeaderText = "SL3Names";
-            this.SL3Names.Name = "SL3Names";
-            this.SL3Names.ReadOnly = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(293, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "label3";
             // 
             // ImportExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 336);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dropdown_sheet);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Load);
@@ -257,5 +268,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SL1Names;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL2Names;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL3Names;
+        private System.Windows.Forms.Label label3;
     }
 }
