@@ -37,11 +37,45 @@ namespace MANUUFinance
             {
                 comboDept.Enabled = false;
                 txtAppAmount.Enabled = false;
+                prepareaction();
             }
             else
             {
                 txtRBECY.Enabled = false;
             }
+        }
+
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
 
         private void PrepareDeptCombo()
@@ -271,6 +305,26 @@ namespace MANUUFinance
             comboSL1.Enabled = false;
             comboSL2.Enabled = false;
             comboSL3.Enabled = false;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            comboDept.SelectedIndex = 0;
+            comboFY.SelectedIndex = 0;
+            comboSL1.SelectedIndex = 0;
+            comboSL2.SelectedIndex = 0;
+            comboSL3.SelectedIndex = 0;
+            comboAccount.SelectedIndex = 0;
+            txtAppAmount.Text = "";
+            txtBECY.Text = "";
+            txtBENY.Text = "";
+            txtPKBudgetID.Text = "";
+            txtRBECY.Text = "";
         }
 
         private void PrepareAccountsCombo(string fkSL3)

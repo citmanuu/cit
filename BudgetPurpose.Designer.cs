@@ -280,6 +280,7 @@
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close Form";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
@@ -290,6 +291,7 @@
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Clear Controls";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
