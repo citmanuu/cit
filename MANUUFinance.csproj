@@ -87,11 +87,11 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetPreparation.cs">
+    <Compile Include="BudgetPurpose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetPreparation.Designer.cs">
-      <DependentUpon>BudgetPreparation.cs</DependentUpon>
+    <Compile Include="BudgetPurpose.Designer.cs">
+      <DependentUpon>BudgetPurpose.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckingPrivileges.cs" />
     <Compile Include="FinanceDataSet1.Designer.cs">
@@ -119,11 +119,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinanceDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportTesting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportTesting.Designer.cs">
+      <DependentUpon>ImportTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="PdfCreator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -277,8 +293,8 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BudgetPreparation.resx">
-      <DependentUpon>BudgetPreparation.cs</DependentUpon>
+    <EmbeddedResource Include="BudgetPurpose.resx">
+      <DependentUpon>BudgetPurpose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Departments.resx">
       <DependentUpon>Departments.cs</DependentUpon>
@@ -288,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportTesting.resx">
+      <DependentUpon>ImportTesting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Role Privileges.resx">
       <DependentUpon>Role Privileges.cs</DependentUpon>
@@ -416,6 +435,28 @@
     </None>
     <None Include="FinanceDataSet5.xss">
       <DependentUpon>FinanceDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet6.xsc">
+      <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet6.xss">
+      <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet7.xsc">
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet7.xss">
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

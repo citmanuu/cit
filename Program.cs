@@ -17,9 +17,10 @@ namespace MANUUFinance
             Application.EnableVisualStyles();
             // Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MDIParent(0,0,0));
-             Application.Run(new Home());
-             //Application.Run(new Home());
-           // Application.Run(new TestUpdate());
+            //Application.Run(new Home());
+            //Application.Run(new Home());
+            // Application.Run(new ImportExport());
+            Application.Run(new ImportTesting());
         }
     }
 }
