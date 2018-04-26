@@ -43,6 +43,8 @@ namespace MANUUFinance
             {
                 txtRBECY.Enabled = false;
             }
+            txtBENY.Enabled = false;
+            timer1.Enabled = true;
         }
 
         private void prepareaction()
@@ -325,6 +327,19 @@ namespace MANUUFinance
             txtBENY.Text = "";
             txtPKBudgetID.Text = "";
             txtRBECY.Text = "";
+        }
+        int duration = 20;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(duration==0 && duration >= 0)
+            {
+                txtBENY.Enabled = true;
+                timer1.Enabled = false;
+                timer1.Stop();
+            }
+            duration--;
+
+           
         }
 
         private void PrepareAccountsCombo(string fkSL3)
