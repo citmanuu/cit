@@ -18,9 +18,11 @@ namespace MANUUFinance
             // Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MDIParent(0,0,0));
             //Application.Run(new Home());
-            //Application.Run(new Home());
             // Application.Run(new ImportExport());
-            Application.Run(new ImportTesting());
+            // Application.Run(new ImportTesting());
+            //Application.Run(new BudgetPurpose(0,0,0,null));
+            // Application.Run(new BudgetSchedule());
+            Application.Run(new pdfsupports());
         }
     }
 }

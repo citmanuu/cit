@@ -93,6 +93,12 @@
     <Compile Include="BudgetPurpose.Designer.cs">
       <DependentUpon>BudgetPurpose.cs</DependentUpon>
     </Compile>
+    <Compile Include="BudgetSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BudgetSchedule.Designer.cs">
+      <DependentUpon>BudgetSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckingPrivileges.cs" />
     <Compile Include="FinanceDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -128,6 +134,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -176,12 +192,6 @@
     </Compile>
     <Compile Include="Supports.Designer.cs">
       <DependentUpon>Supports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ImportExport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImportExport.Designer.cs">
-      <DependentUpon>ImportExport.cs</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
@@ -296,6 +306,9 @@
     <EmbeddedResource Include="BudgetPurpose.resx">
       <DependentUpon>BudgetPurpose.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BudgetSchedule.resx">
+      <DependentUpon>BudgetSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Departments.resx">
       <DependentUpon>Departments.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,9 +329,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Supports.resx">
       <DependentUpon>Supports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImportExport.resx">
-      <DependentUpon>ImportExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
@@ -457,6 +467,28 @@
     </None>
     <None Include="FinanceDataSet7.xss">
       <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet8.xsc">
+      <DependentUpon>FinanceDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet8.xss">
+      <DependentUpon>FinanceDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet9.xsc">
+      <DependentUpon>FinanceDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet9.xss">
+      <DependentUpon>FinanceDataSet9.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

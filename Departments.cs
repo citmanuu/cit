@@ -204,7 +204,7 @@ namespace MANUUFinance
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
                 SqlCommand myCommand = new SqlCommand("SELECT DeptId FROM [Finance].[dbo].[Department] where DeptName = '" + textBox1.Text + "'", con);
-                GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
+                GlobalId = Convert.ToInt32(myCommand.ExecuteScalar());
                 con.Close();
             }
         }
