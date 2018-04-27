@@ -25,16 +25,14 @@ namespace MANUUFinance
 
         private void BudgetSchedule_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'financeDataSet8.BudgetSchedule' table. You can move, or remove it, as needed.
-            this.budgetScheduleTableAdapter.Fill(this.financeDataSet8.BudgetSchedule);
-            // TODO: This line of code loads data into the 'financeDataSet8.BudgetSchedule' table. You can move, or remove it, as needed.
-            this.budgetScheduleTableAdapter.Fill(this.financeDataSet8.BudgetSchedule);
+            // TODO: This line of code loads data into the 'financeDataSet9.BudgetSchedule' table. You can move, or remove it, as needed.
+            this.budgetScheduleTableAdapter.Fill(this.financeDataSet9.BudgetSchedule);
             preparecomboFY();
-            preparecomboBType();            
+            preparecomboBType();
         }
 
         private void preparecomboBType()
-        {            
+        {
             var objLOVClass = new List<LOV>();
             objLOVClass.Add(new LOV(0, "-- Please Select --"));
             //Connection String
@@ -118,11 +116,11 @@ namespace MANUUFinance
                     objSqlConnection.Open();
                     SqlCommand cmd = new SqlCommand("budget_schedule", objSqlConnection);
                     cmd.CommandType = CommandType.StoredProcedure;
-  
+
                     cmd.Parameters.AddWithValue("@FYID", comboFY.SelectedValue);
                     cmd.Parameters.AddWithValue("@BType", comboBType.SelectedValue);
-                    cmd.Parameters.AddWithValue("@FromDate", dtpFrom.Value.ToString("dd-MM-yyyy"));
-                    cmd.Parameters.AddWithValue("@ToDate", dtpTo.Value.ToString("dd-MM-yyyy"));
+                    cmd.Parameters.AddWithValue("@FromDate", dtpFrom.Value);
+                    cmd.Parameters.AddWithValue("@ToDate", dtpTo.Value);
 
                     try
                     {
@@ -140,14 +138,14 @@ namespace MANUUFinance
                     }
                     catch (SqlException ex)
                     {
-                            MessageBox.Show("Please check Data entry: " + ex.Message, "Dublication", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please check Data entry: " + ex.Message, "Dublication", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
                         objSqlConnection.Close();
                     }
                     //Refresh DGVBank 
-                    this.budgetScheduleTableAdapter.Fill(this.financeDataSet8.BudgetSchedule);
+                    this.budgetScheduleTableAdapter.Fill(this.financeDataSet9.BudgetSchedule);
                 }
             }
         }
@@ -206,16 +204,21 @@ namespace MANUUFinance
                 dtpFrom.Value = dt;
                 DateTime dt1 = DateTime.ParseExact(DGVBS.Rows[e.RowIndex].Cells[4].Value.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 dtpTo.Value = dt1;
-                dtpTo_ValueChanged(null, null);
+                dtpTo_ValueChanged_1(null, null);
 
             }
         }
 
-        private void dtpTo_ValueChanged(object sender, EventArgs e)
+        private void dtpTo_ValueChanged_1(object sender, EventArgs e)
         {
             int days;
             days = (Convert.ToDateTime(dtpTo.Value) - Convert.ToDateTime(dtpFrom.Value)).Days;
             label5.Text = days.ToString();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
