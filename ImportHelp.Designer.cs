@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class ImportTesting
+    partial class ImportHelp
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,8 @@
             this.testingviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet7 = new MANUUFinance.FinanceDataSet7();
             this.testingviewTableAdapter = new MANUUFinance.FinanceDataSet7TableAdapters.testingviewTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboFY = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet7)).BeginInit();
@@ -160,19 +162,38 @@
             // 
             this.testingviewTableAdapter.ClearBeforeFill = true;
             // 
-            // ImportTesting
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Financial Year";
+            // 
+            // comboFY
+            // 
+            this.comboFY.FormattingEnabled = true;
+            this.comboFY.Location = new System.Drawing.Point(113, 42);
+            this.comboFY.Name = "comboFY";
+            this.comboFY.Size = new System.Drawing.Size(136, 21);
+            this.comboFY.TabIndex = 22;
+            // 
+            // ImportHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 328);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comboFY);
             this.Controls.Add(this.dropdown_sheet);
             this.Controls.Add(this.btload);
             this.Controls.Add(this.tb_path);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.open);
-            this.Name = "ImportTesting";
-            this.Text = "ImportTesting";
+            this.Name = "ImportHelp";
+            this.Text = "ImportHelp";
             this.Load += new System.EventHandler(this.ImportTesting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource)).EndInit();
@@ -197,5 +218,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sL3DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboFY;
     }
 }

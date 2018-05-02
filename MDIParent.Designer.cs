@@ -42,6 +42,7 @@
             this.bankMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billDespatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.demonstrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.budgetPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -177,6 +178,7 @@
             this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.budgetToolStripMenuItem,
             this.budgetPurposeToolStripMenuItem,
+            this.budgetScheduleToolStripMenuItem,
             this.billDespatchToolStripMenuItem,
             this.copyBudgetToolStripMenuItem,
             this.demonstrationToolStripMenuItem});
@@ -191,6 +193,13 @@
             this.budgetToolStripMenuItem.Text = "Budget";
             this.budgetToolStripMenuItem.Visible = false;
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
+            // 
+            // budgetPurposeToolStripMenuItem
+            // 
+            this.budgetPurposeToolStripMenuItem.Name = "budgetPurposeToolStripMenuItem";
+            this.budgetPurposeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.budgetPurposeToolStripMenuItem.Text = "Budget Purpose";
+            this.budgetPurposeToolStripMenuItem.Click += new System.EventHandler(this.budgetPurposeToolStripMenuItem_Click);
             // 
             // billDespatchToolStripMenuItem
             // 
@@ -381,12 +390,12 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // budgetPurposeToolStripMenuItem
+            // budgetScheduleToolStripMenuItem
             // 
-            this.budgetPurposeToolStripMenuItem.Name = "budgetPurposeToolStripMenuItem";
-            this.budgetPurposeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.budgetPurposeToolStripMenuItem.Text = "Budget Purpose";
-            this.budgetPurposeToolStripMenuItem.Click += new System.EventHandler(this.budgetPurposeToolStripMenuItem_Click);
+            this.budgetScheduleToolStripMenuItem.Name = "budgetScheduleToolStripMenuItem";
+            this.budgetScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.budgetScheduleToolStripMenuItem.Text = "Budget Schedule";
+            this.budgetScheduleToolStripMenuItem.Click += new System.EventHandler(this.budgetScheduleToolStripMenuItem_Click);
             // 
             // MDIParent
             // 
@@ -454,6 +463,7 @@
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetPurposeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem budgetScheduleToolStripMenuItem;
     }
 }
 

@@ -889,8 +889,8 @@ namespace MANUUFinance
 
         private void btnImportExport_Click(object sender, EventArgs e)
         {
-            //ImportExport objimportexport = new ImportExport();
-            //objimportexport.ShowDialog();
+            ImportHelp objimporthelp = new ImportHelp();
+            objimporthelp.ShowDialog();
         }
 
         private void btnViewDeptWise_Click(object sender, EventArgs e)

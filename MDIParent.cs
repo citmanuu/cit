@@ -271,6 +271,13 @@ namespace MANUUFinance
             objectbudgetpurpose.ShowDialog();
         }
 
+        private void budgetScheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string budgetschedule = "Budget Schedule";
+            BudgetSchedule objectbudgetschedule = new BudgetSchedule(userId, deptId, roleId, budgetschedule );
+                objectbudgetschedule.ShowDialog();
+        }
+
         private void addPrivilegesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             string addprivileges = "ADD PRIVILEGES";

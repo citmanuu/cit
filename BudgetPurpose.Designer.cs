@@ -78,6 +78,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtPKBudgetID = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timeLeft = new System.Windows.Forms.Label();
+            this.timeLeft1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -569,14 +571,39 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timeLeft
+            // 
+            this.timeLeft.AutoSize = true;
+            this.timeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLeft.ForeColor = System.Drawing.Color.Maroon;
+            this.timeLeft.Location = new System.Drawing.Point(661, 226);
+            this.timeLeft.Name = "timeLeft";
+            this.timeLeft.Size = new System.Drawing.Size(73, 16);
+            this.timeLeft.TabIndex = 46;
+            this.timeLeft.Text = "Days Left";
+            // 
+            // timeLeft1
+            // 
+            this.timeLeft1.AutoSize = true;
+            this.timeLeft1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLeft1.ForeColor = System.Drawing.Color.Maroon;
+            this.timeLeft1.Location = new System.Drawing.Point(829, 226);
+            this.timeLeft1.Name = "timeLeft1";
+            this.timeLeft1.Size = new System.Drawing.Size(73, 16);
+            this.timeLeft1.TabIndex = 47;
+            this.timeLeft1.Text = "Days Left";
             // 
             // BudgetPurpose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 427);
+            this.Controls.Add(this.timeLeft1);
+            this.Controls.Add(this.timeLeft);
             this.Controls.Add(this.DGVAccounts);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -588,6 +615,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -642,5 +670,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPKBudgetID;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timeLeft;
+        private System.Windows.Forms.Label timeLeft1;
     }
 }

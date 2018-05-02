@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class ImportTesting : Form
+    public partial class ImportHelp : Form
     {
         string SL1Name, SL2Name, SL3Name;
         int DeptId = 0, ACID = 0;
         string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
-        public ImportTesting()
+        public ImportHelp()
         {
             InitializeComponent();
         }
@@ -28,6 +28,42 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet7.testingview' table. You can move, or remove it, as needed.
             this.testingviewTableAdapter.Fill(this.financeDataSet7.testingview);
+            preparecomboFY();
+        }
+
+        private void preparecomboFY()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKFYID, FYName FROM [Finance].[dbo].[FinancialYear] Order by 1";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboFY.DisplayMember = "ListItemDesc"; // will display Name property
+                comboFY.ValueMember = "ListItemID"; // will select Value property
+                comboFY.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
         }
         #region
         // open the Excel Sheet Loacation for select 

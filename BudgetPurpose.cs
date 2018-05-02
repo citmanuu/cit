@@ -16,6 +16,9 @@ namespace MANUUFinance
     {
         private int userId, deptId, roleId;
         string formName;
+        public int globleTimeBE = 0, globleTimeRBE =0;
+        DateTime starttimeBE, starttimeRBE;
+        DateTime endtimeBE, endtimeRBE;
         public BudgetPurpose(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace MANUUFinance
             PrepareSL3Combo("0");
             PrepareAccountsCombo("0");
             load_DataGridView();
+            calculatedaysleft(); // timer for day left
             if (new AdministratorLogin().administratorLogin(userId))
             {
                 comboDept.Enabled = false;
@@ -43,42 +47,12 @@ namespace MANUUFinance
             {
                 txtRBECY.Enabled = false;
             }
-            txtBENY.Enabled = false;
-            timer1.Enabled = true;
+            txtBECY.Enabled = false;
+            txtRBECY.Enabled = false;
         }
 
-        private void prepareaction()
-        {
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-                btnAdd.Enabled = true;
-            }
-            else
-                btnAdd.Enabled = false;
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-                btnUpdate.Enabled = true;
-            }
-            else
-                btnUpdate.Enabled = false;
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
-                btnDelete.Enabled = true;
-            }
-            else
-                btnDelete.Enabled = false;
-
-            string CanPrint = "CanPrint";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
-            {
-                btnPrint.Enabled = true;
-            }
-            else
-                btnPrint.Enabled = false;
-        }
+        // Preparation of Combo 
+        #region
 
         private void PrepareDeptCombo()
         {
@@ -185,6 +159,7 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
         }
+
         private void PrepareSL2Combo(string fkSL1)
         {
             var objLOVClass = new List<LOV>();
@@ -257,6 +232,100 @@ namespace MANUUFinance
             }
         }
 
+        #endregion
+        // Support file
+        #region
+
+        private void calculatedaysleft()
+        {
+            ////Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            ////Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+
+            string selectCommand = "SELECT ToDate FROM [Finance].[dbo].[BudgetSchedule] where BType = 1";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    starttimeBE = Convert.ToDateTime(DateTime.Now);
+                    endtimeBE = Convert.ToDateTime(objDataReader["ToDate"]);
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+            int daysBE;
+            daysBE = (Convert.ToDateTime(endtimeBE) - Convert.ToDateTime(starttimeBE)).Days;
+            globleTimeBE = Convert.ToInt32((++daysBE) * 24 * 60 * 60);
+            
+            string selectCommand1 = "SELECT ToDate FROM [Finance].[dbo].[BudgetSchedule] where BType = 2";
+            SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader1 = objSelectCommand1.ExecuteReader();
+                while (objDataReader1.Read())
+                {
+                    starttimeRBE = Convert.ToDateTime(DateTime.Now);
+                    endtimeRBE = Convert.ToDateTime(objDataReader1["ToDate"]);
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+            int daysRBE;
+            daysRBE = (Convert.ToDateTime(endtimeRBE) - Convert.ToDateTime(starttimeRBE)).Days;
+            globleTimeRBE = Convert.ToInt32((++daysRBE) * 24 * 60 * 60);            
+            timer1.Enabled = true;
+        }
+
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
+        }
+
         private void comboSL1_SelectedIndexChanged(object sender, EventArgs e)
         {
             PrepareSL2Combo(Convert.ToString(comboSL1.SelectedValue));
@@ -318,28 +387,38 @@ namespace MANUUFinance
         {
             comboDept.SelectedIndex = 0;
             comboFY.SelectedIndex = 0;
+            comboFY.Enabled = true;
             comboSL1.SelectedIndex = 0;
+            comboSL1.Enabled = true;
             comboSL2.SelectedIndex = 0;
+            comboSL2.Enabled = true;
             comboSL3.SelectedIndex = 0;
+            comboSL3.Enabled = true;
             comboAccount.SelectedIndex = 0;
+            comboAccount.Enabled = true;
             txtAppAmount.Text = "";
             txtBECY.Text = "";
             txtBENY.Text = "";
             txtPKBudgetID.Text = "";
             txtRBECY.Text = "";
         }
-        int duration = 20;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(duration==0 && duration >= 0)
+            if(globleTimeBE == 0)
             {
-                txtBENY.Enabled = true;
-                timer1.Enabled = false;
-                timer1.Stop();
+                txtBECY.Enabled = true;
+                timeLeft.Visible = false;
             }
-            duration--;
-
-           
+            if(globleTimeRBE == 0)
+            {
+                txtRBECY.Enabled = true;
+                timeLeft1.Visible = false;
+            }
+            globleTimeBE--;
+            globleTimeRBE--;
+            timeLeft1.Text = globleTimeRBE.ToString() +"  "+ "Left RBE time";
+            timeLeft.Text = globleTimeBE.ToString() + "  "+ "Left BE time";
         }
 
         private void PrepareAccountsCombo(string fkSL3)
@@ -398,5 +477,6 @@ namespace MANUUFinance
             DGVAccounts.DataSource = dtb1;
             }
         }
+        #endregion
     }
 }

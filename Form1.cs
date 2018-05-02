@@ -19,6 +19,7 @@ namespace MANUUFinance
     {
         DateTime Starting;
         DateTime enddate;
+       public  int Global = 0;
         public pdfsupports()
         {
             InitializeComponent();
@@ -31,12 +32,12 @@ namespace MANUUFinance
 
         private void loadform()
        {
-            //Connection String
+            ////Connection String
             string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-            //Instantiate SQL Connection
+            ////Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
 
-            string selectCommand = "SELECT FromDate, ToDate FROM [Finance].[dbo].[BudgetSchedule] where BSID = 11";
+            string selectCommand = "SELECT FromDate, ToDate FROM [Finance].[dbo].[BudgetSchedule] where BSID = 07";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -56,10 +57,31 @@ namespace MANUUFinance
             {
                 objSqlConnection.Close();
             }
-            //DateTime taday = DateTime.Now.ToString("dd-MM-yyyy");
+            DateTime taday = DateTime.Now;
+            int days;
+            days = (Convert.ToDateTime(enddate) - Convert.ToDateTime(Starting)).Days;
+            //DateTime todat = DateTime.Now;
+            //int days = (todat)
+            //label1.Text = (days*24*60*60).ToString()+ "Min";
+            Global = Convert.ToInt32(days * 24 * 60 * 60);
 
-            int days = (enddate - Starting).Days;
-            label1.Text = days.ToString();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Global== 0)
+            {
+                MessageBox.Show("Time Up");
+                timer1.Stop();
+            }
+            int abc =  10;
+            //gloabaltest(abc);
+            label2.Text = Global.ToString() + "" + "Min Left";
+            Global--;
+        }
+
+        private void gloabaltest(int abc)
+        {
+            label1.Text = (10 * 24 * 60 * 60).ToString() + "Min";
         }
     }
 }

@@ -32,15 +32,5 @@ namespace MANUUFinance.Properties {
                 return ((string)(this["FinanceConnectionString"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FINANCE\\SQLFINANCE;Initial Catalog=Ldap;Integrated Security=True")]
-        public string LdapConnectionString {
-            get {
-                return ((string)(this["LdapConnectionString"]));
-            }
-        }
     }
 }

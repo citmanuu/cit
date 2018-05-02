@@ -105,6 +105,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinanceDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FinanceDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,11 +166,11 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportTesting.cs">
+    <Compile Include="ImportHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportTesting.Designer.cs">
-      <DependentUpon>ImportTesting.cs</DependentUpon>
+    <Compile Include="ImportHelp.Designer.cs">
+      <DependentUpon>ImportHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="PdfCreator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -318,8 +333,8 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportTesting.resx">
-      <DependentUpon>ImportTesting.cs</DependentUpon>
+    <EmbeddedResource Include="ImportHelp.resx">
+      <DependentUpon>ImportHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Role Privileges.resx">
       <DependentUpon>Role Privileges.cs</DependentUpon>
@@ -401,6 +416,39 @@
     </None>
     <None Include="FinanceDataSet1.xss">
       <DependentUpon>FinanceDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet10.xsc">
+      <DependentUpon>FinanceDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet10.xss">
+      <DependentUpon>FinanceDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet11.xsc">
+      <DependentUpon>FinanceDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet11.xss">
+      <DependentUpon>FinanceDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet12.xsc">
+      <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet12.xss">
+      <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet2.xsc">
       <DependentUpon>FinanceDataSet2.xsd</DependentUpon>
