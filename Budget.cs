@@ -889,7 +889,7 @@ namespace MANUUFinance
 
         private void btnImportExport_Click(object sender, EventArgs e)
         {
-            ImportHelp objimporthelp = new ImportHelp();
+            ImportHelp objimporthelp = new ImportHelp(userId);
             objimporthelp.ShowDialog();
         }
 

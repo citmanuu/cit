@@ -35,19 +35,43 @@
             this.label1 = new System.Windows.Forms.Label();
             this.open = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sL1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testingviewBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
+            this.testingviewBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.testingviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet7 = new MANUUFinance.FinanceDataSet7();
             this.testingviewTableAdapter = new MANUUFinance.FinanceDataSet7TableAdapters.testingviewTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.comboFY = new System.Windows.Forms.ComboBox();
+            this.testingviewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.testingviewBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.testingviewTableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.testingviewTableAdapter();
+            this.financeDataSet14 = new MANUUFinance.FinanceDataSet14();
+            this.testingviewBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.testingviewTableAdapter2 = new MANUUFinance.FinanceDataSet14TableAdapters.testingviewTableAdapter();
+            this.financeDataSet15 = new MANUUFinance.FinanceDataSet15();
+            this.testingviewBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.testingviewTableAdapter3 = new MANUUFinance.FinanceDataSet15TableAdapters.testingviewTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aCNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKACIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bECYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rBECYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource6)).BeginInit();
             this.SuspendLayout();
             // 
             // dropdown_sheet
@@ -101,52 +125,34 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sL1DataGridViewTextBoxColumn,
-            this.sL2DataGridViewTextBoxColumn,
-            this.sL3DataGridViewTextBoxColumn,
-            this.accNameDataGridViewTextBoxColumn,
-            this.accountIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.testingviewBindingSource;
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.aCNoDataGridViewTextBoxColumn,
+            this.pKACIDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn4,
+            this.bECYDataGridViewTextBoxColumn,
+            this.rBECYDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.testingviewBindingSource6;
             this.dataGridView1.Location = new System.Drawing.Point(36, 145);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(732, 150);
             this.dataGridView1.TabIndex = 23;
             // 
-            // sL1DataGridViewTextBoxColumn
+            // testingviewBindingSource4
             // 
-            this.sL1DataGridViewTextBoxColumn.DataPropertyName = "SL1";
-            this.sL1DataGridViewTextBoxColumn.HeaderText = "SL1";
-            this.sL1DataGridViewTextBoxColumn.Name = "sL1DataGridViewTextBoxColumn";
-            this.sL1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.testingviewBindingSource4.DataMember = "testingview";
+            this.testingviewBindingSource4.DataSource = this.financeDataSet13;
             // 
-            // sL2DataGridViewTextBoxColumn
+            // financeDataSet13
             // 
-            this.sL2DataGridViewTextBoxColumn.DataPropertyName = "SL2";
-            this.sL2DataGridViewTextBoxColumn.HeaderText = "SL2";
-            this.sL2DataGridViewTextBoxColumn.Name = "sL2DataGridViewTextBoxColumn";
-            this.sL2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.financeDataSet13.DataSetName = "FinanceDataSet13";
+            this.financeDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // sL3DataGridViewTextBoxColumn
+            // testingviewBindingSource3
             // 
-            this.sL3DataGridViewTextBoxColumn.DataPropertyName = "SL3";
-            this.sL3DataGridViewTextBoxColumn.HeaderText = "SL3";
-            this.sL3DataGridViewTextBoxColumn.Name = "sL3DataGridViewTextBoxColumn";
-            this.sL3DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accNameDataGridViewTextBoxColumn
-            // 
-            this.accNameDataGridViewTextBoxColumn.DataPropertyName = "AccName";
-            this.accNameDataGridViewTextBoxColumn.HeaderText = "AccName";
-            this.accNameDataGridViewTextBoxColumn.Name = "accNameDataGridViewTextBoxColumn";
-            this.accNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountIDDataGridViewTextBoxColumn
-            // 
-            this.accountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID";
-            this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
-            this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
-            this.accountIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.testingviewBindingSource3.DataMember = "testingview";
             // 
             // testingviewBindingSource
             // 
@@ -179,6 +185,102 @@
             this.comboFY.Size = new System.Drawing.Size(136, 21);
             this.comboFY.TabIndex = 22;
             // 
+            // testingviewBindingSource1
+            // 
+            this.testingviewBindingSource1.DataMember = "testingview";
+            // 
+            // testingviewBindingSource2
+            // 
+            this.testingviewBindingSource2.DataMember = "testingview";
+            // 
+            // testingviewTableAdapter1
+            // 
+            this.testingviewTableAdapter1.ClearBeforeFill = true;
+            // 
+            // financeDataSet14
+            // 
+            this.financeDataSet14.DataSetName = "FinanceDataSet14";
+            this.financeDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // testingviewBindingSource5
+            // 
+            this.testingviewBindingSource5.DataMember = "testingview";
+            this.testingviewBindingSource5.DataSource = this.financeDataSet14;
+            // 
+            // testingviewTableAdapter2
+            // 
+            this.testingviewTableAdapter2.ClearBeforeFill = true;
+            // 
+            // financeDataSet15
+            // 
+            this.financeDataSet15.DataSetName = "FinanceDataSet15";
+            this.financeDataSet15.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // testingviewBindingSource6
+            // 
+            this.testingviewBindingSource6.DataMember = "testingview";
+            this.testingviewBindingSource6.DataSource = this.financeDataSet15;
+            // 
+            // testingviewTableAdapter3
+            // 
+            this.testingviewTableAdapter3.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SL1";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SL1";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "SL2";
+            this.dataGridViewTextBoxColumn2.HeaderText = "SL2";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "SL3";
+            this.dataGridViewTextBoxColumn3.HeaderText = "SL3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // aCNoDataGridViewTextBoxColumn
+            // 
+            this.aCNoDataGridViewTextBoxColumn.DataPropertyName = "ACNo";
+            this.aCNoDataGridViewTextBoxColumn.HeaderText = "ACNo";
+            this.aCNoDataGridViewTextBoxColumn.Name = "aCNoDataGridViewTextBoxColumn";
+            this.aCNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pKACIDDataGridViewTextBoxColumn
+            // 
+            this.pKACIDDataGridViewTextBoxColumn.DataPropertyName = "PKACID";
+            this.pKACIDDataGridViewTextBoxColumn.HeaderText = "PKACID";
+            this.pKACIDDataGridViewTextBoxColumn.Name = "pKACIDDataGridViewTextBoxColumn";
+            this.pKACIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DName";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DName";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // bECYDataGridViewTextBoxColumn
+            // 
+            this.bECYDataGridViewTextBoxColumn.DataPropertyName = "BECY";
+            this.bECYDataGridViewTextBoxColumn.HeaderText = "BECY";
+            this.bECYDataGridViewTextBoxColumn.Name = "bECYDataGridViewTextBoxColumn";
+            this.bECYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rBECYDataGridViewTextBoxColumn
+            // 
+            this.rBECYDataGridViewTextBoxColumn.DataPropertyName = "RBECY";
+            this.rBECYDataGridViewTextBoxColumn.HeaderText = "RBECY";
+            this.rBECYDataGridViewTextBoxColumn.Name = "rBECYDataGridViewTextBoxColumn";
+            this.rBECYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // ImportHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,8 +298,17 @@
             this.Text = "ImportHelp";
             this.Load += new System.EventHandler(this.ImportTesting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,12 +324,33 @@
         private FinanceDataSet7 financeDataSet7;
         private System.Windows.Forms.BindingSource testingviewBindingSource;
         private FinanceDataSet7TableAdapters.testingviewTableAdapter testingviewTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboFY;
+        private System.Windows.Forms.BindingSource testingviewBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL3DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboFY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource testingviewBindingSource3;
+        private System.Windows.Forms.BindingSource testingviewBindingSource2;
+        private FinanceDataSet13 financeDataSet13;
+        private System.Windows.Forms.BindingSource testingviewBindingSource4;
+        private FinanceDataSet13TableAdapters.testingviewTableAdapter testingviewTableAdapter1;
+        private FinanceDataSet14 financeDataSet14;
+        private System.Windows.Forms.BindingSource testingviewBindingSource5;
+        private FinanceDataSet14TableAdapters.testingviewTableAdapter testingviewTableAdapter2;
+        private FinanceDataSet15 financeDataSet15;
+        private System.Windows.Forms.BindingSource testingviewBindingSource6;
+        private FinanceDataSet15TableAdapters.testingviewTableAdapter testingviewTableAdapter3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aCNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKACIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bECYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rBECYDataGridViewTextBoxColumn;
     }
 }

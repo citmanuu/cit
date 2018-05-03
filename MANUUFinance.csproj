@@ -120,6 +120,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinanceDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FinanceDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -449,6 +464,39 @@
     </None>
     <None Include="FinanceDataSet12.xss">
       <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet13.xsc">
+      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet13.xss">
+      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet14.xsc">
+      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet14.xss">
+      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet15.xsc">
+      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet15.xss">
+      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet2.xsc">
       <DependentUpon>FinanceDataSet2.xsd</DependentUpon>
