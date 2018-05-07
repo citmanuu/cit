@@ -78,7 +78,6 @@
             this.billMstViewTableAdapter1 = new MANUUFinance.FinanceDataSet6TableAdapters.BillMstViewTableAdapter();
             this.billMstViewBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.comboACID = new System.Windows.Forms.DataGridView();
-            this.billMstViewBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.pKBillIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billNarrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +92,7 @@
             this.billCreatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billMstViewBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource)).BeginInit();
@@ -132,7 +132,7 @@
             this.btnPrint.TabIndex = 39;
             this.btnPrint.Text = "Print Record";
             this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            //this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnQuery
             // 
@@ -603,11 +603,7 @@
             this.comboACID.ReadOnly = true;
             this.comboACID.Size = new System.Drawing.Size(441, 286);
             this.comboACID.TabIndex = 39;
-            // 
-            // billMstViewBindingSource3
-            // 
-            this.billMstViewBindingSource3.DataMember = "BillMstView";
-            this.billMstViewBindingSource3.DataSource = this.financeDataSet6;
+            this.comboACID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVbillMstView_CellClick);
             // 
             // pKBillIDDataGridViewTextBoxColumn
             // 
@@ -714,6 +710,11 @@
             this.billUpdatedByDataGridViewTextBoxColumn.Name = "billUpdatedByDataGridViewTextBoxColumn";
             this.billUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
             this.billUpdatedByDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // billMstViewBindingSource3
+            // 
+            this.billMstViewBindingSource3.DataMember = "BillMstView";
+            this.billMstViewBindingSource3.DataSource = this.financeDataSet6;
             // 
             // frmBillDespatch
             // 

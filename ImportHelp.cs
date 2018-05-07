@@ -15,8 +15,8 @@ namespace MANUUFinance
 {
     public partial class ImportHelp : Form
     {
-        string SL1Name, SL2Name, SL3Name, DeptName ;
-        int DeptId = 0, FKACID = 0,BECY = 0,RBECY = 0,userId =0;
+        string SL1Name, SL2Name, SL3Name, DeptName, UserName ;
+        int DeptId = 0, PKACID = 0,BECY = 0,RBECY = 0,userId =0;
         string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
         public ImportHelp(int userId)
         {
@@ -26,8 +26,12 @@ namespace MANUUFinance
 
         private void ImportTesting_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'financeDataSet16.BudgetWithAccounts' table. You can move, or remove it, as needed.
+            this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet16.BudgetWithAccounts);
+            // TODO: This line of code loads data into the 'financeDataSet4.BudgetWithAccounts' table. You can move, or remove it, as needed.
+            //this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet4.BudgetWithAccounts);
             // TODO: This line of code loads data into the 'financeDataSet15.testingview' table. You can move, or remove it, as needed.
-            this.testingviewTableAdapter3.Fill(this.financeDataSet15.testingview);
+           // this.testingviewTableAdapter3.Fill(this.financeDataSet15.testingview);
             // TODO: This line of code loads data into the 'financeDataSet14.testingview' table. You can move, or remove it, as needed.
             // this.testingviewTableAdapter2.Fill(this.financeDataSet14.testingview);
             // TODO: This line of code loads data into the 'financeDataSet13.testingview' table. You can move, or remove it, as needed.
@@ -36,6 +40,21 @@ namespace MANUUFinance
             //this.testingviewTableAdapter1.Fill(this.financeDataSet13.testingview);
             // TODO: This line of code loads data into the 'financeDataSet7.testingview' table. You can move, or remove it, as needed.
             //this.testingviewTableAdapter.Fill(this.financeDataSet7.testingview);
+            
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT Name FROM [Finance].[dbo].[Users] where UserId = '" +userId + "' ";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            objSqlConnection.Open();
+            SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+            if (objDataReader.Read())
+            {
+                UserName = objDataReader["Name"].ToString();
+            }
+
             preparecomboFY();
         }
 
@@ -202,20 +221,20 @@ namespace MANUUFinance
 
             objSqlConnection.Close();
             int SL1ID = SL1Search();
-            int PKSL2ID = SL2Serach(SL1ID);
-            int PKSL3 = SL3Search(SL1ID, PKSL2ID);
-            FKACID = SLaccountfuntion(PKSL3);
+            int PKSL2 = SL2Serach(SL1ID);
+            int PKSL3 = SL3Search(SL1ID, PKSL2);
+            PKACID = SLaccountSearch(PKSL3);
 
 
 
             Int32 budgetId = 0;
-            SqlCommand myCommand1 = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[testingExcell] where FKACID = '" + FKACID + "'", objSqlConnection);
+            SqlCommand myCommand1 = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[Budget] where FKACID = '" + PKACID + "'", objSqlConnection);
             objSqlConnection.Open();
             budgetId = (Int32)myCommand1.ExecuteScalar();
             objSqlConnection.Close();
             if (budgetId == 0)
             {
-                string insertCommand = "Insert into [finance].[dbo].[testingExcell] (FKFYID,FKACID ,BECY,RBECY, AddedOn,UpdatedOn, UpdatedBy,FKDeptId)values ('" + comboFY.SelectedValue + "','" + FKACID + "','" + BECY + "','" + RBECY + "','" + DateTime.Now + "','" + DateTime.Now + "','" + userId + "','" + DeptId + "')";
+                string insertCommand = "Insert into [finance].[dbo].[Budget] (FKFYID,FKACID ,BECY,RBECY, AddedOn,UpdatedOn, UpdatedBy,FKDEPID)values ('" + comboFY.SelectedValue + "','" + PKACID + "','" + BECY + "','" + RBECY + "','" + DateTime.Now + "','" + DateTime.Now + "','" + UserName + "','" + DeptId + "')";
                 SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
                 try
                 {
@@ -293,13 +312,13 @@ namespace MANUUFinance
             int SL11 = 0;
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL1testing] where SL1Name = '" + SL1Name + "'", objSqlConnection);
+            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL1] where SL1Name = '" + SL1Name + "'", objSqlConnection);
             SL1 = (Int32)myCommand.ExecuteScalar();
             objSqlConnection.Close();
 
             if (SL1 != 0)
             {
-                SqlCommand myCommand2 = new SqlCommand("SELECT SL1ID FROM [Finance].[dbo].[SL1testing] where  SL1Name = '" + SL1Name + "'", objSqlConnection);
+                SqlCommand myCommand2 = new SqlCommand("SELECT SL1ID FROM [Finance].[dbo].[SL1] where  SL1Name = '" + SL1Name + "'", objSqlConnection);
                 objSqlConnection.Open();
                 SqlDataReader cmd = myCommand2.ExecuteReader();
                 if (cmd.Read())
@@ -310,7 +329,7 @@ namespace MANUUFinance
             }
             else
             {
-                string insertCommand1 = "Insert into [finance].[dbo].[SL1testing](SL1Name,SL1AddedOn,SL1UpdatedOn,SL1UpdatedBy, DeptId) values('" + SL1Name.ToUpper() + "', '"+ DateTime.Now + "','" + DateTime.Now + "','" + userId+"','"+ DeptId + "')";
+                string insertCommand1 = "Insert into [finance].[dbo].[SL1](SL1Name,SL1AddedOn,SL1UpdatedOn,SL1UpdatedBy, DeptId) values('" + SL1Name.ToUpper() + "', '"+ DateTime.Now + "','" + DateTime.Now + "','" + UserName+"','"+ DeptId + "')";
                 SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
                 try
                 {
@@ -343,33 +362,33 @@ namespace MANUUFinance
             var SL22 = 0;
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL2testing] where SL1ID = '" + SL1ID + "' AND SL2Name = '" + SL2Name + "' ", objSqlConnection);
+            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL2] where SL1ID = '" + SL1ID + "' AND SL2Name = '" + SL2Name + "' ", objSqlConnection);
             SL2 = (Int32)myCommand.ExecuteScalar();
             objSqlConnection.Close();
             if (SL2 != 0)
             {
-                SqlCommand myCommand2 = new SqlCommand("SELECT PKSL2ID FROM [Finance].[dbo].[SL2testing] where  SL2Name = '" + SL2Name + "' AND SL1ID = '" + SL1ID + "'", objSqlConnection);
+                SqlCommand myCommand2 = new SqlCommand("SELECT PKSL2 FROM [Finance].[dbo].[SL2] where  SL2Name = '" + SL2Name + "' AND SL1ID = '" + SL1ID + "'", objSqlConnection);
                 objSqlConnection.Open();
                 SqlDataReader cmd = myCommand2.ExecuteReader();
                 if (cmd.Read())
                 {
-                    SL22 = Convert.ToInt32(cmd["PKSL2ID"]);
+                    SL22 = Convert.ToInt32(cmd["PKSL2"]);
                 }
                 objSqlConnection.Close();
             }
             else
             {
-                string insertCommand1 = "Insert into [finance].[dbo].[SL2testing] (SL1ID,SL2Name,SL2AddedOn,SL2UpdatedOn,SL2UpdateBy) values('" + SL1ID + "','" + SL2Name.ToUpper() + "','"+ DateTime.Now + "','" + DateTime.Now + "','" + userId +"')";
+                string insertCommand1 = "Insert into [finance].[dbo].[SL2] (SL1ID,SL2Name,SL2AddedOn,SL2UpdatedOn,SL2UpdateBy) values('" + SL1ID + "','" + SL2Name.ToUpper() + "','"+ DateTime.Now + "','" + DateTime.Now + "','" + UserName +"')";
                 SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
                 try
                 {
                     objSqlConnection.Open();
                     objInsertCommand1.ExecuteNonQuery();
-                    SqlCommand myCommand2 = new SqlCommand("SELECT PKSL2ID FROM [Finance].[dbo].[SL2testing] where  SL2Name = '" + SL2Name + "' AND SL1ID = '" + SL1ID + "'", objSqlConnection);
+                    SqlCommand myCommand2 = new SqlCommand("SELECT PKSL2 FROM [Finance].[dbo].[SL2] where  SL2Name = '" + SL2Name + "' AND SL1ID = '" + SL1ID + "'", objSqlConnection);
                     SqlDataReader cmd = myCommand2.ExecuteReader();
                     if (cmd.Read())
                     {
-                        SL22 = Convert.ToInt32(cmd["PKSL2ID"]);
+                        SL22 = Convert.ToInt32(cmd["PKSL2"]);
                     }
                     objSqlConnection.Close();
                 }
@@ -386,39 +405,39 @@ namespace MANUUFinance
         }
 
         //Serach SL3 and insert into the database.
-        private int SL3Search(int SL1ID, int PKSL2ID)
+        private int SL3Search(int SL1ID, int PKSL2)
         {
             Int32 SL3 = 0;
             var SL33 = 0;
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL3testing] where FKSL2ID = '" + PKSL2ID + "' AND SL3Name = '" + SL3Name + "' AND FKSL1ID = '" + SL1ID + "'", objSqlConnection);
+            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL3] where FKSL2ID = '" + PKSL2 + "' AND SL3Name = '" + SL3Name + "' AND FKSL1ID = '" + SL1ID + "'", objSqlConnection);
             SL3 = (Int32)myCommand.ExecuteScalar();
             objSqlConnection.Close();
             if (SL3 != 0)
             {
-                SqlCommand myCommand2 = new SqlCommand("SELECT PKSL3ID FROM [Finance].[dbo].[SL3testing] where FKSL2ID = '" + PKSL2ID + "' AND SL3Name = '" + SL3Name + "' AND FKSL1ID = '" + SL1ID + "'", objSqlConnection);
+                SqlCommand myCommand2 = new SqlCommand("SELECT PKSL3 FROM [Finance].[dbo].[SL3] where FKSL2ID = '" + PKSL2 + "' AND SL3Name = '" + SL3Name + "' AND FKSL1ID = '" + SL1ID + "'", objSqlConnection);
                 objSqlConnection.Open();
                 SqlDataReader cmd = myCommand2.ExecuteReader();
                 if (cmd.Read())
                 {
-                    SL33 = Convert.ToInt32(cmd["PKSL3ID"]);
+                    SL33 = Convert.ToInt32(cmd["PKSL3"]);
                 }
                 objSqlConnection.Close();
             }
             else
             {
-                string insertCommand1 = "Insert into [finance].[dbo].[SL3testing] (FKSL1ID, FKSL2ID, SL3Name,SL3AddedOn, SL3UpdatedOn, SL3UpdatedBy )values('" + SL1ID + "','" + PKSL2ID + "', '" + SL3Name.ToUpper() + "', '" + DateTime.Now + "','" + DateTime.Now + "','" + userId + "')";
+                string insertCommand1 = "Insert into [finance].[dbo].[SL3] (FKSL1ID, FKSL2ID, SL3Name,SL3AddedOn, SL3UpdatedOn, SL3UpdateBy )values('" + SL1ID + "','" + PKSL2 + "', '" + SL3Name.ToUpper() + "', '" + DateTime.Now + "','" + DateTime.Now + "','" + UserName + "')";
                 SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
                 try
                 {
                     objSqlConnection.Open();
                     objInsertCommand1.ExecuteNonQuery();
-                    SqlCommand myCommand2 = new SqlCommand("SELECT PKSL3ID FROM [Finance].[dbo].[SL3testing] where  FKSL2ID = '" + PKSL2ID + "' AND SL3Name = '" + SL3Name + "'AND FKSL1ID = '" + SL1ID + "' ", objSqlConnection);
+                    SqlCommand myCommand2 = new SqlCommand("SELECT PKSL3 FROM [Finance].[dbo].[SL3] where  FKSL2ID = '" + PKSL2 + "' AND SL3Name = '" + SL3Name + "'AND FKSL1ID = '" + SL1ID + "' ", objSqlConnection);
                     SqlDataReader cmd = myCommand2.ExecuteReader();
                     if (cmd.Read())
                     {
-                        SL33 = Convert.ToInt32(cmd["PKSL3ID"]);
+                        SL33 = Convert.ToInt32(cmd["PKSL3"]);
                     }
                     objSqlConnection.Close();
                 }
@@ -432,18 +451,18 @@ namespace MANUUFinance
         }
 
         //Serach account function and insert into the database.
-        private int SLaccountfuntion(int PKSL3)
+        private int SLaccountSearch(int PKSL3)
         {
             Int32 SL3 = 0;
             int SL33 = 0;
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[Accounttesting] where FKSL3ID = '" + PKSL3 + "'", objSqlConnection);
+            SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[Accounts] where FKSL3ID = '" + PKSL3 + "'", objSqlConnection);
             SL3 = (Int32)myCommand.ExecuteScalar();
             objSqlConnection.Close();
             if (SL3 != 0)
             {
-                SqlCommand myCommand2 = new SqlCommand("SELECT PKACID FROM [Finance].[dbo].[Accounttesting] where FKSL3ID = '" + PKSL3 + "'", objSqlConnection);
+                SqlCommand myCommand2 = new SqlCommand("SELECT PKACID FROM [Finance].[dbo].[Accounts] where FKSL3ID = '" + PKSL3 + "'", objSqlConnection);
                 objSqlConnection.Open();
                 SqlDataReader cmd = myCommand2.ExecuteReader();
                 if (cmd.Read())
@@ -456,13 +475,13 @@ namespace MANUUFinance
             }
             else
             {
-                string insertCommand1 = "Insert into [finance].[dbo].[Accounttesting] (FKSL3ID,AccountAddedOn,AccountUpdatedOn, AccountUpdatedBy, DeptId)values('" + PKSL3 + "','" + DateTime.Now + "','" + DateTime.Now + "','" + userId + "','" + DeptId + "')";
+                string insertCommand1 = "Insert into [finance].[dbo].[Accounts] (FKSL3ID,AccountAddedOn,AccountUpdatedOn, AccountUpdateBy, DeptId)values('" + PKSL3 + "','" + DateTime.Now + "','" + DateTime.Now + "','" + UserName + "','" + DeptId + "')";
                 SqlCommand objInsertCommand1 = new SqlCommand(insertCommand1, objSqlConnection);
                 try
                 {
                     objSqlConnection.Open();
                     objInsertCommand1.ExecuteNonQuery();
-                    SqlCommand myCommand2 = new SqlCommand("SELECT PKACID FROM [Finance].[dbo].[Accounttesting] where  FKSL3ID = '" + PKSL3 + "'", objSqlConnection);
+                    SqlCommand myCommand2 = new SqlCommand("SELECT PKACID FROM [Finance].[dbo].[Accounts] where  FKSL3ID = '" + PKSL3 + "'", objSqlConnection);
                     SqlDataReader cmd = myCommand2.ExecuteReader();
                     if (cmd.Read())
                     {

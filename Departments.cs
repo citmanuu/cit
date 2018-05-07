@@ -203,8 +203,10 @@ namespace MANUUFinance
                 string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
                 con.Open();
-                SqlCommand myCommand = new SqlCommand("SELECT DeptId FROM [Finance].[dbo].[Department] where DeptName = '" + textBox1.Text + "'", con);
-                GlobalId = Convert.ToInt32(myCommand.ExecuteScalar());
+                string mystring = "SELECT DeptId FROM[finance].[dbo].[Department] where DeptName = '" + textBox1.Text + "'";
+                mystring.ToString().Replace("'", "''");
+                SqlCommand myCommand = new SqlCommand(mystring, con);
+                GlobalId = int.Parse(myCommand.ExecuteScalar().ToString());
                 con.Close();
             }
         }
