@@ -423,7 +423,17 @@ namespace MANUUFinance
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearTemplate();
+            comboVH.SelectedIndex = 0;
+            comboSL1.SelectedIndex = 0;
+            comboSL2.SelectedIndex = 0;
+            comboSL3.SelectedIndex = 0;
+            comboACCOUNT.SelectedIndex = 0;
+
+            comboSL1.Enabled = true;
+            comboSL2.Enabled = true;
+            comboSL3.Enabled = true;
+            comboVH.Enabled = true;
+            retrievedForUpdate = false;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
