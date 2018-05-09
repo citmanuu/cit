@@ -235,3 +235,4 @@ E:\citmanuu\obj\Debug\MANUUFinance.BudgetPurpose.resources
 E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
 E:\citmanuu\obj\Debug\MANUUFinance.BudgetSchedule.resources
 E:\citmanuu\obj\Debug\MANUUFinance.ImportHelp.resources
+E:\citmanuu\obj\Debug\MANUUFinance.VirtuaHead.resources
