@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.testingviewTableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.testingviewTableAdapter();
             this.comboVH = new System.Windows.Forms.ComboBox();
@@ -47,10 +49,19 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGVVH = new System.Windows.Forms.DataGridView();
+            this.financeDataSet17 = new MANUUFinance.FinanceDataSet17();
+            this.virtualHeadViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.virtualHeadViewTableAdapter = new MANUUFinance.FinanceDataSet17TableAdapters.VirtualHeadViewTableAdapter();
+            this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVVH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.virtualHeadViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -181,72 +192,137 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(411, 12);
+            this.btnClose.Location = new System.Drawing.Point(490, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(90, 23);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Close Form";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(330, 12);
+            this.btnClear.Location = new System.Drawing.Point(393, 12);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(90, 23);
             this.btnClear.TabIndex = 8;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Clear Form";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(248, 12);
+            this.btnPrint.Location = new System.Drawing.Point(295, 12);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.Size = new System.Drawing.Size(90, 23);
             this.btnPrint.TabIndex = 7;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(168, 12);
+            this.btnDelete.Location = new System.Drawing.Point(198, 12);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(90, 23);
             this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(87, 12);
+            this.btnUpdate.Location = new System.Drawing.Point(102, 12);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(90, 23);
             this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "Update Record";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(6, 12);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(90, 23);
             this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Add ";
+            this.btnAdd.Text = "Add Record";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dataGridView1
+            // DGVVH
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 217);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 150);
-            this.dataGridView1.TabIndex = 4;
+            this.DGVVH.AllowUserToAddRows = false;
+            this.DGVVH.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVVH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.DGVVH.AutoGenerateColumns = false;
+            this.DGVVH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVVH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sL1NameDataGridViewTextBoxColumn,
+            this.sL2NameDataGridViewTextBoxColumn,
+            this.sL3NameDataGridViewTextBoxColumn,
+            this.accNameDataGridViewTextBoxColumn});
+            this.DGVVH.DataSource = this.virtualHeadViewBindingSource;
+            this.DGVVH.Location = new System.Drawing.Point(24, 217);
+            this.DGVVH.Name = "DGVVH";
+            this.DGVVH.ReadOnly = true;
+            this.DGVVH.Size = new System.Drawing.Size(645, 150);
+            this.DGVVH.TabIndex = 4;
+            this.DGVVH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVVH_CellContentClick);
+            // 
+            // financeDataSet17
+            // 
+            this.financeDataSet17.DataSetName = "FinanceDataSet17";
+            this.financeDataSet17.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // virtualHeadViewBindingSource
+            // 
+            this.virtualHeadViewBindingSource.DataMember = "VirtualHeadView";
+            this.virtualHeadViewBindingSource.DataSource = this.financeDataSet17;
+            // 
+            // virtualHeadViewTableAdapter
+            // 
+            this.virtualHeadViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // sL1NameDataGridViewTextBoxColumn
+            // 
+            this.sL1NameDataGridViewTextBoxColumn.DataPropertyName = "SL1Name";
+            this.sL1NameDataGridViewTextBoxColumn.HeaderText = "SL1Name";
+            this.sL1NameDataGridViewTextBoxColumn.Name = "sL1NameDataGridViewTextBoxColumn";
+            this.sL1NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL1NameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sL2NameDataGridViewTextBoxColumn
+            // 
+            this.sL2NameDataGridViewTextBoxColumn.DataPropertyName = "SL2Name";
+            this.sL2NameDataGridViewTextBoxColumn.HeaderText = "SL2Name";
+            this.sL2NameDataGridViewTextBoxColumn.Name = "sL2NameDataGridViewTextBoxColumn";
+            this.sL2NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL2NameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sL3NameDataGridViewTextBoxColumn
+            // 
+            this.sL3NameDataGridViewTextBoxColumn.DataPropertyName = "SL3Name";
+            this.sL3NameDataGridViewTextBoxColumn.HeaderText = "SL3Name";
+            this.sL3NameDataGridViewTextBoxColumn.Name = "sL3NameDataGridViewTextBoxColumn";
+            this.sL3NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL3NameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // accNameDataGridViewTextBoxColumn
+            // 
+            this.accNameDataGridViewTextBoxColumn.DataPropertyName = "AccName";
+            this.accNameDataGridViewTextBoxColumn.HeaderText = "AccName";
+            this.accNameDataGridViewTextBoxColumn.Name = "accNameDataGridViewTextBoxColumn";
+            this.accNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.accNameDataGridViewTextBoxColumn.Width = 150;
             // 
             // VirtuaHead
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 391);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGVVH);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "VirtuaHead";
@@ -255,7 +331,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVVH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.virtualHeadViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,6 +359,13 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGVVH;
+        private FinanceDataSet17 financeDataSet17;
+        private System.Windows.Forms.BindingSource virtualHeadViewBindingSource;
+        private FinanceDataSet17TableAdapters.VirtualHeadViewTableAdapter virtualHeadViewTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL1NameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL2NameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3NameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accNameDataGridViewTextBoxColumn;
     }
 }

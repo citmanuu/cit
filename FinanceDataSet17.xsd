@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinanceDataSet17" targetNamespace="http://tempuri.org/FinanceDataSet17.xsd" xmlns:mstns="http://tempuri.org/FinanceDataSet17.xsd" xmlns="http://tempuri.org/FinanceDataSet17.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinanceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinanceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MANUUFinance.Properties.Settings.GlobalReference.Default.FinanceConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VirtualHeadViewTableAdapter" GeneratorDataComponentClassName="VirtualHeadViewTableAdapter" Name="VirtualHeadView" UserDataComponentName="VirtualHeadViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.VirtualHeadView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SL1Name, SL2Name, SL3Name, AccName FROM dbo.VirtualHeadView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SL1Name" DataSetColumn="SL1Name" />
+              <Mapping SourceColumn="SL2Name" DataSetColumn="SL2Name" />
+              <Mapping SourceColumn="SL3Name" DataSetColumn="SL3Name" />
+              <Mapping SourceColumn="AccName" DataSetColumn="AccName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinanceDataSet17" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FinanceDataSet17" msprop:Generator_UserDSName="FinanceDataSet17">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VirtualHeadView" msprop:Generator_TableClassName="VirtualHeadViewDataTable" msprop:Generator_TableVarName="tableVirtualHeadView" msprop:Generator_TablePropName="VirtualHeadView" msprop:Generator_RowDeletingName="VirtualHeadViewRowDeleting" msprop:Generator_RowChangingName="VirtualHeadViewRowChanging" msprop:Generator_RowEvHandlerName="VirtualHeadViewRowChangeEventHandler" msprop:Generator_RowDeletedName="VirtualHeadViewRowDeleted" msprop:Generator_UserTableName="VirtualHeadView" msprop:Generator_RowChangedName="VirtualHeadViewRowChanged" msprop:Generator_RowEvArgName="VirtualHeadViewRowChangeEvent" msprop:Generator_RowClassName="VirtualHeadViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SL1Name" msprop:Generator_ColumnVarNameInTable="columnSL1Name" msprop:Generator_ColumnPropNameInRow="SL1Name" msprop:Generator_ColumnPropNameInTable="SL1NameColumn" msprop:Generator_UserColumnName="SL1Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL2Name" msprop:Generator_ColumnVarNameInTable="columnSL2Name" msprop:Generator_ColumnPropNameInRow="SL2Name" msprop:Generator_ColumnPropNameInTable="SL2NameColumn" msprop:Generator_UserColumnName="SL2Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SL3Name" msprop:Generator_ColumnVarNameInTable="columnSL3Name" msprop:Generator_ColumnPropNameInRow="SL3Name" msprop:Generator_ColumnPropNameInTable="SL3NameColumn" msprop:Generator_UserColumnName="SL3Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccName" msprop:Generator_ColumnVarNameInTable="columnAccName" msprop:Generator_ColumnPropNameInRow="AccName" msprop:Generator_ColumnPropNameInTable="AccNameColumn" msprop:Generator_UserColumnName="AccName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

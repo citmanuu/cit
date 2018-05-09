@@ -14,6 +14,8 @@ namespace MANUUFinance
 {
     public partial class VirtuaHead : Form
     {
+        bool retrievedForUpdate = false;
+        int GlobalId = 0;
         public VirtuaHead()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace MANUUFinance
 
         private void VirtuaHead_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'financeDataSet17.VirtualHeadView' table. You can move, or remove it, as needed.
+            this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
             preparedcomboVH();
             preparedcombosl1();
             preparedcombosl2("0");
@@ -214,6 +218,218 @@ namespace MANUUFinance
         {
             preparedcombosl2(Convert.ToString(comboSL1.SelectedValue));
         }
+
+        private void ClearTemplate()
+        {
+            comboVH.SelectedIndex = 0;
+            comboSL1.SelectedIndex = 0;
+            comboSL2.SelectedIndex = 0;
+            comboSL3.SelectedIndex = 0;
+            comboACCOUNT.SelectedIndex = 0;
+        }
+
+        private bool validateRecord()
+        {
+            bool validationResult = true;
+            string validationMessage = "";
+
+            if (Convert.ToString(comboVH.SelectedValue) == "0")
+            {
+                validationMessage = "Please Select Financial Year\n";
+                validationResult = false;
+            }
+            if (Convert.ToString(comboSL1.SelectedValue) == "0")
+            {
+                validationMessage = "Please Select Departent Name\n";
+                validationResult = false;
+            }
+            if (Convert.ToString(comboSL2.SelectedValue) == "0")
+            {
+                validationMessage = "Please Select SL1 Name\n";
+                validationResult = false;
+            }
+            if (Convert.ToString(comboSL3.SelectedValue) == "0")
+            {
+                validationMessage += "Please Select SL2 Name\n";
+                validationResult = false;
+            }
+            if (validationResult == false)
+            {
+                MessageBox.Show(validationMessage, "Account Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void DGVVH_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                comboVH.Text = "Contingency";
+                comboSL1.Text = DGVVH.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                comboSL2.Text = DGVVH.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                comboSL3.Text = DGVVH.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                comboACCOUNT.Text = DGVVH.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                retrievedForUpdate = true;
+                LockKeys();
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+                con.Open();
+                SqlCommand myCommand = new SqlCommand("SELECT VHDTLID FROM [finance].[dbo].[VHDtl] where FKSL1ID = '" + comboSL1.SelectedValue + "' AND FKSL2ID = '" + comboSL2.SelectedValue + "'AND FKSL3ID = '" + comboSL3.SelectedValue + "' AND FKACID = '" + comboACCOUNT.SelectedValue + "'", con);
+                GlobalId = Convert.ToInt32(myCommand.ExecuteScalar().ToString());
+                con.Close();
+            }
+        }
+
+        private void LockKeys()
+        {
+            comboVH.Enabled = false;
+            comboSL1.Enabled = false;
+            comboSL2.Enabled = false;
+            comboSL3.Enabled = false;
+        }
         #endregion
+
+        // DML 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //If Form Controls are validated proceed to add record
+            if (validateRecord())
+            {
+                //Check if we are not Updating Record
+                if (!retrievedForUpdate)
+                {
+
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+                    //Prepare Update String
+                    string insertCommand = "INSERT INTO [dbo].[VHDtl] (FKSL1ID, FKSL2ID, FKSL3ID, FKACID, FKVHID) " +
+                                            "VALUES (@FKSL1ID, @FKSL2ID, @FKSL3ID, @FKACID, @FKVHID)";
+
+                    SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
+
+                    objInsertCommand.Parameters.AddWithValue("@FKSL1ID", comboSL1.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@FKSL2ID", comboSL2.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@FKACID", comboACCOUNT.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@FKVHID", comboVH.SelectedValue);
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objInsertCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    //Refresh DGV 
+                    this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //If Form Controls are validated proceed to add record
+            if (validateRecord())
+            {
+                //Check if we are not Updating Record
+                if (retrievedForUpdate)
+                {
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+                    //Prepare Update String
+
+                    string updateCommand = "Update [dbo].[VHDtl] set FKSL1ID = @FKSL1ID, FKSL2ID = @FKSL2ID, FKSL3ID = @FKSL3ID, FKACID = @FKACID " +
+                                           "where VHDTLID = '"+ GlobalId + "'";
+
+                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+                    objUpdateCommand.Parameters.AddWithValue("@FKSL1ID", comboSL1.SelectedValue);
+                    objUpdateCommand.Parameters.AddWithValue("@FKSL2ID", comboSL2.SelectedValue);
+                    objUpdateCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
+                    objUpdateCommand.Parameters.AddWithValue("@FKACID", comboACCOUNT.SelectedValue);
+                    objUpdateCommand.Parameters.AddWithValue("@FKVHID", comboVH.SelectedValue);
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objUpdateCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    //Refresh DGV 
+                    this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+                }
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Delete ?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //Connection String
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                //Instantiate SQL Connection
+                SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                //Prepare Delete String
+                string deleteCommand = "Delete from Finance.dbo.VHDtl where VHDTLID= '"+GlobalId +"';";
+                SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                try
+                {
+                    objSqlConnection.Open();
+                    objDeleteCommand.ExecuteNonQuery();
+                    MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTemplate();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    objSqlConnection.Close();
+                }
+                this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearTemplate();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVVH, "VirtualHead");
+            objectsupport.ShowDialog();
+        }
     }
 }
