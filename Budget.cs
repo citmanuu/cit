@@ -36,13 +36,49 @@ namespace MANUUFinance
             PrepareSL1Combo();
             PrepareSL2Combo("0");
             PrepareSL3Combo("0");
-            PrepareAccountsCombo("0");  
+            Preparebudgetactype();
+            //PrepareAccountsCombo("0");             
             UnpinControls();
             retrievedForUpdate = false;
             queryMode = false;
             if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
+            }
+        }
+
+        private void Preparebudgetactype()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] where GEMID = 5 Order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboBudgetACTYPE.DisplayMember = "ListItemDesc"; // will display Name property
+                comboBudgetACTYPE.ValueMember = "ListItemID"; // will select Value property
+                comboBudgetACTYPE.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
             }
         }
         #region
@@ -282,8 +318,8 @@ namespace MANUUFinance
                         //Instantiate SQL Connection
                         SqlConnection objSqlConnection = new SqlConnection(cs);
                         //Prepare Update String
-                        string insertCommand = "INSERT INTO [dbo].[Budget] (FKFYID, FKDEPID, FKACID, BECY, RBECY, BENY) " +
-                                                "VALUES (@FKFYID, @FKDEPID, @FKACID, @BECY, @RBECY, @BENY)";
+                        string insertCommand = "INSERT INTO [dbo].[Budget] (FKFYID, FKDEPID, FKACID, BECY, RBECY, BENY,BudgetAcType) " +
+                                                "VALUES (@FKFYID, @FKDEPID, @FKACID, @BECY, @RBECY, @BENY,@BudgetAcType)";
 
                         SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
 
@@ -293,8 +329,9 @@ namespace MANUUFinance
                         objInsertCommand.Parameters.AddWithValue("@BECY", txtBECY.Text);
                         objInsertCommand.Parameters.AddWithValue("@RBECY", txtRBECY.Text);
                         objInsertCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
+                    objInsertCommand.Parameters.AddWithValue("@BudgetAcType", comboBudgetACTYPE.SelectedValue);
 
-                        try
+                    try
                         {
                             objSqlConnection.Open();
                             objInsertCommand.ExecuteNonQuery();
@@ -322,7 +359,7 @@ namespace MANUUFinance
                             objSqlConnection.Close();
                         }
                     //Refresh DGV 
-                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
+                    this.budgetWithAccountsTableAdapter2.Fill(this.financeDataSet16.BudgetWithAccounts);
                 }
                 }
          }
@@ -342,7 +379,7 @@ namespace MANUUFinance
                         SqlConnection objSqlConnection = new SqlConnection(cs);
                         //Prepare Update String
 
-                        string updateCommand = "Update [dbo].[Budget] set FKACID = @FKACID, BECY = @BECY, RBECY = @RBECY, BENY = @BENY " +
+                        string updateCommand = "Update [dbo].[Budget] set FKACID = @FKACID, BECY = @BECY, RBECY = @RBECY, BENY = @BENY , BudgetAcType = @BudgetAcType" +
                                                "where PKBUDGETID = @PKBUDGETID";
                         SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
                         objUpdateCommand.Parameters.AddWithValue("@FKACID", comboAccount.SelectedValue);
@@ -350,8 +387,9 @@ namespace MANUUFinance
                         objUpdateCommand.Parameters.AddWithValue("@BECY", txtBECY.Text);
                         objUpdateCommand.Parameters.AddWithValue("@RBECY ", txtRBECY.Text);
                         objUpdateCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
+                        objUpdateCommand.Parameters.AddWithValue("@BudgetAcType", comboBudgetACTYPE.SelectedValue);
 
-                        try
+                    try
                         {
                             objSqlConnection.Open();
                             objUpdateCommand.ExecuteNonQuery();
@@ -374,7 +412,7 @@ namespace MANUUFinance
                             objSqlConnection.Close();
                         }
                     //Refresh DGV 
-                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet4.BudgetWithAccounts);
+                    this.budgetWithAccountsTableAdapter2.Fill(this.financeDataSet16.BudgetWithAccounts);
                 }
                 }
         }
@@ -419,6 +457,7 @@ namespace MANUUFinance
             }
 
             comboAccount.SelectedValue = 0;
+            comboBudgetACTYPE.SelectedValue = 0;
             comboAccount.Enabled = true;
             txtBECY.Text = "";
             txtRBECY.Text = "";
@@ -508,7 +547,7 @@ namespace MANUUFinance
         //Filter entries for comboSL2 based on Selection of comboSL1
         private void comboSL3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));
+            //PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));
         }
 
         //Execute Form Query
@@ -908,6 +947,51 @@ namespace MANUUFinance
         {
             ImportHelp objectimport = new ImportHelp(userId);
             objectimport.ShowDialog();
+        }
+
+        private void comboBudgetACTYPE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBudgetACTYPE.SelectedIndex == 2)
+            {
+                PrepareAccountTypecombo();
+            }
+            else
+                PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));            
+        }
+
+        private void PrepareAccountTypecombo()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "Select Distinct VHID, VHNAME from Finance.dbo.VHMst order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboAccount.DisplayMember = "ListItemDesc"; // will display Name property
+                comboAccount.ValueMember = "ListItemID"; // will select Value property
+                comboAccount.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
         }
 
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)

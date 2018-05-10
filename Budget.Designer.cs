@@ -53,6 +53,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBudgetACTYPE = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtBECY = new System.Windows.Forms.TextBox();
             this.comboAccount = new System.Windows.Forms.ComboBox();
             this.pinSL3 = new System.Windows.Forms.CheckBox();
@@ -137,7 +139,7 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.txtSL2Search);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(759, 256);
+            this.groupBox4.Location = new System.Drawing.Point(759, 316);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -278,7 +280,7 @@
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Location = new System.Drawing.Point(34, 201);
+            this.groupBox2.Location = new System.Drawing.Point(34, 261);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -376,6 +378,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBudgetACTYPE);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtBECY);
             this.groupBox1.Controls.Add(this.comboAccount);
             this.groupBox1.Controls.Add(this.pinSL3);
@@ -405,14 +409,33 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(979, 167);
+            this.groupBox1.Size = new System.Drawing.Size(979, 226);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Budget";
             // 
+            // comboBudgetACTYPE
+            // 
+            this.comboBudgetACTYPE.FormattingEnabled = true;
+            this.comboBudgetACTYPE.Location = new System.Drawing.Point(633, 74);
+            this.comboBudgetACTYPE.Name = "comboBudgetACTYPE";
+            this.comboBudgetACTYPE.Size = new System.Drawing.Size(121, 21);
+            this.comboBudgetACTYPE.TabIndex = 40;
+            this.comboBudgetACTYPE.SelectedIndexChanged += new System.EventHandler(this.comboBudgetACTYPE_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(523, 77);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(93, 13);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "Budget A/C  Type";
+            // 
             // txtBECY
             // 
-            this.txtBECY.Location = new System.Drawing.Point(186, 105);
+            this.txtBECY.Location = new System.Drawing.Point(186, 132);
             this.txtBECY.Margin = new System.Windows.Forms.Padding(2);
             this.txtBECY.Name = "txtBECY";
             this.txtBECY.Size = new System.Drawing.Size(305, 20);
@@ -424,7 +447,7 @@
             this.comboAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboAccount.FormattingEnabled = true;
-            this.comboAccount.Location = new System.Drawing.Point(632, 75);
+            this.comboAccount.Location = new System.Drawing.Point(186, 103);
             this.comboAccount.Margin = new System.Windows.Forms.Padding(2);
             this.comboAccount.Name = "comboAccount";
             this.comboAccount.Size = new System.Drawing.Size(305, 21);
@@ -564,7 +587,7 @@
             // 
             // txtBENY
             // 
-            this.txtBENY.Location = new System.Drawing.Point(186, 131);
+            this.txtBENY.Location = new System.Drawing.Point(186, 158);
             this.txtBENY.Margin = new System.Windows.Forms.Padding(2);
             this.txtBENY.Name = "txtBENY";
             this.txtBENY.Size = new System.Drawing.Size(68, 20);
@@ -574,7 +597,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 133);
+            this.label8.Location = new System.Drawing.Point(24, 160);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(140, 13);
@@ -584,7 +607,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 105);
+            this.label3.Location = new System.Drawing.Point(24, 132);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 13);
@@ -639,7 +662,7 @@
             // 
             // txtRBECY
             // 
-            this.txtRBECY.Location = new System.Drawing.Point(632, 103);
+            this.txtRBECY.Location = new System.Drawing.Point(657, 132);
             this.txtRBECY.Margin = new System.Windows.Forms.Padding(2);
             this.txtRBECY.Name = "txtRBECY";
             this.txtRBECY.Size = new System.Drawing.Size(68, 20);
@@ -649,7 +672,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(523, 105);
+            this.label1.Location = new System.Drawing.Point(548, 134);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 13);
@@ -679,7 +702,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(523, 75);
+            this.label4.Location = new System.Drawing.Point(25, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
@@ -688,7 +711,7 @@
             // 
             // txtPKBudgetID
             // 
-            this.txtPKBudgetID.Location = new System.Drawing.Point(855, 120);
+            this.txtPKBudgetID.Location = new System.Drawing.Point(880, 149);
             this.txtPKBudgetID.Margin = new System.Windows.Forms.Padding(2);
             this.txtPKBudgetID.Name = "txtPKBudgetID";
             this.txtPKBudgetID.Size = new System.Drawing.Size(68, 20);
@@ -747,7 +770,7 @@
             this.pKACIDDataGridViewTextBoxColumn,
             this.pKBUDGETIDDataGridViewTextBoxColumn});
             this.DGVBudgetAccounts.DataSource = this.budgetWithAccountsBindingSource3;
-            this.DGVBudgetAccounts.Location = new System.Drawing.Point(34, 263);
+            this.DGVBudgetAccounts.Location = new System.Drawing.Point(34, 323);
             this.DGVBudgetAccounts.Name = "DGVBudgetAccounts";
             this.DGVBudgetAccounts.ReadOnly = true;
             this.DGVBudgetAccounts.Size = new System.Drawing.Size(700, 254);
@@ -902,7 +925,7 @@
             this.groupBox3.Controls.Add(this.btImport);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox3.Location = new System.Drawing.Point(812, 201);
+            this.groupBox3.Location = new System.Drawing.Point(812, 261);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 45);
             this.groupBox3.TabIndex = 31;
@@ -942,7 +965,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1026, 543);
+            this.ClientSize = new System.Drawing.Size(1026, 595);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.DGVBudgetAccounts);
             this.Controls.Add(this.groupBox4);
@@ -1053,5 +1076,7 @@
         private FinanceDataSet16 financeDataSet16;
         private System.Windows.Forms.BindingSource budgetWithAccountsBindingSource3;
         private FinanceDataSet16TableAdapters.BudgetWithAccountsTableAdapter budgetWithAccountsTableAdapter2;
+        private System.Windows.Forms.ComboBox comboBudgetACTYPE;
+        private System.Windows.Forms.Label label15;
     }
 }
