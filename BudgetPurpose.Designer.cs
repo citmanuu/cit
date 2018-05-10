@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class BudgetPurpose
+    partial class frmBudgetPurpose
     {
         /// <summary>
         /// Required designer variable.
@@ -597,7 +597,7 @@
             this.timeLeft1.TabIndex = 47;
             this.timeLeft1.Text = "Days Left";
             // 
-            // BudgetPurpose
+            // frmBudgetPurpose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -607,8 +607,8 @@
             this.Controls.Add(this.DGVAccounts);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "BudgetPurpose";
-            this.Text = "BudgetPurpose";
+            this.Name = "frmBudgetPurpose";
+            this.Text = "BUDGET PURPOSE";
             this.Load += new System.EventHandler(this.BudgetPurpose_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAccounts)).EndInit();
             this.groupBox2.ResumeLayout(false);

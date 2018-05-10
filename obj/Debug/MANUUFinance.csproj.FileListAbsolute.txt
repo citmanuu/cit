@@ -231,8 +231,7 @@ E:\citmanuu\bin\Debug\itextsharp.pdfa.dll
 E:\citmanuu\bin\Debug\itextsharp.xtra.dll
 E:\citmanuu\bin\Debug\itextsharp.xml
 E:\citmanuu\obj\Debug\MANUUFinance.csproj.CopyComplete
-E:\citmanuu\obj\Debug\MANUUFinance.BudgetPurpose.resources
-E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
 E:\citmanuu\obj\Debug\MANUUFinance.BudgetSchedule.resources
 E:\citmanuu\obj\Debug\MANUUFinance.ImportHelp.resources
-E:\citmanuu\obj\Debug\MANUUFinance.VirtuaHead.resources
+E:\citmanuu\obj\Debug\MANUUFinance.frmVirtuaHead.resources
+E:\citmanuu\obj\Debug\MANUUFinance.frmBudgetPurpose.resources

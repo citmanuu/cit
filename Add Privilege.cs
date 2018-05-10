@@ -355,7 +355,7 @@ namespace MANUUFinance
                 con.Open();
                
                 // Get the number of the row in database
-                SqlCommand cmd = new SqlCommand("Privileges_addoreditordelete", con);
+                SqlCommand cmd = new SqlCommand("privilege_update", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [finance].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
@@ -420,7 +420,7 @@ namespace MANUUFinance
                     {
 
                         //Connection String 
-                        string cs = ConfigurationManager.ConnectionStrings["LdapConnectionString"].ConnectionString;
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
 
                         //Instantiate SQL Connection
                         SqlConnection con = new SqlConnection(cs);
@@ -428,11 +428,11 @@ namespace MANUUFinance
                         // Open the connection
                         con.Open();
                         // Get the number of the row in database
-                        SqlCommand cmd = new SqlCommand("Privileges_addoreditordelete", con);
+                        SqlCommand cmd = new SqlCommand("privilege_delete", con);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Ldap].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
-                        cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Ldap].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
+                        cmd.Parameters.AddWithValue("@RoleId", int.Parse(new SqlCommand("SELECT RoleId FROM [Finance].[dbo].[RoleMST] where RoleName = '" + comboBox1.Text + "'", con).ExecuteScalar().ToString()));
+                        cmd.Parameters.AddWithValue("@FormId", int.Parse(new SqlCommand("SELECT FormId FROM [Finance].[dbo].[FormMST] where FormName = '" + comboBox2.Text + "'", con).ExecuteScalar().ToString()));
 
                         try
                         {

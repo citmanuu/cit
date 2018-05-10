@@ -43,9 +43,11 @@
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billDespatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.demonstrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.virtualHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mastersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleHierarchyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +68,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.budgetScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -181,7 +183,9 @@
             this.budgetScheduleToolStripMenuItem,
             this.billDespatchToolStripMenuItem,
             this.copyBudgetToolStripMenuItem,
-            this.demonstrationToolStripMenuItem});
+            this.demonstrationToolStripMenuItem,
+            this.virtualHeadToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(85, 28);
             this.transactionsToolStripMenuItem.Text = "Transactions";
@@ -199,7 +203,16 @@
             this.budgetPurposeToolStripMenuItem.Name = "budgetPurposeToolStripMenuItem";
             this.budgetPurposeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.budgetPurposeToolStripMenuItem.Text = "Budget Purpose";
+            this.budgetPurposeToolStripMenuItem.Visible = false;
             this.budgetPurposeToolStripMenuItem.Click += new System.EventHandler(this.budgetPurposeToolStripMenuItem_Click);
+            // 
+            // budgetScheduleToolStripMenuItem
+            // 
+            this.budgetScheduleToolStripMenuItem.Name = "budgetScheduleToolStripMenuItem";
+            this.budgetScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.budgetScheduleToolStripMenuItem.Text = "Budget Schedule";
+            this.budgetScheduleToolStripMenuItem.Visible = false;
+            this.budgetScheduleToolStripMenuItem.Click += new System.EventHandler(this.budgetScheduleToolStripMenuItem_Click);
             // 
             // billDespatchToolStripMenuItem
             // 
@@ -224,6 +237,14 @@
             this.demonstrationToolStripMenuItem.Text = "Demonstration";
             this.demonstrationToolStripMenuItem.Visible = false;
             this.demonstrationToolStripMenuItem.Click += new System.EventHandler(this.demonstrationToolStripMenuItem_Click);
+            // 
+            // virtualHeadToolStripMenuItem
+            // 
+            this.virtualHeadToolStripMenuItem.Name = "virtualHeadToolStripMenuItem";
+            this.virtualHeadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.virtualHeadToolStripMenuItem.Text = "Virtual Head";
+            this.virtualHeadToolStripMenuItem.Visible = false;
+            this.virtualHeadToolStripMenuItem.Click += new System.EventHandler(this.virtualHeadToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -390,12 +411,11 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // budgetScheduleToolStripMenuItem
+            // testToolStripMenuItem
             // 
-            this.budgetScheduleToolStripMenuItem.Name = "budgetScheduleToolStripMenuItem";
-            this.budgetScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.budgetScheduleToolStripMenuItem.Text = "Budget Schedule";
-            this.budgetScheduleToolStripMenuItem.Click += new System.EventHandler(this.budgetScheduleToolStripMenuItem_Click);
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testToolStripMenuItem.Text = "Test ";
             // 
             // MDIParent
             // 
@@ -464,6 +484,8 @@
         private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetPurposeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetScheduleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem virtualHeadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }
 

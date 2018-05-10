@@ -266,16 +266,23 @@ namespace MANUUFinance
 
         private void budgetPurposeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string budgetpurpose = "Budget Purpose";
-            BudgetPurpose objectbudgetpurpose = new BudgetPurpose(userId, deptId, roleId, budgetpurpose);
+            string budgetpurpose = "BUDGET PURPOSE";
+            frmBudgetPurpose objectbudgetpurpose = new frmBudgetPurpose(userId, deptId, roleId, budgetpurpose);
             objectbudgetpurpose.ShowDialog();
         }
 
         private void budgetScheduleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string budgetschedule = "Budget Schedule";
+            string budgetschedule = "BUDGET SCHEDULE";
             BudgetSchedule objectbudgetschedule = new BudgetSchedule(userId, deptId, roleId, budgetschedule );
                 objectbudgetschedule.ShowDialog();
+        }
+
+        private void virtualHeadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string virtuahead = "VIRTUAL HEAD";
+            frmVirtuaHead objectvirtualhead = new frmVirtuaHead(userId, deptId, roleId, virtuahead);
+            objectvirtualhead.ShowDialog();
         }
 
         private void addPrivilegesToolStripMenuItem_Click_1(object sender, EventArgs e)

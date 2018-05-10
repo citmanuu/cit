@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class VirtuaHead
+    partial class frmVirtuaHead
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.testingviewTableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.testingviewTableAdapter();
             this.comboVH = new System.Windows.Forms.ComboBox();
@@ -50,18 +50,18 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.DGVVH = new System.Windows.Forms.DataGridView();
-            this.financeDataSet17 = new MANUUFinance.FinanceDataSet17();
-            this.virtualHeadViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.virtualHeadViewTableAdapter = new MANUUFinance.FinanceDataSet17TableAdapters.VirtualHeadViewTableAdapter();
             this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL3NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.virtualHeadViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet17 = new MANUUFinance.FinanceDataSet17();
+            this.virtualHeadViewTableAdapter = new MANUUFinance.FinanceDataSet17TableAdapters.VirtualHeadViewTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVVH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.virtualHeadViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet17)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -254,8 +254,8 @@
             // 
             this.DGVVH.AllowUserToAddRows = false;
             this.DGVVH.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.DGVVH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVVH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVVH.AutoGenerateColumns = false;
             this.DGVVH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVVH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -270,20 +270,6 @@
             this.DGVVH.Size = new System.Drawing.Size(645, 150);
             this.DGVVH.TabIndex = 4;
             this.DGVVH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVVH_CellContentClick);
-            // 
-            // financeDataSet17
-            // 
-            this.financeDataSet17.DataSetName = "FinanceDataSet17";
-            this.financeDataSet17.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // virtualHeadViewBindingSource
-            // 
-            this.virtualHeadViewBindingSource.DataMember = "VirtualHeadView";
-            this.virtualHeadViewBindingSource.DataSource = this.financeDataSet17;
-            // 
-            // virtualHeadViewTableAdapter
-            // 
-            this.virtualHeadViewTableAdapter.ClearBeforeFill = true;
             // 
             // sL1NameDataGridViewTextBoxColumn
             // 
@@ -317,7 +303,21 @@
             this.accNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.accNameDataGridViewTextBoxColumn.Width = 150;
             // 
-            // VirtuaHead
+            // virtualHeadViewBindingSource
+            // 
+            this.virtualHeadViewBindingSource.DataMember = "VirtualHeadView";
+            this.virtualHeadViewBindingSource.DataSource = this.financeDataSet17;
+            // 
+            // financeDataSet17
+            // 
+            this.financeDataSet17.DataSetName = "FinanceDataSet17";
+            this.financeDataSet17.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // virtualHeadViewTableAdapter
+            // 
+            this.virtualHeadViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // frmVirtuaHead
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -325,15 +325,15 @@
             this.Controls.Add(this.DGVVH);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "VirtuaHead";
-            this.Text = " ";
+            this.Name = "frmVirtuaHead";
+            this.Text = "Virtual Head";
             this.Load += new System.EventHandler(this.VirtuaHead_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVVH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.virtualHeadViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet17)).EndInit();
             this.ResumeLayout(false);
 
         }

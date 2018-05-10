@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class BudgetPurpose : Form
+    public partial class frmBudgetPurpose : Form
     {
         private int userId, deptId, roleId;
         string formName;
         public int globleTimeBE = 0, globleTimeRBE =0;
         DateTime starttimeBE, starttimeRBE;
         DateTime endtimeBE, endtimeRBE;
-        public BudgetPurpose(int userId, int deptId, int roleId, string formName)
+        public frmBudgetPurpose(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             this.userId = userId;
