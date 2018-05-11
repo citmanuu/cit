@@ -417,16 +417,19 @@
             // comboBudgetACTYPE
             // 
             this.comboBudgetACTYPE.FormattingEnabled = true;
-            this.comboBudgetACTYPE.Location = new System.Drawing.Point(633, 74);
+            this.comboBudgetACTYPE.Items.AddRange(new object[] {
+            "Actual",
+            "Virtual"});
+            this.comboBudgetACTYPE.Location = new System.Drawing.Point(187, 25);
             this.comboBudgetACTYPE.Name = "comboBudgetACTYPE";
-            this.comboBudgetACTYPE.Size = new System.Drawing.Size(121, 21);
+            this.comboBudgetACTYPE.Size = new System.Drawing.Size(304, 21);
             this.comboBudgetACTYPE.TabIndex = 40;
             this.comboBudgetACTYPE.SelectedIndexChanged += new System.EventHandler(this.comboBudgetACTYPE_SelectedIndexChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(523, 77);
+            this.label15.Location = new System.Drawing.Point(25, 28);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(93, 13);
@@ -435,7 +438,7 @@
             // 
             // txtBECY
             // 
-            this.txtBECY.Location = new System.Drawing.Point(186, 132);
+            this.txtBECY.Location = new System.Drawing.Point(186, 138);
             this.txtBECY.Margin = new System.Windows.Forms.Padding(2);
             this.txtBECY.Name = "txtBECY";
             this.txtBECY.Size = new System.Drawing.Size(305, 20);
@@ -447,7 +450,7 @@
             this.comboAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboAccount.FormattingEnabled = true;
-            this.comboAccount.Location = new System.Drawing.Point(186, 103);
+            this.comboAccount.Location = new System.Drawing.Point(632, 110);
             this.comboAccount.Margin = new System.Windows.Forms.Padding(2);
             this.comboAccount.Name = "comboAccount";
             this.comboAccount.Size = new System.Drawing.Size(305, 21);
@@ -462,7 +465,7 @@
             this.pinSL3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pinSL3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pinSL3.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinSL3.Location = new System.Drawing.Point(493, 77);
+            this.pinSL3.Location = new System.Drawing.Point(493, 110);
             this.pinSL3.Margin = new System.Windows.Forms.Padding(2);
             this.pinSL3.Name = "pinSL3";
             this.pinSL3.Size = new System.Drawing.Size(19, 17);
@@ -480,7 +483,7 @@
             this.pinSL2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pinSL2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pinSL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinSL2.Location = new System.Drawing.Point(940, 47);
+            this.pinSL2.Location = new System.Drawing.Point(940, 80);
             this.pinSL2.Margin = new System.Windows.Forms.Padding(2);
             this.pinSL2.Name = "pinSL2";
             this.pinSL2.Size = new System.Drawing.Size(19, 17);
@@ -498,7 +501,7 @@
             this.pinDept.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pinDept.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pinDept.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinDept.Location = new System.Drawing.Point(940, 23);
+            this.pinDept.Location = new System.Drawing.Point(940, 56);
             this.pinDept.Margin = new System.Windows.Forms.Padding(2);
             this.pinDept.Name = "pinDept";
             this.pinDept.Size = new System.Drawing.Size(19, 17);
@@ -516,7 +519,7 @@
             this.pinSL1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pinSL1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pinSL1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinSL1.Location = new System.Drawing.Point(493, 49);
+            this.pinSL1.Location = new System.Drawing.Point(493, 82);
             this.pinSL1.Margin = new System.Windows.Forms.Padding(2);
             this.pinSL1.Name = "pinSL1";
             this.pinSL1.Size = new System.Drawing.Size(19, 17);
@@ -534,7 +537,7 @@
             this.pinFY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pinFY.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pinFY.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinFY.Location = new System.Drawing.Point(493, 21);
+            this.pinFY.Location = new System.Drawing.Point(493, 54);
             this.pinFY.Margin = new System.Windows.Forms.Padding(2);
             this.pinFY.Name = "pinFY";
             this.pinFY.Size = new System.Drawing.Size(19, 17);
@@ -548,7 +551,7 @@
             this.comboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboDept.FormattingEnabled = true;
-            this.comboDept.Location = new System.Drawing.Point(632, 21);
+            this.comboDept.Location = new System.Drawing.Point(632, 54);
             this.comboDept.Margin = new System.Windows.Forms.Padding(2);
             this.comboDept.Name = "comboDept";
             this.comboDept.Size = new System.Drawing.Size(305, 21);
@@ -559,7 +562,7 @@
             this.comboFY.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboFY.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboFY.FormattingEnabled = true;
-            this.comboFY.Location = new System.Drawing.Point(186, 21);
+            this.comboFY.Location = new System.Drawing.Point(186, 54);
             this.comboFY.Margin = new System.Windows.Forms.Padding(2);
             this.comboFY.Name = "comboFY";
             this.comboFY.Size = new System.Drawing.Size(305, 21);
@@ -568,7 +571,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(24, 23);
+            this.label13.Location = new System.Drawing.Point(24, 56);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 13);
@@ -578,7 +581,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(523, 23);
+            this.label14.Location = new System.Drawing.Point(523, 56);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(62, 13);
@@ -587,7 +590,7 @@
             // 
             // txtBENY
             // 
-            this.txtBENY.Location = new System.Drawing.Point(186, 158);
+            this.txtBENY.Location = new System.Drawing.Point(186, 164);
             this.txtBENY.Margin = new System.Windows.Forms.Padding(2);
             this.txtBENY.Name = "txtBENY";
             this.txtBENY.Size = new System.Drawing.Size(68, 20);
@@ -597,7 +600,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 160);
+            this.label8.Location = new System.Drawing.Point(24, 166);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(140, 13);
@@ -607,7 +610,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 132);
+            this.label3.Location = new System.Drawing.Point(24, 138);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 13);
@@ -619,7 +622,7 @@
             this.comboSL3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboSL3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL3.FormattingEnabled = true;
-            this.comboSL3.Location = new System.Drawing.Point(186, 75);
+            this.comboSL3.Location = new System.Drawing.Point(186, 108);
             this.comboSL3.Margin = new System.Windows.Forms.Padding(2);
             this.comboSL3.Name = "comboSL3";
             this.comboSL3.Size = new System.Drawing.Size(305, 21);
@@ -629,7 +632,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 77);
+            this.label2.Location = new System.Drawing.Point(24, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
@@ -641,7 +644,7 @@
             this.comboSL2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboSL2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL2.FormattingEnabled = true;
-            this.comboSL2.Location = new System.Drawing.Point(632, 48);
+            this.comboSL2.Location = new System.Drawing.Point(632, 81);
             this.comboSL2.Margin = new System.Windows.Forms.Padding(2);
             this.comboSL2.Name = "comboSL2";
             this.comboSL2.Size = new System.Drawing.Size(305, 21);
@@ -653,7 +656,7 @@
             this.comboSL1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboSL1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboSL1.FormattingEnabled = true;
-            this.comboSL1.Location = new System.Drawing.Point(186, 48);
+            this.comboSL1.Location = new System.Drawing.Point(186, 81);
             this.comboSL1.Margin = new System.Windows.Forms.Padding(2);
             this.comboSL1.Name = "comboSL1";
             this.comboSL1.Size = new System.Drawing.Size(305, 21);
@@ -662,7 +665,7 @@
             // 
             // txtRBECY
             // 
-            this.txtRBECY.Location = new System.Drawing.Point(657, 132);
+            this.txtRBECY.Location = new System.Drawing.Point(657, 138);
             this.txtRBECY.Margin = new System.Windows.Forms.Padding(2);
             this.txtRBECY.Name = "txtRBECY";
             this.txtRBECY.Size = new System.Drawing.Size(68, 20);
@@ -672,7 +675,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(548, 134);
+            this.label1.Location = new System.Drawing.Point(548, 140);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 13);
@@ -682,7 +685,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 50);
+            this.label6.Location = new System.Drawing.Point(24, 83);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
@@ -692,7 +695,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(523, 49);
+            this.label7.Location = new System.Drawing.Point(523, 82);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
@@ -702,7 +705,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 103);
+            this.label4.Location = new System.Drawing.Point(524, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
@@ -711,7 +714,7 @@
             // 
             // txtPKBudgetID
             // 
-            this.txtPKBudgetID.Location = new System.Drawing.Point(880, 149);
+            this.txtPKBudgetID.Location = new System.Drawing.Point(869, 159);
             this.txtPKBudgetID.Margin = new System.Windows.Forms.Padding(2);
             this.txtPKBudgetID.Name = "txtPKBudgetID";
             this.txtPKBudgetID.Size = new System.Drawing.Size(68, 20);

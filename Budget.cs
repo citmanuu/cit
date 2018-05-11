@@ -480,56 +480,63 @@ namespace MANUUFinance
         //Validate Controls
         private bool validateRecord()
         {
-            bool validationResult = true;
-            string validationMessage = "";
-
-            if (Convert.ToString(comboFY.SelectedValue) == "0")
+            if (comboBudgetACTYPE.Text.Equals("Virtual"))
             {
-                validationMessage = "Please Select Financial Year\n";
-                validationResult = false;
-            }
-            if (Convert.ToString(comboDept.SelectedValue) == "0")
-            {
-                validationMessage = "Please Select Departent Name\n";
-                validationResult = false;
-            }
-            if (Convert.ToString(comboSL1.SelectedValue) == "0")
-            {
-                validationMessage = "Please Select SL1 Name\n";
-                validationResult = false;
-            }
-            if (Convert.ToString(comboSL2.SelectedValue) == "0")
-            {
-                validationMessage += "Please Select SL2 Name\n";
-                validationResult = false;
-            }
-            if (Convert.ToString(comboSL3.SelectedValue) == "0")
-            {
-                validationMessage += "Please Select SL3 Name\n";
-                validationResult = false;
-            }
-            if (txtBECY.Text.Length == 0)
-            {
-                validationMessage += "Please provide value for Current Year's Budget Estimate\n";
-                validationResult = false;
-            }
-            if (txtRBECY.Text.Length == 0)
-            {
-                validationMessage += "Please provide value for Current Year's Revised Budget Estimate\n";
-                validationResult = false;
-            }
-            if (txtBENY.Text.Length == 0)
-            {
-                validationMessage += "Please provide value for Next Year's Budget Estimate\n";
-                validationResult = false;
-            }
-            if (validationResult == false)
-            {
-                MessageBox.Show(validationMessage, "Account Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
+                return true;
             }
             else
-                return true;
+            {
+                bool validationResult = true;
+                string validationMessage = "";
+
+                if (Convert.ToString(comboFY.SelectedValue) == "0")
+                {
+                    validationMessage = "Please Select Financial Year\n";
+                    validationResult = false;
+                }
+                if (Convert.ToString(comboDept.SelectedValue) == "0")
+                {
+                    validationMessage = "Please Select Departent Name\n";
+                    validationResult = false;
+                }
+                if (Convert.ToString(comboSL1.SelectedValue) == "0")
+                {
+                    validationMessage = "Please Select SL1 Name\n";
+                    validationResult = false;
+                }
+                if (Convert.ToString(comboSL2.SelectedValue) == "0")
+                {
+                    validationMessage += "Please Select SL2 Name\n";
+                    validationResult = false;
+                }
+                if (Convert.ToString(comboSL3.SelectedValue) == "0")
+                {
+                    validationMessage += "Please Select SL3 Name\n";
+                    validationResult = false;
+                }
+                if (txtBECY.Text.Length == 0)
+                {
+                    validationMessage += "Please provide value for Current Year's Budget Estimate\n";
+                    validationResult = false;
+                }
+                if (txtRBECY.Text.Length == 0)
+                {
+                    validationMessage += "Please provide value for Current Year's Revised Budget Estimate\n";
+                    validationResult = false;
+                }
+                if (txtBENY.Text.Length == 0)
+                {
+                    validationMessage += "Please provide value for Next Year's Budget Estimate\n";
+                    validationResult = false;
+                }
+                if (validationResult == false)
+                {
+                    MessageBox.Show(validationMessage, "Account Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+                else
+                    return true;
+            }
         }
         
         //Filter entries for comboSL2 based on Selection of comboSL1
@@ -954,6 +961,9 @@ namespace MANUUFinance
             if (comboBudgetACTYPE.SelectedIndex == 2)
             {
                 PrepareAccountTypecombo();
+                comboSL1.Enabled = false;
+                comboSL2.Enabled = false;
+                comboSL3.Enabled = false;
             }
             else
                 PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));            
