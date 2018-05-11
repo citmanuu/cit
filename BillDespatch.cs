@@ -20,7 +20,6 @@ namespace MANUUFinance
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
-
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -34,6 +33,7 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet6.BillMstView' table. You can move, or remove it, as needed.
             this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
+
             txtPKBillID.Text = "0";
             txtBillDate.Text = today.ToString("dd/MM/yyyy");
             retrievedForUpdate = false;
@@ -41,6 +41,10 @@ namespace MANUUFinance
             PrepareDeptCombo();
             PrepareBillTypeCombo();
             PrepareBillStatusCombo();
+            if (new AdministratorLogin().administratorLogin(userId))
+            {
+                prepareaction();
+            }
         }
 
         //DML Region Starts here
@@ -294,9 +298,9 @@ namespace MANUUFinance
                                                  Convert.ToString((Convert.ToInt32(objsqlCommand.ExecuteScalar()) + 1)).PadLeft(5, '0');
                             objSqlCmd.Parameters.AddWithValue("@BillNumber", txtBillNumber.Text);
                             //objSqlCmd.Parameters.AddWithValue("@PKBillId",  0);
-                            txtPKBillID.Text = Convert.ToString(objSqlCmd.ExecuteScalar());
-                        }
-
+                            txtPKBillID.Text = Convert.ToString(objSqlCmd.ExecuteScalar());                            
+                         }
+                        
                         //Add Bill Detail Record 
                         if (Convert.ToInt32(comboAccountName.SelectedValue) >= 0 && txtPKBillID.Text != "0")
                         {
@@ -337,7 +341,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
+                    this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
                 }
             }
 
@@ -513,58 +517,23 @@ namespace MANUUFinance
         private void PrepareBeneficiaryCombo()
         {
             //Prepare Medical Combo
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 14 || Convert.ToInt32(comboBillType.SelectedValue) == 15)
+            if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
             {
-                PrepareSupplierStudentEmployeeCombo();
+                //PrepareEmployeeCombo();
             }
             //Prepare Student Combo
-            //else if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
-            //{
-            //    PrepareStudentsCombo();
-            //}
+            else if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
+            {
+                PrepareStudentsCombo();
+            }
             //Prepare Employee Combo
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 13)
+            else if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
             {
                 PrepareEmployeesCombo();
             }
-            //else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
-            //{
-            //    PrepareSuppliersCombo();
-            //}
-        }
-
-        private void PrepareSupplierStudentEmployeeCombo()
-        {
-            var objLOVClass = new List<LOV>();
-            objLOVClass.Add(new LOV(0, "-- Please Select --"));
-
-            //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-            //Instantiate SQL Connection
-            SqlConnection objSqlConnection = new SqlConnection(cs);
-            //Prepare Update String
-            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 3 Order by 2";
-            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
-            try
+            else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
             {
-                objSqlConnection.Open();
-                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
-                while (objDataReader.Read())
-                {
-                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
-                }
-                // Bind combobox list to the items
-                comboBillStatus.DisplayMember = "ListItemDesc"; // will display Name property
-                comboBillStatus.ValueMember = "ListItemID"; // will select Value property
-                comboBillStatus.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                objSqlConnection.Close();
+                PrepareSuppliersCombo();
             }
         }
 
@@ -748,30 +717,30 @@ namespace MANUUFinance
                 }
 
                 if (Convert.ToInt32(comboBeneficiery.SelectedValue) > 0)
-                {
-                    if (SearchStatement.Length > 0)
                     {
-                        SearchStatement.Append(" and ");
-                    }
-                    //If Bill Type is of Employee (11); Assign Beneficiery Combo Value to Employee column
-                    if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
-                    {
-                        SearchStatement.Append("FKEmpID = " + Convert.ToInt32(comboBeneficiery.SelectedValue));
-                    }
-                    else //If Bill Type is of Medical (3); Assign Beneficiery Combo Value to ............column
-                    if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
-                    {
-                    }
-                    else //If Bill Type is of Student (4); Assign Beneficiery Combo Value to Student column
-                    if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
-                    {
-                        SearchStatement.Append("FKStuID = " + Convert.ToInt32(comboBeneficiery.SelectedValue));
-                    }
-                    else //If Bill Type is of Employee (4); Assign Beneficiery Combo Value to Supplier column
-                    if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
-                    {
-                        SearchStatement.Append("FKSupID = " + Convert.ToInt32(comboBeneficiery.SelectedValue));
-                    }
+                        if (SearchStatement.Length > 0)
+                        {
+                            SearchStatement.Append(" and ");
+                        }
+                        //If Bill Type is of Employee (11); Assign Beneficiery Combo Value to Employee column
+                        if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
+                        {
+                            SearchStatement.Append("FKEmpID = " + Convert.ToInt32(comboBeneficiery.SelectedValue));
+                        }
+                        else //If Bill Type is of Medical (3); Assign Beneficiery Combo Value to ............column
+                        if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
+                        {
+                        }
+                        else //If Bill Type is of Student (4); Assign Beneficiery Combo Value to Student column
+                        if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
+                        {
+                            SearchStatement.Append("FKStuID = " + Convert.ToInt32(comboBeneficiery.SelectedValue));
+                        }
+                        else //If Bill Type is of Employee (4); Assign Beneficiery Combo Value to Supplier column
+                        if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+                        {
+                            SearchStatement.Append("FKSupID = " + Convert.ToInt32(comboBeneficiery.SelectedValue));
+                        }
                 }
                 if (Convert.ToInt32(comboBillStatus.SelectedValue) > 0)
                 {
@@ -790,7 +759,7 @@ namespace MANUUFinance
                     SearchStatement.Append("[BillNarration] like '%" + txtBillNarration.Text + "%'");
                 }
                 try
-                {
+                    {
                     if (SearchStatement.ToString().Length > 0)
                     {
                         billMstViewBindingSource.Filter = SearchStatement.ToString();
@@ -815,6 +784,12 @@ namespace MANUUFinance
             }
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(comboACID, "Bill Dispatch");
+            objectsupport.ShowDialog();
+        }
+
         private void comboAccountName_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Connection String
@@ -822,7 +797,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Get Value for BillNumber
-            string sqlCommand = "Select SL1Name, SL2Name, SL3Name FROM [dbo].[BudgetWithAccounts] where PKACID = @PKACID";
+            string sqlCommand = "Select SL1Name, SL2Name, SL3Name FROM [dbo].[BudgetWithAccounts] where PKACID = @PKACID" ;
             SqlCommand objsqlCommand = new SqlCommand(sqlCommand, objSqlConnection);
 
             try
@@ -839,7 +814,7 @@ namespace MANUUFinance
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -848,53 +823,86 @@ namespace MANUUFinance
             //Refresh DGV 
             //this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
         }
+        // prepare action add, update and delete
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
+        }
     }
 
 }
 
 
-#endregion
+        #endregion
 
-//private void DGVBillDtl_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-//{
-//    if (this.DGVBillDtl.CurrentCell.ColumnIndex == 1)
-//    {
-//        //Get AccountName Combo Object
-//        e.CellStyle.BackColor = Color.Aquamarine;
-//        MessageBox.Show("Here");
+        //private void DGVBillDtl_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        //{
+        //    if (this.DGVBillDtl.CurrentCell.ColumnIndex == 1)
+        //    {
+        //        //Get AccountName Combo Object
+        //        e.CellStyle.BackColor = Color.Aquamarine;
+        //        MessageBox.Show("Here");
 
-//        accountNameCombo = e.Control as ComboBox;
-//        if (accountNameCombo != null)
-//        {
-//            //Avoid Attaching Multiple Event Handlers
-//            accountNameCombo.SelectedIndexChanged -= new EventHandler(accountNameCombo_SelectedIndexChanged);
+        //        accountNameCombo = e.Control as ComboBox;
+        //        if (accountNameCombo != null)
+        //        {
+        //            //Avoid Attaching Multiple Event Handlers
+        //            accountNameCombo.SelectedIndexChanged -= new EventHandler(accountNameCombo_SelectedIndexChanged);
 
-//            //Attach New Event Handler
-//            accountNameCombo.SelectedIndexChanged += accountNameCombo_SelectedIndexChanged;
-//        }
-//    }
-////    else
-////        accountNameCombo.SelectedIndexChanged -= new EventHandler(accountNameCombo_SelectedIndexChanged);
-//}
+        //            //Attach New Event Handler
+        //            accountNameCombo.SelectedIndexChanged += accountNameCombo_SelectedIndexChanged;
+        //        }
+        //    }
+        ////    else
+        ////        accountNameCombo.SelectedIndexChanged -= new EventHandler(accountNameCombo_SelectedIndexChanged);
+        //}
 
-//private void accountNameCombo_SelectedIndexChanged(object sender, EventArgs e)
-//{
-//    string selected = (sender as ComboBox).SelectedIndex.ToString();
-//    MessageBox.Show("Here-2" + selected);
+        //private void accountNameCombo_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string selected = (sender as ComboBox).SelectedIndex.ToString();
+        //    MessageBox.Show("Here-2" + selected);
 
-//    //RadComboBoxElement combo = (RadComboBoxElement)sender;
-//    //int index = combo.SelectedIndex;
-//    if (selected == "-1")
-//    {
-//        (sender as ComboBox).BindingContext = new BindingContext();
-//    }
+        //    //RadComboBoxElement combo = (RadComboBoxElement)sender;
+        //    //int index = combo.SelectedIndex;
+        //    if (selected == "-1")
+        //    {
+        //        (sender as ComboBox).BindingContext = new BindingContext();
+        //    }
 
-//    DGVBillDtl.Rows[DGVBillDtl.CurrentCell.RowIndex].Cells[1].Value = selected;
-//    DGVBillDtl.Rows[DGVBillDtl.CurrentCell.RowIndex].Cells[2].Value = txtPKBillID.Text;
+        //    DGVBillDtl.Rows[DGVBillDtl.CurrentCell.RowIndex].Cells[1].Value = selected;
+        //    DGVBillDtl.Rows[DGVBillDtl.CurrentCell.RowIndex].Cells[2].Value = txtPKBillID.Text;
 
-//}
+        //}
 
-
+     
 
 
 
