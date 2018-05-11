@@ -329,7 +329,8 @@ namespace MANUUFinance
                         objInsertCommand.Parameters.AddWithValue("@BECY", txtBECY.Text);
                         objInsertCommand.Parameters.AddWithValue("@RBECY", txtRBECY.Text);
                         objInsertCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
-                    objInsertCommand.Parameters.AddWithValue("@BudgetAcType", comboBudgetACTYPE.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@BudgetAcType", comboBudgetACTYPE.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@", 117);
 
                     try
                         {
@@ -979,7 +980,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "Select Distinct VHID, VHNAME from Finance.dbo.VHMst order by 2";
+            string selectCommand = "Select Distinct VHID, VHNAME from Finance.dbo.VHMst where isActive = 1 order by 2";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {

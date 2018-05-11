@@ -93,7 +93,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 2 Order by 1";
+            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 4 Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -513,23 +513,58 @@ namespace MANUUFinance
         private void PrepareBeneficiaryCombo()
         {
             //Prepare Medical Combo
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
+            if (Convert.ToInt32(comboBillType.SelectedValue) == 14 || Convert.ToInt32(comboBillType.SelectedValue) == 15)
             {
-                //PrepareEmployeeCombo();
+                PrepareSupplierStudentEmployeeCombo();
             }
             //Prepare Student Combo
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
-            {
-                PrepareStudentsCombo();
-            }
+            //else if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
+            //{
+            //    PrepareStudentsCombo();
+            //}
             //Prepare Employee Combo
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
+            else if (Convert.ToInt32(comboBillType.SelectedValue) == 13)
             {
                 PrepareEmployeesCombo();
             }
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+            //else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+            //{
+            //    PrepareSuppliersCombo();
+            //}
+        }
+
+        private void PrepareSupplierStudentEmployeeCombo()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 3 Order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
             {
-                PrepareSuppliersCombo();
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboBillStatus.DisplayMember = "ListItemDesc"; // will display Name property
+                comboBillStatus.ValueMember = "ListItemID"; // will select Value property
+                comboBillStatus.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
             }
         }
 

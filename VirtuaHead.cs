@@ -250,7 +250,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT VHID, VHNAME FROM [finance].[dbo].[VHMst] where VHID = 1 Order by 2";
+            string selectCommand = "SELECT VHID, VHNAME FROM [finance].[dbo].[VHMst] Order by 2";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
