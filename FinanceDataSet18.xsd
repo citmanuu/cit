@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinanceDataSet18" targetNamespace="http://tempuri.org/FinanceDataSet18.xsd" xmlns:mstns="http://tempuri.org/FinanceDataSet18.xsd" xmlns="http://tempuri.org/FinanceDataSet18.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinanceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinanceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MANUUFinance.Properties.Settings.GlobalReference.Default.FinanceConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BillMstViewTableAdapter" GeneratorDataComponentClassName="BillMstViewTableAdapter" Name="BillMstView" UserDataComponentName="BillMstViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinanceConnectionString (Settings)" DbObjectName="Finance.dbo.BillMstView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PKBillID, BillNumber, BillNarration, DeptName, BeneficieryName, BillStatus, BillType, FKDepID, BeneficiaryID, FKBillStatus, FKBillType, BillCreatedOn, BillUpdatedOn, BillUpdatedBy FROM dbo.BillMstView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PKBillID" DataSetColumn="PKBillID" />
+              <Mapping SourceColumn="BillNumber" DataSetColumn="BillNumber" />
+              <Mapping SourceColumn="BillNarration" DataSetColumn="BillNarration" />
+              <Mapping SourceColumn="DeptName" DataSetColumn="DeptName" />
+              <Mapping SourceColumn="BeneficieryName" DataSetColumn="BeneficieryName" />
+              <Mapping SourceColumn="BillStatus" DataSetColumn="BillStatus" />
+              <Mapping SourceColumn="BillType" DataSetColumn="BillType" />
+              <Mapping SourceColumn="FKDepID" DataSetColumn="FKDepID" />
+              <Mapping SourceColumn="BeneficiaryID" DataSetColumn="BeneficiaryID" />
+              <Mapping SourceColumn="FKBillStatus" DataSetColumn="FKBillStatus" />
+              <Mapping SourceColumn="FKBillType" DataSetColumn="FKBillType" />
+              <Mapping SourceColumn="BillCreatedOn" DataSetColumn="BillCreatedOn" />
+              <Mapping SourceColumn="BillUpdatedOn" DataSetColumn="BillUpdatedOn" />
+              <Mapping SourceColumn="BillUpdatedBy" DataSetColumn="BillUpdatedBy" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinanceDataSet18" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FinanceDataSet18" msprop:Generator_UserDSName="FinanceDataSet18">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BillMstView" msprop:Generator_TableClassName="BillMstViewDataTable" msprop:Generator_TableVarName="tableBillMstView" msprop:Generator_TablePropName="BillMstView" msprop:Generator_RowDeletingName="BillMstViewRowDeleting" msprop:Generator_RowChangingName="BillMstViewRowChanging" msprop:Generator_RowEvHandlerName="BillMstViewRowChangeEventHandler" msprop:Generator_RowDeletedName="BillMstViewRowDeleted" msprop:Generator_UserTableName="BillMstView" msprop:Generator_RowChangedName="BillMstViewRowChanged" msprop:Generator_RowEvArgName="BillMstViewRowChangeEvent" msprop:Generator_RowClassName="BillMstViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PKBillID" msprop:Generator_ColumnVarNameInTable="columnPKBillID" msprop:Generator_ColumnPropNameInRow="PKBillID" msprop:Generator_ColumnPropNameInTable="PKBillIDColumn" msprop:Generator_UserColumnName="PKBillID" type="xs:short" />
+              <xs:element name="BillNumber" msprop:Generator_ColumnVarNameInTable="columnBillNumber" msprop:Generator_ColumnPropNameInRow="BillNumber" msprop:Generator_ColumnPropNameInTable="BillNumberColumn" msprop:Generator_UserColumnName="BillNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillNarration" msprop:Generator_ColumnVarNameInTable="columnBillNarration" msprop:Generator_ColumnPropNameInRow="BillNarration" msprop:Generator_ColumnPropNameInTable="BillNarrationColumn" msprop:Generator_UserColumnName="BillNarration" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptName" msprop:Generator_ColumnVarNameInTable="columnDeptName" msprop:Generator_ColumnPropNameInRow="DeptName" msprop:Generator_ColumnPropNameInTable="DeptNameColumn" msprop:Generator_UserColumnName="DeptName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BeneficieryName" msprop:Generator_ColumnVarNameInTable="columnBeneficieryName" msprop:Generator_ColumnPropNameInRow="BeneficieryName" msprop:Generator_ColumnPropNameInTable="BeneficieryNameColumn" msprop:Generator_UserColumnName="BeneficieryName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillStatus" msprop:Generator_ColumnVarNameInTable="columnBillStatus" msprop:Generator_ColumnPropNameInRow="BillStatus" msprop:Generator_ColumnPropNameInTable="BillStatusColumn" msprop:Generator_UserColumnName="BillStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BillType" msprop:Generator_ColumnVarNameInTable="columnBillType" msprop:Generator_ColumnPropNameInRow="BillType" msprop:Generator_ColumnPropNameInTable="BillTypeColumn" msprop:Generator_UserColumnName="BillType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FKDepID" msprop:Generator_ColumnVarNameInTable="columnFKDepID" msprop:Generator_ColumnPropNameInRow="FKDepID" msprop:Generator_ColumnPropNameInTable="FKDepIDColumn" msprop:Generator_UserColumnName="FKDepID" type="xs:short" minOccurs="0" />
+              <xs:element name="BeneficiaryID" msprop:Generator_ColumnVarNameInTable="columnBeneficiaryID" msprop:Generator_ColumnPropNameInRow="BeneficiaryID" msprop:Generator_ColumnPropNameInTable="BeneficiaryIDColumn" msprop:Generator_UserColumnName="BeneficiaryID" type="xs:short" minOccurs="0" />
+              <xs:element name="FKBillStatus" msprop:Generator_ColumnVarNameInTable="columnFKBillStatus" msprop:Generator_ColumnPropNameInRow="FKBillStatus" msprop:Generator_ColumnPropNameInTable="FKBillStatusColumn" msprop:Generator_UserColumnName="FKBillStatus" type="xs:short" minOccurs="0" />
+              <xs:element name="FKBillType" msprop:Generator_ColumnVarNameInTable="columnFKBillType" msprop:Generator_ColumnPropNameInRow="FKBillType" msprop:Generator_ColumnPropNameInTable="FKBillTypeColumn" msprop:Generator_UserColumnName="FKBillType" type="xs:short" minOccurs="0" />
+              <xs:element name="BillCreatedOn" msprop:Generator_ColumnVarNameInTable="columnBillCreatedOn" msprop:Generator_ColumnPropNameInRow="BillCreatedOn" msprop:Generator_ColumnPropNameInTable="BillCreatedOnColumn" msprop:Generator_UserColumnName="BillCreatedOn" type="xs:dateTime" />
+              <xs:element name="BillUpdatedOn" msprop:Generator_ColumnVarNameInTable="columnBillUpdatedOn" msprop:Generator_ColumnPropNameInRow="BillUpdatedOn" msprop:Generator_ColumnPropNameInTable="BillUpdatedOnColumn" msprop:Generator_UserColumnName="BillUpdatedOn" type="xs:dateTime" />
+              <xs:element name="BillUpdatedBy" msprop:Generator_ColumnVarNameInTable="columnBillUpdatedBy" msprop:Generator_ColumnPropNameInRow="BillUpdatedBy" msprop:Generator_ColumnPropNameInTable="BillUpdatedByColumn" msprop:Generator_UserColumnName="BillUpdatedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

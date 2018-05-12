@@ -27,13 +27,13 @@ namespace MANUUFinance
             this.deptId = deptId;
             this.roleId = roleId;
             this.formName = formName;
+
         }
 
         private void frmBillDespatch_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'financeDataSet6.BillMstView' table. You can move, or remove it, as needed.
-            this.billMstViewTableAdapter1.Fill(this.financeDataSet6.BillMstView);
-
+            // TODO: This line of code loads data into the 'financeDataSet18.BillMstView' table. You can move, or remove it, as needed.
+            this.billMstViewTableAdapter1.Fill(this.financeDataSet18.BillMstView);
             txtPKBillID.Text = "0";
             txtBillDate.Text = today.ToString("dd/MM/yyyy");
             retrievedForUpdate = false;
@@ -41,10 +41,46 @@ namespace MANUUFinance
             PrepareDeptCombo();
             PrepareBillTypeCombo();
             PrepareBillStatusCombo();
+            comboBillTypeSub.Enabled = false;
+
             if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
             }
+
+        }
+
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
         }
 
         //DML Region Starts here
@@ -510,28 +546,82 @@ namespace MANUUFinance
         //Prepare appropriate LOV, if BillType gets Changed
         private void comboBillType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //PrepareBeneficiaryCombo();
+            if (Convert.ToInt32(comboBillType.SelectedValue) == 13)
+            {
+                comboBillTypeSub.Enabled = false;
+                comboBillTypeSub.Text = "";
+                PrepareEmployeesCombo();
+            }
+            else
+            {
+                comboBillTypeSub.Enabled = true;
+                PreparecomboBillTypeSub();
+            }
+        }
+        private void comboBillType_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
             PrepareBeneficiaryCombo();
         }
+
+
+
+        private void PreparecomboBillTypeSub()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKGEM, GEMDESC FROM [Finance].[dbo].[GENMST] WHERE GEMID = 2 Order by 1";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboBillTypeSub.DisplayMember = "ListItemDesc"; // will display Name property
+                comboBillTypeSub.ValueMember = "ListItemID"; // will select Value property
+                comboBillTypeSub.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+        }
+
+
 
         //Prepare Beneficiary Combo
         private void PrepareBeneficiaryCombo()
         {
             //Prepare Medical Combo
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
+            if (Convert.ToInt32(comboBillTypeSub.SelectedValue) == 3)
             {
                 //PrepareEmployeeCombo();
             }
             //Prepare Student Combo
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
+            else if (Convert.ToInt32(comboBillTypeSub.SelectedValue) == 4)
             {
                 PrepareStudentsCombo();
             }
             //Prepare Employee Combo
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
+            else if (Convert.ToInt32(comboBillTypeSub.SelectedValue) == 11)
             {
                 PrepareEmployeesCombo();
             }
-            else if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+            else if (Convert.ToInt32(comboBillTypeSub.SelectedValue) == 12)
             {
                 PrepareSuppliersCombo();
             }
@@ -601,6 +691,9 @@ namespace MANUUFinance
             comboBillType.SelectedValue = 0;
             comboBeneficiery.SelectedValue = 0;
             comboBillStatus.SelectedValue = 0;
+            comboBillTypeSub.Enabled = false;
+            comboBillTypeSub.Text = "";
+            comboBillType.Enabled = true;
             txtBillNarration.Text = "";
             retrievedForUpdate = false;
             queryMode = false;
@@ -612,14 +705,17 @@ namespace MANUUFinance
         {
             if (e.RowIndex >= 0)
             {
-                txtPKBillID.Text = comboACID.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                txtBillNumber.Text = comboACID.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                txtBillNarration.Text = comboACID.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                comboDept.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[7].FormattedValue.ToString());
-                comboBillType.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());
-                comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());
-                comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
-                txtBillDate.Text = comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString();// "dd/MM/yyyy");
+                comboBillTypeSub.Enabled = true;
+                comboBillType.Enabled = false;
+               
+                txtPKBillID.Text = comboACID.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                txtBillNumber.Text = comboACID.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                txtBillNarration.Text = comboACID.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                comboDept.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());
+                comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
+                comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());                
+                txtBillDate.Text = comboACID.Rows[e.RowIndex].Cells[13].FormattedValue.ToString();// "dd/MM/yyyy");
 
                 retrievedForUpdate = true;
                 LockKeys();
@@ -676,6 +772,17 @@ namespace MANUUFinance
             {
                 objSqlConnection.Close();
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(comboACID, "BillDispatch");
+            objectsupport.ShowDialog();
+        }
+
+        private void comboACID_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         //Execute Form Query
@@ -784,12 +891,6 @@ namespace MANUUFinance
             }
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            Supports objectsupport = new Supports(comboACID, "Bill Dispatch");
-            objectsupport.ShowDialog();
-        }
-
         private void comboAccountName_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Connection String
@@ -822,39 +923,6 @@ namespace MANUUFinance
             }
             //Refresh DGV 
             //this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
-        }
-        // prepare action add, update and delete
-        private void prepareaction()
-        {
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-                btnAdd.Enabled = true;
-            }
-            else
-                btnAdd.Enabled = false;
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-                btnUpdate.Enabled = true;
-            }
-            else
-                btnUpdate.Enabled = false;
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
-                btnDelete.Enabled = true;
-            }
-            else
-                btnDelete.Enabled = false;
-
-            string CanPrint = "CanPrint";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
-            {
-                btnPrint.Enabled = true;
-            }
-            else
-                btnPrint.Enabled = false;
         }
     }
 
