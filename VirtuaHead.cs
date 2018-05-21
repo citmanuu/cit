@@ -301,7 +301,7 @@ namespace MANUUFinance
 
             if (Convert.ToString(comboVH.SelectedValue) == "0")
             {
-                validationMessage = "Please Select Financial Year\n";
+                validationMessage = "Please Select Virtual Head\n";
                 validationResult = false;
             }
             if (Convert.ToString(comboSL1.SelectedValue) == "0")

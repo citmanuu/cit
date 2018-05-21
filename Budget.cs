@@ -555,7 +555,11 @@ namespace MANUUFinance
         //Filter entries for comboSL2 based on Selection of comboSL1
         private void comboSL3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));
+            if(!(comboBudgetACTYPE.SelectedIndex == 2))
+            {
+                PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));
+            }
+            
         }
 
         //Execute Form Query
@@ -962,12 +966,25 @@ namespace MANUUFinance
             if (comboBudgetACTYPE.SelectedIndex == 2)
             {
                 PrepareAccountTypecombo();
+                comboAccount.SelectedIndex = 0;
+                comboSL1.SelectedIndex = 0;
+                comboSL2.SelectedIndex = 0;
+                comboSL3.SelectedIndex = 0;
                 comboSL1.Enabled = false;
                 comboSL2.Enabled = false;
                 comboSL3.Enabled = false;
             }
             else
-                PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));            
+            {
+                PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));
+                comboSL1.Enabled = true;
+                comboSL2.Enabled = true;
+                comboSL3.Enabled = true;
+                comboAccount.SelectedIndex = 0;
+                comboSL1.SelectedIndex = 0;
+                comboSL2.SelectedIndex = 0;
+                comboSL3.SelectedIndex = 0;
+            }                
         }
 
         private void PrepareAccountTypecombo()
@@ -1003,6 +1020,11 @@ namespace MANUUFinance
             {
                 objSqlConnection.Close();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDeptSearch = new System.Windows.Forms.TextBox();
@@ -413,6 +414,7 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Budget";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboBudgetACTYPE
             // 
@@ -752,6 +754,8 @@
             // 
             this.DGVBudgetAccounts.AllowUserToAddRows = false;
             this.DGVBudgetAccounts.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVBudgetAccounts.AutoGenerateColumns = false;
             this.DGVBudgetAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVBudgetAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
