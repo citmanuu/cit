@@ -164,7 +164,7 @@ namespace MANUUFinance
                     //Refresh DGVBank 
                     this.budgetScheduleTableAdapter3.Fill(this.financeDataSet12.BudgetSchedule);
                 }
-            }
+            }           
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -282,6 +282,7 @@ namespace MANUUFinance
             comboBType.SelectedIndex = 0;
             comboFY.Enabled = true;
             comboBType.Enabled = true;
+            retrievedForUpdate = false;
 
         }
 

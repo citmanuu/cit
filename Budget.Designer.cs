@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDeptSearch = new System.Windows.Forms.TextBox();
@@ -111,6 +111,10 @@
             this.btExport = new System.Windows.Forms.Button();
             this.btImport = new System.Windows.Forms.Button();
             this.budgetWithAccountsTableAdapter2 = new MANUUFinance.FinanceDataSet16TableAdapters.BudgetWithAccountsTableAdapter();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Budget = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -123,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource2)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -140,7 +145,7 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.txtSL2Search);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(759, 316);
+            this.groupBox4.Location = new System.Drawing.Point(759, 377);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -273,6 +278,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btnMapVirtualAccount);
             this.groupBox2.Controls.Add(this.btnQuery);
@@ -281,7 +287,7 @@
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Location = new System.Drawing.Point(34, 261);
+            this.groupBox2.Location = new System.Drawing.Point(34, 322);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -379,6 +385,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.comboBudgetACTYPE);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtBECY);
@@ -405,16 +412,15 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtPKBudgetID);
-            this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox1.Location = new System.Drawing.Point(34, 30);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
+            this.groupBox1.Location = new System.Drawing.Point(34, 91);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(979, 226);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Budget";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboBudgetACTYPE
             // 
@@ -754,8 +760,8 @@
             // 
             this.DGVBudgetAccounts.AllowUserToAddRows = false;
             this.DGVBudgetAccounts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DGVBudgetAccounts.AutoGenerateColumns = false;
             this.DGVBudgetAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVBudgetAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -777,7 +783,7 @@
             this.pKACIDDataGridViewTextBoxColumn,
             this.pKBUDGETIDDataGridViewTextBoxColumn});
             this.DGVBudgetAccounts.DataSource = this.budgetWithAccountsBindingSource3;
-            this.DGVBudgetAccounts.Location = new System.Drawing.Point(34, 323);
+            this.DGVBudgetAccounts.Location = new System.Drawing.Point(34, 384);
             this.DGVBudgetAccounts.Name = "DGVBudgetAccounts";
             this.DGVBudgetAccounts.ReadOnly = true;
             this.DGVBudgetAccounts.Size = new System.Drawing.Size(700, 254);
@@ -932,7 +938,7 @@
             this.groupBox3.Controls.Add(this.btImport);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox3.Location = new System.Drawing.Point(812, 261);
+            this.groupBox3.Location = new System.Drawing.Point(812, 322);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 45);
             this.groupBox3.TabIndex = 31;
@@ -967,12 +973,54 @@
             // 
             this.budgetWithAccountsTableAdapter2.ClearBeforeFill = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Teal;
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.Budget);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox5.Location = new System.Drawing.Point(34, 13);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(974, 69);
+            this.groupBox5.TabIndex = 32;
+            this.groupBox5.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Transparent;
+            this.label16.Location = new System.Drawing.Point(783, 37);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 16);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "label16";
+            // 
+            // Budget
+            // 
+            this.Budget.AutoSize = true;
+            this.Budget.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Budget.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Budget.Location = new System.Drawing.Point(6, 18);
+            this.Budget.Name = "Budget";
+            this.Budget.Size = new System.Drawing.Size(132, 39);
+            this.Budget.TabIndex = 0;
+            this.Budget.Text = "Budget";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmBudget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1026, 595);
+            this.ClientSize = new System.Drawing.Size(1026, 656);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.DGVBudgetAccounts);
             this.Controls.Add(this.groupBox4);
@@ -998,6 +1046,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource2)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1085,5 +1135,9 @@
         private FinanceDataSet16TableAdapters.BudgetWithAccountsTableAdapter budgetWithAccountsTableAdapter2;
         private System.Windows.Forms.ComboBox comboBudgetACTYPE;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label Budget;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label16;
     }
 }

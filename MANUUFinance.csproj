@@ -10,6 +10,7 @@
     <AssemblyName>MANUUFinance</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -22,12 +23,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -44,6 +44,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>finance.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MANUUFinance.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp">
@@ -120,21 +126,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FinanceDataSet13.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FinanceDataSet14.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FinanceDataSet15.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FinanceDataSet16.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,11 +165,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FinanceDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
     </Compile>
     <Compile Include="FinanceDataSet8.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -489,39 +475,6 @@
     <None Include="FinanceDataSet12.xss">
       <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
     </None>
-    <None Include="FinanceDataSet13.xsc">
-      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet13.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet13.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet13.xss">
-      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet14.xsc">
-      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet14.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet14.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet14.xss">
-      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet15.xsc">
-      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet15.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet15.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet15.xss">
-      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
-    </None>
     <None Include="FinanceDataSet16.xsc">
       <DependentUpon>FinanceDataSet16.xsd</DependentUpon>
     </None>
@@ -610,17 +563,6 @@
     <None Include="FinanceDataSet6.xss">
       <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
     </None>
-    <None Include="FinanceDataSet7.xsc">
-      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet7.xss">
-      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
-    </None>
     <None Include="FinanceDataSet8.xsc">
       <DependentUpon>FinanceDataSet8.xsd</DependentUpon>
     </None>
@@ -701,6 +643,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="finance.ico" />
+    <Content Include="Resources\logo2.png" />
+    <None Include="Resources\tshirt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

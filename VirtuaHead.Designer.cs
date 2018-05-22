@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.testingviewTableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.testingviewTableAdapter();
             this.comboVH = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,9 +72,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Virtual Head ";
             // 
-            // testingviewTableAdapter1
-            // 
-            this.testingviewTableAdapter1.ClearBeforeFill = true;
             // 
             // comboVH
             // 
@@ -341,8 +337,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private FinanceDataSet13TableAdapters.testingviewTableAdapter testingviewTableAdapter1;
-        private System.Windows.Forms.ComboBox comboVH;
+         private System.Windows.Forms.ComboBox comboVH;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
