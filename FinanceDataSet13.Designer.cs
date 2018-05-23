@@ -20,9 +20,9 @@ namespace MANUUFinance {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("FinanceDataSet7")]
+    [global::System.Xml.Serialization.XmlRootAttribute("FinanceDataSet13")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class FinanceDataSet7 : global::System.Data.DataSet {
+    public partial class FinanceDataSet13 : global::System.Data.DataSet {
         
         private testingviewDataTable tabletestingview;
         
@@ -30,7 +30,7 @@ namespace MANUUFinance {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public FinanceDataSet7() {
+        public FinanceDataSet13() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace MANUUFinance {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected FinanceDataSet7(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected FinanceDataSet13(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace MANUUFinance {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            FinanceDataSet7 cln = ((FinanceDataSet7)(base.Clone()));
+            FinanceDataSet13 cln = ((FinanceDataSet13)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace MANUUFinance {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "FinanceDataSet7";
+            this.DataSetName = "FinanceDataSet13";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/FinanceDataSet7.xsd";
+            this.Namespace = "http://tempuri.org/FinanceDataSet13.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tabletestingview = new testingviewDataTable();
@@ -225,7 +225,7 @@ namespace MANUUFinance {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            FinanceDataSet7 ds = new FinanceDataSet7();
+            FinanceDataSet13 ds = new FinanceDataSet13();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -288,6 +288,12 @@ namespace MANUUFinance {
             private global::System.Data.DataColumn columnAccName;
             
             private global::System.Data.DataColumn columnAccountID;
+            
+            private global::System.Data.DataColumn columnDName;
+            
+            private global::System.Data.DataColumn columnBECY;
+            
+            private global::System.Data.DataColumn columnRBECY;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -364,6 +370,30 @@ namespace MANUUFinance {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DNameColumn {
+                get {
+                    return this.columnDName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn BECYColumn {
+                get {
+                    return this.columnBECY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn RBECYColumn {
+                get {
+                    return this.columnRBECY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +429,17 @@ namespace MANUUFinance {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public testingviewRow AddtestingviewRow(string SL1, string SL2, string SL3, short AccName, short AccountID) {
+            public testingviewRow AddtestingviewRow(string SL1, string SL2, string SL3, short AccName, short AccountID, string DName, short BECY, short RBECY) {
                 testingviewRow rowtestingviewRow = ((testingviewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SL1,
                         SL2,
                         SL3,
                         AccName,
-                        AccountID};
+                        AccountID,
+                        DName,
+                        BECY,
+                        RBECY};
                 rowtestingviewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtestingviewRow);
                 return rowtestingviewRow;
@@ -441,6 +474,9 @@ namespace MANUUFinance {
                 this.columnSL3 = base.Columns["SL3"];
                 this.columnAccName = base.Columns["AccName"];
                 this.columnAccountID = base.Columns["AccountID"];
+                this.columnDName = base.Columns["DName"];
+                this.columnBECY = base.Columns["BECY"];
+                this.columnRBECY = base.Columns["RBECY"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -456,6 +492,12 @@ namespace MANUUFinance {
                 base.Columns.Add(this.columnAccName);
                 this.columnAccountID = new global::System.Data.DataColumn("AccountID", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAccountID);
+                this.columnDName = new global::System.Data.DataColumn("DName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDName);
+                this.columnBECY = new global::System.Data.DataColumn("BECY", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBECY);
+                this.columnRBECY = new global::System.Data.DataColumn("RBECY", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRBECY);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAccountID}, true));
                 this.columnSL1.MaxLength = 50;
@@ -463,6 +505,8 @@ namespace MANUUFinance {
                 this.columnSL3.MaxLength = 50;
                 this.columnAccountID.AllowDBNull = false;
                 this.columnAccountID.Unique = true;
+                this.columnDName.AllowDBNull = false;
+                this.columnDName.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -530,7 +574,7 @@ namespace MANUUFinance {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                FinanceDataSet7 ds = new FinanceDataSet7();
+                FinanceDataSet13 ds = new FinanceDataSet13();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -680,6 +724,49 @@ namespace MANUUFinance {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DName {
+                get {
+                    return ((string)(this[this.tabletestingview.DNameColumn]));
+                }
+                set {
+                    this[this.tabletestingview.DNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public short BECY {
+                get {
+                    try {
+                        return ((short)(this[this.tabletestingview.BECYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BECY\' in table \'testingview\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletestingview.BECYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public short RBECY {
+                get {
+                    try {
+                        return ((short)(this[this.tabletestingview.RBECYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RBECY\' in table \'testingview\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletestingview.RBECYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsSL1Null() {
                 return this.IsNull(this.tabletestingview.SL1Column);
             }
@@ -725,6 +812,30 @@ namespace MANUUFinance {
             public void SetAccNameNull() {
                 this[this.tabletestingview.AccNameColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsBECYNull() {
+                return this.IsNull(this.tabletestingview.BECYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetBECYNull() {
+                this[this.tabletestingview.BECYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsRBECYNull() {
+                return this.IsNull(this.tabletestingview.RBECYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetRBECYNull() {
+                this[this.tabletestingview.RBECYColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -762,7 +873,7 @@ namespace MANUUFinance {
         }
     }
 }
-namespace MANUUFinance.FinanceDataSet7TableAdapters {
+namespace MANUUFinance.FinanceDataSet13TableAdapters {
     
     
     /// <summary>
@@ -891,6 +1002,9 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
             tableMapping.ColumnMappings.Add("SL3", "SL3");
             tableMapping.ColumnMappings.Add("AccName", "AccName");
             tableMapping.ColumnMappings.Add("AccountID", "AccountID");
+            tableMapping.ColumnMappings.Add("DName", "DName");
+            tableMapping.ColumnMappings.Add("BECY", "BECY");
+            tableMapping.ColumnMappings.Add("RBECY", "RBECY");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -907,7 +1021,8 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT SL1, SL2, SL3, AccName, AccountID FROM dbo.testingview";
+            this._commandCollection[0].CommandText = "SELECT SL1, SL2, SL3, AccName, AccountID, DName, BECY, RBECY FROM dbo.testingview" +
+                "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -915,7 +1030,7 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(FinanceDataSet7.testingviewDataTable dataTable) {
+        public virtual int Fill(FinanceDataSet13.testingviewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -928,9 +1043,9 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FinanceDataSet7.testingviewDataTable GetData() {
+        public virtual FinanceDataSet13.testingviewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            FinanceDataSet7.testingviewDataTable dataTable = new FinanceDataSet7.testingviewDataTable();
+            FinanceDataSet13.testingviewDataTable dataTable = new FinanceDataSet13.testingviewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1004,7 +1119,7 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(FinanceDataSet7 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(FinanceDataSet13 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1014,7 +1129,7 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(FinanceDataSet7 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(FinanceDataSet13 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1024,7 +1139,7 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(FinanceDataSet7 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(FinanceDataSet13 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1058,7 +1173,7 @@ namespace MANUUFinance.FinanceDataSet7TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(FinanceDataSet7 dataSet) {
+        public virtual int UpdateAll(FinanceDataSet13 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

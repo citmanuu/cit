@@ -30,13 +30,13 @@ namespace MANUUFinance
         private void VirtuaHead_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'financeDataSet17.VirtualHeadView' table. You can move, or remove it, as needed.
-            this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+           // this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
             preparedcomboVH();
             preparedcombosl1();
             preparedcombosl2("0");
             preparedcombosl3("0");
             preparedcomboaccount();
-            //preparedDGV();
+            preparedDGV();
             if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
@@ -250,7 +250,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT VHID, VHNAME FROM [finance].[dbo].[VHMst] where isActive = '1' Order by 1";
+            string selectCommand = "SELECT VHID, VHNAME FROM [finance].[dbo].[VHMst] Order by 2";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -372,8 +372,8 @@ namespace MANUUFinance
                     //Instantiate SQL Connection
                     SqlConnection objSqlConnection = new SqlConnection(cs);
                     //Prepare Update String
-                    string insertCommand = "INSERT INTO [dbo].[VHDtl] (FKSL1ID, FKSL2ID, FKSL3ID, FKACID, FKVHID) " +
-                                            "VALUES (@FKSL1ID, @FKSL2ID, @FKSL3ID, @FKACID, @FKVHID)";
+                    string insertCommand = "INSERT INTO [dbo].[VHDtl] (FKSL1ID, FKSL2ID, FKSL3ID, FKACID, FKVHID,DeptId) " +
+                                            "VALUES (@FKSL1ID, @FKSL2ID, @FKSL3ID, @FKACID, @FKVHID, @DeptId)";
 
                     SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
 
@@ -382,6 +382,7 @@ namespace MANUUFinance
                     objInsertCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
                     objInsertCommand.Parameters.AddWithValue("@FKACID", comboACCOUNT.SelectedValue);
                     objInsertCommand.Parameters.AddWithValue("@FKVHID", comboVH.SelectedValue);
+                    objInsertCommand.Parameters.AddWithValue("@DeptId", deptId);
 
                     try
                     {
@@ -399,8 +400,8 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
-                    //preparedDGV();
+                    //this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+                    preparedDGV();
                 }
             }
         }
@@ -419,7 +420,7 @@ namespace MANUUFinance
                     SqlConnection objSqlConnection = new SqlConnection(cs);
                     //Prepare Update String
 
-                    string updateCommand = "Update [dbo].[VHDtl] set FKSL1ID = @FKSL1ID, FKSL2ID = @FKSL2ID, FKSL3ID = @FKSL3ID, FKACID = @FKACID" +
+                    string updateCommand = "Update [dbo].[VHDtl] set FKSL1ID = @FKSL1ID, FKSL2ID = @FKSL2ID, FKSL3ID = @FKSL3ID, FKACID = @FKACID, DeptId=@DeptId " +
                                            "where VHDTLID = '"+ GlobalId + "'";
 
                     SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
@@ -428,6 +429,7 @@ namespace MANUUFinance
                     objUpdateCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
                     objUpdateCommand.Parameters.AddWithValue("@FKACID", comboACCOUNT.SelectedValue);
                     objUpdateCommand.Parameters.AddWithValue("@FKVHID", comboVH.SelectedValue);
+                    objUpdateCommand.Parameters.AddWithValue("@DeptId", deptId);
 
                     try
                     {
@@ -445,8 +447,8 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
-                    //preparedDGV();
+                    //this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+                    preparedDGV();
                 }
             }
         }
@@ -485,16 +487,9 @@ namespace MANUUFinance
                 {
                     objSqlConnection.Close();
                 }
-                this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
+                //this.virtualHeadViewTableAdapter.Fill(this.financeDataSet17.VirtualHeadView);
                 //preparedDGV();
             }
-        }
-
-        private void enableDisableHeads_Click(object sender, EventArgs e)
-        {
-            EnableDisableHeads objectenabledisable = new EnableDisableHeads();
-            objectenabledisable.ShowDialog();
-            preparedcomboVH();
         }
 
         private void btnClear_Click(object sender, EventArgs e)

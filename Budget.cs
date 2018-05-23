@@ -37,7 +37,6 @@ namespace MANUUFinance
             PrepareSL2Combo("0");
             PrepareSL3Combo("0");
             Preparebudgetactype();
-            timer1_Tick(0, new EventArgs());
             //PrepareAccountsCombo("0");             
             UnpinControls();
             retrievedForUpdate = false;
@@ -331,6 +330,7 @@ namespace MANUUFinance
                         objInsertCommand.Parameters.AddWithValue("@RBECY", txtRBECY.Text);
                         objInsertCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
                         objInsertCommand.Parameters.AddWithValue("@BudgetAcType", comboBudgetACTYPE.SelectedValue);
+                        objInsertCommand.Parameters.AddWithValue("@", 117);
 
                     try
                         {
@@ -554,11 +554,12 @@ namespace MANUUFinance
 
         //Filter entries for comboSL2 based on Selection of comboSL1
         private void comboSL3_SelectedIndexChanged(object sender, EventArgs e)
-        {        
-            if (!(comboBudgetACTYPE.SelectedIndex == 2))
+        {
+            if(!(comboBudgetACTYPE.SelectedIndex == 2))
             {
                 PrepareAccountsCombo(Convert.ToString(comboSL3.SelectedValue));
             }
+            
         }
 
         //Execute Form Query
@@ -983,7 +984,7 @@ namespace MANUUFinance
                 comboSL1.SelectedIndex = 0;
                 comboSL2.SelectedIndex = 0;
                 comboSL3.SelectedIndex = 0;
-            }
+            }                
         }
 
         private void PrepareAccountTypecombo()
@@ -1021,9 +1022,9 @@ namespace MANUUFinance
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            label16.Text = DateTime.Now.ToString();
+
         }
 
         private void comboAccount_SelectedIndexChanged(object sender, EventArgs e)

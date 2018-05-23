@@ -38,14 +38,22 @@
             this.budgetWithAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet4 = new MANUUFinance.FinanceDataSet4();
             this.testingviewBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet15 = new MANUUFinance.FinanceDataSet15();
             this.testingviewBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
             this.testingviewBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.testingviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet7 = new MANUUFinance.FinanceDataSet7();
+            this.testingviewTableAdapter = new MANUUFinance.FinanceDataSet7TableAdapters.testingviewTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.comboFY = new System.Windows.Forms.ComboBox();
             this.testingviewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.testingviewBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.testingviewTableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.testingviewTableAdapter();
+            this.financeDataSet14 = new MANUUFinance.FinanceDataSet14();
             this.testingviewBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.testingviewTableAdapter2 = new MANUUFinance.FinanceDataSet14TableAdapters.testingviewTableAdapter();
+            this.testingviewTableAdapter3 = new MANUUFinance.FinanceDataSet15TableAdapters.testingviewTableAdapter();
             this.budgetWithAccountsTableAdapter = new MANUUFinance.FinanceDataSet4TableAdapters.BudgetWithAccountsTableAdapter();
             this.financeDataSet16 = new MANUUFinance.FinanceDataSet16();
             this.budgetWithAccountsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -71,12 +79,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource2)).BeginInit();
-
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource1)).BeginInit();
@@ -170,10 +181,23 @@
             // testingviewBindingSource6
             // 
             this.testingviewBindingSource6.DataMember = "testingview";
+            this.testingviewBindingSource6.DataSource = this.financeDataSet15;
+            // 
+            // financeDataSet15
+            // 
+            this.financeDataSet15.DataSetName = "FinanceDataSet15";
+            this.financeDataSet15.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // testingviewBindingSource4
             // 
             this.testingviewBindingSource4.DataMember = "testingview";
+            this.testingviewBindingSource4.DataSource = this.financeDataSet13;
+            // 
+            // financeDataSet13
+            // 
+            this.financeDataSet13.DataSetName = "FinanceDataSet13";
+            this.financeDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // testingviewBindingSource3
             // 
             this.testingviewBindingSource3.DataMember = "testingview";
@@ -181,6 +205,16 @@
             // testingviewBindingSource
             // 
             this.testingviewBindingSource.DataMember = "testingview";
+            this.testingviewBindingSource.DataSource = this.financeDataSet7;
+            // 
+            // financeDataSet7
+            // 
+            this.financeDataSet7.DataSetName = "FinanceDataSet7";
+            this.financeDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // testingviewTableAdapter
+            // 
+            this.testingviewTableAdapter.ClearBeforeFill = true;
             // 
             // label2
             // 
@@ -207,10 +241,27 @@
             // 
             this.testingviewBindingSource2.DataMember = "testingview";
             // 
+            // testingviewTableAdapter1
+            // 
+            this.testingviewTableAdapter1.ClearBeforeFill = true;
+            // 
+            // financeDataSet14
+            // 
+            this.financeDataSet14.DataSetName = "FinanceDataSet14";
+            this.financeDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // testingviewBindingSource5
             // 
             this.testingviewBindingSource5.DataMember = "testingview";
+            this.testingviewBindingSource5.DataSource = this.financeDataSet14;
             // 
+            // testingviewTableAdapter2
+            // 
+            this.testingviewTableAdapter2.ClearBeforeFill = true;
+            // 
+            // testingviewTableAdapter3
+            // 
+            this.testingviewTableAdapter3.ClearBeforeFill = true;
             // 
             // budgetWithAccountsTableAdapter
             // 
@@ -369,11 +420,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingviewBindingSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.budgetWithAccountsBindingSource1)).EndInit();
@@ -389,15 +444,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button open;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private FinanceDataSet7 financeDataSet7;
         private System.Windows.Forms.BindingSource testingviewBindingSource;
+        private FinanceDataSet7TableAdapters.testingviewTableAdapter testingviewTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboFY;
         private System.Windows.Forms.BindingSource testingviewBindingSource1;
         private System.Windows.Forms.BindingSource testingviewBindingSource3;
         private System.Windows.Forms.BindingSource testingviewBindingSource2;
+        private FinanceDataSet13 financeDataSet13;
         private System.Windows.Forms.BindingSource testingviewBindingSource4;
+        private FinanceDataSet13TableAdapters.testingviewTableAdapter testingviewTableAdapter1;
+        private FinanceDataSet14 financeDataSet14;
         private System.Windows.Forms.BindingSource testingviewBindingSource5;
+        private FinanceDataSet14TableAdapters.testingviewTableAdapter testingviewTableAdapter2;
+        private FinanceDataSet15 financeDataSet15;
         private System.Windows.Forms.BindingSource testingviewBindingSource6;
+        private FinanceDataSet15TableAdapters.testingviewTableAdapter testingviewTableAdapter3;
         private FinanceDataSet4 financeDataSet4;
         private System.Windows.Forms.BindingSource budgetWithAccountsBindingSource;
         private FinanceDataSet4TableAdapters.BudgetWithAccountsTableAdapter budgetWithAccountsTableAdapter;

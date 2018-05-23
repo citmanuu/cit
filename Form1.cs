@@ -73,7 +73,7 @@ namespace MANUUFinance
                 MessageBox.Show("Time Up");
                 timer1.Stop();
             }
-            //int abc =  10;
+            int abc =  10;
             //gloabaltest(abc);
             label2.Text = Global.ToString() + "" + "Min Left";
             Global--;

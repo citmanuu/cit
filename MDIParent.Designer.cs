@@ -191,7 +191,7 @@
             // budgetToolStripMenuItem
             // 
             this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
-            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.budgetToolStripMenuItem.Text = "Budget";
             this.budgetToolStripMenuItem.Visible = false;
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
@@ -199,7 +199,7 @@
             // budgetPurposeToolStripMenuItem
             // 
             this.budgetPurposeToolStripMenuItem.Name = "budgetPurposeToolStripMenuItem";
-            this.budgetPurposeToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.budgetPurposeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.budgetPurposeToolStripMenuItem.Text = "Budget Purpose";
             this.budgetPurposeToolStripMenuItem.Visible = false;
             this.budgetPurposeToolStripMenuItem.Click += new System.EventHandler(this.budgetPurposeToolStripMenuItem_Click);
@@ -207,7 +207,7 @@
             // budgetScheduleToolStripMenuItem
             // 
             this.budgetScheduleToolStripMenuItem.Name = "budgetScheduleToolStripMenuItem";
-            this.budgetScheduleToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.budgetScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.budgetScheduleToolStripMenuItem.Text = "Budget Schedule";
             this.budgetScheduleToolStripMenuItem.Visible = false;
             this.budgetScheduleToolStripMenuItem.Click += new System.EventHandler(this.budgetScheduleToolStripMenuItem_Click);
@@ -215,7 +215,7 @@
             // billDespatchToolStripMenuItem
             // 
             this.billDespatchToolStripMenuItem.Name = "billDespatchToolStripMenuItem";
-            this.billDespatchToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.billDespatchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.billDespatchToolStripMenuItem.Text = "Bill Despatch";
             this.billDespatchToolStripMenuItem.Visible = false;
             this.billDespatchToolStripMenuItem.Click += new System.EventHandler(this.billDespatchToolStripMenuItem_Click);
@@ -223,7 +223,7 @@
             // copyBudgetToolStripMenuItem
             // 
             this.copyBudgetToolStripMenuItem.Name = "copyBudgetToolStripMenuItem";
-            this.copyBudgetToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.copyBudgetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyBudgetToolStripMenuItem.Text = "Copy Budget";
             this.copyBudgetToolStripMenuItem.Visible = false;
             this.copyBudgetToolStripMenuItem.Click += new System.EventHandler(this.copyBudgetToolStripMenuItem_Click);
@@ -231,7 +231,7 @@
             // demonstrationToolStripMenuItem
             // 
             this.demonstrationToolStripMenuItem.Name = "demonstrationToolStripMenuItem";
-            this.demonstrationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.demonstrationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.demonstrationToolStripMenuItem.Text = "Demonstration";
             this.demonstrationToolStripMenuItem.Visible = false;
             this.demonstrationToolStripMenuItem.Click += new System.EventHandler(this.demonstrationToolStripMenuItem_Click);
@@ -239,7 +239,7 @@
             // virtualHeadToolStripMenuItem
             // 
             this.virtualHeadToolStripMenuItem.Name = "virtualHeadToolStripMenuItem";
-            this.virtualHeadToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.virtualHeadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.virtualHeadToolStripMenuItem.Text = "Virtual Head";
             this.virtualHeadToolStripMenuItem.Visible = false;
             this.virtualHeadToolStripMenuItem.Click += new System.EventHandler(this.virtualHeadToolStripMenuItem_Click);
@@ -382,7 +382,6 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(45, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 16);
@@ -414,7 +413,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1370, 453);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip);
