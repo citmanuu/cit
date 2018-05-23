@@ -10,6 +10,7 @@
     <AssemblyName>MANUUFinance</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -22,12 +23,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -44,6 +44,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>finance.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MANUUFinance.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp">
@@ -100,6 +106,12 @@
       <DependentUpon>BudgetSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckingPrivileges.cs" />
+    <Compile Include="EnableDisableHeads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnableDisableHeads.Designer.cs">
+      <DependentUpon>EnableDisableHeads.cs</DependentUpon>
+    </Compile>
     <Compile Include="FinanceDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,21 +131,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FinanceDataSet13.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FinanceDataSet14.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FinanceDataSet15.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
     </Compile>
     <Compile Include="FinanceDataSet16.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -274,11 +271,11 @@
     <Compile Include="View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
-    <Compile Include="VirtuaHead.cs">
+    <Compile Include="Virtua Budget Head.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VirtuaHead.Designer.cs">
-      <DependentUpon>VirtuaHead.cs</DependentUpon>
+    <Compile Include="Virtua Budget Head.Designer.cs">
+      <DependentUpon>Virtua Budget Head.cs</DependentUpon>
     </Compile>
     <Compile Include="VirtualAccount .cs">
       <SubType>Form</SubType>
@@ -363,6 +360,9 @@
     <EmbeddedResource Include="Departments.resx">
       <DependentUpon>Departments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EnableDisableHeads.resx">
+      <DependentUpon>EnableDisableHeads.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms.resx">
       <DependentUpon>Forms.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,8 +399,8 @@
     <EmbeddedResource Include="View.resx">
       <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VirtuaHead.resx">
-      <DependentUpon>VirtuaHead.cs</DependentUpon>
+    <EmbeddedResource Include="Virtua Budget Head.resx">
+      <DependentUpon>Virtua Budget Head.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VirtualAccount .resx">
       <DependentUpon>VirtualAccount .cs</DependentUpon>
@@ -488,39 +488,6 @@
     </None>
     <None Include="FinanceDataSet12.xss">
       <DependentUpon>FinanceDataSet12.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet13.xsc">
-      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet13.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet13.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet13.xss">
-      <DependentUpon>FinanceDataSet13.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet14.xsc">
-      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet14.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet14.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet14.xss">
-      <DependentUpon>FinanceDataSet14.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet15.xsc">
-      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceDataSet15.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet15.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceDataSet15.xss">
-      <DependentUpon>FinanceDataSet15.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet16.xsc">
       <DependentUpon>FinanceDataSet16.xsd</DependentUpon>
@@ -701,6 +668,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="finance.ico" />
+    <Content Include="Resources\logo2.png" />
+    <None Include="Resources\tshirt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

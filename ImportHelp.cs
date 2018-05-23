@@ -28,19 +28,7 @@ namespace MANUUFinance
         {
             // TODO: This line of code loads data into the 'financeDataSet16.BudgetWithAccounts' table. You can move, or remove it, as needed.
             this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet16.BudgetWithAccounts);
-            // TODO: This line of code loads data into the 'financeDataSet4.BudgetWithAccounts' table. You can move, or remove it, as needed.
-            //this.budgetWithAccountsTableAdapter.Fill(this.financeDataSet4.BudgetWithAccounts);
-            // TODO: This line of code loads data into the 'financeDataSet15.testingview' table. You can move, or remove it, as needed.
-           // this.testingviewTableAdapter3.Fill(this.financeDataSet15.testingview);
-            // TODO: This line of code loads data into the 'financeDataSet14.testingview' table. You can move, or remove it, as needed.
-            // this.testingviewTableAdapter2.Fill(this.financeDataSet14.testingview);
-            // TODO: This line of code loads data into the 'financeDataSet13.testingview' table. You can move, or remove it, as needed.
-            // this.testingviewTableAdapter1.Fill(this.financeDataSet13.testingview);
-            // TODO: This line of code loads data into the 'financeDataSet13.testingview' table. You can move, or remove it, as needed.
-            //this.testingviewTableAdapter1.Fill(this.financeDataSet13.testingview);
-            // TODO: This line of code loads data into the 'financeDataSet7.testingview' table. You can move, or remove it, as needed.
-            //this.testingviewTableAdapter.Fill(this.financeDataSet7.testingview);
-            
+           
             //Connection String
             string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
             //Instantiate SQL Connection
@@ -154,7 +142,7 @@ namespace MANUUFinance
                         count++;
                     }
                     cleartext();
-                    this.testingviewTableAdapter3.Fill(this.financeDataSet15.testingview);
+                    this.budgetWithAccountsTableAdapter1.Fill(this.financeDataSet16.BudgetWithAccounts);
                 }
                 catch (Exception ex)
                 {
