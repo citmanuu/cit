@@ -1026,6 +1026,11 @@ namespace MANUUFinance
             label16.Text = DateTime.Now.ToString();
         }
 
+        private void comboAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)
         {
             frmVirtualAccount objfrmVirtualAccount = new frmVirtualAccount();
