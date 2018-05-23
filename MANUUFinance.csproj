@@ -106,6 +106,12 @@
       <DependentUpon>BudgetSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckingPrivileges.cs" />
+    <Compile Include="EnableDisableHeads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnableDisableHeads.Designer.cs">
+      <DependentUpon>EnableDisableHeads.cs</DependentUpon>
+    </Compile>
     <Compile Include="FinanceDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +171,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
     </Compile>
     <Compile Include="FinanceDataSet8.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -260,11 +271,11 @@
     <Compile Include="View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
-    <Compile Include="VirtuaHead.cs">
+    <Compile Include="Virtua Budget Head.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VirtuaHead.Designer.cs">
-      <DependentUpon>VirtuaHead.cs</DependentUpon>
+    <Compile Include="Virtua Budget Head.Designer.cs">
+      <DependentUpon>Virtua Budget Head.cs</DependentUpon>
     </Compile>
     <Compile Include="VirtualAccount .cs">
       <SubType>Form</SubType>
@@ -349,6 +360,9 @@
     <EmbeddedResource Include="Departments.resx">
       <DependentUpon>Departments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EnableDisableHeads.resx">
+      <DependentUpon>EnableDisableHeads.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms.resx">
       <DependentUpon>Forms.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,8 +399,8 @@
     <EmbeddedResource Include="View.resx">
       <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VirtuaHead.resx">
-      <DependentUpon>VirtuaHead.cs</DependentUpon>
+    <EmbeddedResource Include="Virtua Budget Head.resx">
+      <DependentUpon>Virtua Budget Head.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VirtualAccount .resx">
       <DependentUpon>VirtualAccount .cs</DependentUpon>
@@ -562,6 +576,17 @@
     </None>
     <None Include="FinanceDataSet6.xss">
       <DependentUpon>FinanceDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet7.xsc">
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet7.xss">
+      <DependentUpon>FinanceDataSet7.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet8.xsc">
       <DependentUpon>FinanceDataSet8.xsd</DependentUpon>

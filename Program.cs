@@ -17,13 +17,14 @@ namespace MANUUFinance
             Application.EnableVisualStyles();
             // Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new MDIParent(0,0,0));
-               Application.Run(new Home());
+             //  Application.Run(new Home());
             // Application.Run(new ImportExport());
             // Application.Run(new ImportHelp(1));
             //Application.Run(new frmBudget(0,0,0,null));
-            //Application.Run(new frmBillDespatch(1,0,0,"admin1"));
+            Application.Run(new frmBillDespatch(1,0,0,"admin1"));
             // Application.Run(new pdfsupports());
-             //  Application.Run(new VirtuaHead(0,0,0,null));
+            //  Application.Run(new VirtuaHead(0,0,0,null));
+            //Application.Run(new EnableDisableHeads());
         }
     }
 }

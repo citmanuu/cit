@@ -331,7 +331,6 @@ namespace MANUUFinance
                         objInsertCommand.Parameters.AddWithValue("@RBECY", txtRBECY.Text);
                         objInsertCommand.Parameters.AddWithValue("@BENY", txtBENY.Text);
                         objInsertCommand.Parameters.AddWithValue("@BudgetAcType", comboBudgetACTYPE.SelectedValue);
-                        objInsertCommand.Parameters.AddWithValue("@", 117);
 
                     try
                         {

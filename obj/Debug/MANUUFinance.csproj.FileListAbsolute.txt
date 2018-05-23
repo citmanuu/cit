@@ -235,7 +235,6 @@ E:\citmanuu\obj\Debug\MANUUFinance.BudgetSchedule.resources
 E:\citmanuu\obj\Debug\MANUUFinance.ImportHelp.resources
 E:\citmanuu\obj\Debug\MANUUFinance.frmVirtuaHead.resources
 E:\citmanuu\obj\Debug\MANUUFinance.frmBudgetPurpose.resources
-E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
 E:\Testbuildfile\bin\Debug\MANUUFinance.exe.config
 E:\Testbuildfile\bin\Debug\MANUUFinance.exe
 E:\Testbuildfile\bin\Debug\MANUUFinance.pdb
@@ -276,3 +275,4 @@ E:\Testbuildfile\obj\Debug\MANUUFinance.csproj.CoreCompileInputs.cache
 E:\Testbuildfile\obj\Debug\MANUUFinance.csproj.CopyComplete
 E:\Testbuildfile\obj\Debug\MANUUFinance.exe
 E:\Testbuildfile\obj\Debug\MANUUFinance.pdb
+E:\citmanuu\obj\Debug\MANUUFinance.EnableDisableHeads.resources

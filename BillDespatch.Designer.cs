@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -49,11 +50,29 @@
             this.comboBeneficiery = new System.Windows.Forms.ComboBox();
             this.comboDept = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.comboBillTypeSub = new System.Windows.Forms.ComboBox();
             this.comboBillType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPKBillID = new System.Windows.Forms.TextBox();
             this.comboACID = new System.Windows.Forms.DataGridView();
+            this.BeneficiaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKBillIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billNarrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.beneficieryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKDepIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.beneficiaryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKBillStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKBillTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billCreatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billMstViewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet18 = new MANUUFinance.FinanceDataSet18();
             this.billMstViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.billMstViewTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BillMstViewTableAdapter();
@@ -74,36 +93,26 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBillAmount = new System.Windows.Forms.TextBox();
-            this.financeDataSet18 = new MANUUFinance.FinanceDataSet18();
-            this.billMstViewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.billMstViewTableAdapter1 = new MANUUFinance.FinanceDataSet18TableAdapters.BillMstViewTableAdapter();
-            this.BeneficiaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKBillIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billNarrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.beneficieryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKDepIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.beneficiaryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKBillStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKBillTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billCreatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBillTypeSub = new System.Windows.Forms.ComboBox();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtFormSearch = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtRoleSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnClearSearch = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboACID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billDtlBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -116,17 +125,27 @@
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Location = new System.Drawing.Point(47, 269);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(661, 45);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(287, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 10;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(473, 12);
-            this.btnQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(2);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(89, 25);
             this.btnQuery.TabIndex = 4;
@@ -137,7 +156,7 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(565, 12);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 25);
             this.btnClose.TabIndex = 5;
@@ -148,7 +167,7 @@
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(380, 12);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 25);
             this.btnClear.TabIndex = 3;
@@ -159,7 +178,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(193, 12);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 25);
             this.btnDelete.TabIndex = 2;
@@ -170,7 +189,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(101, 12);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 25);
             this.btnUpdate.TabIndex = 1;
@@ -181,7 +200,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(8, 12);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 25);
             this.btnAdd.TabIndex = 0;
@@ -208,9 +227,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(29, 23);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(777, 111);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
@@ -220,7 +239,7 @@
             // 
             this.txtBillNumber.Enabled = false;
             this.txtBillNumber.Location = new System.Drawing.Point(261, 25);
-            this.txtBillNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBillNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtBillNumber.Name = "txtBillNumber";
             this.txtBillNumber.Size = new System.Drawing.Size(68, 20);
             this.txtBillNumber.TabIndex = 44;
@@ -238,7 +257,7 @@
             // txtBillNarration
             // 
             this.txtBillNarration.Location = new System.Drawing.Point(453, 80);
-            this.txtBillNarration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBillNarration.Margin = new System.Windows.Forms.Padding(2);
             this.txtBillNarration.Name = "txtBillNarration";
             this.txtBillNarration.Size = new System.Drawing.Size(305, 20);
             this.txtBillNarration.TabIndex = 42;
@@ -259,7 +278,7 @@
             this.comboBillStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBillStatus.FormattingEnabled = true;
             this.comboBillStatus.Location = new System.Drawing.Point(85, 79);
-            this.comboBillStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBillStatus.Margin = new System.Windows.Forms.Padding(2);
             this.comboBillStatus.Name = "comboBillStatus";
             this.comboBillStatus.Size = new System.Drawing.Size(247, 21);
             this.comboBillStatus.TabIndex = 40;
@@ -278,7 +297,7 @@
             // 
             this.txtBillDate.Enabled = false;
             this.txtBillDate.Location = new System.Drawing.Point(85, 25);
-            this.txtBillDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBillDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtBillDate.Name = "txtBillDate";
             this.txtBillDate.Size = new System.Drawing.Size(68, 20);
             this.txtBillDate.TabIndex = 38;
@@ -299,7 +318,7 @@
             this.comboBeneficiery.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBeneficiery.FormattingEnabled = true;
             this.comboBeneficiery.Location = new System.Drawing.Point(453, 52);
-            this.comboBeneficiery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBeneficiery.Margin = new System.Windows.Forms.Padding(2);
             this.comboBeneficiery.Name = "comboBeneficiery";
             this.comboBeneficiery.Size = new System.Drawing.Size(305, 21);
             this.comboBeneficiery.TabIndex = 5;
@@ -310,7 +329,7 @@
             this.comboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboDept.FormattingEnabled = true;
             this.comboDept.Location = new System.Drawing.Point(453, 21);
-            this.comboDept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboDept.Margin = new System.Windows.Forms.Padding(2);
             this.comboDept.Name = "comboDept";
             this.comboDept.Size = new System.Drawing.Size(305, 21);
             this.comboDept.TabIndex = 1;
@@ -326,13 +345,25 @@
             this.label14.TabIndex = 32;
             this.label14.Text = "Department";
             // 
+            // comboBillTypeSub
+            // 
+            this.comboBillTypeSub.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBillTypeSub.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBillTypeSub.FormattingEnabled = true;
+            this.comboBillTypeSub.Location = new System.Drawing.Point(228, 51);
+            this.comboBillTypeSub.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBillTypeSub.Name = "comboBillTypeSub";
+            this.comboBillTypeSub.Size = new System.Drawing.Size(104, 21);
+            this.comboBillTypeSub.TabIndex = 4;
+            this.comboBillTypeSub.SelectedIndexChanged += new System.EventHandler(this.comboBillType_SelectedIndexChanged_1);
+            // 
             // comboBillType
             // 
             this.comboBillType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBillType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBillType.FormattingEnabled = true;
             this.comboBillType.Location = new System.Drawing.Point(85, 52);
-            this.comboBillType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBillType.Margin = new System.Windows.Forms.Padding(2);
             this.comboBillType.Name = "comboBillType";
             this.comboBillType.Size = new System.Drawing.Size(104, 21);
             this.comboBillType.TabIndex = 4;
@@ -361,7 +392,7 @@
             // txtPKBillID
             // 
             this.txtPKBillID.Location = new System.Drawing.Point(114, 2);
-            this.txtPKBillID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPKBillID.Margin = new System.Windows.Forms.Padding(2);
             this.txtPKBillID.Name = "txtPKBillID";
             this.txtPKBillID.Size = new System.Drawing.Size(68, 20);
             this.txtPKBillID.TabIndex = 1;
@@ -393,210 +424,15 @@
             this.billUpdatedOnDataGridViewTextBoxColumn,
             this.billUpdatedByDataGridViewTextBoxColumn});
             this.comboACID.DataSource = this.billMstViewBindingSource1;
-            this.comboACID.Location = new System.Drawing.Point(825, 23);
-            this.comboACID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboACID.Location = new System.Drawing.Point(29, 337);
+            this.comboACID.Margin = new System.Windows.Forms.Padding(2);
             this.comboACID.Name = "comboACID";
             this.comboACID.ReadOnly = true;
             this.comboACID.RowTemplate.Height = 28;
-            this.comboACID.Size = new System.Drawing.Size(448, 297);
+            this.comboACID.Size = new System.Drawing.Size(522, 163);
             this.comboACID.TabIndex = 37;
             this.comboACID.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVbillMstView_CellClick);
             this.comboACID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.comboACID_CellContentClick);
-            // 
-            // billMstViewBindingSource
-            // 
-            this.billMstViewBindingSource.DataMember = "BillMstView";
-            this.billMstViewBindingSource.DataSource = this.financeDataSet;
-            // 
-            // financeDataSet
-            // 
-            this.financeDataSet.DataSetName = "FinanceDataSet";
-            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billMstViewTableAdapter
-            // 
-            this.billMstViewTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AcTypesTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BankMasterTableAdapter = null;
-            this.tableAdapterManager.BillDtlTableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.DEPTTableAdapter = null;
-            this.tableAdapterManager.SL1TableAdapter = null;
-            this.tableAdapterManager.SL2TableAdapter = null;
-            this.tableAdapterManager.SL3TableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = MANUUFinance.FinanceDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // billDtlBindingSource
-            // 
-            this.billDtlBindingSource.DataMember = "BillDtl";
-            this.billDtlBindingSource.DataSource = this.financeDataSet1;
-            // 
-            // financeDataSet1
-            // 
-            this.financeDataSet1.DataSetName = "FinanceDataSet";
-            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billDtlTableAdapter
-            // 
-            this.billDtlTableAdapter.ClearBeforeFill = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.txtAccountBalance);
-            this.groupBox3.Controls.Add(this.txtSL2Name);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.txtSL3Name);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtSL1Name);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.comboAccountName);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.txtBillAmount);
-            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox3.Location = new System.Drawing.Point(29, 144);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(777, 114);
-            this.groupBox3.TabIndex = 38;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Bill Details";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(363, 76);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 13);
-            this.label10.TabIndex = 48;
-            this.label10.Text = "Account Balance";
-            // 
-            // txtAccountBalance
-            // 
-            this.txtAccountBalance.Enabled = false;
-            this.txtAccountBalance.Location = new System.Drawing.Point(454, 73);
-            this.txtAccountBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtAccountBalance.Name = "txtAccountBalance";
-            this.txtAccountBalance.Size = new System.Drawing.Size(68, 20);
-            this.txtAccountBalance.TabIndex = 47;
-            // 
-            // txtSL2Name
-            // 
-            this.txtSL2Name.Enabled = false;
-            this.txtSL2Name.Location = new System.Drawing.Point(85, 52);
-            this.txtSL2Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtSL2Name.Name = "txtSL2Name";
-            this.txtSL2Name.Size = new System.Drawing.Size(255, 20);
-            this.txtSL2Name.TabIndex = 46;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 52);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "SL2";
-            // 
-            // txtSL3Name
-            // 
-            this.txtSL3Name.Enabled = false;
-            this.txtSL3Name.Location = new System.Drawing.Point(455, 48);
-            this.txtSL3Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtSL3Name.Name = "txtSL3Name";
-            this.txtSL3Name.Size = new System.Drawing.Size(305, 20);
-            this.txtSL3Name.TabIndex = 44;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(363, 48);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "SL3";
-            // 
-            // txtSL1Name
-            // 
-            this.txtSL1Name.Enabled = false;
-            this.txtSL1Name.Location = new System.Drawing.Point(455, 24);
-            this.txtSL1Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtSL1Name.Name = "txtSL1Name";
-            this.txtSL1Name.Size = new System.Drawing.Size(305, 20);
-            this.txtSL1Name.TabIndex = 42;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 79);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Bill Amount";
-            // 
-            // comboAccountName
-            // 
-            this.comboAccountName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboAccountName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboAccountName.FormattingEnabled = true;
-            this.comboAccountName.Location = new System.Drawing.Point(85, 25);
-            this.comboAccountName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboAccountName.Name = "comboAccountName";
-            this.comboAccountName.Size = new System.Drawing.Size(255, 21);
-            this.comboAccountName.TabIndex = 1;
-            this.comboAccountName.SelectedIndexChanged += new System.EventHandler(this.comboAccountName_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 31);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Account";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(363, 26);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(26, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "SL1";
-            // 
-            // txtBillAmount
-            // 
-            this.txtBillAmount.Location = new System.Drawing.Point(85, 76);
-            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtBillAmount.Name = "txtBillAmount";
-            this.txtBillAmount.Size = new System.Drawing.Size(68, 20);
-            this.txtBillAmount.TabIndex = 1;
-            // 
-            // financeDataSet18
-            // 
-            this.financeDataSet18.DataSetName = "FinanceDataSet18";
-            this.financeDataSet18.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billMstViewBindingSource1
-            // 
-            this.billMstViewBindingSource1.DataMember = "BillMstView";
-            this.billMstViewBindingSource1.DataSource = this.financeDataSet18;
-            // 
-            // billMstViewTableAdapter1
-            // 
-            this.billMstViewTableAdapter1.ClearBeforeFill = true;
             // 
             // BeneficiaryID
             // 
@@ -726,40 +562,299 @@
             this.billUpdatedByDataGridViewTextBoxColumn.Visible = false;
             this.billUpdatedByDataGridViewTextBoxColumn.Width = 98;
             // 
-            // comboBillTypeSub
+            // billMstViewBindingSource1
             // 
-            this.comboBillTypeSub.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBillTypeSub.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBillTypeSub.FormattingEnabled = true;
-            this.comboBillTypeSub.Location = new System.Drawing.Point(228, 51);
-            this.comboBillTypeSub.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBillTypeSub.Name = "comboBillTypeSub";
-            this.comboBillTypeSub.Size = new System.Drawing.Size(104, 21);
-            this.comboBillTypeSub.TabIndex = 4;
-            this.comboBillTypeSub.SelectedIndexChanged += new System.EventHandler(this.comboBillType_SelectedIndexChanged_1);
+            this.billMstViewBindingSource1.DataMember = "BillMstView";
+            this.billMstViewBindingSource1.DataSource = this.financeDataSet18;
             // 
-            // btnPrint
+            // financeDataSet18
             // 
-            this.btnPrint.Location = new System.Drawing.Point(287, 12);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 25);
-            this.btnPrint.TabIndex = 10;
-            this.btnPrint.Text = "Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.financeDataSet18.DataSetName = "FinanceDataSet18";
+            this.financeDataSet18.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billMstViewBindingSource
+            // 
+            this.billMstViewBindingSource.DataMember = "BillMstView";
+            this.billMstViewBindingSource.DataSource = this.financeDataSet;
+            // 
+            // financeDataSet
+            // 
+            this.financeDataSet.DataSetName = "FinanceDataSet";
+            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billMstViewTableAdapter
+            // 
+            this.billMstViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AcTypesTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BankMasterTableAdapter = null;
+            this.tableAdapterManager.BillDtlTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.DEPTTableAdapter = null;
+            this.tableAdapterManager.SL1TableAdapter = null;
+            this.tableAdapterManager.SL2TableAdapter = null;
+            this.tableAdapterManager.SL3TableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MANUUFinance.FinanceDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // billDtlBindingSource
+            // 
+            this.billDtlBindingSource.DataMember = "BillDtl";
+            this.billDtlBindingSource.DataSource = this.financeDataSet1;
+            // 
+            // financeDataSet1
+            // 
+            this.financeDataSet1.DataSetName = "FinanceDataSet";
+            this.financeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billDtlTableAdapter
+            // 
+            this.billDtlTableAdapter.ClearBeforeFill = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.txtAccountBalance);
+            this.groupBox3.Controls.Add(this.txtSL2Name);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtSL3Name);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.txtSL1Name);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.comboAccountName);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.txtBillAmount);
+            this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox3.Location = new System.Drawing.Point(29, 144);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(777, 114);
+            this.groupBox3.TabIndex = 38;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Bill Details";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(363, 76);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 13);
+            this.label10.TabIndex = 48;
+            this.label10.Text = "Account Balance";
+            // 
+            // txtAccountBalance
+            // 
+            this.txtAccountBalance.Enabled = false;
+            this.txtAccountBalance.Location = new System.Drawing.Point(454, 73);
+            this.txtAccountBalance.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAccountBalance.Name = "txtAccountBalance";
+            this.txtAccountBalance.Size = new System.Drawing.Size(68, 20);
+            this.txtAccountBalance.TabIndex = 47;
+            // 
+            // txtSL2Name
+            // 
+            this.txtSL2Name.Enabled = false;
+            this.txtSL2Name.Location = new System.Drawing.Point(85, 52);
+            this.txtSL2Name.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL2Name.Name = "txtSL2Name";
+            this.txtSL2Name.Size = new System.Drawing.Size(255, 20);
+            this.txtSL2Name.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 52);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "SL2";
+            // 
+            // txtSL3Name
+            // 
+            this.txtSL3Name.Enabled = false;
+            this.txtSL3Name.Location = new System.Drawing.Point(455, 48);
+            this.txtSL3Name.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL3Name.Name = "txtSL3Name";
+            this.txtSL3Name.Size = new System.Drawing.Size(305, 20);
+            this.txtSL3Name.TabIndex = 44;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(363, 48);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "SL3";
+            // 
+            // txtSL1Name
+            // 
+            this.txtSL1Name.Enabled = false;
+            this.txtSL1Name.Location = new System.Drawing.Point(455, 24);
+            this.txtSL1Name.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSL1Name.Name = "txtSL1Name";
+            this.txtSL1Name.Size = new System.Drawing.Size(305, 20);
+            this.txtSL1Name.TabIndex = 42;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 79);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Bill Amount";
+            // 
+            // comboAccountName
+            // 
+            this.comboAccountName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboAccountName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboAccountName.FormattingEnabled = true;
+            this.comboAccountName.Location = new System.Drawing.Point(85, 25);
+            this.comboAccountName.Margin = new System.Windows.Forms.Padding(2);
+            this.comboAccountName.Name = "comboAccountName";
+            this.comboAccountName.Size = new System.Drawing.Size(255, 21);
+            this.comboAccountName.TabIndex = 1;
+            this.comboAccountName.SelectedIndexChanged += new System.EventHandler(this.comboAccountName_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 31);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Account";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(363, 26);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "SL1";
+            // 
+            // txtBillAmount
+            // 
+            this.txtBillAmount.Location = new System.Drawing.Point(85, 76);
+            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBillAmount.Name = "txtBillAmount";
+            this.txtBillAmount.Size = new System.Drawing.Size(68, 20);
+            this.txtBillAmount.TabIndex = 1;
+            // 
+            // billMstViewTableAdapter1
+            // 
+            this.billMstViewTableAdapter1.ClearBeforeFill = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.txtFormSearch);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.txtRoleSearch);
+            this.groupBox4.Controls.Add(this.btnSearch);
+            this.groupBox4.Controls.Add(this.btnClearSearch);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox4.Location = new System.Drawing.Point(578, 337);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(228, 163);
+            this.groupBox4.TabIndex = 48;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Grid Filter";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 71);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Form Name";
+            // 
+            // txtFormSearch
+            // 
+            this.txtFormSearch.Location = new System.Drawing.Point(12, 88);
+            this.txtFormSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFormSearch.Name = "txtFormSearch";
+            this.txtFormSearch.Size = new System.Drawing.Size(203, 20);
+            this.txtFormSearch.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 23);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 13);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Role Name";
+            // 
+            // txtRoleSearch
+            // 
+            this.txtRoleSearch.Location = new System.Drawing.Point(12, 40);
+            this.txtRoleSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRoleSearch.Name = "txtRoleSearch";
+            this.txtRoleSearch.Size = new System.Drawing.Size(203, 20);
+            this.txtRoleSearch.TabIndex = 4;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(126, 124);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(89, 25);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnClearSearch
+            // 
+            this.btnClearSearch.Location = new System.Drawing.Point(33, 124);
+            this.btnClearSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearSearch.Name = "btnClearSearch";
+            this.btnClearSearch.Size = new System.Drawing.Size(89, 25);
+            this.btnClearSearch.TabIndex = 5;
+            this.btnClearSearch.Text = "Clear Controls";
+            this.btnClearSearch.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(-82, 88);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Account Name";
             // 
             // frmBillDespatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1302, 487);
+            this.ClientSize = new System.Drawing.Size(836, 526);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.comboACID);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPKBillID);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBillDespatch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bill Despatch";
@@ -768,14 +863,16 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboACID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billDtlBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,5 +944,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn billUpdatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBillTypeSub;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtFormSearch;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtRoleSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnClearSearch;
+        private System.Windows.Forms.Label label16;
     }
 }

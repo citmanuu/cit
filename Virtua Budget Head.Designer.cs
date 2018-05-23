@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboVH = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.enableDisableHeads = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,12 +67,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 35);
+            this.label1.Location = new System.Drawing.Point(19, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Virtual Head ";
-            // 
             // 
             // comboVH
             // 
@@ -83,6 +83,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.enableDisableHeads);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -101,10 +102,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Virtual Head";
             // 
+            // enableDisableHeads
+            // 
+            this.enableDisableHeads.Location = new System.Drawing.Point(490, 20);
+            this.enableDisableHeads.Name = "enableDisableHeads";
+            this.enableDisableHeads.Size = new System.Drawing.Size(135, 23);
+            this.enableDisableHeads.TabIndex = 3;
+            this.enableDisableHeads.Text = "Enable/Disable Heads";
+            this.enableDisableHeads.UseVisualStyleBackColor = true;
+            this.enableDisableHeads.Click += new System.EventHandler(this.enableDisableHeads_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 87);
+            this.label4.Location = new System.Drawing.Point(54, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 2;
@@ -113,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(362, 89);
+            this.label5.Location = new System.Drawing.Point(358, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 2;
@@ -122,7 +133,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(362, 57);
+            this.label3.Location = new System.Drawing.Point(360, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 2;
@@ -165,7 +176,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 60);
+            this.label2.Location = new System.Drawing.Point(56, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 2;
@@ -322,7 +333,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmVirtuaHead";
-            this.Text = "Virtual Head";
+            this.Text = "Virtual Budget Head";
             this.Load += new System.EventHandler(this.VirtuaHead_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -362,5 +373,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sL2NameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL3NameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button enableDisableHeads;
     }
 }
