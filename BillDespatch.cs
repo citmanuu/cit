@@ -891,9 +891,16 @@ namespace MANUUFinance
                     }
                     SearchStatement.Append("BillNarration like '%" + txtBillNarrationSearch.Text + "%'");
                 }
-
                 //Refresh DGV 
-                billMstViewBindingSource1.Filter = SearchStatement.ToString();
+
+                if(dateTimePicker1.Value == dateTimePicker2.Value)
+                {
+                    billMstViewBindingSource1.Filter = SearchStatement.ToString();
+                }
+                else
+                {
+                    billMstViewBindingSource1.Filter = "BillCreatedOn >= '" + dateTimePicker1.Value + "' And " + "BillCreatedOn <= '" + dateTimePicker2.Value + "'";
+                }               
             }
             catch (Exception)
             {
@@ -904,6 +911,9 @@ namespace MANUUFinance
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
             billMstViewBindingSource1.Filter = "";
+            txtBillNumberSearch.Text = "";
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
         }
 
         //Execute Form Query
