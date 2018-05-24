@@ -276,4 +276,5 @@ E:\Testbuildfile\obj\Debug\MANUUFinance.csproj.CopyComplete
 E:\Testbuildfile\obj\Debug\MANUUFinance.exe
 E:\Testbuildfile\obj\Debug\MANUUFinance.pdb
 E:\citmanuu\obj\Debug\MANUUFinance.EnableDisableHeads.resources
+E:\citmanuu\obj\Debug\MANUUFinance.Voucher_Generator.resources
 E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache

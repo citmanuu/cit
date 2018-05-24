@@ -11,6 +11,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -35,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>finance.ico</ApplicationIcon>
@@ -351,6 +355,7 @@
     <Compile Include="Voucher Generator.Designer.cs">
       <DependentUpon>Voucher Generator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Voucher.cs" />
     <EmbeddedResource Include="Administrator.resx">
       <DependentUpon>Administrator.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,7 +383,6 @@
     <EmbeddedResource Include="ImportHelp.resx">
       <DependentUpon>ImportHelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Role Privileges.resx">
       <DependentUpon>Role Privileges.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +444,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Voucher Generator.resx">
+      <DependentUpon>Voucher Generator.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FinanceDataSet.xsc">
       <DependentUpon>FinanceDataSet.xsd</DependentUpon>
@@ -617,6 +624,7 @@
     <None Include="FinanceDataSet9.xss">
       <DependentUpon>FinanceDataSet9.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\Voucher.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

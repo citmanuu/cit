@@ -26,7 +26,7 @@ namespace MANUUFinance
             //  Application.Run(new VirtuaHead(0,0,0,null));
             //Application.Run(new EnableDisableHeads());
             //Application.Run(new frmAccount(0, 0, 0, null));
-           // Application.Run(new Voucher_Generator());
+            Application.Run(new Voucher_Generator());
         }
     }
 }
