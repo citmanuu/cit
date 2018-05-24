@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bECYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKFYIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountBalanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voucherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnVaucherPrint = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,16 +45,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.deptNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bECYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKFYIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountBalanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voucherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.voucherBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -69,6 +69,45 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(674, 213);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // deptNameDataGridViewTextBoxColumn
+            // 
+            this.deptNameDataGridViewTextBoxColumn.DataPropertyName = "DeptName";
+            this.deptNameDataGridViewTextBoxColumn.HeaderText = "DeptName";
+            this.deptNameDataGridViewTextBoxColumn.Name = "deptNameDataGridViewTextBoxColumn";
+            this.deptNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bECYDataGridViewTextBoxColumn
+            // 
+            this.bECYDataGridViewTextBoxColumn.DataPropertyName = "BECY";
+            this.bECYDataGridViewTextBoxColumn.HeaderText = "BECY";
+            this.bECYDataGridViewTextBoxColumn.Name = "bECYDataGridViewTextBoxColumn";
+            this.bECYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKFYIDDataGridViewTextBoxColumn
+            // 
+            this.fKFYIDDataGridViewTextBoxColumn.DataPropertyName = "FKFYID";
+            this.fKFYIDDataGridViewTextBoxColumn.HeaderText = "FKFYID";
+            this.fKFYIDDataGridViewTextBoxColumn.Name = "fKFYIDDataGridViewTextBoxColumn";
+            this.fKFYIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountBalanceDataGridViewTextBoxColumn
+            // 
+            this.accountBalanceDataGridViewTextBoxColumn.DataPropertyName = "AccountBalance";
+            this.accountBalanceDataGridViewTextBoxColumn.HeaderText = "AccountBalance";
+            this.accountBalanceDataGridViewTextBoxColumn.Name = "accountBalanceDataGridViewTextBoxColumn";
+            this.accountBalanceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // billAmountDataGridViewTextBoxColumn
+            // 
+            this.billAmountDataGridViewTextBoxColumn.DataPropertyName = "BillAmount";
+            this.billAmountDataGridViewTextBoxColumn.HeaderText = "BillAmount";
+            this.billAmountDataGridViewTextBoxColumn.Name = "billAmountDataGridViewTextBoxColumn";
+            this.billAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // voucherBindingSource
+            // 
+            this.voucherBindingSource.DataSource = typeof(MANUUFinance.Voucher);
             // 
             // btnVaucherPrint
             // 
@@ -152,45 +191,6 @@
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // deptNameDataGridViewTextBoxColumn
-            // 
-            this.deptNameDataGridViewTextBoxColumn.DataPropertyName = "DeptName";
-            this.deptNameDataGridViewTextBoxColumn.HeaderText = "DeptName";
-            this.deptNameDataGridViewTextBoxColumn.Name = "deptNameDataGridViewTextBoxColumn";
-            this.deptNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bECYDataGridViewTextBoxColumn
-            // 
-            this.bECYDataGridViewTextBoxColumn.DataPropertyName = "BECY";
-            this.bECYDataGridViewTextBoxColumn.HeaderText = "BECY";
-            this.bECYDataGridViewTextBoxColumn.Name = "bECYDataGridViewTextBoxColumn";
-            this.bECYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fKFYIDDataGridViewTextBoxColumn
-            // 
-            this.fKFYIDDataGridViewTextBoxColumn.DataPropertyName = "FKFYID";
-            this.fKFYIDDataGridViewTextBoxColumn.HeaderText = "FKFYID";
-            this.fKFYIDDataGridViewTextBoxColumn.Name = "fKFYIDDataGridViewTextBoxColumn";
-            this.fKFYIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountBalanceDataGridViewTextBoxColumn
-            // 
-            this.accountBalanceDataGridViewTextBoxColumn.DataPropertyName = "AccountBalance";
-            this.accountBalanceDataGridViewTextBoxColumn.HeaderText = "AccountBalance";
-            this.accountBalanceDataGridViewTextBoxColumn.Name = "accountBalanceDataGridViewTextBoxColumn";
-            this.accountBalanceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // billAmountDataGridViewTextBoxColumn
-            // 
-            this.billAmountDataGridViewTextBoxColumn.DataPropertyName = "BillAmount";
-            this.billAmountDataGridViewTextBoxColumn.HeaderText = "BillAmount";
-            this.billAmountDataGridViewTextBoxColumn.Name = "billAmountDataGridViewTextBoxColumn";
-            this.billAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // voucherBindingSource
-            // 
-            this.voucherBindingSource.DataSource = typeof(MANUUFinance.Voucher);
-            // 
             // Voucher_Generator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,9 +203,9 @@
             this.Name = "Voucher_Generator";
             this.Text = "Voucher_Generator";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.voucherBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.voucherBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

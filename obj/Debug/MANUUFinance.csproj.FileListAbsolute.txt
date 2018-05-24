@@ -277,4 +277,11 @@ E:\Testbuildfile\obj\Debug\MANUUFinance.exe
 E:\Testbuildfile\obj\Debug\MANUUFinance.pdb
 E:\citmanuu\obj\Debug\MANUUFinance.EnableDisableHeads.resources
 E:\citmanuu\obj\Debug\MANUUFinance.Voucher_Generator.resources
-E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
+E:\citmanuu\bin\Debug\Microsoft.AnalysisServices.AppLocal.Core.dll
+E:\citmanuu\bin\Debug\Microsoft.AnalysisServices.AppLocal.dll
+E:\citmanuu\bin\Debug\Microsoft.AnalysisServices.AppLocal.Tabular.dll
+E:\citmanuu\bin\Debug\Interop.CrystalPrintControlLib.dll
+E:\citmanuu\bin\Debug\AxInterop.CrystalPrintControlLib.dll
+E:\citmanuu\obj\Debug\Interop.CrystalPrintControlLib.dll
+E:\citmanuu\obj\Debug\AxInterop.CrystalPrintControlLib.dll
+E:\citmanuu\obj\Debug\MANUUFinance.csproj.ResolveComReference.cache
