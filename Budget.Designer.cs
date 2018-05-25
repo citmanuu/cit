@@ -976,7 +976,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.BackColor = System.Drawing.Color.Teal;
+            this.groupBox5.BackColor = System.Drawing.Color.MediumAquamarine;
             this.groupBox5.Controls.Add(this.label16);
             this.groupBox5.Controls.Add(this.Budget);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

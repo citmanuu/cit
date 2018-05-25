@@ -20,6 +20,7 @@ namespace MANUUFinance
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
+        int BilledAmount = 0;
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -377,7 +378,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    //this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+                    this.billMstViewTableAdapter1.Fill(this.financeDataSet18.BillMstView);
                 }
             }
 
@@ -500,7 +501,7 @@ namespace MANUUFinance
 
 
             //If Bill Type is of Employee (11); Assign Beneficiery Combo Value to Employee column
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 11)
+            if (Convert.ToInt32(comboBillType.SelectedValue) == 13 || Convert.ToInt32(comboBillTypeSub.SelectedValue) == 11)
             {
                 objSqlCommand.Parameters.AddWithValue("@FKEmpID", comboBeneficiery.SelectedValue);
                 objSqlCommand.Parameters.AddWithValue("@FKStuID", DBNull.Value);
@@ -508,14 +509,14 @@ namespace MANUUFinance
 
             }
             else //If Bill Type is of Medical (3); Assign Beneficiery Combo Value to ............column
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 3)
+            if ((Convert.ToInt32(comboBillType.SelectedValue) == 14 || Convert.ToInt32(comboBillType.SelectedValue) == 15) && Convert.ToInt32(comboBillTypeSub.SelectedValue) == 3)
             {
                 objSqlCommand.Parameters.AddWithValue("@FKEmpID", DBNull.Value);
                 objSqlCommand.Parameters.AddWithValue("@FKStuID", DBNull.Value);
                 objSqlCommand.Parameters.AddWithValue("@FKSupID", DBNull.Value);
             }
             else //If Bill Type is of Student (4); Assign Beneficiery Combo Value to Student column
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 4)
+            if ((Convert.ToInt32(comboBillType.SelectedValue) == 14 || Convert.ToInt32(comboBillType.SelectedValue) == 15) && Convert.ToInt32(comboBillTypeSub.SelectedValue) == 4)
             {
                 objSqlCommand.Parameters.AddWithValue("@FKStuID", comboBeneficiery.SelectedValue);
                 objSqlCommand.Parameters.AddWithValue("@FKEmpID", DBNull.Value);
@@ -523,7 +524,7 @@ namespace MANUUFinance
 
             }
             else //If Bill Type is of Employee (4); Assign Beneficiery Combo Value to Supplier column
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 12)
+            if ((Convert.ToInt32(comboBillType.SelectedValue) == 14 || Convert.ToInt32(comboBillType.SelectedValue) == 15) && Convert.ToInt32(comboBillTypeSub.SelectedValue) == 12)
             {
                 objSqlCommand.Parameters.AddWithValue("@FKSupID", comboBeneficiery.SelectedValue);
                 objSqlCommand.Parameters.AddWithValue("@FKStuID", DBNull.Value);
@@ -667,6 +668,12 @@ namespace MANUUFinance
             if (txtBillAmount.Text.Length <= 0)
             {
                 validationMessage += "Please provide vakue for amount.\n";
+                validationResult = false;
+            }
+
+            if(Convert.ToInt32(txtBillAmount.Text) > Convert.ToInt32(txtAccountBalance.Text))
+            {
+                validationMessage += "Amount is exceed from balance amount.\n";
                 validationResult = false;
             }
 
@@ -1100,7 +1107,6 @@ namespace MANUUFinance
                 ////Refresh DGV 
                 ////this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
 
-                int BilledAmount = 0;
                 string sqlcommad1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID ='" + comboFY.SelectedValue + "'";
                 SqlCommand objsqlCommand1 = new SqlCommand(sqlcommad1, objSqlConnection);
 
@@ -1128,7 +1134,8 @@ namespace MANUUFinance
                 }
 
 
-                string sqlCommand = "Select BECY FROM [dbo].[Budget] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID = '" + comboFY.SelectedValue + "' AND FKDEPID ='" + comboDept.SelectedValue + "'";
+                string sqlCommand = "Select BECY FROM [dbo].[Budget] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID = '" + comboFY.SelectedValue + "' " +
+                    "AND FKDEPID ='" + comboDept.SelectedValue + "'";
 
                 SqlCommand objsqlCommand = new SqlCommand(sqlCommand, objSqlConnection);
                 try
@@ -1139,7 +1146,7 @@ namespace MANUUFinance
 
                     while (objDataReader.Read())
                     {
-                        txtAccountBalance.Text = ((Convert.ToInt32(objDataReader[0])) - 0).ToString();
+                        txtAccountBalance.Text = ((Convert.ToInt32(objDataReader[0])) - BilledAmount).ToString();
                     }
                 }
                 catch (SqlException ex)
