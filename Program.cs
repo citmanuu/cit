@@ -21,12 +21,13 @@ namespace MANUUFinance
             // Application.Run(new ImportExport());
              //Application.Run(new ImportHelp(1));
             //Application.Run(new frmBudget(0,0,0,null));
-            //  Application.Run(new frmBillDespatch(1,0,0,"admin1"));
+             Application.Run(new frmBillDespatch(1,0,0,"admin1"));
             // Application.Run(new pdfsupports());
             //  Application.Run(new VirtuaHead(0,0,0,null));
             //Application.Run(new EnableDisableHeads());
             //Application.Run(new frmAccount(0, 0, 0, null));
-            Application.Run(new Voucher_Generator());
+            //Application.Run(new Voucher_Generator());
+           // Application.Run(new Form3());
         }
     }
 }

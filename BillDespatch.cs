@@ -350,7 +350,7 @@ namespace MANUUFinance
                             objSqlBillDtlCmd.Parameters.AddWithValue("@Amount", txtBillAmount.Text);
                             objSqlBillDtlCmd.Parameters.AddWithValue("@BillDtlUpdatedOn", today);
                             objSqlBillDtlCmd.Parameters.AddWithValue("@BillDtlUpdatedBy", "User");
-
+                            objSqlBillDtlCmd.Parameters.AddWithValue("@FKFYID", comboFY.SelectedValue);
                             objSqlBillDtlCmd.ExecuteScalar();
 
                             MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -377,7 +377,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+                    //this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
                 }
             }
 
@@ -496,6 +496,7 @@ namespace MANUUFinance
             objSqlCommand.Parameters.AddWithValue("@FKBillStatus", comboBillStatus.SelectedValue);
             objSqlCommand.Parameters.AddWithValue("@BillUpdatedOn", today);
             objSqlCommand.Parameters.AddWithValue("@BillUpdatedBy", "User");
+            objSqlCommand.Parameters.AddWithValue("@FKFYID", comboFY.SelectedValue);
 
 
             //If Bill Type is of Employee (11); Assign Beneficiery Combo Value to Employee column
@@ -827,12 +828,50 @@ namespace MANUUFinance
             if(comboBudgetACTYPE.SelectedIndex == 1)
             {
                PrepareAccountNameCombo();
+               preparedFY();
             }
             else if(comboBudgetACTYPE.SelectedIndex == 2)
             {
                 PrepareAccountTypecombo();
-            }                
+                preparedFY();
+            }            
         }
+
+        private void preparedFY()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKFYID, FYName FROM [Finance].[dbo].[FinancialYear] Order by 1";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboFY.DisplayMember = "ListItemDesc"; // will display Name property
+                comboFY.ValueMember = "ListItemID"; // will select Value property
+                comboFY.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+        }
+
         private void PrepareAccountTypecombo()
         {
             var objLOVClass = new List<LOV>();
@@ -1024,77 +1063,95 @@ namespace MANUUFinance
 
         private void comboAccountName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Connection String
-            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-            //Instantiate SQL Connection
-            SqlConnection objSqlConnection = new SqlConnection(cs);
-            //Get Value for BillNumber
-            //string sqlCommand = "Select SL1Name, SL2Name, SL3Name FROM [dbo].[BudgetWithAccounts] where PKACID = @PKACID" ;
-            //SqlCommand objsqlCommand = new SqlCommand(sqlCommand, objSqlConnection);
-
-            //try
-            //{
-            //    objSqlConnection.Open();
-            //    objsqlCommand.Parameters.AddWithValue("@PKACID", comboAccountName.SelectedValue);
-            //    SqlDataReader objDataReader = objsqlCommand.ExecuteReader();
-            //    while (objDataReader.Read())
-            //    {
-            //        txtSL1Name.Text = Convert.ToString(objDataReader[0]);
-            //        txtSL2Name.Text = Convert.ToString(objDataReader[1]);
-            //        txtSL3Name.Text = Convert.ToString(objDataReader[2]);
-            //    }
-            //}
-            //catch (SqlException ex)
-            //{
-            //        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //finally
-            //{
-            //    objSqlConnection.Close();
-            //}
-            ////Refresh DGV 
-            ////this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
-
-
-
-            string sqlCommand = "Select RBECY, AccountBalance FROM [dbo].[Budget]"; 
-                // where PKACID = @PKACID";
-            SqlCommand objsqlCommand = new SqlCommand(sqlCommand, objSqlConnection);
-
-            try
+            if (comboAccountName.SelectedIndex != 0)
             {
-                objSqlConnection.Open();
-                //objsqlCommand.Parameters.AddWithValue("@PKACID", comboAccountName.SelectedValue);
-                SqlDataReader objDataReader = objsqlCommand.ExecuteReader();
-                while (objDataReader.Read())
+
+
+                //Connection String
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                //Instantiate SQL Connection
+                SqlConnection objSqlConnection = new SqlConnection(cs);
+
+
+                //Get Value for BillNumber
+                //string sqlCommand = "Select SL1Name, SL2Name, SL3Name FROM [dbo].[BudgetWithAccounts] where PKACID = @PKACID" ;
+                //SqlCommand objsqlCommand = new SqlCommand(sqlCommand, objSqlConnection);
+
+                //try
+                //{
+                //    objSqlConnection.Open();
+                //    objsqlCommand.Parameters.AddWithValue("@PKACID", comboAccountName.SelectedValue);
+                //    SqlDataReader objDataReader = objsqlCommand.ExecuteReader();
+                //    while (objDataReader.Read())
+                //    {
+                //        txtSL1Name.Text = Convert.ToString(objDataReader[0]);
+                //        txtSL2Name.Text = Convert.ToString(objDataReader[1]);
+                //        txtSL3Name.Text = Convert.ToString(objDataReader[2]);
+                //    }
+                //}
+                //catch (SqlException ex)
+                //{
+                //        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+                //finally
+                //{
+                //    objSqlConnection.Close();
+                //}
+                ////Refresh DGV 
+                ////this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+
+                int BilledAmount = 0;
+                string sqlcommad1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID ='" + comboFY.SelectedValue + "'";
+                SqlCommand objsqlCommand1 = new SqlCommand(sqlcommad1, objSqlConnection);
+
+                try
                 {
-                    txtAccountBalance.Text = (Convert.ToInt32(objDataReader[0]) - Convert.ToInt32(objDataReader[1])).ToString();
-                    //txtSL2Name.Text = Convert.ToString(objDataReader[1]);
-                    //txtSL3Name.Text = Convert.ToString(objDataReader[2]);
+                    objSqlConnection.Open();
+                    SqlDataReader objDataReader1 = objsqlCommand1.ExecuteReader();
+                    while (objDataReader1.Read())
+                    {
+                        if (!objDataReader1[0].Equals(DBNull.Value))
+                        {
+                            BilledAmount = Convert.ToInt32(objDataReader1[0]);
+                        }
+                        else
+                            BilledAmount = 0;
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    objSqlConnection.Close();
+                }
+
+
+                string sqlCommand = "Select BECY FROM [dbo].[Budget] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID = '" + comboFY.SelectedValue + "' AND FKDEPID ='" + comboDept.SelectedValue + "'";
+
+                SqlCommand objsqlCommand = new SqlCommand(sqlCommand, objSqlConnection);
+                try
+                {
+                    objSqlConnection.Open();
+
+                    SqlDataReader objDataReader = objsqlCommand.ExecuteReader();
+
+                    while (objDataReader.Read())
+                    {
+                        txtAccountBalance.Text = ((Convert.ToInt32(objDataReader[0])) - 0).ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    objSqlConnection.Close();
                 }
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                objSqlConnection.Close();
-            }
-            //Refresh DGV 
-            //this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
-
-
-
-
-
-
-
-
-
-
-
-
+            
         }
     }
 
