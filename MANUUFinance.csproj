@@ -409,6 +409,7 @@
       <DependentUpon>ImportHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Role Privileges.resx">
       <DependentUpon>Role Privileges.cs</DependentUpon>
     </EmbeddedResource>

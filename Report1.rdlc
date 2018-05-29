@@ -1444,7 +1444,7 @@
         <Top>3.72792in</Top>
         <Left>0.6875in</Left>
         <Height>2.64583in</Height>
-        <Width>8.03124in</Width>
+        <Width>8.03123in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -4940,7 +4940,7 @@
         <Top>6.56125in</Top>
         <Left>0.67708in</Left>
         <Height>1.5625in</Height>
-        <Width>8.04166in</Width>
+        <Width>8.04164in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -5362,7 +5362,7 @@
         <Top>9.89458in</Top>
         <Left>3.22916in</Left>
         <Height>1.73958in</Height>
-        <Width>5.59375in</Width>
+        <Width>5.59374in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -5370,6 +5370,141 @@
           </Border>
         </Style>
       </Tablix>
+      <Line Name="Line1">
+        <Top>11.83208in</Top>
+        <Left>0.6875in</Left>
+        <Height>0in</Height>
+        <Width>8.1354in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(For the use of Finance &amp; Account Office only)</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>11.90153in</Top>
+        <Left>3.30206in</Left>
+        <Height>0.25in</Height>
+        <Width>3.47917in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Bill Passed for Rs. ....................................................................................................................................................................</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>..............................................................................................................................................................................................</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>12.22097in</Top>
+        <Left>0.6875in</Left>
+        <Height>0.76042in</Height>
+        <Width>8.1354in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Dealing Asst.                           S.O.             A.R./ARD                             D.R./R.D                                         </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>FINANCE OFFICER</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>13.26958in</Top>
+        <Left>0.6875in</Left>
+        <Height>0.25in</Height>
+        <Width>8.1354in</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>17.54167in</Height>
     <Style>
