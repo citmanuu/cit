@@ -671,12 +671,15 @@ namespace MANUUFinance
                 validationResult = false;
             }
 
-            if(Convert.ToInt32(txtBillAmount.Text) > Convert.ToInt32(txtAccountBalance.Text))
+            if (txtBillAmount.Text !="")
             {
-                validationMessage += "Amount is exceed from balance amount.\n";
-                validationResult = false;
+                if (Convert.ToInt32(txtBillAmount.Text) > Convert.ToInt32(txtAccountBalance.Text))
+                {
+                    validationMessage += "Amount is exceed from balance amount.\n";
+                    validationResult = false;
+                }
             }
-
+            
             if (validationResult == false)
             {
                 MessageBox.Show(validationMessage, "Bill Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -14,7 +14,7 @@ namespace MANUUFinance
 {
     public partial class frmBudget : Form
     {
-        bool retrievedForUpdate;
+        bool retrievedForUpdate = false;
         bool queryMode;
         private int userId, deptId, roleId;
         string formName;
@@ -305,8 +305,7 @@ namespace MANUUFinance
 
         //Add Account Record
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            
+        {            
             //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
@@ -380,8 +379,7 @@ namespace MANUUFinance
                         SqlConnection objSqlConnection = new SqlConnection(cs);
                         //Prepare Update String
 
-                        string updateCommand = "Update [dbo].[Budget] set FKACID = @FKACID, BECY = @BECY, RBECY = @RBECY, BENY = @BENY , BudgetAcType = @BudgetAcType" +
-                                               "where PKBUDGETID = @PKBUDGETID";
+                        string updateCommand = "Update [dbo].[Budget] set FKACID = @FKACID, BECY = @BECY, RBECY = @RBECY, BENY = @BENY , BudgetAcType = @BudgetAcType where PKBUDGETID = @PKBUDGETID";
                         SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
                         objUpdateCommand.Parameters.AddWithValue("@FKACID", comboAccount.SelectedValue);
                         objUpdateCommand.Parameters.AddWithValue("@PKBUDGETID", txtPKBudgetID.Text);
@@ -864,14 +862,43 @@ namespace MANUUFinance
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+
+            if (MessageBox.Show("Do you want to Delete ?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // write the code for delete
+                if (validateRecord())
+                {
+                    if (retrievedForUpdate)
+                    { //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+                        //Prepare Update String
+
+                        string updateCommand = "delete [dbo].[Budget] where PKBUDGETID = @PKBUDGETID";
+                        SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+                        objUpdateCommand.Parameters.AddWithValue("@PKBUDGETID", txtPKBudgetID.Text);
+                        
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objUpdateCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Deleted Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        //Refresh DGV 
+                        this.budgetWithAccountsTableAdapter2.Fill(this.financeDataSet16.BudgetWithAccounts);
+
+                    }
+                }
             }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Clear Name Search Form
