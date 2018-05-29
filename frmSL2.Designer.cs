@@ -53,7 +53,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSL2ID = new System.Windows.Forms.TextBox();
             this.DGVSL2SL1 = new System.Windows.Forms.DataGridView();
-            this.SL2ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL2SL1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.financeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,6 +62,7 @@
             this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
             this.sL2SL1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sL2SL1TableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.SL2SL1TableAdapter();
+            this.SL2ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL2IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -362,15 +362,6 @@
             this.DGVSL2SL1.TabIndex = 23;
             this.DGVSL2SL1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL2SL1_CellClick);
             // 
-            // SL2ID
-            // 
-            this.SL2ID.DataPropertyName = "SL2ID";
-            this.SL2ID.HeaderText = "SL2ID";
-            this.SL2ID.Name = "SL2ID";
-            this.SL2ID.ReadOnly = true;
-            this.SL2ID.Visible = false;
-            this.SL2ID.Width = 91;
-            // 
             // sL2SL1BindingSource1
             // 
             this.sL2SL1BindingSource1.DataMember = "SL2SL1";
@@ -417,6 +408,15 @@
             // 
             this.sL2SL1TableAdapter1.ClearBeforeFill = true;
             // 
+            // SL2ID
+            // 
+            this.SL2ID.DataPropertyName = "SL2ID";
+            this.SL2ID.HeaderText = "SL2ID";
+            this.SL2ID.Name = "SL2ID";
+            this.SL2ID.ReadOnly = true;
+            this.SL2ID.Visible = false;
+            this.SL2ID.Width = 62;
+            // 
             // pKSL2DataGridViewTextBoxColumn
             // 
             this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
@@ -431,6 +431,7 @@
             this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
             this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
             this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
             this.sL1IDDataGridViewTextBoxColumn.Width = 62;
             // 
             // sL2IDDataGridViewTextBoxColumn
@@ -439,6 +440,7 @@
             this.sL2IDDataGridViewTextBoxColumn.HeaderText = "SL2ID";
             this.sL2IDDataGridViewTextBoxColumn.Name = "sL2IDDataGridViewTextBoxColumn";
             this.sL2IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL2IDDataGridViewTextBoxColumn.Visible = false;
             this.sL2IDDataGridViewTextBoxColumn.Width = 62;
             // 
             // sL1NameDataGridViewTextBoxColumn
@@ -541,12 +543,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSL2Code;
         private System.Windows.Forms.TextBox txtPKSL2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL2ID;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnPrint;
         private FinanceDataSet13 financeDataSet13;
         private System.Windows.Forms.BindingSource sL2SL1BindingSource2;
         private FinanceDataSet13TableAdapters.SL2SL1TableAdapter sL2SL1TableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL2ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL2IDDataGridViewTextBoxColumn;

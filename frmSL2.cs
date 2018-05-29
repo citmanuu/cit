@@ -45,11 +45,7 @@ namespace MANUUFinance
         //Add Record
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-                //If Form Controls are validated proceed to add record
+               //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
                     //Check if we are not Updating Record
@@ -101,23 +97,15 @@ namespace MANUUFinance
                         {
                             objSqlConnection.Close();
                         }
-                        //Refresh DGV 
-                        this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
-                    }
+                    //Refresh DGV 
+                    this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
                 }
-            }    
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
         //Update Record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-
                 //If Form Controls are validated proceed to add record
                 if (validateRecord())
                 {
@@ -169,22 +157,15 @@ namespace MANUUFinance
                         {
                             objSqlConnection.Close();
                         }
-                        //Refresh DGV 
-                        this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
-                    }
+                    //Refresh DGV 
+                    this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
                 }
-            }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Check the action permission
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
                 DialogResult diagResult;
                 diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (diagResult == DialogResult.Yes)
@@ -216,12 +197,9 @@ namespace MANUUFinance
                     {
                         objSqlConnection.Close();
                     }
-                    this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
-                }
+                  this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
             }
-            else
-                MessageBox.Show("Please contact the Administrator ", "No Access", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+           }
 
         //Prepare SL1Combo
         private void PrepareSL1Combo()
@@ -309,21 +287,37 @@ namespace MANUUFinance
             radioBtnSL2Active.Checked = false;
             radioBtnSL2InActive.Checked = false;            
             retrievedForUpdate = false;
+            comboSL1.Enabled = true;
+            comboSL1.SelectedIndex = 0;
+            txtSL2ID.Enabled = true;
+            txtSL2ID.Text = "";
+            txtSL2Code.Text = "";
+            txtPKSL2.Text = "";
         }
 
         //Trasfer Record to Template from the row where user has clicked the mouse
         private void DGVSL2SL1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) { 
-            txtPKSL2.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-            comboSL1.SelectedValue = Convert.ToInt32(DGVSL2SL1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString());
-            txtSL2ID.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-            txtSL2Name.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+            txtPKSL2.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                if (DGVSL2SL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString() == "")
+                {
+                    comboSL1.SelectedValue = "";
+                }
+                else
+                    comboSL1.SelectedValue = Convert.ToInt32(DGVSL2SL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
+                if (DGVSL2SL1.Rows[e.RowIndex].Cells[3].FormattedValue.ToString() == "")
+                {
+                    txtSL2ID.Text = "";
+                }
+                else
+                    txtSL2ID.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+            txtSL2Name.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
             if (Convert.ToBoolean(DGVSL2SL1.Rows[e.RowIndex].Cells[7].FormattedValue.ToString()) == true)
                 radioBtnSL2Active.Checked = true;
             else
                 radioBtnSL2InActive.Checked = true;
-            txtSL2Order.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
+            txtSL2Order.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
             txtSL2Code.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
 
             retrievedForUpdate = true;

@@ -56,26 +56,32 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSL3ID = new System.Windows.Forms.TextBox();
             this.DGVSL3SL2SL1 = new System.Windows.Forms.DataGridView();
-            this.PKSL3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3CodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3ActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sL3OrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL3IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL3ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL3SL2SL1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.sL3SL2SL1TableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.SL3SL2SL1TableAdapter();
+            this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
+            this.sL3SL2SL1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sL3SL2SL1TableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.SL3SL2SL1TableAdapter();
+            this.PKSL3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL3ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKSL3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3OrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3ActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sL3CodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPKSL3
@@ -375,17 +381,18 @@
             this.DGVSL3SL2SL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVSL3SL2SL1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PKSL3,
-            this.sL3CodeDataGridViewTextBoxColumn,
-            this.sL1IDDataGridViewTextBoxColumn,
-            this.pKSL2DataGridViewTextBoxColumn,
-            this.sL3NameDataGridViewTextBoxColumn,
-            this.sL2NameDataGridViewTextBoxColumn,
-            this.sL1NameDataGridViewTextBoxColumn,
-            this.sL3ActiveDataGridViewCheckBoxColumn,
-            this.sL3OrderDataGridViewTextBoxColumn,
+            this.SL3ID,
+            this.pKSL3DataGridViewTextBoxColumn,
             this.sL3IDDataGridViewTextBoxColumn,
-            this.SL3ID});
-            this.DGVSL3SL2SL1.DataSource = this.sL3SL2SL1BindingSource;
+            this.pKSL2DataGridViewTextBoxColumn,
+            this.sL1IDDataGridViewTextBoxColumn,
+            this.sL1NameDataGridViewTextBoxColumn,
+            this.sL2NameDataGridViewTextBoxColumn,
+            this.sL3NameDataGridViewTextBoxColumn,
+            this.sL3OrderDataGridViewTextBoxColumn,
+            this.sL3ActiveDataGridViewCheckBoxColumn,
+            this.sL3CodeDataGridViewTextBoxColumn});
+            this.DGVSL3SL2SL1.DataSource = this.sL3SL2SL1BindingSource1;
             this.DGVSL3SL2SL1.Location = new System.Drawing.Point(45, 269);
             this.DGVSL3SL2SL1.Margin = new System.Windows.Forms.Padding(2);
             this.DGVSL3SL2SL1.MultiSelect = false;
@@ -395,99 +402,6 @@
             this.DGVSL3SL2SL1.Size = new System.Drawing.Size(760, 233);
             this.DGVSL3SL2SL1.TabIndex = 28;
             this.DGVSL3SL2SL1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL3SL2SL1_CellClick);
-            // 
-            // PKSL3
-            // 
-            this.PKSL3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PKSL3.DataPropertyName = "PKSL3";
-            this.PKSL3.HeaderText = "PKSL3";
-            this.PKSL3.Name = "PKSL3";
-            this.PKSL3.ReadOnly = true;
-            this.PKSL3.Visible = false;
-            // 
-            // sL3CodeDataGridViewTextBoxColumn
-            // 
-            this.sL3CodeDataGridViewTextBoxColumn.DataPropertyName = "SL3Code";
-            this.sL3CodeDataGridViewTextBoxColumn.HeaderText = "SL3Code";
-            this.sL3CodeDataGridViewTextBoxColumn.Name = "sL3CodeDataGridViewTextBoxColumn";
-            this.sL3CodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3CodeDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // sL1IDDataGridViewTextBoxColumn
-            // 
-            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
-            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
-            this.sL1IDDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // pKSL2DataGridViewTextBoxColumn
-            // 
-            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
-            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKSL2DataGridViewTextBoxColumn.Visible = false;
-            this.pKSL2DataGridViewTextBoxColumn.Width = 94;
-            // 
-            // sL3NameDataGridViewTextBoxColumn
-            // 
-            this.sL3NameDataGridViewTextBoxColumn.DataPropertyName = "SL3Name";
-            this.sL3NameDataGridViewTextBoxColumn.HeaderText = "SL3Name";
-            this.sL3NameDataGridViewTextBoxColumn.Name = "sL3NameDataGridViewTextBoxColumn";
-            this.sL3NameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3NameDataGridViewTextBoxColumn.Width = 79;
-            // 
-            // sL2NameDataGridViewTextBoxColumn
-            // 
-            this.sL2NameDataGridViewTextBoxColumn.DataPropertyName = "SL2Name";
-            this.sL2NameDataGridViewTextBoxColumn.HeaderText = "SL2Name";
-            this.sL2NameDataGridViewTextBoxColumn.Name = "sL2NameDataGridViewTextBoxColumn";
-            this.sL2NameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL2NameDataGridViewTextBoxColumn.Width = 79;
-            // 
-            // sL1NameDataGridViewTextBoxColumn
-            // 
-            this.sL1NameDataGridViewTextBoxColumn.DataPropertyName = "SL1Name";
-            this.sL1NameDataGridViewTextBoxColumn.HeaderText = "SL1Name";
-            this.sL1NameDataGridViewTextBoxColumn.Name = "sL1NameDataGridViewTextBoxColumn";
-            this.sL1NameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL1NameDataGridViewTextBoxColumn.Width = 79;
-            // 
-            // sL3ActiveDataGridViewCheckBoxColumn
-            // 
-            this.sL3ActiveDataGridViewCheckBoxColumn.DataPropertyName = "SL3Active";
-            this.sL3ActiveDataGridViewCheckBoxColumn.HeaderText = "SL3Active";
-            this.sL3ActiveDataGridViewCheckBoxColumn.Name = "sL3ActiveDataGridViewCheckBoxColumn";
-            this.sL3ActiveDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.sL3ActiveDataGridViewCheckBoxColumn.Width = 62;
-            // 
-            // sL3OrderDataGridViewTextBoxColumn
-            // 
-            this.sL3OrderDataGridViewTextBoxColumn.DataPropertyName = "SL3Order";
-            this.sL3OrderDataGridViewTextBoxColumn.HeaderText = "SL3Order";
-            this.sL3OrderDataGridViewTextBoxColumn.Name = "sL3OrderDataGridViewTextBoxColumn";
-            this.sL3OrderDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3OrderDataGridViewTextBoxColumn.Width = 77;
-            // 
-            // sL3IDDataGridViewTextBoxColumn
-            // 
-            this.sL3IDDataGridViewTextBoxColumn.DataPropertyName = "SL3ID";
-            this.sL3IDDataGridViewTextBoxColumn.HeaderText = "SL3ID";
-            this.sL3IDDataGridViewTextBoxColumn.Name = "sL3IDDataGridViewTextBoxColumn";
-            this.sL3IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL3IDDataGridViewTextBoxColumn.Visible = false;
-            this.sL3IDDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // SL3ID
-            // 
-            this.SL3ID.DataPropertyName = "SL3ID";
-            this.SL3ID.HeaderText = "SL3ID";
-            this.SL3ID.Name = "SL3ID";
-            this.SL3ID.ReadOnly = true;
-            this.SL3ID.Visible = false;
-            this.SL3ID.Width = 91;
             // 
             // sL3SL2SL1BindingSource
             // 
@@ -503,11 +417,128 @@
             // 
             this.sL3SL2SL1TableAdapter.ClearBeforeFill = true;
             // 
+            // financeDataSet13
+            // 
+            this.financeDataSet13.DataSetName = "FinanceDataSet13";
+            this.financeDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sL3SL2SL1BindingSource1
+            // 
+            this.sL3SL2SL1BindingSource1.DataMember = "SL3SL2SL1";
+            this.sL3SL2SL1BindingSource1.DataSource = this.financeDataSet13;
+            // 
+            // sL3SL2SL1TableAdapter1
+            // 
+            this.sL3SL2SL1TableAdapter1.ClearBeforeFill = true;
+            // 
+            // PKSL3
+            // 
+            this.PKSL3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PKSL3.DataPropertyName = "PKSL3";
+            this.PKSL3.HeaderText = "PKSL3";
+            this.PKSL3.Name = "PKSL3";
+            this.PKSL3.ReadOnly = true;
+            this.PKSL3.Visible = false;
+            this.PKSL3.Width = 65;
+            // 
+            // SL3ID
+            // 
+            this.SL3ID.DataPropertyName = "SL3ID";
+            this.SL3ID.HeaderText = "SL3ID";
+            this.SL3ID.Name = "SL3ID";
+            this.SL3ID.ReadOnly = true;
+            this.SL3ID.Visible = false;
+            this.SL3ID.Width = 62;
+            // 
+            // pKSL3DataGridViewTextBoxColumn
+            // 
+            this.pKSL3DataGridViewTextBoxColumn.DataPropertyName = "PKSL3";
+            this.pKSL3DataGridViewTextBoxColumn.HeaderText = "PKSL3";
+            this.pKSL3DataGridViewTextBoxColumn.Name = "pKSL3DataGridViewTextBoxColumn";
+            this.pKSL3DataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKSL3DataGridViewTextBoxColumn.Visible = false;
+            this.pKSL3DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // sL3IDDataGridViewTextBoxColumn
+            // 
+            this.sL3IDDataGridViewTextBoxColumn.DataPropertyName = "SL3ID";
+            this.sL3IDDataGridViewTextBoxColumn.HeaderText = "SL3ID";
+            this.sL3IDDataGridViewTextBoxColumn.Name = "sL3IDDataGridViewTextBoxColumn";
+            this.sL3IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL3IDDataGridViewTextBoxColumn.Visible = false;
+            this.sL3IDDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // pKSL2DataGridViewTextBoxColumn
+            // 
+            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
+            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKSL2DataGridViewTextBoxColumn.Visible = false;
+            this.pKSL2DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // sL1IDDataGridViewTextBoxColumn
+            // 
+            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
+            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
+            this.sL1IDDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // sL1NameDataGridViewTextBoxColumn
+            // 
+            this.sL1NameDataGridViewTextBoxColumn.DataPropertyName = "SL1Name";
+            this.sL1NameDataGridViewTextBoxColumn.HeaderText = "SL1Name";
+            this.sL1NameDataGridViewTextBoxColumn.Name = "sL1NameDataGridViewTextBoxColumn";
+            this.sL1NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL1NameDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // sL2NameDataGridViewTextBoxColumn
+            // 
+            this.sL2NameDataGridViewTextBoxColumn.DataPropertyName = "SL2Name";
+            this.sL2NameDataGridViewTextBoxColumn.HeaderText = "SL2Name";
+            this.sL2NameDataGridViewTextBoxColumn.Name = "sL2NameDataGridViewTextBoxColumn";
+            this.sL2NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL2NameDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // sL3NameDataGridViewTextBoxColumn
+            // 
+            this.sL3NameDataGridViewTextBoxColumn.DataPropertyName = "SL3Name";
+            this.sL3NameDataGridViewTextBoxColumn.HeaderText = "SL3Name";
+            this.sL3NameDataGridViewTextBoxColumn.Name = "sL3NameDataGridViewTextBoxColumn";
+            this.sL3NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL3NameDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // sL3OrderDataGridViewTextBoxColumn
+            // 
+            this.sL3OrderDataGridViewTextBoxColumn.DataPropertyName = "SL3Order";
+            this.sL3OrderDataGridViewTextBoxColumn.HeaderText = "SL3Order";
+            this.sL3OrderDataGridViewTextBoxColumn.Name = "sL3OrderDataGridViewTextBoxColumn";
+            this.sL3OrderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL3OrderDataGridViewTextBoxColumn.Width = 77;
+            // 
+            // sL3ActiveDataGridViewCheckBoxColumn
+            // 
+            this.sL3ActiveDataGridViewCheckBoxColumn.DataPropertyName = "SL3Active";
+            this.sL3ActiveDataGridViewCheckBoxColumn.HeaderText = "SL3Active";
+            this.sL3ActiveDataGridViewCheckBoxColumn.Name = "sL3ActiveDataGridViewCheckBoxColumn";
+            this.sL3ActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.sL3ActiveDataGridViewCheckBoxColumn.Width = 62;
+            // 
+            // sL3CodeDataGridViewTextBoxColumn
+            // 
+            this.sL3CodeDataGridViewTextBoxColumn.DataPropertyName = "SL3Code";
+            this.sL3CodeDataGridViewTextBoxColumn.HeaderText = "SL3Code";
+            this.sL3CodeDataGridViewTextBoxColumn.Name = "sL3CodeDataGridViewTextBoxColumn";
+            this.sL3CodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL3CodeDataGridViewTextBoxColumn.Width = 76;
+            // 
             // frmSL3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 487);
+            this.ClientSize = new System.Drawing.Size(859, 542);
             this.Controls.Add(this.DGVSL3SL2SL1);
             this.Controls.Add(this.txtPKSL3);
             this.Controls.Add(this.groupBox2);
@@ -525,6 +556,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,18 +592,22 @@
         private FinanceDataSet financeDataSet;
         private System.Windows.Forms.BindingSource sL3SL2SL1BindingSource;
         private FinanceDataSetTableAdapters.SL3SL2SL1TableAdapter sL3SL2SL1TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PKSL3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL3CodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL3NameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL2NameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL1NameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn sL3ActiveDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL3OrderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sL3IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL3ID;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnPrint;
+        private FinanceDataSet13 financeDataSet13;
+        private System.Windows.Forms.BindingSource sL3SL2SL1BindingSource1;
+        private FinanceDataSet13TableAdapters.SL3SL2SL1TableAdapter sL3SL2SL1TableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PKSL3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL3ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL1NameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL2NameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3NameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3OrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn sL3ActiveDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL3CodeDataGridViewTextBoxColumn;
     }
 }
