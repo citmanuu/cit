@@ -147,6 +147,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet131.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FinanceDataSet141.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet141.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FinanceDataSet16.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -534,6 +539,17 @@
     </None>
     <None Include="FinanceDataSet131.xss">
       <DependentUpon>FinanceDataSet131.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet141.xsc">
+      <DependentUpon>FinanceDataSet141.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet141.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet141.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet141.xss">
+      <DependentUpon>FinanceDataSet141.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet16.xsc">
       <DependentUpon>FinanceDataSet16.xsd</DependentUpon>

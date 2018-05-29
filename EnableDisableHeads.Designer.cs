@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DGVVH = new System.Windows.Forms.DataGridView();
+            this.vHIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vHNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vHAddedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vHUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vHUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vHMstBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet7 = new MANUUFinance.FinanceDataSet7();
             this.radioActive = new System.Windows.Forms.RadioButton();
@@ -37,12 +43,6 @@
             this.radioDeactive = new System.Windows.Forms.RadioButton();
             this.vHMstTableAdapter = new MANUUFinance.FinanceDataSet7TableAdapters.VHMstTableAdapter();
             this.SAVE = new System.Windows.Forms.Button();
-            this.vHIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vHNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.vHAddedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vHUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vHUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVVH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vHMstBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet7)).BeginInit();
@@ -67,6 +67,51 @@
             this.DGVVH.Size = new System.Drawing.Size(240, 171);
             this.DGVVH.TabIndex = 0;
             this.DGVVH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVVH_CellContentClick);
+            // 
+            // vHIDDataGridViewTextBoxColumn
+            // 
+            this.vHIDDataGridViewTextBoxColumn.DataPropertyName = "VHID";
+            this.vHIDDataGridViewTextBoxColumn.HeaderText = "VHID";
+            this.vHIDDataGridViewTextBoxColumn.Name = "vHIDDataGridViewTextBoxColumn";
+            this.vHIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vHNAMEDataGridViewTextBoxColumn
+            // 
+            this.vHNAMEDataGridViewTextBoxColumn.DataPropertyName = "VHNAME";
+            this.vHNAMEDataGridViewTextBoxColumn.HeaderText = "VHNAME";
+            this.vHNAMEDataGridViewTextBoxColumn.Name = "vHNAMEDataGridViewTextBoxColumn";
+            this.vHNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isActiveDataGridViewCheckBoxColumn
+            // 
+            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "isActive";
+            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "isActive";
+            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
+            this.isActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // vHAddedOnDataGridViewTextBoxColumn
+            // 
+            this.vHAddedOnDataGridViewTextBoxColumn.DataPropertyName = "VHAddedOn";
+            this.vHAddedOnDataGridViewTextBoxColumn.HeaderText = "VHAddedOn";
+            this.vHAddedOnDataGridViewTextBoxColumn.Name = "vHAddedOnDataGridViewTextBoxColumn";
+            this.vHAddedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vHAddedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vHUpdatedOnDataGridViewTextBoxColumn
+            // 
+            this.vHUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "VHUpdatedOn";
+            this.vHUpdatedOnDataGridViewTextBoxColumn.HeaderText = "VHUpdatedOn";
+            this.vHUpdatedOnDataGridViewTextBoxColumn.Name = "vHUpdatedOnDataGridViewTextBoxColumn";
+            this.vHUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vHUpdatedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vHUpdatedByDataGridViewTextBoxColumn
+            // 
+            this.vHUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "VHUpdatedBy";
+            this.vHUpdatedByDataGridViewTextBoxColumn.HeaderText = "VHUpdatedBy";
+            this.vHUpdatedByDataGridViewTextBoxColumn.Name = "vHUpdatedByDataGridViewTextBoxColumn";
+            this.vHUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vHUpdatedByDataGridViewTextBoxColumn.Visible = false;
             // 
             // vHMstBindingSource
             // 
@@ -123,51 +168,6 @@
             this.SAVE.Text = "Save";
             this.SAVE.UseVisualStyleBackColor = true;
             this.SAVE.Click += new System.EventHandler(this.SAVE_Click);
-            // 
-            // vHIDDataGridViewTextBoxColumn
-            // 
-            this.vHIDDataGridViewTextBoxColumn.DataPropertyName = "VHID";
-            this.vHIDDataGridViewTextBoxColumn.HeaderText = "VHID";
-            this.vHIDDataGridViewTextBoxColumn.Name = "vHIDDataGridViewTextBoxColumn";
-            this.vHIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vHNAMEDataGridViewTextBoxColumn
-            // 
-            this.vHNAMEDataGridViewTextBoxColumn.DataPropertyName = "VHNAME";
-            this.vHNAMEDataGridViewTextBoxColumn.HeaderText = "VHNAME";
-            this.vHNAMEDataGridViewTextBoxColumn.Name = "vHNAMEDataGridViewTextBoxColumn";
-            this.vHNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // isActiveDataGridViewCheckBoxColumn
-            // 
-            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "isActive";
-            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "isActive";
-            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
-            this.isActiveDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // vHAddedOnDataGridViewTextBoxColumn
-            // 
-            this.vHAddedOnDataGridViewTextBoxColumn.DataPropertyName = "VHAddedOn";
-            this.vHAddedOnDataGridViewTextBoxColumn.HeaderText = "VHAddedOn";
-            this.vHAddedOnDataGridViewTextBoxColumn.Name = "vHAddedOnDataGridViewTextBoxColumn";
-            this.vHAddedOnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vHAddedOnDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vHUpdatedOnDataGridViewTextBoxColumn
-            // 
-            this.vHUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "VHUpdatedOn";
-            this.vHUpdatedOnDataGridViewTextBoxColumn.HeaderText = "VHUpdatedOn";
-            this.vHUpdatedOnDataGridViewTextBoxColumn.Name = "vHUpdatedOnDataGridViewTextBoxColumn";
-            this.vHUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vHUpdatedOnDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vHUpdatedByDataGridViewTextBoxColumn
-            // 
-            this.vHUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "VHUpdatedBy";
-            this.vHUpdatedByDataGridViewTextBoxColumn.HeaderText = "VHUpdatedBy";
-            this.vHUpdatedByDataGridViewTextBoxColumn.Name = "vHUpdatedByDataGridViewTextBoxColumn";
-            this.vHUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vHUpdatedByDataGridViewTextBoxColumn.Visible = false;
             // 
             // EnableDisableHeads
             // 
