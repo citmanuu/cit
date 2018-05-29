@@ -36,6 +36,8 @@ namespace MANUUFinance
             PrepareSL2Combo("0");
             PrepareSL3Combo("0");
             PrepareAccountType();
+
+            // Check for admin
             if (new AdministratorLogin().administratorLogin(userId))
             {
                 prepareaction();
@@ -43,40 +45,6 @@ namespace MANUUFinance
             PrepareBankAccountCombo();
             retrievedForUpdate = false;
         }
-
-        private void prepareaction()
-        {
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-                btnAdd.Enabled = true;
-            }
-            else
-                btnAdd.Enabled = false;
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-                btnUpdate.Enabled = true;
-            }
-            else
-                btnUpdate.Enabled = false;
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
-                btnDelete.Enabled = true;
-            }
-            else
-                btnDelete.Enabled = false;
-            string CanPrint = "CanPrint";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
-            {
-                btnPrint.Enabled = true;
-            }
-            else
-                btnPrint.Enabled = false;
-        }
-
-
 
         //DML Region
         #region
@@ -472,6 +440,41 @@ namespace MANUUFinance
 
         //Support Methods
         #region 
+
+
+        // Give the permisssion for action
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearTemplate();
@@ -522,7 +525,12 @@ namespace MANUUFinance
                 else
                     radioBtnAccountInActive.Checked = true;
                 txtPKACID.Text = DGVAccounts.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                comboAccountType.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString());
+                if(DGVAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString() == "")
+                {
+                    comboAccountType.SelectedValue = "";
+                }
+                else
+                    comboAccountType.SelectedValue = Convert.ToInt32(DGVAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString());
 
                 retrievedForUpdate = true;
                 LockKeys();
@@ -605,9 +613,6 @@ namespace MANUUFinance
         {
             this.Close();
         }
-
         #endregion
-
-
     }
 }

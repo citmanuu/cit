@@ -28,8 +28,8 @@ namespace MANUUFinance
 
         private void frmSL2_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'financeDataSet.SL2SL1' table. You can move, or remove it, as needed.
-            this.sL2SL1TableAdapter.Fill(this.financeDataSet.SL2SL1);
+            // TODO: This line of code loads data into the 'financeDataSet13.SL2SL1' table. You can move, or remove it, as needed.
+            this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
             //Prepare Combo for Showing Account Types
             PrepareSL1Combo();
             retrievedForUpdate = false;
@@ -319,12 +319,12 @@ namespace MANUUFinance
             comboSL1.SelectedValue = Convert.ToInt32(DGVSL2SL1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString());
             txtSL2ID.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
             txtSL2Name.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-            if (Convert.ToBoolean(DGVSL2SL1.Rows[e.RowIndex].Cells[6].FormattedValue.ToString()) == true)
+            if (Convert.ToBoolean(DGVSL2SL1.Rows[e.RowIndex].Cells[7].FormattedValue.ToString()) == true)
                 radioBtnSL2Active.Checked = true;
             else
                 radioBtnSL2InActive.Checked = true;
             txtSL2Order.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-            txtSL2Code.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
+            txtSL2Code.Text = DGVSL2SL1.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
 
             retrievedForUpdate = true;
             LockKeys();

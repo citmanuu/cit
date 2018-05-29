@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -52,21 +53,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSL2ID = new System.Windows.Forms.TextBox();
             this.DGVSL2SL1 = new System.Windows.Forms.DataGridView();
-            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SL2ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL2OrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sL2ActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sL2CodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL2SL1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.financeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sL2SL1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sL2SL1TableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.SL2SL1TableAdapter();
             this.txtPKSL2 = new System.Windows.Forms.TextBox();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
+            this.sL2SL1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.sL2SL1TableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.SL2SL1TableAdapter();
+            this.pKSL2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL2IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL1NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sl2NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL2OrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL2ActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sL2CodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sL2SL1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sL2SL1BindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -92,6 +98,17 @@
             this.groupBox2.Size = new System.Drawing.Size(582, 45);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(286, 12);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // button1
             // 
@@ -324,15 +341,16 @@
             this.DGVSL2SL1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVSL2SL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVSL2SL1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL2ID,
             this.pKSL2DataGridViewTextBoxColumn,
             this.sL1IDDataGridViewTextBoxColumn,
-            this.SL2ID,
+            this.sL2IDDataGridViewTextBoxColumn,
             this.sL1NameDataGridViewTextBoxColumn,
             this.sl2NameDataGridViewTextBoxColumn,
             this.sL2OrderDataGridViewTextBoxColumn,
             this.sL2ActiveDataGridViewCheckBoxColumn,
             this.sL2CodeDataGridViewTextBoxColumn});
-            this.DGVSL2SL1.DataSource = this.sL2SL1BindingSource1;
+            this.DGVSL2SL1.DataSource = this.sL2SL1BindingSource2;
             this.DGVSL2SL1.Location = new System.Drawing.Point(39, 250);
             this.DGVSL2SL1.Margin = new System.Windows.Forms.Padding(2);
             this.DGVSL2SL1.MultiSelect = false;
@@ -344,24 +362,6 @@
             this.DGVSL2SL1.TabIndex = 23;
             this.DGVSL2SL1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL2SL1_CellClick);
             // 
-            // pKSL2DataGridViewTextBoxColumn
-            // 
-            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
-            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
-            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKSL2DataGridViewTextBoxColumn.Visible = false;
-            this.pKSL2DataGridViewTextBoxColumn.Width = 94;
-            // 
-            // sL1IDDataGridViewTextBoxColumn
-            // 
-            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
-            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
-            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sL1IDDataGridViewTextBoxColumn.Visible = false;
-            this.sL1IDDataGridViewTextBoxColumn.Width = 91;
-            // 
             // SL2ID
             // 
             this.SL2ID.DataPropertyName = "SL2ID";
@@ -370,6 +370,76 @@
             this.SL2ID.ReadOnly = true;
             this.SL2ID.Visible = false;
             this.SL2ID.Width = 91;
+            // 
+            // sL2SL1BindingSource1
+            // 
+            this.sL2SL1BindingSource1.DataMember = "SL2SL1";
+            this.sL2SL1BindingSource1.DataSource = this.financeDataSet;
+            // 
+            // financeDataSet
+            // 
+            this.financeDataSet.DataSetName = "FinanceDataSet";
+            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // financeDataSetBindingSource
+            // 
+            this.financeDataSetBindingSource.DataSource = this.financeDataSet;
+            this.financeDataSetBindingSource.Position = 0;
+            // 
+            // sL2SL1BindingSource
+            // 
+            this.sL2SL1BindingSource.DataMember = "SL2SL1";
+            this.sL2SL1BindingSource.DataSource = this.financeDataSet;
+            // 
+            // sL2SL1TableAdapter
+            // 
+            this.sL2SL1TableAdapter.ClearBeforeFill = true;
+            // 
+            // txtPKSL2
+            // 
+            this.txtPKSL2.Location = new System.Drawing.Point(727, 199);
+            this.txtPKSL2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPKSL2.Name = "txtPKSL2";
+            this.txtPKSL2.Size = new System.Drawing.Size(68, 20);
+            this.txtPKSL2.TabIndex = 24;
+            // 
+            // financeDataSet13
+            // 
+            this.financeDataSet13.DataSetName = "FinanceDataSet13";
+            this.financeDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sL2SL1BindingSource2
+            // 
+            this.sL2SL1BindingSource2.DataMember = "SL2SL1";
+            this.sL2SL1BindingSource2.DataSource = this.financeDataSet13;
+            // 
+            // sL2SL1TableAdapter1
+            // 
+            this.sL2SL1TableAdapter1.ClearBeforeFill = true;
+            // 
+            // pKSL2DataGridViewTextBoxColumn
+            // 
+            this.pKSL2DataGridViewTextBoxColumn.DataPropertyName = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn.HeaderText = "PKSL2";
+            this.pKSL2DataGridViewTextBoxColumn.Name = "pKSL2DataGridViewTextBoxColumn";
+            this.pKSL2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKSL2DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // sL1IDDataGridViewTextBoxColumn
+            // 
+            this.sL1IDDataGridViewTextBoxColumn.DataPropertyName = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn.HeaderText = "SL1ID";
+            this.sL1IDDataGridViewTextBoxColumn.Name = "sL1IDDataGridViewTextBoxColumn";
+            this.sL1IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL1IDDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // sL2IDDataGridViewTextBoxColumn
+            // 
+            this.sL2IDDataGridViewTextBoxColumn.DataPropertyName = "SL2ID";
+            this.sL2IDDataGridViewTextBoxColumn.HeaderText = "SL2ID";
+            this.sL2IDDataGridViewTextBoxColumn.Name = "sL2IDDataGridViewTextBoxColumn";
+            this.sL2IDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sL2IDDataGridViewTextBoxColumn.Width = 62;
             // 
             // sL1NameDataGridViewTextBoxColumn
             // 
@@ -411,49 +481,6 @@
             this.sL2CodeDataGridViewTextBoxColumn.ReadOnly = true;
             this.sL2CodeDataGridViewTextBoxColumn.Width = 76;
             // 
-            // sL2SL1BindingSource1
-            // 
-            this.sL2SL1BindingSource1.DataMember = "SL2SL1";
-            this.sL2SL1BindingSource1.DataSource = this.financeDataSet;
-            // 
-            // financeDataSet
-            // 
-            this.financeDataSet.DataSetName = "FinanceDataSet";
-            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // financeDataSetBindingSource
-            // 
-            this.financeDataSetBindingSource.DataSource = this.financeDataSet;
-            this.financeDataSetBindingSource.Position = 0;
-            // 
-            // sL2SL1BindingSource
-            // 
-            this.sL2SL1BindingSource.DataMember = "SL2SL1";
-            this.sL2SL1BindingSource.DataSource = this.financeDataSet;
-            // 
-            // sL2SL1TableAdapter
-            // 
-            this.sL2SL1TableAdapter.ClearBeforeFill = true;
-            // 
-            // txtPKSL2
-            // 
-            this.txtPKSL2.Location = new System.Drawing.Point(727, 199);
-            this.txtPKSL2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPKSL2.Name = "txtPKSL2";
-            this.txtPKSL2.Size = new System.Drawing.Size(68, 20);
-            this.txtPKSL2.TabIndex = 24;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(286, 12);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 25);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // frmSL2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +505,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sL2SL1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sL2SL1BindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,15 +541,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSL2Code;
         private System.Windows.Forms.TextBox txtPKSL2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL2ID;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPrint;
+        private FinanceDataSet13 financeDataSet13;
+        private System.Windows.Forms.BindingSource sL2SL1BindingSource2;
+        private FinanceDataSet13TableAdapters.SL2SL1TableAdapter sL2SL1TableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pKSL2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL1IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL2ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sL2IDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL1NameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sl2NameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL2OrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sL2ActiveDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sL2CodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnPrint;
     }
 }

@@ -328,7 +328,12 @@ namespace MANUUFinance
                 txtSL1ID.Text = DGVSL1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
                 txtSL1Code.Text = DGVSL1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 txtSL1UCode.Text = DGVSL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                comboAcType.SelectedValue = Convert.ToInt32(DGVSL1.Rows[e.RowIndex].Cells[3].FormattedValue.ToString());
+                if (DGVSL1.Rows[e.RowIndex].Cells[3].FormattedValue.ToString() == "")
+                {
+                    comboAcType.SelectedValue = "";
+                }
+                else
+                    comboAcType.SelectedValue = Convert.ToInt32(DGVSL1.Rows[e.RowIndex].Cells[3].FormattedValue.ToString());
                 txtScheduleID.Text = DGVSL1.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 txtSL1Name.Text = DGVSL1.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
                 txtGroupID.Text = DGVSL1.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
