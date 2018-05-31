@@ -5,27 +5,29 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class VoucherPrint : Form
+    public partial class VoucherPrintHelp : Form
     {
         public int BillNumber = 0;
-        public VoucherPrint(int BillNumber)
+        public VoucherPrintHelp(int BillNumber)
         {
             this.BillNumber = BillNumber;
             InitializeComponent();
         }
 
-        public void voucherPrint()
+        private void VoucherPrintHelp_Load(object sender, EventArgs e)
         {
 
+            this.reportViewer1.RefreshReport();
         }
 
-        private void voucherPrint_Load(object sender, EventArgs e)
+        private void reportViewer1_Load(object sender, EventArgs e)
         {
-            this.ReportView.RefreshReport();
+
         }
     }
 }

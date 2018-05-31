@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class VoucherPrint
+    partial class VoucherPrintHelp
     {
         /// <summary>
         /// Required designer variable.
@@ -30,39 +30,46 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.VoucherBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ReportView = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.VoucherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // ReportView
+            // reportViewer1
             // 
-            this.ReportView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.VoucherBindingSource;
-            this.ReportView.LocalReport.DataSources.Add(reportDataSource1);
-            this.ReportView.LocalReport.ReportEmbeddedResource = "MANUUFinance.BillVoucher.rdlc";
-            this.ReportView.Location = new System.Drawing.Point(0, 0);
-            this.ReportView.Name = "ReportView";
-            this.ReportView.ServerReport.BearerToken = null;
-            this.ReportView.Size = new System.Drawing.Size(829, 350);
-            this.ReportView.TabIndex = 1;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "MANUUFinance.BillVoucher.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // VoucherPrint
+            // VoucherBindingSource
+            // 
+            this.VoucherBindingSource.DataMember = "Voucher";
+            // 
+            // VoucherPrintHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 350);
-            this.Controls.Add(this.ReportView);
-            this.Name = "VoucherPrint";
-            this.Text = "VoucherPrint";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.reportViewer1);
+            this.Name = "VoucherPrintHelp";
+            this.Text = "VoucherPrintHelp";
+            this.Load += new System.EventHandler(this.VoucherPrintHelp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.VoucherBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Microsoft.Reporting.WinForms.ReportViewer ReportView;
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource VoucherBindingSource;
     }
 }

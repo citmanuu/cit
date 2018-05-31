@@ -276,7 +276,6 @@ E:\Testbuildfile\obj\Debug\MANUUFinance.csproj.CopyComplete
 E:\Testbuildfile\obj\Debug\MANUUFinance.exe
 E:\Testbuildfile\obj\Debug\MANUUFinance.pdb
 E:\citmanuu\obj\Debug\MANUUFinance.EnableDisableHeads.resources
-E:\citmanuu\obj\Debug\MANUUFinance.Voucher_Generator.resources
 E:\citmanuu\bin\Debug\Microsoft.AnalysisServices.AppLocal.Core.dll
 E:\citmanuu\bin\Debug\Microsoft.AnalysisServices.AppLocal.dll
 E:\citmanuu\bin\Debug\Microsoft.AnalysisServices.AppLocal.Tabular.dll
@@ -379,4 +378,4 @@ E:\citmanuu\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
 E:\citmanuu\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\citmanuu\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\citmanuu\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\citmanuu\obj\Debug\MANUUFinance.VoucherPrint.resources
+E:\citmanuu\obj\Debug\MANUUFinance.VoucherPrintHelp.resources
