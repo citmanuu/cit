@@ -107,7 +107,7 @@
             // 
             // voucherBindingSource
             // 
-            this.voucherBindingSource.DataSource = typeof(MANUUFinance.Voucher);
+//            this.voucherBindingSource.DataSource = typeof(MANUUFinance.VoucherPrint);
             // 
             // btnVaucherPrint
             // 

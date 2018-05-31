@@ -72,13 +72,36 @@
       <HintPath>..\Supporting Software\Microsoft.Office.Interop.Excel\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms">
-      <HintPath>C:\Users\Md Shoaib Alam\Desktop\testomh\WindowsFormsApp1\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Md Shoaib Alam\Desktop\citmanuu\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -207,12 +230,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet9.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,11 +272,18 @@
     <Compile Include="Forms.Designer.cs">
       <DependentUpon>Forms.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Supports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Supports.Designer.cs">
       <DependentUpon>Supports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoucherPrint.Designer.cs">
+      <DependentUpon>VoucherPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
@@ -377,7 +401,6 @@
     <Compile Include="Voucher Generator.Designer.cs">
       <DependentUpon>Voucher Generator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Voucher.cs" />
     <EmbeddedResource Include="Administrator.resx">
       <DependentUpon>Administrator.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,9 +419,6 @@
     <EmbeddedResource Include="EnableDisableHeads.resx">
       <DependentUpon>EnableDisableHeads.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms.resx">
       <DependentUpon>Forms.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,8 +428,7 @@
     <EmbeddedResource Include="ImportHelp.resx">
       <DependentUpon>ImportHelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="BillVoucher.rdlc" />
     <EmbeddedResource Include="Role Privileges.resx">
       <DependentUpon>Role Privileges.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Supports.resx">
       <DependentUpon>Supports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoucherPrint.resx">
+      <DependentUpon>VoucherPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
@@ -673,6 +695,7 @@
     <None Include="FinanceDataSet9.xss">
       <DependentUpon>FinanceDataSet9.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Voucher.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -736,6 +759,19 @@
   <ItemGroup>
     <Content Include="finance.ico" />
     <Content Include="Resources\logo2.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\tshirt.png" />
   </ItemGroup>
   <ItemGroup>

@@ -824,7 +824,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(comboACID, "BillDispatch");
+            VoucherPrint objectsupport = new VoucherPrint(Convert.ToInt32(txtBillNumber.Text));
             objectsupport.ShowDialog();
         }
 

@@ -21,7 +21,7 @@ namespace MANUUFinance
 
         private void btnVaucherPrint_Click(object sender, EventArgs e)
         {
-            Voucher obj = voucherBindingSource.Current as Voucher;
+            VoucherPrint obj = voucherBindingSource.Current as VoucherPrint;
             if (obj != null)
             {
                 //Connection String

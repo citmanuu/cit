@@ -29,7 +29,7 @@ namespace MANUUFinance
             //Application.Run(new Voucher_Generator());
             // Application.Run(new frmSL3(1,0,0,null));
 
-            Application.Run(new Form3());
+            Application.Run(new VoucherPrint(0));
         }
     }
 }
