@@ -139,6 +139,7 @@
       <DependentUpon>BudgetSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckingPrivileges.cs" />
+    <Compile Include="Dapper\SqlMapper.cs" />
     <Compile Include="EnableDisableHeads.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +390,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SL1Class.cs" />
     <Compile Include="SL2Class.cs" />
+    <Compile Include="VoucherPrint.cs" />
     <Compile Include="VoucherPrintHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -688,6 +690,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Voucher.datasource" />
+    <None Include="Properties\DataSources\VoucherPrint.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

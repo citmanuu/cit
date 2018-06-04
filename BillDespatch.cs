@@ -16,11 +16,11 @@ namespace MANUUFinance
     public partial class frmBillDespatch : Form
     {
         bool retrievedForUpdate;
-        bool queryMode;
+        bool queryMode, printVoucher =  false;
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
-        int BilledAmount = 0;
+        int BilledAmount = 0, spendamount=0, currentspentamount =0;
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -727,7 +727,7 @@ namespace MANUUFinance
                 comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
                 comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());                
                 txtBillDate.Text = comboACID.Rows[e.RowIndex].Cells[13].FormattedValue.ToString();// "dd/MM/yyyy");
-
+                printVoucher = true;
                 retrievedForUpdate = true;
                 LockKeys();
             }
@@ -824,9 +824,45 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            VoucherPrintHelp objectsupport = new VoucherPrintHelp(Convert.ToInt32(txtBillNumber.Text));
-            objectsupport.ShowDialog();
-        }
+            if (printVoucher)
+            {
+                //Connection String
+                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                //Instantiate SQL Connection
+                SqlConnection objSqlConnection = new SqlConnection(cs);
+                //Prepare Update String
+
+                string selectCommand = "Select d.DeptName, b.BECY, f.SL2Name, f.SL3Name, g.FYName " +
+                                           "from  BillMst a, Budget b,  Department d, BillDtl e, BudgetWithAccounts f, FinancialYear g  " +
+                                           "where  a.FKDepID = d.DeptId and a.BillNumber = '" + txtBillNumber.Text + "' AND e.FKACID = b.FKACID  and e.FKFYID = b.FKFYID and e.FKBillID = a.PKBillID AND e.FKACID = f.PKACID AND E.FKFYID = G.PKFYID";
+                List<VoucherPrint> objvoucherClass = new List<VoucherPrint>();
+
+                SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+                try
+                {
+                    objSqlConnection.Open();
+                    SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                    while (objDataReader.Read())
+                    {
+                        objvoucherClass.Add(new VoucherPrint(objDataReader[0].ToString(), Convert.ToInt32(objDataReader[1]), objDataReader[2].ToString(), objDataReader[3].ToString(), objDataReader[4].ToString()));
+                    }
+                }
+
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {                   
+                    objSqlConnection.Close();
+                }
+                VoucherPrintHelp objectsupport = new VoucherPrintHelp(objvoucherClass, spendamount, currentspentamount);
+                objectsupport.ShowDialog();
+            }
+            else
+                MessageBox.Show("No access");
+            printVoucher = false;
+        }   
 
         private void comboACID_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
