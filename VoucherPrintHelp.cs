@@ -50,6 +50,7 @@ namespace MANUUFinance
                 new Microsoft.Reporting.WinForms.ReportParameter("SL3Name", SL3),
                 new Microsoft.Reporting.WinForms.ReportParameter("FKFYID", FKFYID),
                 new Microsoft.Reporting.WinForms.ReportParameter("Amount", spendamount.ToString()),
+                new Microsoft.Reporting.WinForms.ReportParameter("currentspentamount", currentspentamount.ToString()),
 
             };
             this.reportViewer1.LocalReport.SetParameters(p);

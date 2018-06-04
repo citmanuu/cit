@@ -20,7 +20,7 @@ namespace MANUUFinance
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
-        int BilledAmount = 0, spendamount=0, currentspentamount =0;
+        int BilledAmount = 0, spendamount=0, currentspentamount = 0;
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -856,13 +856,69 @@ namespace MANUUFinance
                 {                   
                     objSqlConnection.Close();
                 }
+                 calculatespentamount();
                 VoucherPrintHelp objectsupport = new VoucherPrintHelp(objvoucherClass, spendamount, currentspentamount);
                 objectsupport.ShowDialog();
             }
             else
                 MessageBox.Show("No access");
             printVoucher = false;
-        }   
+        }
+
+        private void calculatespentamount()
+        {
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand1 = "Select sum(Amount)  FROM [dbo].[BillDtl] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID ='" + comboFY.SelectedValue + "'";
+            string selectCommand2 = "Select Amount  FROM [dbo].[BillDtl] where FKBillID = '" + txtPKBillID.Text + "'";
+          
+            SqlCommand objSelectCommand2 = new SqlCommand(selectCommand2, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                /////currentspentamount = int.Parse(objSelectCommand2.ExecuteReader().ToString());
+                //SqlDataReader objDataReader2 = objSelectCommand2.ExecuteReader();
+                //while (objDataReader2.Read())
+                //{
+                //    currentspentamount = int.Parse(objDataReader2.ToString());
+                //}
+            }
+
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+
+
+            SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                //spendamount = Convert.ToInt32(objSelectCommand1.ExecuteReader().ToString());
+                //SqlDataReader objDataReader1 = objSelectCommand1.ExecuteReader();
+                //while (objDataReader1.Read())
+                //{
+                //    spendamount = int.Parse(objDataReader1.ToString());
+                //}
+            }
+
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+
+        }
 
         private void comboACID_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
