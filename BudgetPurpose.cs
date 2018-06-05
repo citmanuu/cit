@@ -464,14 +464,14 @@ namespace MANUUFinance
             SqlConnection objSqlConnection = new SqlConnection(cs);
             if (new AdministratorLogin().administratorLogin(userId))
             {
-                SqlDataAdapter sqldb = new SqlDataAdapter("Select D.FYName, DeptName, SL3Code, AccountName, BECY, RBECY, BENY, SL1Name, SL2Name, SL3Name, SL1ID, PKSL2, FKSL3ID, C.DeptId, D.PKFYID, B.PKACID, A.PKBUDGETID, A.ApprAmount from Budget A, AccountsView B, Department C, FinancialYear D where A.FKACID = B.PKACID  AND A.FKDEPID = C.DeptId AND A.FKFYID = D.PKFYID AND C.DeptId = '" + deptId + "' ", objSqlConnection);
+                SqlDataAdapter sqldb = new SqlDataAdapter("Select D.FYName, DeptName, SL3Code, AccountName, BECY, RBECY, BENY, SL1Name, SL2Name, SL3Name, SL1ID, PKSL2, FKSL3ID, C.DeptId, D.PKFYID, B.PKACID, A.PKBUDGETID from Budget A, AccountsView B, Department C, FinancialYear D where A.FKACID = B.PKACID  AND A.FKDEPID = C.DeptId AND A.FKFYID = D.PKFYID AND C.DeptId = '" + deptId + "' ", objSqlConnection);
                 DataTable dtb1 = new DataTable();
                 sqldb.Fill(dtb1);
                 DGVAccounts.DataSource = dtb1;
             }
             else
             {
-                SqlDataAdapter sqldb = new SqlDataAdapter("Select D.FYName, DeptName, SL3Code, AccountName, BECY, RBECY, BENY, SL1Name, SL2Name, SL3Name, SL1ID, PKSL2, FKSL3ID, C.DeptId, D.PKFYID, B.PKACID, A.PKBUDGETID, A.ApprAmount from Budget A, AccountsView B, Department C, FinancialYear D where A.FKACID = B.PKACID  AND A.FKDEPID = C.DeptId AND A.FKFYID = D.PKFYID", objSqlConnection);
+                SqlDataAdapter sqldb = new SqlDataAdapter("Select D.FYName, DeptName, SL3Code, AccountName, BECY, RBECY, BENY, SL1Name, SL2Name, SL3Name, SL1ID, PKSL2, FKSL3ID, C.DeptId, D.PKFYID, B.PKACID, A.PKBUDGETID from Budget A, AccountsView B, Department C, FinancialYear D where A.FKACID = B.PKACID  AND A.FKDEPID = C.DeptId AND A.FKFYID = D.PKFYID", objSqlConnection);
             DataTable dtb1 = new DataTable();
             sqldb.Fill(dtb1);
             DGVAccounts.DataSource = dtb1;

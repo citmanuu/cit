@@ -42,7 +42,6 @@
             this.bankMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.budgetPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billDespatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -178,7 +177,6 @@
             // 
             this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.budgetToolStripMenuItem,
-            this.budgetPurposeToolStripMenuItem,
             this.budgetScheduleToolStripMenuItem,
             this.billDespatchToolStripMenuItem,
             this.copyBudgetToolStripMenuItem,
@@ -195,14 +193,6 @@
             this.budgetToolStripMenuItem.Text = "Budget";
             this.budgetToolStripMenuItem.Visible = false;
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
-            // 
-            // budgetPurposeToolStripMenuItem
-            // 
-            this.budgetPurposeToolStripMenuItem.Name = "budgetPurposeToolStripMenuItem";
-            this.budgetPurposeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.budgetPurposeToolStripMenuItem.Text = "Budget Purpose";
-            this.budgetPurposeToolStripMenuItem.Visible = false;
-            this.budgetPurposeToolStripMenuItem.Click += new System.EventHandler(this.budgetPurposeToolStripMenuItem_Click);
             // 
             // budgetScheduleToolStripMenuItem
             // 
@@ -476,7 +466,6 @@
         private System.Windows.Forms.ToolStripMenuItem departemtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem budgetPurposeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem virtualHeadToolStripMenuItem;
     }
