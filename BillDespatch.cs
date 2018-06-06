@@ -20,7 +20,7 @@ namespace MANUUFinance
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
-        int BilledAmount = 0, spendamount=0, currentspentamount = 0;
+        int BilledAmount = 0, spendamount = 0, currentspentamount = 0, FKFYID=0, FKACID;
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -872,19 +872,20 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand1 = "Select sum(Amount)  FROM [dbo].[BillDtl] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID ='" + comboFY.SelectedValue + "'";
-            string selectCommand2 = "Select Amount  FROM [dbo].[BillDtl] where FKBillID = '" + txtPKBillID.Text + "'";
+           
+            string selectCommand2 = "Select Amount, FKFYID ,FKACID FROM [dbo].[BillDtl] where FKBillID = '" + txtPKBillID.Text + "'";
           
             SqlCommand objSelectCommand2 = new SqlCommand(selectCommand2, objSqlConnection);
             try
             {
                 objSqlConnection.Open();
-                /////currentspentamount = int.Parse(objSelectCommand2.ExecuteReader().ToString());
-                //SqlDataReader objDataReader2 = objSelectCommand2.ExecuteReader();
-                //while (objDataReader2.Read())
-                //{
-                //    currentspentamount = int.Parse(objDataReader2.ToString());
-                //}
+                SqlDataReader objDataReader2 = objSelectCommand2.ExecuteReader();
+                while (objDataReader2.Read())
+                {
+                    currentspentamount = Convert.ToInt32(objDataReader2[0].ToString());
+                    FKFYID = Convert.ToInt32(objDataReader2[1].ToString());
+                    FKACID = Convert.ToInt32(objDataReader2[2].ToString());
+                }
             }
 
             catch (SqlException ex)
@@ -896,17 +897,12 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
 
-
+            string selectCommand1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + FKACID + "' AND FKFYID ='" + FKFYID + "'";
             SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
             try
             {
-                objSqlConnection.Open();
-                //spendamount = Convert.ToInt32(objSelectCommand1.ExecuteReader().ToString());
-                //SqlDataReader objDataReader1 = objSelectCommand1.ExecuteReader();
-                //while (objDataReader1.Read())
-                //{
-                //    spendamount = int.Parse(objDataReader1.ToString());
-                //}
+                objSqlConnection.Open();               
+                spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
             }
 
             catch (SqlException ex)

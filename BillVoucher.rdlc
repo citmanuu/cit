@@ -375,7 +375,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Parameters!Amount.Value - Parameters!currentspentamount.Value</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -528,7 +528,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Parameters!Amount.Value</Value>
+                                  <Value>=Parameters!BECY.Value - (Parameters!Amount.Value -Parameters!currentspentamount.Value)</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1198,7 +1198,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>1.8125in</Height>
+                  <Height>1.4375in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1513,7 +1513,7 @@
             </TablixRowHierarchy>
             <Top>2.70709in</Top>
             <Left>1.02082in</Left>
-            <Height>2.64583in</Height>
+            <Height>2.27083in</Height>
             <Width>6.44793in</Width>
             <ZIndex>3</ZIndex>
             <Style>
@@ -4699,8 +4699,8 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>5.60292in</Top>
-            <Left>0.98958in</Left>
+            <Top>5.23834in</Top>
+            <Left>1.01042in</Left>
             <Height>1.5625in</Height>
             <Width>6.47917in</Width>
             <ZIndex>4</ZIndex>
@@ -4804,8 +4804,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ReportName2</rd:DefaultName>
-            <Top>7.41194in</Top>
-            <Left>0.9479in</Left>
+            <Top>6.97444in</Top>
+            <Left>1.05209in</Left>
             <Height>1.25in</Height>
             <Width>6.52085in</Width>
             <ZIndex>5</ZIndex>
@@ -5121,8 +5121,8 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>8.95708in</Top>
-            <Left>2.43749in</Left>
+            <Top>8.3425in</Top>
+            <Left>2.54168in</Left>
             <Height>1.73958in</Height>
             <Width>5.03126in</Width>
             <ZIndex>6</ZIndex>
@@ -5133,10 +5133,10 @@
             </Style>
           </Tablix>
           <Line Name="Line1">
-            <Top>11.20708in</Top>
+            <Top>10.33208in</Top>
             <Left>0.9479in</Left>
             <Height>0in</Height>
-            <Width>6.52085in</Width>
+            <Width>6.70835in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -5162,8 +5162,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>11.27652in</Top>
-            <Left>2.55208in</Left>
+            <Top>10.40152in</Top>
+            <Left>2.57292in</Left>
             <Height>0.25in</Height>
             <Width>3.47917in</Width>
             <ZIndex>8</ZIndex>
@@ -5206,8 +5206,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>11.68972in</Top>
-            <Left>0.9479in</Left>
+            <Top>10.72097in</Top>
+            <Left>1.25004in</Left>
             <Height>0.76042in</Height>
             <Width>6.52085in</Width>
             <ZIndex>9</ZIndex>
@@ -5242,8 +5242,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>12.8425in</Top>
-            <Left>0.9479in</Left>
+            <Top>11.55083in</Top>
+            <Left>1.25004in</Left>
             <Height>0.25in</Height>
             <Width>6.63543in</Width>
             <ZIndex>10</ZIndex>
