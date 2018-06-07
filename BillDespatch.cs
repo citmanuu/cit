@@ -20,7 +20,7 @@ namespace MANUUFinance
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
-        int BilledAmount = 0, spendamount = 0, currentspentamount = 0, FKFYID=0, FKACID;
+        int BilledAmount = 0, BECY=0, currentspentamount = 0, FKFYID=0, FKACID, FKACID1;
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -709,6 +709,11 @@ namespace MANUUFinance
             retrievedForUpdate = false;
             queryMode = false;
             billMstViewBindingSource.Filter = "";
+            comboAccountName.SelectedIndex = 0;
+            comboBudgetACTYPE.SelectedIndex = 0;
+            comboFY.SelectedIndex = 0;
+            txtBillAmount.Text = "";
+            txtAccountBalance.Text = "";
         }
 
         //Trasfer Record to Template from the row where user has clicked the mouse
@@ -728,8 +733,30 @@ namespace MANUUFinance
                 comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());                
                 txtBillDate.Text = comboACID.Rows[e.RowIndex].Cells[13].FormattedValue.ToString();// "dd/MM/yyyy");
                 printVoucher = true;
+                calculatespentamount();
                 retrievedForUpdate = true;
                 LockKeys();
+                txtBillAmount.Text = currentspentamount.ToString();                
+                if (FKACID != 117)
+                {
+                    PrepareAccountNameCombo();
+                    preparedFY();
+                    comboBudgetACTYPE.SelectedIndex = 1;
+                    comboFY.SelectedValue = FKFYID;
+                    comboAccountName.SelectedIndex = FKACID;
+                    
+                }
+                else
+                {
+                    PrepareAccountTypecombo();
+                    preparedFY();
+                    comboBudgetACTYPE.SelectedIndex = 2;
+                    comboFY.SelectedValue = FKFYID;
+                    comboAccountName.SelectedIndex = 1;
+                    txtAccountBalance.Text = (BECY - BilledAmount + currentspentamount).ToString();
+                }
+                
+
             }
         }
 
@@ -844,6 +871,7 @@ namespace MANUUFinance
                     SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
                     while (objDataReader.Read())
                     {
+                        //FKACID1 = Convert.ToInt32(objDataReader[1].ToString());
                         objvoucherClass.Add(new VoucherPrint(objDataReader[0].ToString(), Convert.ToInt32(objDataReader[1]), objDataReader[2].ToString(), objDataReader[3].ToString(), objDataReader[4].ToString()));
                     }
                 }
@@ -857,7 +885,7 @@ namespace MANUUFinance
                     objSqlConnection.Close();
                 }
                  calculatespentamount();
-                VoucherPrintHelp objectsupport = new VoucherPrintHelp(objvoucherClass, spendamount, currentspentamount);
+                VoucherPrintHelp objectsupport = new VoucherPrintHelp(objvoucherClass, BilledAmount, currentspentamount);
                 objectsupport.ShowDialog();
             }
             else
@@ -897,22 +925,22 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
 
-            string selectCommand1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + FKACID + "' AND FKFYID ='" + FKFYID + "'";
-            SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
-            try
-            {
-                objSqlConnection.Open();               
-                spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
-            }
+            //string selectCommand1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + FKACID + "' AND FKFYID ='" + FKFYID + "'";
+            //SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
+            //try
+            //{
+            //    objSqlConnection.Open();               
+            //    spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
+            //}
 
-            catch (SqlException ex)
-            {
-                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                objSqlConnection.Close();
-            }
+            //catch (SqlException ex)
+            //{
+            //    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //finally
+            //{
+            //    objSqlConnection.Close();
+            //}
 
         }
 
@@ -1238,6 +1266,7 @@ namespace MANUUFinance
                     while (objDataReader.Read())
                     {
                         txtAccountBalance.Text = ((Convert.ToInt32(objDataReader[0])) - BilledAmount).ToString();
+                        BECY = Convert.ToInt32(objDataReader[0]);
                     }
                 }
                 catch (SqlException ex)
