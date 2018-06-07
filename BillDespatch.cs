@@ -20,7 +20,7 @@ namespace MANUUFinance
         DateTime today = DateTime.Today;
         private int userId, deptId, roleId;
         string formName;
-        int BilledAmount = 0, BECY=0, currentspentamount = 0, FKFYID=0, FKACID, FKACID1;
+        int BilledAmount = 0, BECY=0, currentspentamount = 0, FKFYID=0, FKACID, spendamount;
         public frmBillDespatch(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
@@ -744,16 +744,17 @@ namespace MANUUFinance
                     comboBudgetACTYPE.SelectedIndex = 1;
                     comboFY.SelectedValue = FKFYID;
                     comboAccountName.SelectedIndex = FKACID;
-                    
+                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
+
                 }
                 else
-                {
+                {                   
                     PrepareAccountTypecombo();
                     preparedFY();
                     comboBudgetACTYPE.SelectedIndex = 2;
                     comboFY.SelectedValue = FKFYID;
                     comboAccountName.SelectedIndex = 1;
-                    txtAccountBalance.Text = (BECY - BilledAmount + currentspentamount).ToString();
+                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
                 }
                 
 
@@ -871,7 +872,7 @@ namespace MANUUFinance
                     SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
                     while (objDataReader.Read())
                     {
-                        //FKACID1 = Convert.ToInt32(objDataReader[1].ToString());
+                        BECY = Convert.ToInt32(objDataReader[1].ToString());
                         objvoucherClass.Add(new VoucherPrint(objDataReader[0].ToString(), Convert.ToInt32(objDataReader[1]), objDataReader[2].ToString(), objDataReader[3].ToString(), objDataReader[4].ToString()));
                     }
                 }
@@ -925,23 +926,47 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
 
-            //string selectCommand1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + FKACID + "' AND FKFYID ='" + FKFYID + "'";
-            //SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
-            //try
-            //{
-            //    objSqlConnection.Open();               
-            //    spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
-            //}
+            string selectCommand1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + FKACID + "' AND FKFYID ='" + FKFYID + "'";
+            SqlCommand objSelectCommand1 = new SqlCommand(selectCommand1, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
+            }
 
-            //catch (SqlException ex)
-            //{
-            //    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //finally
-            //{
-            //    objSqlConnection.Close();
-            //}
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+            string sqlcommad3 = "Select BECY FROM [dbo].[Budget] where FKACID = '" + FKACID + "' AND FKFYID ='" + FKFYID + "'";
+            SqlCommand objsqlCommand3 = new SqlCommand(sqlcommad3, objSqlConnection);
 
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader3 = objsqlCommand3.ExecuteReader();
+                while (objDataReader3.Read())
+                {
+                    if (!objDataReader3[0].Equals(DBNull.Value))
+                    {
+                        BECY = Convert.ToInt32(objDataReader3[0]);
+                    }
+                    else
+                        BECY = 0;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
         }
 
         private void comboACID_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1266,7 +1291,7 @@ namespace MANUUFinance
                     while (objDataReader.Read())
                     {
                         txtAccountBalance.Text = ((Convert.ToInt32(objDataReader[0])) - BilledAmount).ToString();
-                        BECY = Convert.ToInt32(objDataReader[0]);
+                        //BECY = Convert.ToInt32(objDataReader[0]);
                     }
                 }
                 catch (SqlException ex)
