@@ -890,7 +890,7 @@ namespace MANUUFinance
                 objectsupport.ShowDialog();
             }
             else
-                MessageBox.Show("No access");
+                MessageBox.Show("Please Select the DataGridView ", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             printVoucher = false;
         }
 
