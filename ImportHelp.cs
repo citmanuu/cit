@@ -337,7 +337,7 @@ namespace MANUUFinance
             SqlConnection objSqlConnection = new SqlConnection(cs);
             objSqlConnection.Open();
             SqlCommand myCommand = new SqlCommand("SELECT count(*) FROM [finance].[dbo].[SL1] where SL1Name = '" + SL1Name + "'", objSqlConnection);
-            SL1 = (Int32)myCommand.ExecuteScalar();
+            SL1 = (Int32)myCommand.ExecuteScalar ();
             objSqlConnection.Close();
 
             if (SL1 != 0)
