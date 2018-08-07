@@ -38,7 +38,6 @@ namespace MANUUFinance
 
             // TODO: This line of code loads data into the 'financeDataSet.SL1' table. You can move, or remove it, as needed.
             this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
-
         }
 
         #region //DML Procedures
