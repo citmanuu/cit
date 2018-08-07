@@ -284,7 +284,6 @@ E:\citmanuu\bin\Debug\AxInterop.CrystalPrintControlLib.dll
 E:\citmanuu\obj\Debug\Interop.CrystalPrintControlLib.dll
 E:\citmanuu\obj\Debug\AxInterop.CrystalPrintControlLib.dll
 E:\citmanuu\obj\Debug\MANUUFinance.csproj.ResolveComReference.cache
-E:\citmanuu\obj\Debug\MANUUFinance.csprojResolveAssemblyReference.cache
 E:\citmanuu\bin\Debug\Microsoft.SqlServer.Types.dll
 E:\citmanuu\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 E:\citmanuu\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
@@ -319,3 +318,15 @@ E:\citmanuu\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
 E:\citmanuu\bin\Debug\VSLangProj2.dll
 E:\citmanuu\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
 E:\citmanuu\obj\Debug\MANUUFinance.VoucherPrintHelp.resources
+E:\citmanuu\bin\Debug\Newtonsoft.Json.dll
+E:\citmanuu\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+E:\citmanuu\obj\Debug\MANUUFinance.csprojAssemblyReference.cache
