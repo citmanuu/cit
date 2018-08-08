@@ -79,7 +79,7 @@ namespace MANUUFinance
             }
         }
 
-        //Prepare SL1Combo
+        //Prepare SL2Combo
         private void PrepareSL2Combo(string fkSL1)
         {
             var objSL2Class = new List<SL2Class>();
@@ -231,7 +231,6 @@ namespace MANUUFinance
                             }
                             else
                                 MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                         }
                         finally
                         {
@@ -246,6 +245,8 @@ namespace MANUUFinance
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(retrievedForUpdate)
+            {
                 DialogResult diagResult;
                 diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (diagResult == DialogResult.Yes)
@@ -277,9 +278,10 @@ namespace MANUUFinance
                     {
                         objSqlConnection.Close();
                     }
-                //Refresh DGV 
-                this.sL3SL2SL1TableAdapter1.Fill(this.financeDataSet13.SL3SL2SL1);
-            }
+                    //Refresh DGV 
+                    this.sL3SL2SL1TableAdapter1.Fill(this.financeDataSet13.SL3SL2SL1);
+                }
+            }                
         }
         
         #endregion

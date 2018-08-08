@@ -179,6 +179,8 @@ namespace MANUUFinance
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (retrievedForUpdate == false && validateRecord() == true)
+            {
                 DialogResult diagResult;
                 diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (diagResult == DialogResult.Yes)
@@ -194,7 +196,7 @@ namespace MANUUFinance
                     SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
 
                     objDeleteCommand.Parameters.AddWithValue("@SL1ID", txtSL1ID.Text);
-
+                    
                     try
                     {
                         objSqlConnection.Open();
@@ -212,6 +214,7 @@ namespace MANUUFinance
                     }
                     this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
                 }
+            }               
         }
 
 
@@ -250,8 +253,6 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
         }
-
-
         #endregion
 
         #region 

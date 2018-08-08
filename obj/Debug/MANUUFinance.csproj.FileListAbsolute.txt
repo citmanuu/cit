@@ -330,3 +330,4 @@ E:\citmanuu\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 E:\citmanuu\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 E:\citmanuu\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 E:\citmanuu\obj\Debug\MANUUFinance.csprojAssemblyReference.cache
+E:\citmanuu\obj\Debug\MANUUFinance.frmVAcType.resources

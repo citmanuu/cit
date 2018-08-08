@@ -56,12 +56,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSL3ID = new System.Windows.Forms.TextBox();
             this.DGVSL3SL2SL1 = new System.Windows.Forms.DataGridView();
-            this.sL3SL2SL1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.financeDataSet = new MANUUFinance.FinanceDataSet();
-            this.sL3SL2SL1TableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.SL3SL2SL1TableAdapter();
-            this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
-            this.sL3SL2SL1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.sL3SL2SL1TableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.SL3SL2SL1TableAdapter();
             this.PKSL3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SL3ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pKSL3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,14 +68,20 @@
             this.sL3OrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sL3ActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.sL3CodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sL3SL2SL1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet13 = new MANUUFinance.FinanceDataSet13();
+            this.sL3SL2SL1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet = new MANUUFinance.FinanceDataSet();
+            this.sL3SL2SL1TableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.SL3SL2SL1TableAdapter();
+            this.sL3SL2SL1TableAdapter1 = new MANUUFinance.FinanceDataSet13TableAdapters.SL3SL2SL1TableAdapter();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPKSL3
@@ -403,34 +403,6 @@
             this.DGVSL3SL2SL1.TabIndex = 28;
             this.DGVSL3SL2SL1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVSL3SL2SL1_CellClick);
             // 
-            // sL3SL2SL1BindingSource
-            // 
-            this.sL3SL2SL1BindingSource.DataMember = "SL3SL2SL1";
-            this.sL3SL2SL1BindingSource.DataSource = this.financeDataSet;
-            // 
-            // financeDataSet
-            // 
-            this.financeDataSet.DataSetName = "FinanceDataSet";
-            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sL3SL2SL1TableAdapter
-            // 
-            this.sL3SL2SL1TableAdapter.ClearBeforeFill = true;
-            // 
-            // financeDataSet13
-            // 
-            this.financeDataSet13.DataSetName = "FinanceDataSet13";
-            this.financeDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sL3SL2SL1BindingSource1
-            // 
-            this.sL3SL2SL1BindingSource1.DataMember = "SL3SL2SL1";
-            this.sL3SL2SL1BindingSource1.DataSource = this.financeDataSet13;
-            // 
-            // sL3SL2SL1TableAdapter1
-            // 
-            this.sL3SL2SL1TableAdapter1.ClearBeforeFill = true;
-            // 
             // PKSL3
             // 
             this.PKSL3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -439,7 +411,6 @@
             this.PKSL3.Name = "PKSL3";
             this.PKSL3.ReadOnly = true;
             this.PKSL3.Visible = false;
-            this.PKSL3.Width = 65;
             // 
             // SL3ID
             // 
@@ -534,11 +505,39 @@
             this.sL3CodeDataGridViewTextBoxColumn.ReadOnly = true;
             this.sL3CodeDataGridViewTextBoxColumn.Width = 76;
             // 
+            // sL3SL2SL1BindingSource1
+            // 
+            this.sL3SL2SL1BindingSource1.DataMember = "SL3SL2SL1";
+            this.sL3SL2SL1BindingSource1.DataSource = this.financeDataSet13;
+            // 
+            // financeDataSet13
+            // 
+            this.financeDataSet13.DataSetName = "FinanceDataSet13";
+            this.financeDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sL3SL2SL1BindingSource
+            // 
+            this.sL3SL2SL1BindingSource.DataMember = "SL3SL2SL1";
+            this.sL3SL2SL1BindingSource.DataSource = this.financeDataSet;
+            // 
+            // financeDataSet
+            // 
+            this.financeDataSet.DataSetName = "FinanceDataSet";
+            this.financeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sL3SL2SL1TableAdapter
+            // 
+            this.sL3SL2SL1TableAdapter.ClearBeforeFill = true;
+            // 
+            // sL3SL2SL1TableAdapter1
+            // 
+            this.sL3SL2SL1TableAdapter1.ClearBeforeFill = true;
+            // 
             // frmSL3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 542);
+            this.ClientSize = new System.Drawing.Size(854, 542);
             this.Controls.Add(this.DGVSL3SL2SL1);
             this.Controls.Add(this.txtPKSL3);
             this.Controls.Add(this.groupBox2);
@@ -554,10 +553,10 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sL3SL2SL1BindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

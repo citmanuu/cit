@@ -160,12 +160,15 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
                 }
+                MessageBox.Show("Please check the DGV ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (retrievedForUpdate)
+            {
                 DialogResult diagResult;
                 diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (diagResult == DialogResult.Yes)
@@ -197,9 +200,12 @@ namespace MANUUFinance
                     {
                         objSqlConnection.Close();
                     }
-                  this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
+                    this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
+                }
             }
-           }
+            else
+                MessageBox.Show("Please select the DGV ", "Delete Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
 
         //Prepare SL1Combo
         private void PrepareSL1Combo()
@@ -422,9 +428,6 @@ namespace MANUUFinance
             else
                 btnPrint.Enabled = false;
         }
-
         #endregion
-
-
     }
 }

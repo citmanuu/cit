@@ -67,6 +67,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.vAcountMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,6 +128,7 @@
             this.sL1MasterToolStripMenuItem,
             this.sL2MasterToolStripMenuItem,
             this.sL3MasterToolStripMenuItem,
+            this.vAcountMasterToolStripMenuItem,
             this.bankMasterToolStripMenuItem});
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
             this.mastersToolStripMenuItem.ShowShortcutKeys = false;
@@ -136,7 +138,7 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(139, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "Account";
             this.toolStripMenuItem2.Visible = false;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -144,7 +146,7 @@
             // sL1MasterToolStripMenuItem
             // 
             this.sL1MasterToolStripMenuItem.Name = "sL1MasterToolStripMenuItem";
-            this.sL1MasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.sL1MasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sL1MasterToolStripMenuItem.Text = "SL-1 Master";
             this.sL1MasterToolStripMenuItem.Visible = false;
             this.sL1MasterToolStripMenuItem.Click += new System.EventHandler(this.sL1MasterToolStripMenuItem_Click);
@@ -152,7 +154,7 @@
             // sL2MasterToolStripMenuItem
             // 
             this.sL2MasterToolStripMenuItem.Name = "sL2MasterToolStripMenuItem";
-            this.sL2MasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.sL2MasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sL2MasterToolStripMenuItem.Text = "SL-2 Master";
             this.sL2MasterToolStripMenuItem.Visible = false;
             this.sL2MasterToolStripMenuItem.Click += new System.EventHandler(this.sL2MasterToolStripMenuItem_Click);
@@ -160,7 +162,7 @@
             // sL3MasterToolStripMenuItem
             // 
             this.sL3MasterToolStripMenuItem.Name = "sL3MasterToolStripMenuItem";
-            this.sL3MasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.sL3MasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sL3MasterToolStripMenuItem.Text = "SL-3 Master";
             this.sL3MasterToolStripMenuItem.Visible = false;
             this.sL3MasterToolStripMenuItem.Click += new System.EventHandler(this.sL3MasterToolStripMenuItem_Click);
@@ -168,7 +170,7 @@
             // bankMasterToolStripMenuItem
             // 
             this.bankMasterToolStripMenuItem.Name = "bankMasterToolStripMenuItem";
-            this.bankMasterToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.bankMasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bankMasterToolStripMenuItem.Text = "Bank Master";
             this.bankMasterToolStripMenuItem.Visible = false;
             this.bankMasterToolStripMenuItem.Click += new System.EventHandler(this.bankMasterToolStripMenuItem_Click);
@@ -400,6 +402,13 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // vAcountMasterToolStripMenuItem
+            // 
+            this.vAcountMasterToolStripMenuItem.Name = "vAcountMasterToolStripMenuItem";
+            this.vAcountMasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vAcountMasterToolStripMenuItem.Text = "VAcount Master";
+            this.vAcountMasterToolStripMenuItem.Click += new System.EventHandler(this.vAcountMasterToolStripMenuItem_Click);
+            // 
             // MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +477,7 @@
         private System.Windows.Forms.ToolStripMenuItem addPrivilegesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem virtualHeadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vAcountMasterToolStripMenuItem;
     }
 }
 

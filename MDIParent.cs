@@ -285,6 +285,13 @@ namespace MANUUFinance
             objectvirtualhead.ShowDialog();
         }
 
+        private void vAcountMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string vActType = "frmVAcType";
+            frmVAcType objectvirtualhead = new frmVAcType(userId, deptId, roleId, vActType);
+            objectvirtualhead.ShowDialog();
+        }
+
         private void addPrivilegesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             string addprivileges = "ADD PRIVILEGES";
