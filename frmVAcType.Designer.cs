@@ -28,26 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboAccountType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboSL3 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSL3Order = new System.Windows.Forms.TextBox();
+            this.txtVAcOrder = new System.Windows.Forms.TextBox();
             this.comboSL2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtSL3Code = new System.Windows.Forms.TextBox();
             this.comboSL1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSL3ID = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioBtnSL3InActive = new System.Windows.Forms.RadioButton();
             this.radioBtnSL3Active = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGVSL3SL2SL1 = new System.Windows.Forms.DataGridView();
+            this.vATMapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet15 = new MANUUFinance.FinanceDataSet15();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,9 +54,22 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.vATMapTableAdapter = new MANUUFinance.FinanceDataSet15TableAdapters.VATMapTableAdapter();
+            this.pKVATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKSL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKSL2IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKSL3IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vAcNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vAcActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vAcOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vACAddedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vACUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vACUpdateByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vATMapBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet15)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,15 +79,11 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.comboSL3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtSL3Order);
+            this.groupBox1.Controls.Add(this.txtVAcOrder);
             this.groupBox1.Controls.Add(this.comboSL2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtSL3Code);
             this.groupBox1.Controls.Add(this.comboSL1);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtSL3ID);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label7);
@@ -124,30 +132,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(539, 83);
+            this.label1.Location = new System.Drawing.Point(577, 29);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 20;
             this.label1.Text = "Account  Order";
             // 
-            // label2
+            // txtVAcOrder
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(540, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Account  Code";
-            // 
-            // txtSL3Order
-            // 
-            this.txtSL3Order.Location = new System.Drawing.Point(630, 80);
-            this.txtSL3Order.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSL3Order.Name = "txtSL3Order";
-            this.txtSL3Order.Size = new System.Drawing.Size(68, 20);
-            this.txtSL3Order.TabIndex = 5;
+            this.txtVAcOrder.Location = new System.Drawing.Point(668, 26);
+            this.txtVAcOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.txtVAcOrder.Name = "txtVAcOrder";
+            this.txtVAcOrder.Size = new System.Drawing.Size(68, 20);
+            this.txtVAcOrder.TabIndex = 5;
             // 
             // comboSL2
             // 
@@ -171,15 +169,6 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "SL2 Name";
             // 
-            // txtSL3Code
-            // 
-            this.txtSL3Code.Enabled = false;
-            this.txtSL3Code.Location = new System.Drawing.Point(630, 53);
-            this.txtSL3Code.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSL3Code.Name = "txtSL3Code";
-            this.txtSL3Code.Size = new System.Drawing.Size(68, 20);
-            this.txtSL3Code.TabIndex = 1;
-            // 
             // comboSL1
             // 
             this.comboSL1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -198,27 +187,9 @@
             this.label8.Location = new System.Drawing.Point(58, 148);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.Size = new System.Drawing.Size(80, 13);
             this.label8.TabIndex = 19;
-            this.label8.Text = "SL3 Active";
-            // 
-            // txtSL3ID
-            // 
-            this.txtSL3ID.Location = new System.Drawing.Point(630, 23);
-            this.txtSL3ID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSL3ID.Name = "txtSL3ID";
-            this.txtSL3ID.Size = new System.Drawing.Size(68, 20);
-            this.txtSL3ID.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(557, 25);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Account ID";
+            this.label8.Text = "Account Status";
             // 
             // label6
             // 
@@ -276,16 +247,40 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "SL3 Name";
             // 
-            // dataGridView1
+            // DGVSL3SL2SL1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 281);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(760, 150);
-            this.dataGridView1.TabIndex = 27;
+            this.DGVSL3SL2SL1.AllowUserToAddRows = false;
+            this.DGVSL3SL2SL1.AllowUserToDeleteRows = false;
+            this.DGVSL3SL2SL1.AutoGenerateColumns = false;
+            this.DGVSL3SL2SL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVSL3SL2SL1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pKVATDataGridViewTextBoxColumn,
+            this.fKSL1IDDataGridViewTextBoxColumn,
+            this.fKSL2IDDataGridViewTextBoxColumn,
+            this.fKSL3IDDataGridViewTextBoxColumn,
+            this.vAcNameDataGridViewTextBoxColumn,
+            this.vAcActiveDataGridViewCheckBoxColumn,
+            this.vAcOrderDataGridViewTextBoxColumn,
+            this.vACAddedOnDataGridViewTextBoxColumn,
+            this.vACUpdatedOnDataGridViewTextBoxColumn,
+            this.vACUpdateByDataGridViewTextBoxColumn});
+            this.DGVSL3SL2SL1.DataSource = this.vATMapBindingSource;
+            this.DGVSL3SL2SL1.Location = new System.Drawing.Point(25, 281);
+            this.DGVSL3SL2SL1.Name = "DGVSL3SL2SL1";
+            this.DGVSL3SL2SL1.ReadOnly = true;
+            this.DGVSL3SL2SL1.Size = new System.Drawing.Size(760, 150);
+            this.DGVSL3SL2SL1.TabIndex = 27;
+            this.DGVSL3SL2SL1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // vATMapBindingSource
+            // 
+            this.vATMapBindingSource.DataMember = "VATMap";
+            this.vATMapBindingSource.DataSource = this.financeDataSet15;
+            // 
+            // financeDataSet15
+            // 
+            this.financeDataSet15.DataSetName = "FinanceDataSet15";
+            this.financeDataSet15.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox2
             // 
@@ -312,6 +307,7 @@
             this.btnPrint.TabIndex = 5;
             this.btnPrint.Text = "Print Record";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // button1
             // 
@@ -322,6 +318,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Cl&ose Form";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnClear
             // 
@@ -342,6 +339,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete Record";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -352,6 +350,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "&Update Record";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -364,13 +363,91 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // vATMapTableAdapter
+            // 
+            this.vATMapTableAdapter.ClearBeforeFill = true;
+            // 
+            // pKVATDataGridViewTextBoxColumn
+            // 
+            this.pKVATDataGridViewTextBoxColumn.DataPropertyName = "PKVAT";
+            this.pKVATDataGridViewTextBoxColumn.HeaderText = "PKVAT";
+            this.pKVATDataGridViewTextBoxColumn.Name = "pKVATDataGridViewTextBoxColumn";
+            this.pKVATDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKVATDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fKSL1IDDataGridViewTextBoxColumn
+            // 
+            this.fKSL1IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL1ID";
+            this.fKSL1IDDataGridViewTextBoxColumn.HeaderText = "FKSL1ID";
+            this.fKSL1IDDataGridViewTextBoxColumn.Name = "fKSL1IDDataGridViewTextBoxColumn";
+            this.fKSL1IDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKSL2IDDataGridViewTextBoxColumn
+            // 
+            this.fKSL2IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL2ID";
+            this.fKSL2IDDataGridViewTextBoxColumn.HeaderText = "FKSL2ID";
+            this.fKSL2IDDataGridViewTextBoxColumn.Name = "fKSL2IDDataGridViewTextBoxColumn";
+            this.fKSL2IDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKSL3IDDataGridViewTextBoxColumn
+            // 
+            this.fKSL3IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn.HeaderText = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn.Name = "fKSL3IDDataGridViewTextBoxColumn";
+            this.fKSL3IDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vAcNameDataGridViewTextBoxColumn
+            // 
+            this.vAcNameDataGridViewTextBoxColumn.DataPropertyName = "VAcName";
+            this.vAcNameDataGridViewTextBoxColumn.HeaderText = "VAcName";
+            this.vAcNameDataGridViewTextBoxColumn.Name = "vAcNameDataGridViewTextBoxColumn";
+            this.vAcNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vAcActiveDataGridViewCheckBoxColumn
+            // 
+            this.vAcActiveDataGridViewCheckBoxColumn.DataPropertyName = "VAcActive";
+            this.vAcActiveDataGridViewCheckBoxColumn.HeaderText = "VAcActive";
+            this.vAcActiveDataGridViewCheckBoxColumn.Name = "vAcActiveDataGridViewCheckBoxColumn";
+            this.vAcActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // vAcOrderDataGridViewTextBoxColumn
+            // 
+            this.vAcOrderDataGridViewTextBoxColumn.DataPropertyName = "VAcOrder";
+            this.vAcOrderDataGridViewTextBoxColumn.HeaderText = "VAcOrder";
+            this.vAcOrderDataGridViewTextBoxColumn.Name = "vAcOrderDataGridViewTextBoxColumn";
+            this.vAcOrderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vACAddedOnDataGridViewTextBoxColumn
+            // 
+            this.vACAddedOnDataGridViewTextBoxColumn.DataPropertyName = "VACAddedOn";
+            this.vACAddedOnDataGridViewTextBoxColumn.HeaderText = "VACAddedOn";
+            this.vACAddedOnDataGridViewTextBoxColumn.Name = "vACAddedOnDataGridViewTextBoxColumn";
+            this.vACAddedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vACAddedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vACUpdatedOnDataGridViewTextBoxColumn
+            // 
+            this.vACUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "VACUpdatedOn";
+            this.vACUpdatedOnDataGridViewTextBoxColumn.HeaderText = "VACUpdatedOn";
+            this.vACUpdatedOnDataGridViewTextBoxColumn.Name = "vACUpdatedOnDataGridViewTextBoxColumn";
+            this.vACUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vACUpdatedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vACUpdateByDataGridViewTextBoxColumn
+            // 
+            this.vACUpdateByDataGridViewTextBoxColumn.DataPropertyName = "VACUpdateBy";
+            this.vACUpdateByDataGridViewTextBoxColumn.HeaderText = "VACUpdateBy";
+            this.vACUpdateByDataGridViewTextBoxColumn.Name = "vACUpdateByDataGridViewTextBoxColumn";
+            this.vACUpdateByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vACUpdateByDataGridViewTextBoxColumn.Visible = false;
+            // 
             // frmVAcType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 443);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGVSL3SL2SL1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmVAcType";
             this.Text = "frmVAcType";
@@ -379,7 +456,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vATMapBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet15)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -390,21 +469,17 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboSL3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSL3Order;
+        private System.Windows.Forms.TextBox txtVAcOrder;
         private System.Windows.Forms.ComboBox comboSL2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSL3Code;
         private System.Windows.Forms.ComboBox comboSL1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSL3ID;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioBtnSL3InActive;
         private System.Windows.Forms.RadioButton radioBtnSL3Active;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGVSL3SL2SL1;
         private System.Windows.Forms.ComboBox comboAccountType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -414,5 +489,18 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
+        private FinanceDataSet15 financeDataSet15;
+        private System.Windows.Forms.BindingSource vATMapBindingSource;
+        private FinanceDataSet15TableAdapters.VATMapTableAdapter vATMapTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pKVATDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL1IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL2IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fKSL3IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vAcNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn vAcActiveDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vAcOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vACAddedOnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vACUpdatedOnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vACUpdateByDataGridViewTextBoxColumn;
     }
 }

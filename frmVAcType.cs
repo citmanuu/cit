@@ -28,6 +28,8 @@ namespace MANUUFinance
 
         private void frmVAcType_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'financeDataSet15.VATMap' table. You can move, or remove it, as needed.
+            this.vATMapTableAdapter.Fill(this.financeDataSet15.VATMap);
             PrepareSL1Combo();
             PrepareSL2Combo("0");
             PrepareSL3Combo("0", "0");
@@ -132,19 +134,22 @@ namespace MANUUFinance
                     //Instantiate SQL Connection
                     SqlConnection objSqlConnection = new SqlConnection(cs);
                     //Prepare Update String
-                    string insertCommand = "Insert into SL3 (FKSL1ID, FKSL2ID, SL3ID, SL3Name, SL3Active, SL3Order) values " +
-                                            "(@FKSL1ID, @FKSL2ID, @SL3ID, @SL3Name, @SL3Active, @SL3Order)";
+                    string insertCommand = "Insert into VATMap (FKSL1ID, FKSL2ID, FKSL3ID, VAcName, VAcActive, VAcOrder, VACAddedOn, VACUpdatedOn, VACUpdateBy) values " +
+                                            "(@FKSL1ID, @FKSL2ID, @FKSL3ID, @VAcName, @VAcActive, @VAcOrder, @VACAddedOn, @VACUpdatedOn, @VACUpdateBy)";
                     SqlCommand objInsertCommand = new SqlCommand(insertCommand, objSqlConnection);
 
                     objInsertCommand.Parameters.AddWithValue("@FKSL1ID", Convert.ToString(comboSL1.SelectedValue));
-                    objInsertCommand.Parameters.AddWithValue("@FKSL2ID", comboSL2.SelectedValue);
-                    objInsertCommand.Parameters.AddWithValue("@SL3ID", txtSL3ID.Text);
-                    objInsertCommand.Parameters.AddWithValue("@SL3Name", txtSL3Name.Text);
-                    objInsertCommand.Parameters.AddWithValue("@SL3Order", txtSL3Order.Text);
+                    objInsertCommand.Parameters.AddWithValue("@FKSL2ID", Convert.ToString(comboSL2.SelectedValue));
+                    objInsertCommand.Parameters.AddWithValue("@FKSL3ID", Convert.ToString(comboSL3.SelectedValue));
+                    objInsertCommand.Parameters.AddWithValue("@VAcName", Convert.ToString(comboAccountType.SelectedValue));                    
+                    objInsertCommand.Parameters.AddWithValue("@VAcOrder", txtVAcOrder.Text);
+                    objInsertCommand.Parameters.AddWithValue("@VACAddedOn", DateTime.Now);
+                    objInsertCommand.Parameters.AddWithValue("@VACUpdatedOn", DateTime.Now);
+                    objInsertCommand.Parameters.AddWithValue("@VACUpdateBy", userId.ToString()); 
                     if (radioBtnSL3Active.Checked == true)
-                        objInsertCommand.Parameters.AddWithValue("@SL3Active", "1");
+                        objInsertCommand.Parameters.AddWithValue("@VAcActive", "1");
                     else
-                        objInsertCommand.Parameters.AddWithValue("@SL3Active", "0");
+                        objInsertCommand.Parameters.AddWithValue("@VAcActive", "0");
 
                     try
                     {
@@ -157,13 +162,11 @@ namespace MANUUFinance
                     {
                         if (ex.Message.Contains("PK_SL3"))
                         {
-                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtSL3Name.Focus();
+                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);                           
                         }
                         if (ex.Message.Contains("UniqueSL3SL2SL1"))
                         {
-                            MessageBox.Show("SL1ID, SL2ID and SL3 must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtSL3Name.Focus();
+                            MessageBox.Show("SL1ID, SL2ID and SL3 must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
                         }
                         else
                             MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -173,10 +176,24 @@ namespace MANUUFinance
                     {
                         objSqlConnection.Close();
                     }
-                    //Refresh DGV 
-                    this.sL3SL2SL1TableAdapter1.Fill(this.financeDataSet13.SL3SL2SL1);
+                    //Refresh DGV  
+                    this.vATMapTableAdapter.Fill(this.financeDataSet15.VATMap);
                 }
             }
+        }
+
+        private void ClearTemplate()
+        {
+            comboSL1.Enabled = true;
+            comboSL1.SelectedValue = 0;
+            comboSL2.Enabled = true;
+            comboSL2.SelectedValue = 0;
+            comboSL3.Enabled = true;
+            comboSL3.SelectedValue = 0;
+            txtVAcOrder.Text = "";
+            radioBtnSL3Active.Checked = false;
+            radioBtnSL3InActive.Checked = false;
+            retrievedForUpdate = false;
         }
 
         private bool validateRecord()
@@ -193,33 +210,175 @@ namespace MANUUFinance
                 validationMessage += "Please Select SL2 Name\n";
                 validationResult = false;
             }
-            if (txtSL3ID.Text.Length == 0)
+            if (Convert.ToString(comboSL3.SelectedValue) == "0")
             {
-                validationMessage += "Please provide value for SL3 ID\n";
+                validationMessage += "Please Select SL3 Name\n";
                 validationResult = false;
             }
-            if (txtSL3Name.Text.Length == 0)
+            if (Convert.ToString(comboAccountType.SelectedValue) == "0")
             {
-                validationMessage += "Please provide value for SL3 Name\n";
+                validationMessage += "Please Select Account Type\n";
                 validationResult = false;
             }
-            if (txtSL3Order.Text.Length == 0)
+            if (txtVAcOrder.Text.Length == 0)
             {
-                validationMessage += "Please provide value for SL3 Order\n";
+                validationMessage += "Please provide value for Account Order\n";
                 validationResult = false;
             }
             if (radioBtnSL3Active.Checked == false && radioBtnSL3InActive.Checked == false)
             {
-                validationMessage += "Please provide value for SL3 Active Status\n";
+                validationMessage += "Please provide value for Account Active Status\n";
                 validationResult = false;
             }
             if (validationResult == false)
             {
-                MessageBox.Show(validationMessage, "SL3 Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(validationMessage, "Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             else
                 return true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            //If Form Controls are validated proceed to add record
+            if (validateRecord())
+            {
+                //Check if we are not Updating Record
+                if (retrievedForUpdate)
+                {
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+                    //Prepare Update String
+                    string updateCommand = "Update VATMap set VAcName = @VAcName, VAcActive = @VAcActive, VAcOrder = @VAcOrder, VACUpdatedOn = @VACUpdatedOn " +
+                                            "where FKSL1ID = @FKSL1ID and FKSL2ID = @FKSL2ID and FKSL3ID = @FKSL3ID ";
+                    SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+
+                    objUpdateCommand.Parameters.AddWithValue("@FKSL1ID", Convert.ToString(comboSL1.SelectedValue));
+                    objUpdateCommand.Parameters.AddWithValue("@FKSL2ID", Convert.ToString(comboSL2.SelectedValue));
+                    objUpdateCommand.Parameters.AddWithValue("@FKSL3ID", Convert.ToString(comboSL3.SelectedValue));
+                    objUpdateCommand.Parameters.AddWithValue("@VAcName", Convert.ToString(comboAccountType.SelectedValue));
+                    objUpdateCommand.Parameters.AddWithValue("@VAcOrder", txtVAcOrder.Text);
+                    objUpdateCommand.Parameters.AddWithValue("@VACUpdatedOn", DateTime.Now);
+                    objUpdateCommand.Parameters.AddWithValue("@VACUpdateBy", userId.ToString());
+                    if (radioBtnSL3Active.Checked == true)
+                        objUpdateCommand.Parameters.AddWithValue("@VAcActive", "1");
+                    else
+                        objUpdateCommand.Parameters.AddWithValue("@VAcActive", "0");
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objUpdateCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Updated Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        if (ex.Message.Contains("PK_SL3"))
+                        {
+                            MessageBox.Show("Record already added. Perhaps you want to update.", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
+                        }
+                        if (ex.Message.Contains("UniqueSL3SL2SL1"))
+                        {
+                            MessageBox.Show("SL1ID, SL2ID and SL3ID must be Unique", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);                           
+                        }
+                        else
+                            MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    //Refresh DGV 
+                    this.vATMapTableAdapter.Fill(this.financeDataSet15.VATMap);
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtVAcOrder.Text = DGVSL3SL2SL1.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
+                comboSL1.SelectedValue = Convert.ToInt32(DGVSL3SL2SL1.Rows[e.RowIndex].Cells[1].FormattedValue.ToString());
+                comboSL2.SelectedValue = Convert.ToInt32(DGVSL3SL2SL1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
+                comboSL3.SelectedValue = Convert.ToInt32(DGVSL3SL2SL1.Rows[e.RowIndex].Cells[3].FormattedValue.ToString());
+                comboAccountType.SelectedValue = Convert.ToInt32(DGVSL3SL2SL1.Rows[e.RowIndex].Cells[4].FormattedValue.ToString());
+                
+                if (Convert.ToBoolean(DGVSL3SL2SL1.Rows[e.RowIndex].Cells[5].FormattedValue.ToString()) == true)
+                    radioBtnSL3Active.Checked = true;
+                else
+                    radioBtnSL3InActive.Checked = true;
+
+                retrievedForUpdate = true;
+                LockKeys();
+
+            }
+        }
+
+        private void LockKeys()
+        {
+            comboSL1.Enabled = false;
+            comboSL2.Enabled = false;
+            comboSL3.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (retrievedForUpdate)
+            {
+                DialogResult diagResult;
+                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (diagResult == DialogResult.Yes)
+                {
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                    //Prepare Delete String
+                    string deleteCommand = "Delete from Finance.dbo.VATMap where FKSL1ID = @FKSL1ID and FKSL2ID = @FKSL2ID and FKSL3ID = @FKSL3ID;";
+                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                    objDeleteCommand.Parameters.AddWithValue("@FKSL1ID", comboSL1.SelectedValue);
+                    objDeleteCommand.Parameters.AddWithValue("@FKSL2ID", comboSL2.SelectedValue);
+                    objDeleteCommand.Parameters.AddWithValue("@FKSL3ID", comboSL3.SelectedValue);
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objDeleteCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    //Refresh DGV 
+                    this.vATMapTableAdapter.Fill(this.financeDataSet15.VATMap);
+                }
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Supports objectsupport = new Supports(DGVSL3SL2SL1, "SL3");
+            objectsupport.ShowDialog();
         }
 
         private void PrepareSL2Combo(string fkSL1)
