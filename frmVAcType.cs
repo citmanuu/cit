@@ -381,6 +381,20 @@ namespace MANUUFinance
             objectsupport.ShowDialog();
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            comboSL1.SelectedIndex = 0;
+            comboSL2.SelectedIndex = 0;
+            comboSL3.SelectedIndex = 0;
+            comboAccountType.SelectedIndex = 0;
+            radioBtnSL3Active.Checked = false;
+            radioBtnSL3InActive.Checked = false;
+            txtVAcOrder.Text = "";
+            comboSL1.Enabled = true;
+            comboSL2.Enabled = true;
+            comboSL3.Enabled = true; 
+        }
+
         private void PrepareSL2Combo(string fkSL1)
         {
             var objSL2Class = new List<SL2Class>();

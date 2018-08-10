@@ -265,10 +265,10 @@
             this.vACUpdatedOnDataGridViewTextBoxColumn,
             this.vACUpdateByDataGridViewTextBoxColumn});
             this.DGVSL3SL2SL1.DataSource = this.vATMapBindingSource;
-            this.DGVSL3SL2SL1.Location = new System.Drawing.Point(25, 281);
+            this.DGVSL3SL2SL1.Location = new System.Drawing.Point(71, 281);
             this.DGVSL3SL2SL1.Name = "DGVSL3SL2SL1";
             this.DGVSL3SL2SL1.ReadOnly = true;
-            this.DGVSL3SL2SL1.Size = new System.Drawing.Size(760, 150);
+            this.DGVSL3SL2SL1.Size = new System.Drawing.Size(675, 150);
             this.DGVSL3SL2SL1.TabIndex = 27;
             this.DGVSL3SL2SL1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -329,6 +329,7 @@
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "&Clear Controls";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
@@ -373,7 +374,6 @@
             this.pKVATDataGridViewTextBoxColumn.HeaderText = "PKVAT";
             this.pKVATDataGridViewTextBoxColumn.Name = "pKVATDataGridViewTextBoxColumn";
             this.pKVATDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKVATDataGridViewTextBoxColumn.Visible = false;
             // 
             // fKSL1IDDataGridViewTextBoxColumn
             // 

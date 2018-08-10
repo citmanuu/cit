@@ -862,7 +862,6 @@ namespace MANUUFinance
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
             if (MessageBox.Show("Do you want to Delete ?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (validateRecord())
@@ -958,13 +957,28 @@ namespace MANUUFinance
                 //D.FYName(0), DEPNAME(1), SL3Code(2), AccountName(3), BECY(4), RBECY(5), BENY(6), SL1Name (7), 
                 //SL2Name (8), SL3Name (9), SL1ID (10), PKSL2 (11), FKSL3ID (12), C.PKDEPID (13), D.PKFYID (14), ACID (15), PKBUDGETID (16)
 
+                if (DGVBudgetAccounts.Rows[e.RowIndex].Cells[15].FormattedValue.ToString() == "117")
+                {
+                    comboBudgetACTYPE.SelectedIndex = 2;
+                    comboAccount.SelectedIndex = 1;
+                }
+                else
+                {
+                    comboBudgetACTYPE.SelectedIndex = 1;
+                    comboFY.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString());
+                    comboDept.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString());
+                    comboSL1.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());
+                    comboSL2.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
+                    comboSL3.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[12].FormattedValue.ToString());
+                    comboAccount.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[15].FormattedValue.ToString());
+                }
                 comboFY.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[14].FormattedValue.ToString());
                 comboDept.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[13].FormattedValue.ToString());
                 comboSL1.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());
                 comboSL2.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
                 comboSL3.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[12].FormattedValue.ToString());
-                comboAccount.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[15].FormattedValue.ToString());
-
+                // comboAccount.SelectedValue = Convert.ToInt32(DGVBudgetAccounts.Rows[e.RowIndex].Cells[15].FormattedValue.ToString());
+            
                 txtBECY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 txtRBECY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
                 txtBENY.Text = DGVBudgetAccounts.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
