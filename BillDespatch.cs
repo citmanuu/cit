@@ -727,9 +727,8 @@ namespace MANUUFinance
                 txtPKBillID.Text = comboACID.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 txtBillNumber.Text = comboACID.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txtBillNarration.Text = comboACID.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                comboDept.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());
-                comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
-                comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                comboDept.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());                
+               
                 comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());                
                 txtBillDate.Text = comboACID.Rows[e.RowIndex].Cells[13].FormattedValue.ToString();// "dd/MM/yyyy");
                 printVoucher = true;
@@ -740,12 +739,14 @@ namespace MANUUFinance
                 if (FKACID != 117)
                 {
                     PrepareAccountNameCombo();
-                    preparedFY();
+                    preparedFY();                    
                     comboBudgetACTYPE.SelectedIndex = 1;
+                    comboBillType.SelectedIndex = 0;
                     comboFY.SelectedValue = FKFYID;
                     comboAccountName.SelectedIndex = FKACID;
                     txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
-
+                    comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
+                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
                 }
                 else
                 {                   
@@ -754,7 +755,12 @@ namespace MANUUFinance
                     comboBudgetACTYPE.SelectedIndex = 2;
                     comboFY.SelectedValue = FKFYID;
                     comboAccountName.SelectedIndex = 1;
+                    comboBillTypeSub.Enabled = false;
+                    comboBillType.Enabled = true;
+                    comboBillType.SelectedIndex = 1;
                     txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
+                    comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
+                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
                 }
                 
 
