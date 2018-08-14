@@ -81,7 +81,9 @@
             this.financeDataSet1 = new MANUUFinance.FinanceDataSet();
             this.billDtlTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.BillDtlTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboFY = new System.Windows.Forms.ComboBox();
             this.comboBudgetACTYPE = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtAccountBalance = new System.Windows.Forms.TextBox();
@@ -108,8 +110,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboFY = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboACID)).BeginInit();
@@ -373,7 +373,7 @@
             this.comboBillType.Location = new System.Drawing.Point(85, 52);
             this.comboBillType.Margin = new System.Windows.Forms.Padding(2);
             this.comboBillType.Name = "comboBillType";
-            this.comboBillType.Size = new System.Drawing.Size(104, 21);
+            this.comboBillType.Size = new System.Drawing.Size(139, 21);
             this.comboBillType.TabIndex = 4;
             this.comboBillType.SelectedIndexChanged += new System.EventHandler(this.comboBillType_SelectedIndexChanged);
             // 
@@ -648,6 +648,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bill Details";
             // 
+            // comboFY
+            // 
+            this.comboFY.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboFY.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboFY.FormattingEnabled = true;
+            this.comboFY.Location = new System.Drawing.Point(531, 20);
+            this.comboFY.Margin = new System.Windows.Forms.Padding(2);
+            this.comboFY.Name = "comboFY";
+            this.comboFY.Size = new System.Drawing.Size(227, 21);
+            this.comboFY.TabIndex = 1;
+            this.comboFY.SelectedIndexChanged += new System.EventHandler(this.comboAccountName_SelectedIndexChanged);
+            // 
             // comboBudgetACTYPE
             // 
             this.comboBudgetACTYPE.FormattingEnabled = true;
@@ -656,6 +668,15 @@
             this.comboBudgetACTYPE.Size = new System.Drawing.Size(229, 21);
             this.comboBudgetACTYPE.TabIndex = 49;
             this.comboBudgetACTYPE.SelectedIndexChanged += new System.EventHandler(this.comboBudgetACTYPE_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(452, 23);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(74, 13);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "Financial Year";
             // 
             // label17
             // 
@@ -916,27 +937,6 @@
             this.label16.Size = new System.Drawing.Size(78, 13);
             this.label16.TabIndex = 13;
             this.label16.Text = "Account Name";
-            // 
-            // comboFY
-            // 
-            this.comboFY.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboFY.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboFY.FormattingEnabled = true;
-            this.comboFY.Location = new System.Drawing.Point(531, 20);
-            this.comboFY.Margin = new System.Windows.Forms.Padding(2);
-            this.comboFY.Name = "comboFY";
-            this.comboFY.Size = new System.Drawing.Size(227, 21);
-            this.comboFY.TabIndex = 1;
-            this.comboFY.SelectedIndexChanged += new System.EventHandler(this.comboAccountName_SelectedIndexChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(452, 23);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(74, 13);
-            this.label20.TabIndex = 49;
-            this.label20.Text = "Financial Year";
             // 
             // frmBillDespatch
             // 

@@ -720,10 +720,7 @@ namespace MANUUFinance
         private void DGVbillMstView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            {
-                comboBillTypeSub.Enabled = true;
-                comboBillType.Enabled = false;
-               
+            {           
                 txtPKBillID.Text = comboACID.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 txtBillNumber.Text = comboACID.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txtBillNarration.Text = comboACID.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
@@ -754,16 +751,26 @@ namespace MANUUFinance
                     preparedFY();
                     comboBudgetACTYPE.SelectedIndex = 2;
                     comboFY.SelectedValue = FKFYID;
-                    comboAccountName.SelectedIndex = 1;
+                    comboAccountName.SelectedIndex = 1;                    
+                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();                                    
+                }
+                
+                if (comboACID.Rows[e.RowIndex].Cells[5].FormattedValue.ToString() == "Advance Payment")
+                {                    
                     comboBillTypeSub.Enabled = false;
                     comboBillType.Enabled = true;
                     comboBillType.SelectedIndex = 1;
-                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
                     comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
-                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());                    
                 }
-                
+                else
+                {
+                    comboBillTypeSub.Enabled = true;
+                    comboBillType.Enabled = false;
+                    comboBillType.SelectedIndex = 0;
+                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
 
+                }
             }
         }
 
