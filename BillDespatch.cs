@@ -33,8 +33,10 @@ namespace MANUUFinance
 
         private void frmBillDespatch_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'financeDataSet19.BillMst' table. You can move, or remove it, as needed.
+            this.billMstTableAdapter.Fill(this.financeDataSet19.BillMst);
             // TODO: This line of code loads data into the 'financeDataSet18.BillMstView' table. You can move, or remove it, as needed.
-            this.billMstViewTableAdapter1.Fill(this.financeDataSet18.BillMstView);
+           // this.billMstViewTableAdapter1.Fill(this.financeDataSet18.BillMstView);
             txtPKBillID.Text = "0";
             txtBillDate.Text = today.ToString("dd/MM/yyyy");
             retrievedForUpdate = false;
@@ -356,7 +358,7 @@ namespace MANUUFinance
 
                             MessageBox.Show("Record Added Successfully", "Record Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        ClearBillDtl();
+                        ClearTemplate();
                     }
                     catch (SqlException ex)
                     {
@@ -378,7 +380,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.billMstViewTableAdapter1.Fill(this.financeDataSet18.BillMstView);
+                    this.billMstTableAdapter.Fill(this.financeDataSet19.BillMst);
                 }
             }
 
@@ -443,7 +445,7 @@ namespace MANUUFinance
                         objSqlConnection.Close();
                     }
                     //Refresh DGV 
-                    this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+                    this.billMstTableAdapter.Fill(this.financeDataSet19.BillMst);
                 }
 
             }
@@ -453,38 +455,45 @@ namespace MANUUFinance
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult diagResult;
-            diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (diagResult == DialogResult.Yes)
+            if (retrievedForUpdate)
             {
-                //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
-                //Instantiate SQL Connection
-                SqlConnection objSqlConnection = new SqlConnection(cs);
-
-                //Prepare Delete String
-                string deleteCommand = "Delete from Finance.dbo.BillMst where PKBillID= @PKBillID;";
-                SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
-
-                objDeleteCommand.Parameters.AddWithValue("@PKBillID", txtPKBillID.Text);
-
-                try
+                DialogResult diagResult;
+                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (diagResult == DialogResult.Yes)
                 {
-                    objSqlConnection.Open();
-                    objDeleteCommand.ExecuteNonQuery();
-                    MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearTemplate();
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                    //Prepare Delete String
+                    string deleteCommand = "Delete from Finance.dbo.BillMst where PKBillID= @PKBillID;";
+                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                    objDeleteCommand.Parameters.AddWithValue("@PKBillID", txtPKBillID.Text);
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objDeleteCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    this.billMstTableAdapter.Fill(this.financeDataSet19.BillMst);
                 }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    objSqlConnection.Close();
-                }
-                this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
+            }
+            else
+            {
+                MessageBox.Show("The following error occured: ", "Check the DGF", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -501,7 +510,7 @@ namespace MANUUFinance
 
 
             //If Bill Type is of Employee (11); Assign Beneficiery Combo Value to Employee column
-            if (Convert.ToInt32(comboBillType.SelectedValue) == 13 || Convert.ToInt32(comboBillTypeSub.SelectedValue) == 11)
+            if (Convert.ToInt32(comboBillType.SelectedValue) == 13)
             {
                 objSqlCommand.Parameters.AddWithValue("@FKEmpID", comboBeneficiery.SelectedValue);
                 objSqlCommand.Parameters.AddWithValue("@FKStuID", DBNull.Value);
@@ -691,86 +700,104 @@ namespace MANUUFinance
 
         //Clear Controls
         private void btnClear_Click(object sender, EventArgs e)
-        {
+        {           
             ClearTemplate();
         }
 
         //Clear Template Method
         private void ClearTemplate()
         {
-            comboDept.SelectedValue = 0;
-            comboBillType.SelectedValue = 0;
-            comboBeneficiery.SelectedValue = 0;
-            comboBillStatus.SelectedValue = 0;
-            comboBillTypeSub.Enabled = false;
-            comboBillTypeSub.Text = "";
-            comboBillType.Enabled = true;
-            txtBillNarration.Text = "";
-            retrievedForUpdate = false;
-            queryMode = false;
-            billMstViewBindingSource.Filter = "";
-            comboAccountName.SelectedIndex = 0;
-            comboBudgetACTYPE.SelectedIndex = 0;
-            comboFY.SelectedIndex = 0;
-            txtBillAmount.Text = "";
-            txtAccountBalance.Text = "";
+            if (retrievedForUpdate)
+            {
+                comboDept.SelectedValue = 0;
+                comboBillType.SelectedValue = 0;
+                comboBeneficiery.SelectedValue = 0;
+                comboBillStatus.SelectedValue = 0;
+                comboBillTypeSub.Enabled = false;
+                comboBillTypeSub.SelectedIndex = 0;
+                comboBillType.Enabled = true;
+                txtBillNarration.Text = "";
+                retrievedForUpdate = false;
+                queryMode = false;
+                billMstViewBindingSource.Filter = "";
+                comboAccountName.SelectedIndex = 0;
+                comboBudgetACTYPE.SelectedIndex = 0;
+                comboFY.SelectedIndex = 0;
+                txtBillAmount.Text = "";
+                txtAccountBalance.Text = "";
+                txtBillNumber.Text = "";
+                txtPKBillID.Text = "";
+            }
         }
 
         //Trasfer Record to Template from the row where user has clicked the mouse
         private void DGVbillMstView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            {           
+            {
+                ClearTemplate();
                 txtPKBillID.Text = comboACID.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 txtBillNumber.Text = comboACID.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 txtBillNarration.Text = comboACID.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                comboDept.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());                
-               
-                comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[10].FormattedValue.ToString());                
-                txtBillDate.Text = comboACID.Rows[e.RowIndex].Cells[13].FormattedValue.ToString();// "dd/MM/yyyy");
-                printVoucher = true;
-                calculatespentamount();
-                retrievedForUpdate = true;
-                LockKeys();
-                txtBillAmount.Text = currentspentamount.ToString();                
+                comboDept.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[6].FormattedValue.ToString());
+                comboBillType.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                if (comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString() == "Advance Payment")
+                {
+                    //comboBillType.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                    comboBillType.Enabled = true;
+                    comboBillTypeSub.Enabled = false;
+                    comboBillTypeSub.SelectedIndex = 0; ;
+                }
+                else
+                {
+                    comboBillType.SelectedIndex = 0;
+                    comboBillType.Enabled = false;
+                    comboBillTypeSub.Enabled = true;
+                    comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[4].FormattedValue.ToString());
+                }
+
+                comboBillStatus.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[8].FormattedValue.ToString());
+                txtBillNarration.Text = comboACID.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();                
                 if (FKACID != 117)
                 {
-                    PrepareAccountNameCombo();
-                    preparedFY();                    
                     comboBudgetACTYPE.SelectedIndex = 1;
-                    comboBillType.SelectedIndex = 0;
                     comboFY.SelectedValue = FKFYID;
-                    comboAccountName.SelectedIndex = FKACID;
-                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
-                    comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
-                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
-                }
-                else
-                {                   
-                    PrepareAccountTypecombo();
-                    preparedFY();
-                    comboBudgetACTYPE.SelectedIndex = 2;
-                    comboFY.SelectedValue = FKFYID;
-                    comboAccountName.SelectedIndex = 1;                    
-                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();                                    
-                }
-                
-                if (comboACID.Rows[e.RowIndex].Cells[5].FormattedValue.ToString() == "Advance Payment")
-                {                    
-                    comboBillTypeSub.Enabled = false;
-                    comboBillType.Enabled = true;
-                    comboBillType.SelectedIndex = 1;
-                    comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[11].FormattedValue.ToString());
-                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());                    
+                    comboAccountName.SelectedValue = FKACID;
+                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();                   
                 }
                 else
                 {
-                    comboBillTypeSub.Enabled = true;
-                    comboBillType.Enabled = false;
-                    comboBillType.SelectedIndex = 0;
-                    comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
-
+                    comboBudgetACTYPE.SelectedIndex = 2;
+                    comboFY.SelectedValue = FKFYID;
+                    comboAccountName.SelectedValue = FKACID;
+                    txtAccountBalance.Text = (BECY - spendamount + currentspentamount).ToString();
                 }
+                LockKeys();
+                calculatespentamount();
+                txtBillAmount.Text = currentspentamount.ToString();
+                printVoucher = true;
+                retrievedForUpdate = true;
+            }
+        }
+
+        private void Billtypefunction(DataGridViewCellEventArgs e)
+        {
+            if (comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString() == "Advance Payment")
+            {
+                comboBillType.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                comboBillType.Enabled = true;
+                comboBillTypeSub.Enabled = false;
+                comboBillTypeSub.SelectedIndex = 0; ;
+
+            }
+            else
+            {
+                comboBillType.SelectedIndex = 0;
+                comboBillType.Enabled = false;
+                comboBillTypeSub.Enabled = true;
+                comboBillTypeSub.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[9].FormattedValue.ToString());
+                comboBeneficiery.SelectedValue = Convert.ToInt32(comboACID.Rows[e.RowIndex].Cells[4].FormattedValue.ToString());
             }
         }
 
@@ -944,9 +971,15 @@ namespace MANUUFinance
             try
             {
                 objSqlConnection.Open();
-                spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
-            }
-
+                if (Convert.ToInt32(objSelectCommand1.ExecuteScalar()) == 0)
+                {
+                    spendamount = 0;
+                }
+                else
+                {
+                    spendamount = Convert.ToInt32(objSelectCommand1.ExecuteScalar());
+                }                                
+            }                
             catch (SqlException ex)
             {
                 MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -980,11 +1013,6 @@ namespace MANUUFinance
             {
                 objSqlConnection.Close();
             }
-        }
-
-        private void comboACID_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void comboBudgetACTYPE_SelectedIndexChanged(object sender, EventArgs e)

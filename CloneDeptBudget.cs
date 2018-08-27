@@ -84,8 +84,8 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT Distinct PKDEPID, DepName FROM [Finance].[dbo].[DEPT] A, [Finance].[dbo].[BUDGET] B " +
-                                   "WHERE B.FKDEPID = A.PKDEPID AND B.FKFYID = " + FKFYID + " Order by 1";
+            string selectCommand = "SELECT Distinct DeptId, DeptName FROM [Finance].[dbo].[Department] A, [Finance].[dbo].[BUDGET] B " +
+                                   "WHERE B.FKDEPID = A.DeptId AND B.FKFYID = " + FKFYID + " Order by 1";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {

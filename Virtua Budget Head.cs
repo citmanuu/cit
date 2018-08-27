@@ -35,7 +35,7 @@ namespace MANUUFinance
             preparedcombosl1();
             preparedcombosl2("0");
             preparedcombosl3("0");
-            preparedcomboaccount();
+            preparedcomboaccount("0");
             //preparedDGV();
             if (new AdministratorLogin().administratorLogin(userId))
             {
@@ -98,7 +98,7 @@ namespace MANUUFinance
             }
         }
 
-        private void preparedcomboaccount()
+        private void preparedcomboaccount(string ACID)
         {
             var objLOVClass = new List<LOV>();
             objLOVClass.Add(new LOV(0, "-- Please Select --"));
@@ -108,7 +108,7 @@ namespace MANUUFinance
             //Instantiate SQL Connection
             SqlConnection objSqlConnection = new SqlConnection(cs);
             //Prepare Update String
-            string selectCommand = "SELECT ACIDID, AccName FROM [finance].[dbo].[AcName] Order by 2";
+            string selectCommand = "SELECT ACIDID, AccName FROM [finance].[dbo].[AcName] where ACIDID = '" + ACID + "' Order by 2";
             SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
             try
             {
@@ -483,6 +483,47 @@ namespace MANUUFinance
             EnableDisableHeads objectenabledisable = new EnableDisableHeads();
             objectenabledisable.ShowDialog();
             preparedcomboVH();
+        }
+
+        private void comboVH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboSL3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string  ACID = checkACIDID(Convert.ToString(comboSL1.SelectedValue), Convert.ToString(comboSL2.SelectedValue), Convert.ToString(comboSL3.SelectedValue));
+            preparedcomboaccount(ACID);
+        }
+
+        private string checkACIDID(string fkSL11, string fkSL12, string fkSL13)
+        {
+            string ACID =  null;
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT VAcName FROM [finance].[dbo].[VATMap] where FKSL1ID = '" + fkSL11 + "' and FKSL2ID = '" + fkSL12 + "' and FKSL3ID = '" + fkSL13 + "'";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    ACID = objDataReader[0].ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+            return ACID;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
