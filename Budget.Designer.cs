@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDeptSearch = new System.Windows.Forms.TextBox();
@@ -171,6 +171,7 @@
             this.txtDeptSearch.Name = "txtDeptSearch";
             this.txtDeptSearch.Size = new System.Drawing.Size(217, 20);
             this.txtDeptSearch.TabIndex = 4;
+            this.txtDeptSearch.TextChanged += new System.EventHandler(this.txtDeptSearch_TextChanged);
             // 
             // label11
             // 
@@ -189,6 +190,7 @@
             this.txtSL3Search.Name = "txtSL3Search";
             this.txtSL3Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL3Search.TabIndex = 2;
+            this.txtSL3Search.TextChanged += new System.EventHandler(this.txtSL3Search_TextChanged);
             // 
             // txtSL3SearchLabel
             // 
@@ -207,6 +209,7 @@
             this.txtAccountNameSearch.Name = "txtAccountNameSearch";
             this.txtAccountNameSearch.Size = new System.Drawing.Size(217, 20);
             this.txtAccountNameSearch.TabIndex = 3;
+            this.txtAccountNameSearch.TextChanged += new System.EventHandler(this.txtAccountNameSearch_TextChanged);
             // 
             // btnSearch
             // 
@@ -247,6 +250,7 @@
             this.txtSL1Search.Name = "txtSL1Search";
             this.txtSL1Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL1Search.TabIndex = 0;
+            this.txtSL1Search.TextChanged += new System.EventHandler(this.txtSL1Search_TextChanged);
             // 
             // label9
             // 
@@ -265,6 +269,7 @@
             this.txtSL2Search.Name = "txtSL2Search";
             this.txtSL2Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL2Search.TabIndex = 1;
+            this.txtSL2Search.TextChanged += new System.EventHandler(this.txtSL2Search_TextChanged);
             // 
             // label5
             // 
@@ -761,8 +766,8 @@
             // 
             this.DGVBudgetAccounts.AllowUserToAddRows = false;
             this.DGVBudgetAccounts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGVBudgetAccounts.AutoGenerateColumns = false;
             this.DGVBudgetAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVBudgetAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

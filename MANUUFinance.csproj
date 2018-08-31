@@ -795,6 +795,7 @@
   <ItemGroup>
     <Content Include="finance.ico" />
     <Content Include="Resources\logo2.png" />
+    <Content Include="Resources\final.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

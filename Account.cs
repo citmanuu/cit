@@ -601,6 +601,31 @@ namespace MANUUFinance
             objectsupport.ShowDialog();
         }
 
+        private void txtSL1Seacrh_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtSL2Search_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtSL3Search_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtBankAccSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtAccountNameSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
         //Filter entries for comboSL2 based on Selection of comboSL1
         private void comboSL2_SelectedIndexChanged(object sender, EventArgs e)
         {

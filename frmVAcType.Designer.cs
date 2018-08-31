@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboAccountType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,16 +46,6 @@
             this.radioBtnSL3Active = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.DGVSL3SL2SL1 = new System.Windows.Forms.DataGridView();
-            this.vATMapBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.financeDataSet15 = new MANUUFinance.FinanceDataSet15();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.vATMapTableAdapter = new MANUUFinance.FinanceDataSet15TableAdapters.VATMapTableAdapter();
             this.pKVATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKSL1IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKSL2IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +56,16 @@
             this.vACAddedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vACUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vACUpdateByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vATMapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet15 = new MANUUFinance.FinanceDataSet15();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.vATMapTableAdapter = new MANUUFinance.FinanceDataSet15TableAdapters.VATMapTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSL3SL2SL1)).BeginInit();
@@ -251,6 +252,8 @@
             // 
             this.DGVSL3SL2SL1.AllowUserToAddRows = false;
             this.DGVSL3SL2SL1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVSL3SL2SL1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVSL3SL2SL1.AutoGenerateColumns = false;
             this.DGVSL3SL2SL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVSL3SL2SL1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -271,6 +274,79 @@
             this.DGVSL3SL2SL1.Size = new System.Drawing.Size(675, 150);
             this.DGVSL3SL2SL1.TabIndex = 27;
             this.DGVSL3SL2SL1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // pKVATDataGridViewTextBoxColumn
+            // 
+            this.pKVATDataGridViewTextBoxColumn.DataPropertyName = "PKVAT";
+            this.pKVATDataGridViewTextBoxColumn.HeaderText = "PKVAT";
+            this.pKVATDataGridViewTextBoxColumn.Name = "pKVATDataGridViewTextBoxColumn";
+            this.pKVATDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKSL1IDDataGridViewTextBoxColumn
+            // 
+            this.fKSL1IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL1ID";
+            this.fKSL1IDDataGridViewTextBoxColumn.HeaderText = "FKSL1ID";
+            this.fKSL1IDDataGridViewTextBoxColumn.Name = "fKSL1IDDataGridViewTextBoxColumn";
+            this.fKSL1IDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKSL2IDDataGridViewTextBoxColumn
+            // 
+            this.fKSL2IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL2ID";
+            this.fKSL2IDDataGridViewTextBoxColumn.HeaderText = "FKSL2ID";
+            this.fKSL2IDDataGridViewTextBoxColumn.Name = "fKSL2IDDataGridViewTextBoxColumn";
+            this.fKSL2IDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKSL3IDDataGridViewTextBoxColumn
+            // 
+            this.fKSL3IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn.HeaderText = "FKSL3ID";
+            this.fKSL3IDDataGridViewTextBoxColumn.Name = "fKSL3IDDataGridViewTextBoxColumn";
+            this.fKSL3IDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vAcNameDataGridViewTextBoxColumn
+            // 
+            this.vAcNameDataGridViewTextBoxColumn.DataPropertyName = "VAcName";
+            this.vAcNameDataGridViewTextBoxColumn.HeaderText = "VAcName";
+            this.vAcNameDataGridViewTextBoxColumn.Name = "vAcNameDataGridViewTextBoxColumn";
+            this.vAcNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vAcActiveDataGridViewCheckBoxColumn
+            // 
+            this.vAcActiveDataGridViewCheckBoxColumn.DataPropertyName = "VAcActive";
+            this.vAcActiveDataGridViewCheckBoxColumn.HeaderText = "VAcActive";
+            this.vAcActiveDataGridViewCheckBoxColumn.Name = "vAcActiveDataGridViewCheckBoxColumn";
+            this.vAcActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // vAcOrderDataGridViewTextBoxColumn
+            // 
+            this.vAcOrderDataGridViewTextBoxColumn.DataPropertyName = "VAcOrder";
+            this.vAcOrderDataGridViewTextBoxColumn.HeaderText = "VAcOrder";
+            this.vAcOrderDataGridViewTextBoxColumn.Name = "vAcOrderDataGridViewTextBoxColumn";
+            this.vAcOrderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vACAddedOnDataGridViewTextBoxColumn
+            // 
+            this.vACAddedOnDataGridViewTextBoxColumn.DataPropertyName = "VACAddedOn";
+            this.vACAddedOnDataGridViewTextBoxColumn.HeaderText = "VACAddedOn";
+            this.vACAddedOnDataGridViewTextBoxColumn.Name = "vACAddedOnDataGridViewTextBoxColumn";
+            this.vACAddedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vACAddedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vACUpdatedOnDataGridViewTextBoxColumn
+            // 
+            this.vACUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "VACUpdatedOn";
+            this.vACUpdatedOnDataGridViewTextBoxColumn.HeaderText = "VACUpdatedOn";
+            this.vACUpdatedOnDataGridViewTextBoxColumn.Name = "vACUpdatedOnDataGridViewTextBoxColumn";
+            this.vACUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vACUpdatedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vACUpdateByDataGridViewTextBoxColumn
+            // 
+            this.vACUpdateByDataGridViewTextBoxColumn.DataPropertyName = "VACUpdateBy";
+            this.vACUpdateByDataGridViewTextBoxColumn.HeaderText = "VACUpdateBy";
+            this.vACUpdateByDataGridViewTextBoxColumn.Name = "vACUpdateByDataGridViewTextBoxColumn";
+            this.vACUpdateByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vACUpdateByDataGridViewTextBoxColumn.Visible = false;
             // 
             // vATMapBindingSource
             // 
@@ -367,79 +443,6 @@
             // vATMapTableAdapter
             // 
             this.vATMapTableAdapter.ClearBeforeFill = true;
-            // 
-            // pKVATDataGridViewTextBoxColumn
-            // 
-            this.pKVATDataGridViewTextBoxColumn.DataPropertyName = "PKVAT";
-            this.pKVATDataGridViewTextBoxColumn.HeaderText = "PKVAT";
-            this.pKVATDataGridViewTextBoxColumn.Name = "pKVATDataGridViewTextBoxColumn";
-            this.pKVATDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fKSL1IDDataGridViewTextBoxColumn
-            // 
-            this.fKSL1IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL1ID";
-            this.fKSL1IDDataGridViewTextBoxColumn.HeaderText = "FKSL1ID";
-            this.fKSL1IDDataGridViewTextBoxColumn.Name = "fKSL1IDDataGridViewTextBoxColumn";
-            this.fKSL1IDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fKSL2IDDataGridViewTextBoxColumn
-            // 
-            this.fKSL2IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL2ID";
-            this.fKSL2IDDataGridViewTextBoxColumn.HeaderText = "FKSL2ID";
-            this.fKSL2IDDataGridViewTextBoxColumn.Name = "fKSL2IDDataGridViewTextBoxColumn";
-            this.fKSL2IDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fKSL3IDDataGridViewTextBoxColumn
-            // 
-            this.fKSL3IDDataGridViewTextBoxColumn.DataPropertyName = "FKSL3ID";
-            this.fKSL3IDDataGridViewTextBoxColumn.HeaderText = "FKSL3ID";
-            this.fKSL3IDDataGridViewTextBoxColumn.Name = "fKSL3IDDataGridViewTextBoxColumn";
-            this.fKSL3IDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vAcNameDataGridViewTextBoxColumn
-            // 
-            this.vAcNameDataGridViewTextBoxColumn.DataPropertyName = "VAcName";
-            this.vAcNameDataGridViewTextBoxColumn.HeaderText = "VAcName";
-            this.vAcNameDataGridViewTextBoxColumn.Name = "vAcNameDataGridViewTextBoxColumn";
-            this.vAcNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vAcActiveDataGridViewCheckBoxColumn
-            // 
-            this.vAcActiveDataGridViewCheckBoxColumn.DataPropertyName = "VAcActive";
-            this.vAcActiveDataGridViewCheckBoxColumn.HeaderText = "VAcActive";
-            this.vAcActiveDataGridViewCheckBoxColumn.Name = "vAcActiveDataGridViewCheckBoxColumn";
-            this.vAcActiveDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // vAcOrderDataGridViewTextBoxColumn
-            // 
-            this.vAcOrderDataGridViewTextBoxColumn.DataPropertyName = "VAcOrder";
-            this.vAcOrderDataGridViewTextBoxColumn.HeaderText = "VAcOrder";
-            this.vAcOrderDataGridViewTextBoxColumn.Name = "vAcOrderDataGridViewTextBoxColumn";
-            this.vAcOrderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vACAddedOnDataGridViewTextBoxColumn
-            // 
-            this.vACAddedOnDataGridViewTextBoxColumn.DataPropertyName = "VACAddedOn";
-            this.vACAddedOnDataGridViewTextBoxColumn.HeaderText = "VACAddedOn";
-            this.vACAddedOnDataGridViewTextBoxColumn.Name = "vACAddedOnDataGridViewTextBoxColumn";
-            this.vACAddedOnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vACAddedOnDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vACUpdatedOnDataGridViewTextBoxColumn
-            // 
-            this.vACUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "VACUpdatedOn";
-            this.vACUpdatedOnDataGridViewTextBoxColumn.HeaderText = "VACUpdatedOn";
-            this.vACUpdatedOnDataGridViewTextBoxColumn.Name = "vACUpdatedOnDataGridViewTextBoxColumn";
-            this.vACUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vACUpdatedOnDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vACUpdateByDataGridViewTextBoxColumn
-            // 
-            this.vACUpdateByDataGridViewTextBoxColumn.DataPropertyName = "VACUpdateBy";
-            this.vACUpdateByDataGridViewTextBoxColumn.HeaderText = "VACUpdateBy";
-            this.vACUpdateByDataGridViewTextBoxColumn.Name = "vACUpdateByDataGridViewTextBoxColumn";
-            this.vACUpdateByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vACUpdateByDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmVAcType
             // 

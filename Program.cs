@@ -16,7 +16,7 @@ namespace MANUUFinance
         {
             Application.EnableVisualStyles();
             // Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new MDIParent(0,0,0));
+               Application.Run(new MDIParent(1,0,0));
             // Application.Run(new Home());
             // Application.Run(new ImportExport());
             //Application.Run(new ImportHelp(1));
@@ -28,7 +28,7 @@ namespace MANUUFinance
             //Application.Run(new frmAccount(0, 0, 0, null));
             //Application.Run(new Voucher_Generator());
             // Application.Run(new frmSL3(1,0,0,null));
-            Application.Run(new pdfsupports());
+            //Application.Run(new pdfsupports());
            // Application.Run(new VoucherPrintHelp());
         }
     }

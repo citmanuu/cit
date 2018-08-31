@@ -36,9 +36,9 @@ namespace MANUUFinance
 
                 // Add the logo
                 string startupPath = AppDomain.CurrentDomain.BaseDirectory;
-                string imagepath = startupPath + "logo2.png";
+                string imagepath = startupPath + "logo_final.jpg";
                 iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagepath);
-                image.ScalePercent(60f);
+                image.ScalePercent(40f);
 
                 // Add header
 

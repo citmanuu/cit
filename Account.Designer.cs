@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -89,7 +90,6 @@
             this.accountsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet = new MANUUFinance.FinanceDataSet();
             this.accountsViewTableAdapter = new MANUUFinance.FinanceDataSetTableAdapters.AccountsViewTableAdapter();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -114,6 +114,17 @@
             this.groupBox2.Size = new System.Drawing.Size(571, 45);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(287, 12);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 25);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print Record";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrintRecord_Click);
             // 
             // btnClose
             // 
@@ -437,6 +448,7 @@
             this.txtAccountNameSearch.Name = "txtAccountNameSearch";
             this.txtAccountNameSearch.Size = new System.Drawing.Size(217, 20);
             this.txtAccountNameSearch.TabIndex = 4;
+            this.txtAccountNameSearch.TextChanged += new System.EventHandler(this.txtAccountNameSearch_TextChanged);
             // 
             // label11
             // 
@@ -455,6 +467,7 @@
             this.txtSL3Search.Name = "txtSL3Search";
             this.txtSL3Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL3Search.TabIndex = 2;
+            this.txtSL3Search.TextChanged += new System.EventHandler(this.txtSL3Search_TextChanged);
             // 
             // txtSL3SearchLabel
             // 
@@ -473,6 +486,7 @@
             this.txtBankAccSearch.Name = "txtBankAccSearch";
             this.txtBankAccSearch.Size = new System.Drawing.Size(217, 20);
             this.txtBankAccSearch.TabIndex = 3;
+            this.txtBankAccSearch.TextChanged += new System.EventHandler(this.txtBankAccSearch_TextChanged);
             // 
             // btnSearch
             // 
@@ -513,6 +527,7 @@
             this.txtSL1Seacrh.Name = "txtSL1Seacrh";
             this.txtSL1Seacrh.Size = new System.Drawing.Size(217, 20);
             this.txtSL1Seacrh.TabIndex = 0;
+            this.txtSL1Seacrh.TextChanged += new System.EventHandler(this.txtSL1Seacrh_TextChanged);
             // 
             // label9
             // 
@@ -531,6 +546,7 @@
             this.txtSL2Search.Name = "txtSL2Search";
             this.txtSL2Search.Size = new System.Drawing.Size(217, 20);
             this.txtSL2Search.TabIndex = 1;
+            this.txtSL2Search.TextChanged += new System.EventHandler(this.txtSL2Search_TextChanged);
             // 
             // label5
             // 
@@ -547,8 +563,8 @@
             this.DGVAccounts.AllowUserToAddRows = false;
             this.DGVAccounts.AllowUserToDeleteRows = false;
             this.DGVAccounts.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.DGVAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.DGVAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DGVAccounts.AutoGenerateColumns = false;
             this.DGVAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -703,17 +719,6 @@
             // accountsViewTableAdapter
             // 
             this.accountsViewTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(287, 12);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 25);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "Print Record";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrintRecord_Click);
             // 
             // frmAccount
             // 

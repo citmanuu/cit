@@ -390,9 +390,9 @@ namespace MANUUFinance
         private void ClearBillDtl()
         {
             comboAccountName.SelectedValue = 0;
-            txtSL1Name.Text = "";
-            txtSL2Name.Text = "";
-            txtSL3Name.Text = "";
+            //txtSL1Name.Text = "";
+           // txtSL2Name.Text = "";
+           // txtSL3Name.Text = "";
             txtBillAmount.Text = "";
             txtAccountBalance.Text = "";
         }
@@ -914,6 +914,7 @@ namespace MANUUFinance
                     {
                         BECY = Convert.ToInt32(objDataReader[1].ToString());
                         objvoucherClass.Add(new VoucherPrint(objDataReader[0].ToString(), Convert.ToInt32(objDataReader[1]), objDataReader[2].ToString(), objDataReader[3].ToString(), objDataReader[4].ToString()));
+                        break;
                     }
                 }
 
@@ -954,6 +955,7 @@ namespace MANUUFinance
                     currentspentamount = Convert.ToInt32(objDataReader2[0].ToString());
                     FKFYID = Convert.ToInt32(objDataReader2[1].ToString());
                     FKACID = Convert.ToInt32(objDataReader2[2].ToString());
+                    break;
                 }
             }
 
@@ -1002,7 +1004,9 @@ namespace MANUUFinance
                         BECY = Convert.ToInt32(objDataReader3[0]);
                     }
                     else
+                    {
                         BECY = 0;
+                    }                        
                 }
             }
             catch (SqlException ex)
@@ -1015,18 +1019,216 @@ namespace MANUUFinance
             }
         }
 
+        private void comboSL1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            preparedcombosl2(Convert.ToString(comboSL1.SelectedValue));
+        }
+
+        private void preparedcombosl2(string fkSL1)
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKSL2, SL2Name FROM [finance].[dbo].[SL2] where SL1ID = " + fkSL1 + " Order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboSL2.DisplayMember = "ListItemDesc"; // will display Name property
+                comboSL2.ValueMember = "ListItemID"; // will select Value property
+                comboSL2.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+        }
+
+        private void comboSL2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            preparedcombosl3(Convert.ToString(comboSL2.SelectedValue));
+        }
+
+        private void preparedcombosl3(string fkSL2)
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKSL3, SL3Name FROM [finance].[dbo].[SL3] where FKSL2ID = " + fkSL2 + " Order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboSL3.DisplayMember = "ListItemDesc"; // will display Name property
+                comboSL3.ValueMember = "ListItemID"; // will select Value property
+                comboSL3.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+        }
+
+        private void comboSL3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //string ACID = checkACIDID(Convert.ToString(comboSL1.SelectedValue), Convert.ToString(comboSL2.SelectedValue), Convert.ToString(comboSL3.SelectedValue));
+            //preparedcomboaccount(ACID);
+            PrepareAccountNameCombo();
+        }
+
+        private void preparedcomboaccount(string ACID)
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT ACIDID, AccName FROM [finance].[dbo].[AcName] where ACIDID = '" + ACID + "' Order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboAccountName.DisplayMember = "ListItemDesc"; // will display Name property
+                comboAccountName.ValueMember = "ListItemID"; // will select Value property
+                comboAccountName.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+        }
+
+        private string checkACIDID(string fkSL11, string fkSL12, string fkSL13)
+        {
+            string ACID = null;
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT PKACID FROM [finance].[dbo].[Accounts] where FKSL3ID = '" + fkSL13 + "' and DeptId = '"+ comboFY.SelectedValue + "'";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    ACID = objDataReader[0].ToString();
+                    break;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
+            return ACID;
+        }
+
         private void comboBudgetACTYPE_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBudgetACTYPE.SelectedIndex == 1)
             {
-               PrepareAccountNameCombo();
+                preparedcombosl1();
+               //PrepareAccountNameCombo();
                preparedFY();
             }
             else if(comboBudgetACTYPE.SelectedIndex == 2)
             {
-                PrepareAccountTypecombo();
+                comboSL1.SelectedIndex = 0;
+                comboSL1.Enabled = false;
+
+                comboSL2.SelectedIndex = 0;
+                comboSL2.Enabled = false;
+
+                comboSL3.SelectedIndex = 0;
+                comboSL3.Enabled = false;
+
+                //PrepareAccountTypecombo();
                 preparedFY();
             }            
+        }
+
+        private void preparedcombosl1()
+        {
+            var objLOVClass = new List<LOV>();
+            objLOVClass.Add(new LOV(0, "-- Please Select --"));
+
+            //Connection String
+            string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+            //Instantiate SQL Connection
+            SqlConnection objSqlConnection = new SqlConnection(cs);
+            //Prepare Update String
+            string selectCommand = "SELECT SL1ID, SL1Name FROM [finance].[dbo].[SL1] Order by 2";
+            SqlCommand objSelectCommand = new SqlCommand(selectCommand, objSqlConnection);
+            try
+            {
+                objSqlConnection.Open();
+                SqlDataReader objDataReader = objSelectCommand.ExecuteReader();
+                while (objDataReader.Read())
+                {
+                    objLOVClass.Add(new LOV(Convert.ToInt32(objDataReader[0]), Convert.ToString(objDataReader[1])));
+                }
+                // Bind combobox list to the items
+                comboSL1.DisplayMember = "ListItemDesc"; // will display Name property
+                comboSL1.ValueMember = "ListItemID"; // will select Value property
+                comboSL1.DataSource = objLOVClass; // assign list (will populate comboBox1.Items)
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The following error occured : " + ex.Message, "Select Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                objSqlConnection.Close();
+            }
         }
 
         private void preparedFY()
@@ -1292,7 +1494,7 @@ namespace MANUUFinance
                 ////Refresh DGV 
                 ////this.billMstViewTableAdapter.Fill(this.financeDataSet.BillMstView);
 
-                string sqlcommad1 = "Select sum(Amount) FROM [dbo].[BillDtl] where FKACID = '" + comboAccountName.SelectedValue + "' AND FKFYID ='" + comboFY.SelectedValue + "'";
+                string sqlcommad1 = "Select RBECY FROM [dbo].[BudgetWithAccounts] where PKACID = '" + comboAccountName.SelectedValue + "' AND PKFYID ='" + comboFY.SelectedValue + "' and DeptId = '"+comboDept.SelectedValue +"'";
                 SqlCommand objsqlCommand1 = new SqlCommand(sqlcommad1, objSqlConnection);
 
                 try
@@ -1304,9 +1506,12 @@ namespace MANUUFinance
                         if (!objDataReader1[0].Equals(DBNull.Value))
                         {
                             BilledAmount = Convert.ToInt32(objDataReader1[0]);
+                            break;
                         }
                         else
+                        {
                             BilledAmount = 0;
+                        }                            
                     }
                 }
                 catch (SqlException ex)

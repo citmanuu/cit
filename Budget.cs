@@ -1080,6 +1080,31 @@ namespace MANUUFinance
 
         }
 
+        private void txtSL1Search_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtSL2Search_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtSL3Search_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtAccountNameSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
+        private void txtDeptSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(null, null);
+        }
+
         private void btnMapVirtualAccount_Click(object sender, EventArgs e)
         {
             frmVirtualAccount objfrmVirtualAccount = new frmVirtualAccount();

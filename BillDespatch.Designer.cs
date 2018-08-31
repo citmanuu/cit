@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -56,6 +56,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPKBillID = new System.Windows.Forms.TextBox();
             this.comboACID = new System.Windows.Forms.DataGridView();
+            this.BeneficiaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pKBillIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billNarrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKEmpIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKStuIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKDepIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKSupIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKBillStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKBillTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billCreatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKFYIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billMstBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.financeDataSet19 = new MANUUFinance.FinanceDataSet19();
             this.billMstViewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.financeDataSet18 = new MANUUFinance.FinanceDataSet18();
             this.billMstViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,11 +88,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtAccountBalance = new System.Windows.Forms.TextBox();
-            this.txtSL2Name = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSL3Name = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtSL1Name = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboAccountName = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -95,26 +108,15 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.financeDataSet19 = new MANUUFinance.FinanceDataSet19();
-            this.billMstBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.billMstTableAdapter = new MANUUFinance.FinanceDataSet19TableAdapters.BillMstTableAdapter();
-            this.BeneficiaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pKBillIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billNarrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKEmpIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKStuIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKDepIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKSupIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKBillStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKBillTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billCreatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billUpdatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKFYIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboSL1 = new System.Windows.Forms.ComboBox();
+            this.comboSL2 = new System.Windows.Forms.ComboBox();
+            this.comboSL3 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboACID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billMstBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource)).BeginInit();
@@ -123,8 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billMstBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -413,8 +413,8 @@
             // 
             this.comboACID.AllowUserToAddRows = false;
             this.comboACID.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.comboACID.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.comboACID.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.comboACID.AutoGenerateColumns = false;
             this.comboACID.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.comboACID.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -444,6 +444,131 @@
             this.comboACID.TabIndex = 37;
             this.comboACID.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVbillMstView_CellClick);
             this.comboACID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVbillMstView_CellClick);
+            // 
+            // BeneficiaryID
+            // 
+            this.BeneficiaryID.DataPropertyName = "BeneficiaryID";
+            this.BeneficiaryID.HeaderText = "BeneficiaryID";
+            this.BeneficiaryID.Name = "BeneficiaryID";
+            this.BeneficiaryID.ReadOnly = true;
+            this.BeneficiaryID.Visible = false;
+            this.BeneficiaryID.Width = 95;
+            // 
+            // pKBillIDDataGridViewTextBoxColumn
+            // 
+            this.pKBillIDDataGridViewTextBoxColumn.DataPropertyName = "PKBillID";
+            this.pKBillIDDataGridViewTextBoxColumn.HeaderText = "PKBillID";
+            this.pKBillIDDataGridViewTextBoxColumn.Name = "pKBillIDDataGridViewTextBoxColumn";
+            this.pKBillIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pKBillIDDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // billNumberDataGridViewTextBoxColumn
+            // 
+            this.billNumberDataGridViewTextBoxColumn.DataPropertyName = "BillNumber";
+            this.billNumberDataGridViewTextBoxColumn.HeaderText = "BillNumber";
+            this.billNumberDataGridViewTextBoxColumn.Name = "billNumberDataGridViewTextBoxColumn";
+            this.billNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billNumberDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // billNarrationDataGridViewTextBoxColumn
+            // 
+            this.billNarrationDataGridViewTextBoxColumn.DataPropertyName = "BillNarration";
+            this.billNarrationDataGridViewTextBoxColumn.HeaderText = "BillNarration";
+            this.billNarrationDataGridViewTextBoxColumn.Name = "billNarrationDataGridViewTextBoxColumn";
+            this.billNarrationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billNarrationDataGridViewTextBoxColumn.Width = 88;
+            // 
+            // fKEmpIDDataGridViewTextBoxColumn
+            // 
+            this.fKEmpIDDataGridViewTextBoxColumn.DataPropertyName = "FKEmpID";
+            this.fKEmpIDDataGridViewTextBoxColumn.HeaderText = "FKEmpID";
+            this.fKEmpIDDataGridViewTextBoxColumn.Name = "fKEmpIDDataGridViewTextBoxColumn";
+            this.fKEmpIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKEmpIDDataGridViewTextBoxColumn.Width = 77;
+            // 
+            // fKStuIDDataGridViewTextBoxColumn
+            // 
+            this.fKStuIDDataGridViewTextBoxColumn.DataPropertyName = "FKStuID";
+            this.fKStuIDDataGridViewTextBoxColumn.HeaderText = "FKStuID";
+            this.fKStuIDDataGridViewTextBoxColumn.Name = "fKStuIDDataGridViewTextBoxColumn";
+            this.fKStuIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKStuIDDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // fKDepIDDataGridViewTextBoxColumn
+            // 
+            this.fKDepIDDataGridViewTextBoxColumn.DataPropertyName = "FKDepID";
+            this.fKDepIDDataGridViewTextBoxColumn.HeaderText = "FKDepID";
+            this.fKDepIDDataGridViewTextBoxColumn.Name = "fKDepIDDataGridViewTextBoxColumn";
+            this.fKDepIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKDepIDDataGridViewTextBoxColumn.Width = 76;
+            // 
+            // fKSupIDDataGridViewTextBoxColumn
+            // 
+            this.fKSupIDDataGridViewTextBoxColumn.DataPropertyName = "FKSupID";
+            this.fKSupIDDataGridViewTextBoxColumn.HeaderText = "FKSupID";
+            this.fKSupIDDataGridViewTextBoxColumn.Name = "fKSupIDDataGridViewTextBoxColumn";
+            this.fKSupIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKSupIDDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // fKBillStatusDataGridViewTextBoxColumn
+            // 
+            this.fKBillStatusDataGridViewTextBoxColumn.DataPropertyName = "FKBillStatus";
+            this.fKBillStatusDataGridViewTextBoxColumn.HeaderText = "FKBillStatus";
+            this.fKBillStatusDataGridViewTextBoxColumn.Name = "fKBillStatusDataGridViewTextBoxColumn";
+            this.fKBillStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKBillStatusDataGridViewTextBoxColumn.Width = 88;
+            // 
+            // fKBillTypeDataGridViewTextBoxColumn
+            // 
+            this.fKBillTypeDataGridViewTextBoxColumn.DataPropertyName = "FKBillType";
+            this.fKBillTypeDataGridViewTextBoxColumn.HeaderText = "FKBillType";
+            this.fKBillTypeDataGridViewTextBoxColumn.Name = "fKBillTypeDataGridViewTextBoxColumn";
+            this.fKBillTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKBillTypeDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // billCreatedOnDataGridViewTextBoxColumn
+            // 
+            this.billCreatedOnDataGridViewTextBoxColumn.DataPropertyName = "BillCreatedOn";
+            this.billCreatedOnDataGridViewTextBoxColumn.HeaderText = "BillCreatedOn";
+            this.billCreatedOnDataGridViewTextBoxColumn.Name = "billCreatedOnDataGridViewTextBoxColumn";
+            this.billCreatedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billCreatedOnDataGridViewTextBoxColumn.Visible = false;
+            this.billCreatedOnDataGridViewTextBoxColumn.Width = 96;
+            // 
+            // billUpdatedOnDataGridViewTextBoxColumn
+            // 
+            this.billUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "BillUpdatedOn";
+            this.billUpdatedOnDataGridViewTextBoxColumn.HeaderText = "BillUpdatedOn";
+            this.billUpdatedOnDataGridViewTextBoxColumn.Name = "billUpdatedOnDataGridViewTextBoxColumn";
+            this.billUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billUpdatedOnDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // billUpdatedByDataGridViewTextBoxColumn
+            // 
+            this.billUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "BillUpdatedBy";
+            this.billUpdatedByDataGridViewTextBoxColumn.HeaderText = "BillUpdatedBy";
+            this.billUpdatedByDataGridViewTextBoxColumn.Name = "billUpdatedByDataGridViewTextBoxColumn";
+            this.billUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billUpdatedByDataGridViewTextBoxColumn.Visible = false;
+            this.billUpdatedByDataGridViewTextBoxColumn.Width = 98;
+            // 
+            // fKFYIDDataGridViewTextBoxColumn
+            // 
+            this.fKFYIDDataGridViewTextBoxColumn.DataPropertyName = "FKFYID";
+            this.fKFYIDDataGridViewTextBoxColumn.HeaderText = "FKFYID";
+            this.fKFYIDDataGridViewTextBoxColumn.Name = "fKFYIDDataGridViewTextBoxColumn";
+            this.fKFYIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fKFYIDDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // billMstBindingSource
+            // 
+            this.billMstBindingSource.DataMember = "BillMst";
+            this.billMstBindingSource.DataSource = this.financeDataSet19;
+            // 
+            // financeDataSet19
+            // 
+            this.financeDataSet19.DataSetName = "FinanceDataSet19";
+            this.financeDataSet19.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // billMstViewBindingSource1
             // 
@@ -498,17 +623,17 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.comboSL3);
+            this.groupBox3.Controls.Add(this.comboSL2);
+            this.groupBox3.Controls.Add(this.comboSL1);
             this.groupBox3.Controls.Add(this.comboFY);
             this.groupBox3.Controls.Add(this.comboBudgetACTYPE);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.txtAccountBalance);
-            this.groupBox3.Controls.Add(this.txtSL2Name);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.txtSL3Name);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtSL1Name);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.comboAccountName);
             this.groupBox3.Controls.Add(this.label11);
@@ -582,57 +707,26 @@
             this.txtAccountBalance.Size = new System.Drawing.Size(68, 20);
             this.txtAccountBalance.TabIndex = 47;
             // 
-            // txtSL2Name
-            // 
-            this.txtSL2Name.Enabled = false;
-            this.txtSL2Name.Location = new System.Drawing.Point(85, 75);
-            this.txtSL2Name.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSL2Name.Name = "txtSL2Name";
-            this.txtSL2Name.Size = new System.Drawing.Size(255, 20);
-            this.txtSL2Name.TabIndex = 46;
-            this.txtSL2Name.Visible = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(15, 75);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.Size = new System.Drawing.Size(24, 17);
             this.label7.TabIndex = 45;
-            this.label7.Text = "SL2";
-            this.label7.Visible = false;
-            // 
-            // txtSL3Name
-            // 
-            this.txtSL3Name.Enabled = false;
-            this.txtSL3Name.Location = new System.Drawing.Point(455, 71);
-            this.txtSL3Name.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSL3Name.Name = "txtSL3Name";
-            this.txtSL3Name.Size = new System.Drawing.Size(305, 20);
-            this.txtSL3Name.TabIndex = 44;
-            this.txtSL3Name.Visible = false;
+            this.label7.Text = "SL3";
+            this.label7.UseCompatibleTextRendering = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(363, 71);
+            this.label6.Location = new System.Drawing.Point(458, 50);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 43;
-            this.label6.Text = "SL3";
-            this.label6.Visible = false;
-            // 
-            // txtSL1Name
-            // 
-            this.txtSL1Name.Enabled = false;
-            this.txtSL1Name.Location = new System.Drawing.Point(455, 47);
-            this.txtSL1Name.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSL1Name.Name = "txtSL1Name";
-            this.txtSL1Name.Size = new System.Drawing.Size(305, 20);
-            this.txtSL1Name.TabIndex = 42;
-            this.txtSL1Name.Visible = false;
+            this.label6.Text = "SL2";
             // 
             // label8
             // 
@@ -649,17 +743,17 @@
             this.comboAccountName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboAccountName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboAccountName.FormattingEnabled = true;
-            this.comboAccountName.Location = new System.Drawing.Point(85, 48);
+            this.comboAccountName.Location = new System.Drawing.Point(531, 75);
             this.comboAccountName.Margin = new System.Windows.Forms.Padding(2);
             this.comboAccountName.Name = "comboAccountName";
-            this.comboAccountName.Size = new System.Drawing.Size(255, 21);
+            this.comboAccountName.Size = new System.Drawing.Size(227, 21);
             this.comboAccountName.TabIndex = 1;
             this.comboAccountName.SelectedIndexChanged += new System.EventHandler(this.comboAccountName_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 54);
+            this.label11.Location = new System.Drawing.Point(458, 82);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 13);
@@ -669,17 +763,16 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(363, 49);
+            this.label12.Location = new System.Drawing.Point(15, 50);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 25;
             this.label12.Text = "SL1";
-            this.label12.Visible = false;
             // 
             // txtBillAmount
             // 
-            this.txtBillAmount.Location = new System.Drawing.Point(85, 99);
+            this.txtBillAmount.Location = new System.Drawing.Point(109, 99);
             this.txtBillAmount.Margin = new System.Windows.Forms.Padding(2);
             this.txtBillAmount.Name = "txtBillAmount";
             this.txtBillAmount.Size = new System.Drawing.Size(68, 20);
@@ -814,134 +907,36 @@
             this.label16.TabIndex = 13;
             this.label16.Text = "Account Name";
             // 
-            // financeDataSet19
-            // 
-            this.financeDataSet19.DataSetName = "FinanceDataSet19";
-            this.financeDataSet19.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billMstBindingSource
-            // 
-            this.billMstBindingSource.DataMember = "BillMst";
-            this.billMstBindingSource.DataSource = this.financeDataSet19;
-            // 
             // billMstTableAdapter
             // 
             this.billMstTableAdapter.ClearBeforeFill = true;
             // 
-            // BeneficiaryID
+            // comboSL1
             // 
-            this.BeneficiaryID.DataPropertyName = "BeneficiaryID";
-            this.BeneficiaryID.HeaderText = "BeneficiaryID";
-            this.BeneficiaryID.Name = "BeneficiaryID";
-            this.BeneficiaryID.ReadOnly = true;
-            this.BeneficiaryID.Visible = false;
-            this.BeneficiaryID.Width = 95;
+            this.comboSL1.FormattingEnabled = true;
+            this.comboSL1.Location = new System.Drawing.Point(111, 47);
+            this.comboSL1.Name = "comboSL1";
+            this.comboSL1.Size = new System.Drawing.Size(229, 21);
+            this.comboSL1.TabIndex = 50;
+            this.comboSL1.SelectedIndexChanged += new System.EventHandler(this.comboSL1_SelectedIndexChanged);
             // 
-            // pKBillIDDataGridViewTextBoxColumn
+            // comboSL2
             // 
-            this.pKBillIDDataGridViewTextBoxColumn.DataPropertyName = "PKBillID";
-            this.pKBillIDDataGridViewTextBoxColumn.HeaderText = "PKBillID";
-            this.pKBillIDDataGridViewTextBoxColumn.Name = "pKBillIDDataGridViewTextBoxColumn";
-            this.pKBillIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pKBillIDDataGridViewTextBoxColumn.Width = 70;
+            this.comboSL2.FormattingEnabled = true;
+            this.comboSL2.Location = new System.Drawing.Point(531, 47);
+            this.comboSL2.Name = "comboSL2";
+            this.comboSL2.Size = new System.Drawing.Size(227, 21);
+            this.comboSL2.TabIndex = 51;
+            this.comboSL2.SelectedIndexChanged += new System.EventHandler(this.comboSL2_SelectedIndexChanged);
             // 
-            // billNumberDataGridViewTextBoxColumn
+            // comboSL3
             // 
-            this.billNumberDataGridViewTextBoxColumn.DataPropertyName = "BillNumber";
-            this.billNumberDataGridViewTextBoxColumn.HeaderText = "BillNumber";
-            this.billNumberDataGridViewTextBoxColumn.Name = "billNumberDataGridViewTextBoxColumn";
-            this.billNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billNumberDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // billNarrationDataGridViewTextBoxColumn
-            // 
-            this.billNarrationDataGridViewTextBoxColumn.DataPropertyName = "BillNarration";
-            this.billNarrationDataGridViewTextBoxColumn.HeaderText = "BillNarration";
-            this.billNarrationDataGridViewTextBoxColumn.Name = "billNarrationDataGridViewTextBoxColumn";
-            this.billNarrationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billNarrationDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // fKEmpIDDataGridViewTextBoxColumn
-            // 
-            this.fKEmpIDDataGridViewTextBoxColumn.DataPropertyName = "FKEmpID";
-            this.fKEmpIDDataGridViewTextBoxColumn.HeaderText = "FKEmpID";
-            this.fKEmpIDDataGridViewTextBoxColumn.Name = "fKEmpIDDataGridViewTextBoxColumn";
-            this.fKEmpIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKEmpIDDataGridViewTextBoxColumn.Width = 77;
-            // 
-            // fKStuIDDataGridViewTextBoxColumn
-            // 
-            this.fKStuIDDataGridViewTextBoxColumn.DataPropertyName = "FKStuID";
-            this.fKStuIDDataGridViewTextBoxColumn.HeaderText = "FKStuID";
-            this.fKStuIDDataGridViewTextBoxColumn.Name = "fKStuIDDataGridViewTextBoxColumn";
-            this.fKStuIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKStuIDDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // fKDepIDDataGridViewTextBoxColumn
-            // 
-            this.fKDepIDDataGridViewTextBoxColumn.DataPropertyName = "FKDepID";
-            this.fKDepIDDataGridViewTextBoxColumn.HeaderText = "FKDepID";
-            this.fKDepIDDataGridViewTextBoxColumn.Name = "fKDepIDDataGridViewTextBoxColumn";
-            this.fKDepIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKDepIDDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // fKSupIDDataGridViewTextBoxColumn
-            // 
-            this.fKSupIDDataGridViewTextBoxColumn.DataPropertyName = "FKSupID";
-            this.fKSupIDDataGridViewTextBoxColumn.HeaderText = "FKSupID";
-            this.fKSupIDDataGridViewTextBoxColumn.Name = "fKSupIDDataGridViewTextBoxColumn";
-            this.fKSupIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKSupIDDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // fKBillStatusDataGridViewTextBoxColumn
-            // 
-            this.fKBillStatusDataGridViewTextBoxColumn.DataPropertyName = "FKBillStatus";
-            this.fKBillStatusDataGridViewTextBoxColumn.HeaderText = "FKBillStatus";
-            this.fKBillStatusDataGridViewTextBoxColumn.Name = "fKBillStatusDataGridViewTextBoxColumn";
-            this.fKBillStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKBillStatusDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // fKBillTypeDataGridViewTextBoxColumn
-            // 
-            this.fKBillTypeDataGridViewTextBoxColumn.DataPropertyName = "FKBillType";
-            this.fKBillTypeDataGridViewTextBoxColumn.HeaderText = "FKBillType";
-            this.fKBillTypeDataGridViewTextBoxColumn.Name = "fKBillTypeDataGridViewTextBoxColumn";
-            this.fKBillTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKBillTypeDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // billCreatedOnDataGridViewTextBoxColumn
-            // 
-            this.billCreatedOnDataGridViewTextBoxColumn.DataPropertyName = "BillCreatedOn";
-            this.billCreatedOnDataGridViewTextBoxColumn.HeaderText = "BillCreatedOn";
-            this.billCreatedOnDataGridViewTextBoxColumn.Name = "billCreatedOnDataGridViewTextBoxColumn";
-            this.billCreatedOnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billCreatedOnDataGridViewTextBoxColumn.Visible = false;
-            this.billCreatedOnDataGridViewTextBoxColumn.Width = 96;
-            // 
-            // billUpdatedOnDataGridViewTextBoxColumn
-            // 
-            this.billUpdatedOnDataGridViewTextBoxColumn.DataPropertyName = "BillUpdatedOn";
-            this.billUpdatedOnDataGridViewTextBoxColumn.HeaderText = "BillUpdatedOn";
-            this.billUpdatedOnDataGridViewTextBoxColumn.Name = "billUpdatedOnDataGridViewTextBoxColumn";
-            this.billUpdatedOnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billUpdatedOnDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // billUpdatedByDataGridViewTextBoxColumn
-            // 
-            this.billUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "BillUpdatedBy";
-            this.billUpdatedByDataGridViewTextBoxColumn.HeaderText = "BillUpdatedBy";
-            this.billUpdatedByDataGridViewTextBoxColumn.Name = "billUpdatedByDataGridViewTextBoxColumn";
-            this.billUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billUpdatedByDataGridViewTextBoxColumn.Visible = false;
-            this.billUpdatedByDataGridViewTextBoxColumn.Width = 98;
-            // 
-            // fKFYIDDataGridViewTextBoxColumn
-            // 
-            this.fKFYIDDataGridViewTextBoxColumn.DataPropertyName = "FKFYID";
-            this.fKFYIDDataGridViewTextBoxColumn.HeaderText = "FKFYID";
-            this.fKFYIDDataGridViewTextBoxColumn.Name = "fKFYIDDataGridViewTextBoxColumn";
-            this.fKFYIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fKFYIDDataGridViewTextBoxColumn.Width = 69;
+            this.comboSL3.FormattingEnabled = true;
+            this.comboSL3.Location = new System.Drawing.Point(111, 74);
+            this.comboSL3.Name = "comboSL3";
+            this.comboSL3.Size = new System.Drawing.Size(229, 21);
+            this.comboSL3.TabIndex = 52;
+            this.comboSL3.SelectedIndexChanged += new System.EventHandler(this.comboSL3_SelectedIndexChanged);
             // 
             // frmBillDespatch
             // 
@@ -965,6 +960,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboACID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billMstBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeDataSet18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billMstViewBindingSource)).EndInit();
@@ -975,8 +972,6 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.financeDataSet19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billMstBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1016,11 +1011,8 @@
         private System.Windows.Forms.BindingSource billDtlBindingSource;
         private FinanceDataSetTableAdapters.BillDtlTableAdapter billDtlTableAdapter;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtSL2Name;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtSL3Name;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtSL1Name;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboAccountName;
         private System.Windows.Forms.Label label11;
@@ -1066,5 +1058,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn billUpdatedOnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn billUpdatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fKFYIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboSL3;
+        private System.Windows.Forms.ComboBox comboSL2;
+        private System.Windows.Forms.ComboBox comboSL1;
     }
 }
