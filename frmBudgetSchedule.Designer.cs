@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class BudgetSchedule
+    partial class frmBudgetSchedule
     {
         /// <summary>
         /// Required designer variable.

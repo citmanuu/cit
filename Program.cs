@@ -27,7 +27,7 @@ namespace MANUUFinance
             //Application.Run(new EnableDisableHeads());
             //Application.Run(new frmAccount(0, 0, 0, null));
             //Application.Run(new Voucher_Generator());
-            // Application.Run(new frmSL3(1,0,0,null));
+            // Application.Run(new frmAccount(1,0,0,null));
             //Application.Run(new pdfsupports());
            // Application.Run(new VoucherPrintHelp());
         }

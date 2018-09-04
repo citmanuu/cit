@@ -44,8 +44,10 @@ namespace MANUUFinance
         //Add Record
         private void btnAdd_Click(object sender, EventArgs e)
         {
-                if (retrievedForUpdate == false && validateRecord() == true)
+                if (validateRecord() == true)
                 {
+                    if (!retrievedForUpdate)
+                    {
                     if (txtSL1ID.Text.Length == 0)
                     {
                         //Set Values for SL1ID, SL1UCode, SL1Code
@@ -117,13 +119,20 @@ namespace MANUUFinance
                         }
                         this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
                     }
-                }
+                    else
+                    {
+                        MessageBox.Show("Schedule Name required","Add Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }                    
+            }
         }
 
         //Update record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-                if (validateRecord())
+            if (validateRecord())
+            {
+                if (retrievedForUpdate)
                 {
                     //Check if Record is populated
                     if (txtSL1ID.Text.Length > 0)
@@ -172,48 +181,60 @@ namespace MANUUFinance
                     else
                     {
                         MessageBox.Show("Please select record from the Grid.", "Record not selected..", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    }                
+                 }
+                else
+                {
+                    MessageBox.Show("Select DGV", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (retrievedForUpdate == false && validateRecord() == true)
+            if (validateRecord() == true)
             {
-                DialogResult diagResult;
-                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (diagResult == DialogResult.Yes)
+                if (retrievedForUpdate)
                 {
-                    //Connection String
-                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
-                    //Instantiate SQL Connection
-                    SqlConnection objSqlConnection = new SqlConnection(cs);
-
-                    //Prepare Delete String
-                    string deleteCommand = "Delete from Finance.dbo.SL1 where SL1ID = @SL1ID;";
-                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
-
-                    objDeleteCommand.Parameters.AddWithValue("@SL1ID", txtSL1ID.Text);
-                    
-                    try
+                    DialogResult diagResult;
+                    diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (diagResult == DialogResult.Yes)
                     {
-                        objSqlConnection.Open();
-                        objDeleteCommand.ExecuteNonQuery();
-                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearTemplate();
+                        //Connection String
+                        string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                        //Instantiate SQL Connection
+                        SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                        //Prepare Delete String
+                        string deleteCommand = "Delete from Finance.dbo.SL1 where SL1ID = @SL1ID;";
+                        SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                        objDeleteCommand.Parameters.AddWithValue("@SL1ID", txtSL1ID.Text);
+
+                        try
+                        {
+                            objSqlConnection.Open();
+                            objDeleteCommand.ExecuteNonQuery();
+                            MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearTemplate();
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("The following error occured (SL1->GetMaxSL1Code): " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            objSqlConnection.Close();
+                        }
+                        this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
                     }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("The following error occured (SL1->GetMaxSL1Code): " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        objSqlConnection.Close();
-                    }
-                    this.sL1TableAdapter.Fill(this.financeDataSet.SL1);
                 }
+                else
+                {
+                    MessageBox.Show("Select DGV", "Delect Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }                
             }               
         }
 
@@ -337,7 +358,7 @@ namespace MANUUFinance
                 txtScheduleID.Text = DGVSL1.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 txtSL1Name.Text = DGVSL1.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
                 txtGroupID.Text = DGVSL1.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
-                if (DGVSL1.Rows[e.RowIndex].Cells[6].FormattedValue.ToString() == "1")
+                if (DGVSL1.Rows[e.RowIndex].Cells[7].FormattedValue.ToString() == "1")
                     radioBtnSL1Active.Checked = true;
                 else
                     radioBtnSL1InActive.Checked = true;
@@ -374,7 +395,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVSL1, "SL1");
+            frmPrint objectsupport = new frmPrint(DGVSL1, "SL1");
             objectsupport.ShowDialog();
         }
 

@@ -582,13 +582,13 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVBanks, "Bank");
+            frmPrint objectsupport = new frmPrint(DGVBanks, "Bank");
             objectsupport.ShowDialog();
         }
 
         private void btnPrintAccount_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVBankAccounts, "BankAccounts");
+            frmPrint objectsupport = new frmPrint(DGVBankAccounts, "BankAccounts");
             objectsupport.ShowDialog();
         }
 

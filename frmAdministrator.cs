@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class Administrator : Form
+    public partial class frmAdministrator : Form
     {
         public int userId { get; set; }
-        public Administrator()
+        public frmAdministrator()
         {
             InitializeComponent();
         }

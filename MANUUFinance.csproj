@@ -113,38 +113,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator.cs">
+    <Compile Include="frmAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator.Designer.cs">
-      <DependentUpon>Administrator.cs</DependentUpon>
+    <Compile Include="frmAdministrator.Designer.cs">
+      <DependentUpon>frmAdministrator.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministratorLogin.cs" />
-    <Compile Include="Authentication.cs">
+    <Compile Include="frmAuthentication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authentication.Designer.cs">
-      <DependentUpon>Authentication.cs</DependentUpon>
+    <Compile Include="frmAuthentication.Designer.cs">
+      <DependentUpon>frmAuthentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetPurpose.cs">
+    <Compile Include="frmBudgetPurpose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetPurpose.Designer.cs">
-      <DependentUpon>BudgetPurpose.cs</DependentUpon>
+    <Compile Include="frmBudgetPurpose.Designer.cs">
+      <DependentUpon>frmBudgetPurpose.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetSchedule.cs">
+    <Compile Include="frmBudgetSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetSchedule.Designer.cs">
-      <DependentUpon>BudgetSchedule.cs</DependentUpon>
+    <Compile Include="frmBudgetSchedule.Designer.cs">
+      <DependentUpon>frmBudgetSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckingPrivileges.cs" />
     <Compile Include="Dapper\SqlMapper.cs" />
-    <Compile Include="EnableDisableHeads.cs">
+    <Compile Include="frmEnableDisableHeads.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnableDisableHeads.Designer.cs">
-      <DependentUpon>EnableDisableHeads.cs</DependentUpon>
+    <Compile Include="frmEnableDisableHeads.Designer.cs">
+      <DependentUpon>frmEnableDisableHeads.cs</DependentUpon>
     </Compile>
     <Compile Include="FinanceDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -247,17 +247,17 @@
     <Compile Include="frmVAcType.Designer.cs">
       <DependentUpon>frmVAcType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportHelp.cs">
+    <Compile Include="frmImportHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportHelp.Designer.cs">
-      <DependentUpon>ImportHelp.cs</DependentUpon>
+    <Compile Include="frmImportHelp.Designer.cs">
+      <DependentUpon>frmImportHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="PdfCreator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -265,23 +265,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Role Privileges.cs">
+    <Compile Include="frmRole Privileges.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Role Privileges.Designer.cs">
-      <DependentUpon>Role Privileges.cs</DependentUpon>
+    <Compile Include="frmRole Privileges.Designer.cs">
+      <DependentUpon>frmRole Privileges.cs</DependentUpon>
     </Compile>
-    <Compile Include="Roles.cs">
+    <Compile Include="frmRoles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Roles.Designer.cs">
-      <DependentUpon>Roles.cs</DependentUpon>
+    <Compile Include="frmRoles.Designer.cs">
+      <DependentUpon>frmRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Departments.cs">
+    <Compile Include="frmDepartments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Departments.Designer.cs">
-      <DependentUpon>Departments.cs</DependentUpon>
+    <Compile Include="frmDepartments.Designer.cs">
+      <DependentUpon>frmDepartments.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms.cs">
       <SubType>Form</SubType>
@@ -291,29 +291,29 @@
     </Compile>
     <Compile Include="SL3Class.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Supports.cs">
+    <Compile Include="frmPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supports.Designer.cs">
-      <DependentUpon>Supports.cs</DependentUpon>
+    <Compile Include="frmPrint.Designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users.cs">
+    <Compile Include="frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users.Designer.cs">
-      <DependentUpon>Users.cs</DependentUpon>
+    <Compile Include="frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deparment Privileges .cs">
+    <Compile Include="frmDeparment Privileges .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Deparment Privileges .Designer.cs">
-      <DependentUpon>Deparment Privileges .cs</DependentUpon>
+    <Compile Include="frmDeparment Privileges .Designer.cs">
+      <DependentUpon>frmDeparment Privileges .cs</DependentUpon>
     </Compile>
-    <Compile Include="CloneDeptBudget.cs">
+    <Compile Include="frmCloneDeptBudget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CloneDeptBudget.Designer.cs">
-      <DependentUpon>CloneDeptBudget.cs</DependentUpon>
+    <Compile Include="frmCloneDeptBudget.Designer.cs">
+      <DependentUpon>frmCloneDeptBudget.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -321,48 +321,48 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add Privilege.cs">
+    <Compile Include="frmAdd Privilege.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add Privilege.Designer.cs">
-      <DependentUpon>Add Privilege.cs</DependentUpon>
+    <Compile Include="frmAdd Privilege.Designer.cs">
+      <DependentUpon>frmAdd Privilege.cs</DependentUpon>
     </Compile>
-    <Compile Include="View.cs">
+    <Compile Include="frmView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View.Designer.cs">
-      <DependentUpon>View.cs</DependentUpon>
+    <Compile Include="frmView.Designer.cs">
+      <DependentUpon>frmView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Virtua Budget Head.cs">
+    <Compile Include="frmVirtua Budget Head.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Virtua Budget Head.Designer.cs">
-      <DependentUpon>Virtua Budget Head.cs</DependentUpon>
+    <Compile Include="frmVirtua Budget Head.Designer.cs">
+      <DependentUpon>frmVirtua Budget Head.cs</DependentUpon>
     </Compile>
-    <Compile Include="VirtualAccount .cs">
+    <Compile Include="frmVirtualAccount .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VirtualAccount .Designer.cs">
-      <DependentUpon>VirtualAccount .cs</DependentUpon>
+    <Compile Include="frmVirtualAccount .Designer.cs">
+      <DependentUpon>frmVirtualAccount .cs</DependentUpon>
     </Compile>
-    <Compile Include="Account.cs">
+    <Compile Include="frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Account.Designer.cs">
-      <DependentUpon>Account.cs</DependentUpon>
+    <Compile Include="frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="AcTypeClass.cs" />
-    <Compile Include="BillDespatch.cs">
+    <Compile Include="frmBillDespatch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillDespatch.Designer.cs">
-      <DependentUpon>BillDespatch.cs</DependentUpon>
+    <Compile Include="frmBillDespatch.Designer.cs">
+      <DependentUpon>frmBillDespatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Budget.cs">
+    <Compile Include="frmBudget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Budget.Designer.cs">
-      <DependentUpon>Budget.cs</DependentUpon>
+    <Compile Include="frmBudget.Designer.cs">
+      <DependentUpon>frmBudget.cs</DependentUpon>
     </Compile>
     <Compile Include="FinanceDataSet.cs">
       <DependentUpon>FinanceDataSet.xsd</DependentUpon>
@@ -372,11 +372,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BankMaster.cs">
+    <Compile Include="frmBankMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BankMaster.Designer.cs">
-      <DependentUpon>BankMaster.cs</DependentUpon>
+    <Compile Include="frmBankMaster.Designer.cs">
+      <DependentUpon>frmBankMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSL2.cs">
       <SubType>Form</SubType>
@@ -408,29 +408,29 @@
     <Compile Include="SL1Class.cs" />
     <Compile Include="SL2Class.cs" />
     <Compile Include="VoucherPrint.cs" />
-    <Compile Include="VoucherPrintHelp.cs">
+    <Compile Include="frmVoucherPrintHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VoucherPrintHelp.Designer.cs">
-      <DependentUpon>VoucherPrintHelp.cs</DependentUpon>
+    <Compile Include="frmVoucherPrintHelp.Designer.cs">
+      <DependentUpon>frmVoucherPrintHelp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Administrator.resx">
-      <DependentUpon>Administrator.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdministrator.resx">
+      <DependentUpon>frmAdministrator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authentication.resx">
-      <DependentUpon>Authentication.cs</DependentUpon>
+    <EmbeddedResource Include="frmAuthentication.resx">
+      <DependentUpon>frmAuthentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BudgetPurpose.resx">
-      <DependentUpon>BudgetPurpose.cs</DependentUpon>
+    <EmbeddedResource Include="frmBudgetPurpose.resx">
+      <DependentUpon>frmBudgetPurpose.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BudgetSchedule.resx">
-      <DependentUpon>BudgetSchedule.cs</DependentUpon>
+    <EmbeddedResource Include="frmBudgetSchedule.resx">
+      <DependentUpon>frmBudgetSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Departments.resx">
-      <DependentUpon>Departments.cs</DependentUpon>
+    <EmbeddedResource Include="frmDepartments.resx">
+      <DependentUpon>frmDepartments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnableDisableHeads.resx">
-      <DependentUpon>EnableDisableHeads.cs</DependentUpon>
+    <EmbeddedResource Include="frmEnableDisableHeads.resx">
+      <DependentUpon>frmEnableDisableHeads.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.resx">
       <DependentUpon>Forms.cs</DependentUpon>
@@ -438,57 +438,57 @@
     <EmbeddedResource Include="frmVAcType.resx">
       <DependentUpon>frmVAcType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportHelp.resx">
-      <DependentUpon>ImportHelp.cs</DependentUpon>
+    <EmbeddedResource Include="frmImportHelp.resx">
+      <DependentUpon>frmImportHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BillVoucher.rdlc" />
-    <EmbeddedResource Include="Role Privileges.resx">
-      <DependentUpon>Role Privileges.cs</DependentUpon>
+    <EmbeddedResource Include="frmRole Privileges.resx">
+      <DependentUpon>frmRole Privileges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Roles.resx">
-      <DependentUpon>Roles.cs</DependentUpon>
+    <EmbeddedResource Include="frmRoles.resx">
+      <DependentUpon>frmRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Supports.resx">
-      <DependentUpon>Supports.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users.resx">
-      <DependentUpon>Users.cs</DependentUpon>
+    <EmbeddedResource Include="frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Deparment Privileges .resx">
-      <DependentUpon>Deparment Privileges .cs</DependentUpon>
+    <EmbeddedResource Include="frmDeparment Privileges .resx">
+      <DependentUpon>frmDeparment Privileges .cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CloneDeptBudget.resx">
-      <DependentUpon>CloneDeptBudget.cs</DependentUpon>
+    <EmbeddedResource Include="frmCloneDeptBudget.resx">
+      <DependentUpon>frmCloneDeptBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add Privilege.resx">
-      <DependentUpon>Add Privilege.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdd Privilege.resx">
+      <DependentUpon>frmAdd Privilege.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View.resx">
-      <DependentUpon>View.cs</DependentUpon>
+    <EmbeddedResource Include="frmView.resx">
+      <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Virtua Budget Head.resx">
-      <DependentUpon>Virtua Budget Head.cs</DependentUpon>
+    <EmbeddedResource Include="frmVirtua Budget Head.resx">
+      <DependentUpon>frmVirtua Budget Head.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VirtualAccount .resx">
-      <DependentUpon>VirtualAccount .cs</DependentUpon>
+    <EmbeddedResource Include="frmVirtualAccount .resx">
+      <DependentUpon>frmVirtualAccount .cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Account.resx">
-      <DependentUpon>Account.cs</DependentUpon>
+    <EmbeddedResource Include="frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BankMaster.resx">
-      <DependentUpon>BankMaster.cs</DependentUpon>
+    <EmbeddedResource Include="frmBankMaster.resx">
+      <DependentUpon>frmBankMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BillDespatch.resx">
-      <DependentUpon>BillDespatch.cs</DependentUpon>
+    <EmbeddedResource Include="frmBillDespatch.resx">
+      <DependentUpon>frmBillDespatch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Budget.resx">
-      <DependentUpon>Budget.cs</DependentUpon>
+    <EmbeddedResource Include="frmBudget.resx">
+      <DependentUpon>frmBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSL2.resx">
       <DependentUpon>frmSL2.cs</DependentUpon>
@@ -507,8 +507,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="VoucherPrintHelp.resx">
-      <DependentUpon>VoucherPrintHelp.cs</DependentUpon>
+    <EmbeddedResource Include="frmVoucherPrintHelp.resx">
+      <DependentUpon>frmVoucherPrintHelp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FinanceDataSet.xsc">
       <DependentUpon>FinanceDataSet.xsd</DependentUpon>

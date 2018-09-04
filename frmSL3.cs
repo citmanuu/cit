@@ -178,8 +178,12 @@ namespace MANUUFinance
                         }
                     //Refresh DGV 
                     this.sL3SL2SL1TableAdapter1.Fill(this.financeDataSet13.SL3SL2SL1);
+                    }
+                else
+                {
+                    MessageBox.Show("Duplication Error", "Add Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                }
+            }
         }
 
         //Update Record
@@ -238,8 +242,12 @@ namespace MANUUFinance
                         }
                     //Refresh DGV 
                     this.sL3SL2SL1TableAdapter1.Fill(this.financeDataSet13.SL3SL2SL1);
+                    }
+                else
+                {
+                    MessageBox.Show("Select the DGV", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                }
+            }
         }
 
         //Delete Record
@@ -281,7 +289,11 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.sL3SL2SL1TableAdapter1.Fill(this.financeDataSet13.SL3SL2SL1);
                 }
-            }                
+            }
+            else
+            {
+                MessageBox.Show("Please Select the DGV", "Delete Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         
         #endregion
@@ -432,7 +444,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVSL3SL2SL1, "SL3");
+            frmPrint objectsupport = new frmPrint(DGVSL3SL2SL1, "SL3");
             objectsupport.ShowDialog();
         }
 

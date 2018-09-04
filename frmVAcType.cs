@@ -377,7 +377,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVSL3SL2SL1, "SL3");
+            frmPrint objectsupport = new frmPrint(DGVSL3SL2SL1, "SL3");
             objectsupport.ShowDialog();
         }
 

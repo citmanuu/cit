@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class ImportHelp : Form
+    public partial class frmImportHelp : Form
     {
         string SL1Name, SL2Name, SL3Name, DeptName, UserName;
         int checks = 4, DeptId = 0, PKACID = 0, BECY = 0, RBECY = 0, userId = 0;
         string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-        public ImportHelp(int userId)
+        public frmImportHelp(int userId)
         {
             InitializeComponent();
             this.userId = userId;

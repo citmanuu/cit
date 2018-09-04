@@ -107,6 +107,10 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
+                else
+                {
+                    MessageBox.Show("Please enter the fresh data", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
@@ -168,47 +172,58 @@ namespace MANUUFinance
                     //Refresh DGV 
                     this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
-
+                else
+                {
+                    MessageBox.Show("Please select the DGV", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         //Delete Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult diagResult;
-            diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (diagResult == DialogResult.Yes)
+            if (retrievedForUpdate)
             {
-                //Connection String
-                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-
-                //Instantiate SQL Connection
-                SqlConnection objSqlConnection = new SqlConnection(cs);
-
-                //Prepare Delete String
-                string deleteCommand = "Delete from Finance.dbo.Accounts where PKACID = @PKACID;";
-                SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
-
-                objDeleteCommand.Parameters.AddWithValue("@PKACID", txtPKACID.Text);
-
-                try
+                DialogResult diagResult;
+                diagResult = MessageBox.Show("Do you want to delete Record?", "Record Deletion Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (diagResult == DialogResult.Yes)
                 {
-                    objSqlConnection.Open();
-                    objDeleteCommand.ExecuteNonQuery();
-                    MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearTemplate();
+                    //Connection String
+                    string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+
+                    //Instantiate SQL Connection
+                    SqlConnection objSqlConnection = new SqlConnection(cs);
+
+                    //Prepare Delete String
+                    string deleteCommand = "Delete from Finance.dbo.Accounts where PKACID = @PKACID;";
+                    SqlCommand objDeleteCommand = new SqlCommand(deleteCommand, objSqlConnection);
+
+                    objDeleteCommand.Parameters.AddWithValue("@PKACID", txtPKACID.Text);
+
+                    try
+                    {
+                        objSqlConnection.Open();
+                        objDeleteCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Deleted Successfully", "Record Deletion Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTemplate();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        objSqlConnection.Close();
+                    }
+                    //Refresh DGV 
+                    this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
                 }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("The following error occured: " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    objSqlConnection.Close();
-                }
-                //Refresh DGV 
-                this.accountsViewTableAdapter.Fill(this.financeDataSet.AccountsView);
             }
+            else
+            {
+                MessageBox.Show("Please select the DGC for delete", "Delete Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         //Prepare SL1Combo
@@ -597,7 +612,7 @@ namespace MANUUFinance
 
         private void btnPrintRecord_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVAccounts, "Account");
+            frmPrint objectsupport = new frmPrint(DGVAccounts, "Account");
             objectsupport.ShowDialog();
         }
 

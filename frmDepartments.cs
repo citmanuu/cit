@@ -15,13 +15,13 @@ using System.IO;
 
 namespace MANUUFinance
 {
-    public partial class Departments : Form
+    public partial class frmDepartments : Form
     {
         bool retrievedForUpdate = false;
         int GlobalId = 0;
         private int userId, deptId, roleId;
         private string formName;
-        public Departments(int userId, int deptId, int roleId, string formName)
+        public frmDepartments(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             this.userId = userId;

@@ -99,7 +99,7 @@ namespace MANUUFinance
                         }
                     //Refresh DGV 
                     this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
-                }
+                    }
                 }
         }
 
@@ -157,10 +157,13 @@ namespace MANUUFinance
                         {
                             objSqlConnection.Close();
                         }
-                    //Refresh DGV 
-                    this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
-                }
-                MessageBox.Show("Please check the DGV ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //Refresh DGV 
+                        this.sL2SL1TableAdapter1.Fill(this.financeDataSet13.SL2SL1);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please check the DGV ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }                
                 }
         }
 
@@ -204,7 +207,9 @@ namespace MANUUFinance
                 }
             }
             else
+            {
                 MessageBox.Show("Please select the DGV ", "Delete Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } 
         }
 
         //Prepare SL1Combo
@@ -387,7 +392,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVSL2SL1, "SL2");
+            frmPrint objectsupport = new frmPrint(DGVSL2SL1, "SL2");
             objectsupport.ShowDialog();
         }
 

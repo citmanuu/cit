@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class EnableDisableHeads : Form
+    public partial class frmEnableDisableHeads : Form
     {
         string VHNAME = null;
         int VHID = 0;
-        public EnableDisableHeads()
+        public frmEnableDisableHeads()
         {
             InitializeComponent();
         }

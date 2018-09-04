@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class Authentication : Form
+    public partial class frmAuthentication : Form
     {
         public int userId { get; set; }
         public int tempId { get; set; }
 
-        public Authentication()
+        public frmAuthentication()
         {
             InitializeComponent();
         }

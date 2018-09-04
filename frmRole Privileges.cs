@@ -123,7 +123,7 @@ namespace MANUUFinance
 
         private void viewUserMapping_Click(object sender, EventArgs e)
         {
-            View objectveiw = new View();
+            frmView objectveiw = new frmView();
             objectveiw.ShowDialog();
         }
 

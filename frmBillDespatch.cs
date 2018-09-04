@@ -927,7 +927,7 @@ namespace MANUUFinance
                     objSqlConnection.Close();
                 }
                  calculatespentamount();
-                VoucherPrintHelp objectsupport = new VoucherPrintHelp(objvoucherClass, BilledAmount, currentspentamount);
+                frmVoucherPrintHelp objectsupport = new frmVoucherPrintHelp(objvoucherClass, BilledAmount, currentspentamount);
                 objectsupport.ShowDialog();
             }
             else

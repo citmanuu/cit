@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class ImportHelp
+    partial class frmImportHelp
     {
         /// <summary>
         /// Required designer variable.

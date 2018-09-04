@@ -480,7 +480,7 @@ namespace MANUUFinance
 
         private void enableDisableHeads_Click(object sender, EventArgs e)
         {
-            EnableDisableHeads objectenabledisable = new EnableDisableHeads();
+            frmEnableDisableHeads objectenabledisable = new frmEnableDisableHeads();
             objectenabledisable.ShowDialog();
             preparedcomboVH();
         }
@@ -543,7 +543,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVVH, "VirtualHead");
+            frmPrint objectsupport = new frmPrint(DGVVH, "VirtualHead");
             objectsupport.ShowDialog();
         }
     }

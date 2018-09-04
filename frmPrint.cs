@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class Supports : Form
+    public partial class frmPrint : Form
     {
         DataGridView DGV;
         CheckBox[] box = new CheckBox[20];
         string fileName = null;
         int i = 0;
-        public Supports(DataGridView DGV, string fileName)
+        public frmPrint(DataGridView DGV, string fileName)
         {
             InitializeComponent();
             this.DGV = DGV;

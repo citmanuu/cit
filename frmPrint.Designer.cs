@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class Supports
+    partial class frmPrint
     {
         /// <summary>
         /// Required designer variable.

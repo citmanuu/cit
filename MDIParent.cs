@@ -226,13 +226,13 @@ namespace MANUUFinance
         private void userToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             string user = "USER";
-            Users objectuseradd = new Users(userId, deptId, roleId, user);
+            frmUsers objectuseradd = new frmUsers(userId, deptId, roleId, user);
             objectuseradd.ShowDialog();
         }
         private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string department = "DEPARTMENT";
-            Departments objectdepartmentadd = new Departments(userId, deptId, roleId, department);
+            frmDepartments objectdepartmentadd = new frmDepartments(userId, deptId, roleId, department);
             objectdepartmentadd.ShowDialog();
         }
 
@@ -246,7 +246,7 @@ namespace MANUUFinance
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string roles = "ROLES";
-            Roles objectrolesadd = new Roles(userId, deptId, roleId, roles);
+            frmRoles objectrolesadd = new frmRoles(userId, deptId, roleId, roles);
             objectrolesadd.ShowDialog();
         }
 
@@ -274,7 +274,7 @@ namespace MANUUFinance
         private void budgetScheduleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string budgetschedule = "BUDGET SCHEDULE";
-            BudgetSchedule objectbudgetschedule = new BudgetSchedule(userId, deptId, roleId, budgetschedule );
+            frmBudgetSchedule objectbudgetschedule = new frmBudgetSchedule(userId, deptId, roleId, budgetschedule );
                 objectbudgetschedule.ShowDialog();
         }
 

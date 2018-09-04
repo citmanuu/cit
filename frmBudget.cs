@@ -953,7 +953,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVBudgetAccounts, "BudgetAccount");
+            frmPrint objectsupport = new frmPrint(DGVBudgetAccounts, "BudgetAccount");
             objectsupport.ShowDialog();
         }
 
@@ -1005,7 +1005,7 @@ namespace MANUUFinance
 
         private void btImport_Click(object sender, EventArgs e)
         {
-            ImportHelp objectimport = new ImportHelp(userId);
+            frmImportHelp objectimport = new frmImportHelp(userId);
             objectimport.ShowDialog();
         }
 

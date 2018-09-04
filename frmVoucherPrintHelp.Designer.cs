@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class VoucherPrintHelp
+    partial class frmVoucherPrintHelp
     {
         /// <summary>
         /// Required designer variable.

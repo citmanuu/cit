@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class Users : Form
+    public partial class frmUsers : Form
     {
         private int userId, deptId, roleId;
         private string formName;
-        public Users(int userId, int deptId, int roleId, string formName)
+        public frmUsers(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             this.userId = userId;

@@ -13,14 +13,14 @@ using System.Globalization;
 
 namespace MANUUFinance
 {
-    public partial class BudgetSchedule : Form
+    public partial class frmBudgetSchedule : Form
     {
         public int GlobalId = 0;
         private int userId, deptId, roleId;
         private string formName;
         bool retrievedForUpdate =  false;
 
-        public BudgetSchedule(int userId, int deptId, int roleId, string formName)
+        public frmBudgetSchedule(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             retrievedForUpdate = false;

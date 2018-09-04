@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class VoucherPrintHelp : Form
+    public partial class frmVoucherPrintHelp : Form
     {
         List<VoucherPrint> objvoucherClass;
         int spendamount, currentspentamount, BECY;
         string DeptName, FKFYID, SL2, SL3;
-        public VoucherPrintHelp(List<VoucherPrint> _objvoucherClass, int _spendamount,int _currentspentamount)
+        public frmVoucherPrintHelp(List<VoucherPrint> _objvoucherClass, int _spendamount,int _currentspentamount)
         {
             objvoucherClass = _objvoucherClass;
             spendamount = _spendamount;

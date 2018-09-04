@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class Home : Form
+    public partial class frmHome : Form
     {
-        public Home()
+        public frmHome()
         {
             InitializeComponent();
         }
@@ -28,14 +28,14 @@ namespace MANUUFinance
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Authentication objectauthentication = new Authentication();
+            frmAuthentication objectauthentication = new frmAuthentication();
             objectauthentication.ShowDialog();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Administrator objectadmin = new Administrator();
+            frmAdministrator objectadmin = new frmAdministrator();
             objectadmin.ShowDialog();
         }
         private void Home_Load(object sender, EventArgs e)

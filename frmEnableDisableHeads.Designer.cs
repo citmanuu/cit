@@ -1,6 +1,6 @@
 ﻿namespace MANUUFinance
 {
-    partial class EnableDisableHeads
+    partial class frmEnableDisableHeads
     {
         /// <summary>
         /// Required designer variable.

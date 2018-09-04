@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class View : Form
+    public partial class frmView : Form
     {
-        public View()
+        public frmView()
         {
             InitializeComponent();
         }

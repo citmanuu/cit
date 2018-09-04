@@ -337,7 +337,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVPrivilege, "Privileges");
+            frmPrint objectsupport = new frmPrint(DGVPrivilege, "Privileges");
             objectsupport.ShowDialog();
         }
 

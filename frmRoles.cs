@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace MANUUFinance
 {
-    public partial class Roles : Form
+    public partial class frmRoles : Form
     {
         bool retrievedForUpdate = false;
         int GlobalId = 0;
         private int userId, deptId, roleId;
         private string formName;
-        public Roles(int userId, int deptId, int roleId, string formName)
+        public frmRoles(int userId, int deptId, int roleId, string formName)
         {
             InitializeComponent();
             this.userId = userId;
@@ -261,7 +261,7 @@ namespace MANUUFinance
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Supports objectsupport = new Supports(DGVRole, "Role");
+            frmPrint objectsupport = new frmPrint(DGVRole, "Role");
             objectsupport.ShowDialog();
         }
 
