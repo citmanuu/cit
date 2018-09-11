@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDeptSearch = new System.Windows.Forms.TextBox();
@@ -108,8 +108,8 @@
             this.financeDataSet16 = new MANUUFinance.FinanceDataSet16();
             this.budgetWithAccountsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btExport = new System.Windows.Forms.Button();
-            this.btImport = new System.Windows.Forms.Button();
+            this.btnExportExcel = new System.Windows.Forms.Button();
+            this.btnImportExcel = new System.Windows.Forms.Button();
             this.budgetWithAccountsTableAdapter2 = new MANUUFinance.FinanceDataSet16TableAdapters.BudgetWithAccountsTableAdapter();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -220,6 +220,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClearSearch
@@ -231,6 +232,7 @@
             this.btnClearSearch.TabIndex = 6;
             this.btnClearSearch.Text = "Clear Controls";
             this.btnClearSearch.UseVisualStyleBackColor = true;
+            this.btnClearSearch.Visible = false;
             this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
             // 
             // label10
@@ -766,8 +768,8 @@
             // 
             this.DGVBudgetAccounts.AllowUserToAddRows = false;
             this.DGVBudgetAccounts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.DGVBudgetAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVBudgetAccounts.AutoGenerateColumns = false;
             this.DGVBudgetAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVBudgetAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -940,8 +942,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Controls.Add(this.btExport);
-            this.groupBox3.Controls.Add(this.btImport);
+            this.groupBox3.Controls.Add(this.btnExportExcel);
+            this.groupBox3.Controls.Add(this.btnImportExcel);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox3.Location = new System.Drawing.Point(812, 322);
@@ -950,30 +952,30 @@
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             // 
-            // btExport
+            // btnExportExcel
             // 
-            this.btExport.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExport.Location = new System.Drawing.Point(103, 13);
-            this.btExport.Margin = new System.Windows.Forms.Padding(2);
-            this.btExport.Name = "btExport";
-            this.btExport.Size = new System.Drawing.Size(89, 25);
-            this.btExport.TabIndex = 42;
-            this.btExport.Text = "ExportExcel";
-            this.btExport.UseVisualStyleBackColor = false;
+            this.btnExportExcel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Location = new System.Drawing.Point(103, 13);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(89, 25);
+            this.btnExportExcel.TabIndex = 42;
+            this.btnExportExcel.Text = "ExportExcel";
+            this.btnExportExcel.UseVisualStyleBackColor = false;
             // 
-            // btImport
+            // btnImportExcel
             // 
-            this.btImport.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btImport.Location = new System.Drawing.Point(8, 13);
-            this.btImport.Margin = new System.Windows.Forms.Padding(2);
-            this.btImport.Name = "btImport";
-            this.btImport.Size = new System.Drawing.Size(89, 25);
-            this.btImport.TabIndex = 41;
-            this.btImport.Text = "ImportExcel";
-            this.btImport.UseVisualStyleBackColor = false;
-            this.btImport.Click += new System.EventHandler(this.btImport_Click);
+            this.btnImportExcel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportExcel.Location = new System.Drawing.Point(8, 13);
+            this.btnImportExcel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(89, 25);
+            this.btnImportExcel.TabIndex = 41;
+            this.btnImportExcel.Text = "ImportExcel";
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            this.btnImportExcel.Click += new System.EventHandler(this.btImport_Click);
             // 
             // budgetWithAccountsTableAdapter2
             // 
@@ -1134,8 +1136,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pKACIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pKBUDGETIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btExport;
-        private System.Windows.Forms.Button btImport;
+        private System.Windows.Forms.Button btnExportExcel;
+        private System.Windows.Forms.Button btnImportExcel;
         private FinanceDataSet16 financeDataSet16;
         private System.Windows.Forms.BindingSource budgetWithAccountsBindingSource3;
         private FinanceDataSet16TableAdapters.BudgetWithAccountsTableAdapter budgetWithAccountsTableAdapter2;

@@ -28,15 +28,12 @@ namespace MANUUFinance
             this.deptId = deptId;
             this.roleId = roleId;
             this.formName = formName;
-
         }
 
         private void frmBillDespatch_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'financeDataSet19.BillMst' table. You can move, or remove it, as needed.
             this.billMstTableAdapter.Fill(this.financeDataSet19.BillMst);
-            // TODO: This line of code loads data into the 'financeDataSet18.BillMstView' table. You can move, or remove it, as needed.
-           // this.billMstViewTableAdapter1.Fill(this.financeDataSet18.BillMstView);
             txtPKBillID.Text = "0";
             txtBillDate.Text = today.ToString("dd/MM/yyyy");
             retrievedForUpdate = false;
@@ -52,40 +49,7 @@ namespace MANUUFinance
             }
 
         }
-
-        private void prepareaction()
-        {
-            string CanAdd = "CanAdd";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
-            {
-                btnAdd.Enabled = true;
-            }
-            else
-                btnAdd.Enabled = false;
-            string CanUpdate = "CanUpdate";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
-            {
-                btnUpdate.Enabled = true;
-            }
-            else
-                btnUpdate.Enabled = false;
-            string CanDelete = "CanDelete";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
-            {
-                btnDelete.Enabled = true;
-            }
-            else
-                btnDelete.Enabled = false;
-
-            string CanPrint = "CanPrint";
-            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
-            {
-                btnPrint.Enabled = true;
-            }
-            else
-                btnPrint.Enabled = false;
-        }
-
+        
         //DML Region Starts here
         #region
 
@@ -548,7 +512,38 @@ namespace MANUUFinance
 
         //Supporting Methods
         #region
+        private void prepareaction()
+        {
+            string CanAdd = "CanAdd";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanAdd, formName))
+            {
+                btnAdd.Enabled = true;
+            }
+            else
+                btnAdd.Enabled = false;
+            string CanUpdate = "CanUpdate";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanUpdate, formName))
+            {
+                btnUpdate.Enabled = true;
+            }
+            else
+                btnUpdate.Enabled = false;
+            string CanDelete = "CanDelete";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanDelete, formName))
+            {
+                btnDelete.Enabled = true;
+            }
+            else
+                btnDelete.Enabled = false;
 
+            string CanPrint = "CanPrint";
+            if (new CheckingPrivileges().CheckingPrivilegesaction(userId, deptId, roleId, CanPrint, formName))
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+                btnPrint.Enabled = false;
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -804,11 +799,11 @@ namespace MANUUFinance
         //Set Locks on Keys
         private void LockKeys()
         {
-            ////comboFY.Enabled = false;
-            //comboDept.Enabled = false;
-            //comboSL1.Enabled = false;
-            //comboSL2.Enabled = false;
-            ////comboSL3.Enabled = false;
+            comboFY.Enabled = false;
+            comboDept.Enabled = false;
+            comboSL1.Enabled = false;
+            comboSL2.Enabled = false;
+            comboSL3.Enabled = false;
         }
 
         //Initialize Beneficiary LOV, if Department is Changed

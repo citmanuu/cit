@@ -387,7 +387,6 @@ G:\New ALL\citmanuu\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 G:\New ALL\citmanuu\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 G:\New ALL\citmanuu\bin\Debug\Interop.CrystalPrintControlLib.dll
 G:\New ALL\citmanuu\bin\Debug\AxInterop.CrystalPrintControlLib.dll
-G:\New ALL\citmanuu\obj\Debug\MANUUFinance.csprojAssemblyReference.cache
 G:\New ALL\citmanuu\obj\Debug\Interop.CrystalPrintControlLib.dll
 G:\New ALL\citmanuu\obj\Debug\AxInterop.CrystalPrintControlLib.dll
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.csproj.ResolveComReference.cache
@@ -427,3 +426,5 @@ G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmPrint.resources
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmUsers.resources
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmView.resources
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmVoucherPrintHelp.resources
+G:\New ALL\citmanuu\obj\Debug\MANUUFinance.formDuplicate.resources
+G:\New ALL\citmanuu\obj\Debug\MANUUFinance.csprojAssemblyReference.cache

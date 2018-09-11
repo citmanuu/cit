@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrator));
             this.submit = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -92,6 +93,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::MANUUFinance.Properties.Resources.tshirt;
             this.pictureBox1.Location = new System.Drawing.Point(13, 29);
             this.pictureBox1.Name = "pictureBox1";
@@ -100,11 +102,13 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // Administrator
+            // frmAdministrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(370, 146);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.submit);
@@ -114,7 +118,7 @@
             this.Controls.Add(this.label3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Administrator";
+            this.Name = "frmAdministrator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

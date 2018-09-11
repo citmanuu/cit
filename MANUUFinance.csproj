@@ -113,6 +113,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinanceDataSet20.cs">
+      <DependentUpon>FinanceDataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceDataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDataSet22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="formDuplicate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDuplicate.Designer.cs">
+      <DependentUpon>formDuplicate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -414,6 +438,9 @@
     <Compile Include="frmVoucherPrintHelp.Designer.cs">
       <DependentUpon>frmVoucherPrintHelp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formDuplicate.resx">
+      <DependentUpon>formDuplicate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrator.resx">
       <DependentUpon>frmAdministrator.cs</DependentUpon>
     </EmbeddedResource>
@@ -652,6 +679,39 @@
     </None>
     <None Include="FinanceDataSet2.xss">
       <DependentUpon>FinanceDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet20.xsc">
+      <DependentUpon>FinanceDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet20.xss">
+      <DependentUpon>FinanceDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet21.xsc">
+      <DependentUpon>FinanceDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet21.xss">
+      <DependentUpon>FinanceDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet22.xsc">
+      <DependentUpon>FinanceDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceDataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceDataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceDataSet22.xss">
+      <DependentUpon>FinanceDataSet22.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet3.xsc">
       <DependentUpon>FinanceDataSet3.xsd</DependentUpon>

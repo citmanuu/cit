@@ -15,21 +15,21 @@ namespace MANUUFinance
         static void Main()
         {
             Application.EnableVisualStyles();
-            // Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new MDIParent(1,0,0));
-            // Application.Run(new Home());
-            // Application.Run(new ImportExport());
+            //Application.SetCompatibleTextRenderingDefault(false);
+             //Application.Run(new MDIParent(1,0,0));
+            //Application.Run(new frmHome());
+            //Application.Run(new ImportExport());
             //Application.Run(new ImportHelp(1));
-            // Application.Run(new frmBudget(1,0,0,null));
+            //Application.Run(new frmBudget(1,0,0,null));
             //Application.Run(new frmBillDespatch(1,0,0,"admin1"));
-            // Application.Run(new pdfsupports());
-            // Application.Run(new frmVirtuaHead(1,0,0,null));
+            //Application.Run(new pdfsupports());
+            //Application.Run(new frmVirtuaHead(1,0,0,null));
             //Application.Run(new EnableDisableHeads());
             //Application.Run(new frmAccount(0, 0, 0, null));
             //Application.Run(new Voucher_Generator());
-            // Application.Run(new frmAccount(1,0,0,null));
+            //Application.Run(new frmBudget(1,0,0,null));
             //Application.Run(new pdfsupports());
-           // Application.Run(new VoucherPrintHelp());
+            Application.Run(new formDuplicate(1, 0, 0, null));
         }
     }
 }

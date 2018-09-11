@@ -361,7 +361,6 @@ namespace MANUUFinance
                 //Check if we are not Updating Record
                 if (!retrievedForUpdate)
                 {
-
                     //Connection String
                     string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
                     //Instantiate SQL Connection

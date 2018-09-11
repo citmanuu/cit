@@ -41,6 +41,8 @@ namespace MANUUFinance
             //PrepareAccountsCombo("0");             
             UnpinControls();
             retrievedForUpdate = false;
+            btnQuery.Enabled = false;
+            btnExportExcel.Enabled = false;
             queryMode = false;
             if (new AdministratorLogin().administratorLogin(userId))
             {
@@ -48,6 +50,9 @@ namespace MANUUFinance
             }
         }
 
+        #region
+
+        // Prepare Account Type combo
         private void Preparebudgetactype()
         {
             var objLOVClass = new List<LOV>();
@@ -82,7 +87,6 @@ namespace MANUUFinance
                 objSqlConnection.Close();
             }
         }
-        #region
 
         //Prepare Department Combo
         private void PrepareDeptCombo()
@@ -416,6 +420,55 @@ namespace MANUUFinance
                 }
         }
 
+        //Delete the data
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (validateRecord())
+            {
+                if (retrievedForUpdate)
+                {
+                    if (MessageBox.Show("Do you want to Delete ?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (validateRecord())
+                        {
+                            if (retrievedForUpdate)
+                            { //Connection String
+                                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
+                                //Instantiate SQL Connection
+                                SqlConnection objSqlConnection = new SqlConnection(cs);
+                                //Prepare Update String
+
+                                string updateCommand = "delete [dbo].[Budget] where PKBUDGETID = @PKBUDGETID";
+                                SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
+                                objUpdateCommand.Parameters.AddWithValue("@PKBUDGETID", txtPKBudgetID.Text);
+
+                                try
+                                {
+                                    objSqlConnection.Open();
+                                    objUpdateCommand.ExecuteNonQuery();
+                                    MessageBox.Show("Record Deleted Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    ClearTemplate();
+                                }
+                                catch (SqlException ex)
+                                {
+                                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                finally
+                                {
+                                    objSqlConnection.Close();
+                                }
+                                //Refresh DGV 
+                                this.budgetWithAccountsTableAdapter2.Fill(this.financeDataSet16.BudgetWithAccounts);
+
+                            }
+                            else
+                                MessageBox.Show("Please select the data : ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
         #endregion
 
         //Support Methods
@@ -570,6 +623,7 @@ namespace MANUUFinance
                 btnUpdate.Enabled = false;
                 btnDelete.Enabled = false;
                 btnClear.Enabled = false;
+                btnPrint.Enabled = false;
 
                 //Rename Query to Get Records
                 btnQuery.Text = "Get Records";
@@ -677,7 +731,6 @@ namespace MANUUFinance
                 {
                     MessageBox.Show(ex.Message);
                 }
-
             }
         }
 
@@ -858,54 +911,6 @@ namespace MANUUFinance
                 MessageBox.Show(ex.Message);
             }
 
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (validateRecord())
-            {
-               if (retrievedForUpdate)
-                {
-                    if (MessageBox.Show("Do you want to Delete ?", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        if (validateRecord())
-                        {
-                            if (retrievedForUpdate)
-                            { //Connection String
-                                string cs = ConfigurationManager.ConnectionStrings["FinanceConnectionString"].ConnectionString;
-                                //Instantiate SQL Connection
-                                SqlConnection objSqlConnection = new SqlConnection(cs);
-                                //Prepare Update String
-
-                                string updateCommand = "delete [dbo].[Budget] where PKBUDGETID = @PKBUDGETID";
-                                SqlCommand objUpdateCommand = new SqlCommand(updateCommand, objSqlConnection);
-                                objUpdateCommand.Parameters.AddWithValue("@PKBUDGETID", txtPKBudgetID.Text);
-
-                                try
-                                {
-                                    objSqlConnection.Open();
-                                    objUpdateCommand.ExecuteNonQuery();
-                                    MessageBox.Show("Record Deleted Successfully", "Record Update `Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    ClearTemplate();
-                                }
-                                catch (SqlException ex)
-                                {
-                                    MessageBox.Show("The following error occured : " + ex.Message, "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                                finally
-                                {
-                                    objSqlConnection.Close();
-                                }
-                                //Refresh DGV 
-                                this.budgetWithAccountsTableAdapter2.Fill(this.financeDataSet16.BudgetWithAccounts);
-
-                            }
-                            else
-                                MessageBox.Show("Please select the data : ", "Update Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }            
         }
 
         //Clear Name Search Form
