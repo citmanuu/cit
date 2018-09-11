@@ -131,12 +131,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet23.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmBillDespa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBillDespa.Designer.cs">
-      <DependentUpon>frmBillDespa.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,9 +438,6 @@
     <Compile Include="frmVoucherPrintHelp.Designer.cs">
       <DependentUpon>frmVoucherPrintHelp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmBillDespa.resx">
-      <DependentUpon>frmBillDespa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrator.resx">
       <DependentUpon>frmAdministrator.cs</DependentUpon>
     </EmbeddedResource>
