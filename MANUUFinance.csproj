@@ -126,16 +126,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceDataSet21.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FinanceDataSet22.Designer.cs">
+    <Compile Include="FinanceDataSet23.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDataSet22.xsd</DependentUpon>
+      <DependentUpon>FinanceDataSet23.xsd</DependentUpon>
     </Compile>
-    <Compile Include="formDuplicate.cs">
+    <Compile Include="frmBillDespa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formDuplicate.Designer.cs">
-      <DependentUpon>formDuplicate.cs</DependentUpon>
+    <Compile Include="frmBillDespa.Designer.cs">
+      <DependentUpon>frmBillDespa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdministrator.cs">
       <SubType>Form</SubType>
@@ -149,6 +149,12 @@
     </Compile>
     <Compile Include="frmAuthentication.Designer.cs">
       <DependentUpon>frmAuthentication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBillDespatchs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBillDespatchs.Designer.cs">
+      <DependentUpon>frmBillDespatchs.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBudgetPurpose.cs">
       <SubType>Form</SubType>
@@ -438,14 +444,17 @@
     <Compile Include="frmVoucherPrintHelp.Designer.cs">
       <DependentUpon>frmVoucherPrintHelp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="formDuplicate.resx">
-      <DependentUpon>formDuplicate.cs</DependentUpon>
+    <EmbeddedResource Include="frmBillDespa.resx">
+      <DependentUpon>frmBillDespa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrator.resx">
       <DependentUpon>frmAdministrator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAuthentication.resx">
       <DependentUpon>frmAuthentication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBillDespatchs.resx">
+      <DependentUpon>frmBillDespatchs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBudgetPurpose.resx">
       <DependentUpon>frmBudgetPurpose.cs</DependentUpon>
@@ -702,16 +711,16 @@
     <None Include="FinanceDataSet21.xss">
       <DependentUpon>FinanceDataSet21.xsd</DependentUpon>
     </None>
-    <None Include="FinanceDataSet22.xsc">
-      <DependentUpon>FinanceDataSet22.xsd</DependentUpon>
+    <None Include="FinanceDataSet23.xsc">
+      <DependentUpon>FinanceDataSet23.xsd</DependentUpon>
     </None>
-    <None Include="FinanceDataSet22.xsd">
+    <None Include="FinanceDataSet23.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceDataSet22.Designer.cs</LastGenOutput>
+      <LastGenOutput>FinanceDataSet23.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="FinanceDataSet22.xss">
-      <DependentUpon>FinanceDataSet22.xsd</DependentUpon>
+    <None Include="FinanceDataSet23.xss">
+      <DependentUpon>FinanceDataSet23.xsd</DependentUpon>
     </None>
     <None Include="FinanceDataSet3.xsc">
       <DependentUpon>FinanceDataSet3.xsd</DependentUpon>

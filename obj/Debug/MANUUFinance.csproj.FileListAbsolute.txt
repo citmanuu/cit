@@ -428,3 +428,4 @@ G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmView.resources
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmVoucherPrintHelp.resources
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.formDuplicate.resources
 G:\New ALL\citmanuu\obj\Debug\MANUUFinance.csprojAssemblyReference.cache
+G:\New ALL\citmanuu\obj\Debug\MANUUFinance.frmBillDespatchs.resources

@@ -130,11 +130,11 @@ namespace MANUUFinance
 
         private void billDespatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string billdispatch = "BILL DISPATCH";
-            frmBillDespatch objFrmBillDespatch = new frmBillDespatch(userId, deptId, roleId, billdispatch);
+            string billdispatchs = "BILL DISPATCHS";
+            frmBillDespatchs objFrmBillDespatch = new frmBillDespatchs(userId, deptId, roleId, billdispatchs);
             objFrmBillDespatch.ShowDialog();
         }
-
+          
         private void copyBudgetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string copybudget = "COPY BUDGET";
